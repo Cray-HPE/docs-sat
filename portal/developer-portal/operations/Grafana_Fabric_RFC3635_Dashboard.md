@@ -4,7 +4,7 @@ category: numbered
 
 # Grafana Fabric RFC3635 Dashboard
 
-![](Grafana_rfc3635.png)
+![](images/Grafana_rfc3635.png)
 
 For additional information on performance counters, refer to, [Definitions of Managed Objects for the Ethernet-like Interface Types](https://tools.ietf.org/html/rfc3635), an Internet standards document.
 

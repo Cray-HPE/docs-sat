@@ -8,7 +8,7 @@ Shows the Interval and Locations Options for the available telemetry.
 
 ## Interval and Locations Options
 
-![](SAT_Grafana_Fabric_Vars.png)
+![](images/SAT_Grafana_Fabric_Vars.png)
 
 The value of the **Interval** option sets the time resolution of the received telemetry. This works a bit like a histogram, with the available telemetry in an interval of time going into a "bucket" and averaging out to a single point on the chart or table. The special value *auto* will choose an interval based on the time range selected.
 

@@ -4,7 +4,7 @@ category: numbered
 
 # Grafana Fabric Errors Dashboard
 
-![](Grafana_HSN_Errors.png)
+![](images/Grafana_HSN_Errors.png)
 
 This dashboard reports error counters in a tabular format in three panels.
 

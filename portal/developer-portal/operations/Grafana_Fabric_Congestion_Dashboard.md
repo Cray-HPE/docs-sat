@@ -4,7 +4,7 @@ category: numbered
 
 # Grafana Fabric Congestion Dashboard
 
-![](Grafana_Fabric_Congestion.png)
+![](images/Grafana_Fabric_Congestion.png)
 
 SAT Grafana Dashboards provide system administrators a way to view fabric telemetry data across all Rosetta switches in the system and assess the past and present health of the high-speed network. It also allows the ability to drill down to view data for specific ports on specific switches.
 

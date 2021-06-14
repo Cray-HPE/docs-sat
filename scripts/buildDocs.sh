@@ -17,15 +17,14 @@ for file in $(echo $file_list);do
     ./compileMDS.py $dir_path/${file}.mds
 
     # Create HTML
-    pandoc ${dir_path}/${file}.md -o $output_path/html/${file}.html "-fmarkdown-implicit_figures -o" --from=markdown -s --toc --highlight-style=espresso 2>&1 | grep -v '[WARNING]'
+    pandoc ${dir_path}/${file}.md -o $output_path/html/${file}.html "-fmarkdown-implicit_figures -o" --from=markdown -s --toc --highlight-style=espresso
+    # Copy images into path relative to HTML
+    cp ${dir_path}/images/* $output_path/html/images
     
     # Create PDF
-    pandoc ${dir_path}/${file}.md -o $output_path/pdf/${file}.pdf "-fmarkdown-implicit_figures -o" --from=markdown -s --toc --highlight-style=espresso --title=true --toc -V geometry:margin=.75in 2>&1 | grep -v '[WARNING]'
+    pandoc ${dir_path}/${file}.md -o $output_path/pdf/${file}.pdf "-fmarkdown-implicit_figures -o" --from=markdown -s --toc --highlight-style=espresso --title=true --toc -V geometry:margin=.75in --resource-path=${dir_path}
 
-    cp ${dir_path}/images/* $output_path/html/images
-
-    # FIX HTML file.
-
+    # Modify HTML (Appears to turn console output black)
     cat $output_path/html/${file}.html | awk '{ if (NR!=18) { print $0 } }' > /tmp/result1
     cat /tmp/result1 | awk '{ if (NR==88) { print $0 "\n" "color: #fff;" "\n" "background: #000;" } else { print $0 }}' > $output_path/html/${file}.html
 done

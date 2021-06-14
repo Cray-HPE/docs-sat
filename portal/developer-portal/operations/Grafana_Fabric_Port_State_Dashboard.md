@@ -4,7 +4,7 @@ category: numbered
 
 # Grafana Fabric Port State Dashboard
 
-![](Fabric_PortState_Locations_UI.png)
+![](images/Fabric_PortState_Locations_UI.png)
 
 There is no **Interval** option because this parameter is not used to set a coarseness of the data. Only a single value is presented that displays the most recent value in the time range.
 
