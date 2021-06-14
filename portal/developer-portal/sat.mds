@@ -1,0 +1,41 @@
+---
+title: System Admin Toolkit (SAT)
+---
+
+# Introduction to SAT
+
+_include introduction/About_the_System_Admin_Toolkit.md
+_include introduction/Command_Prompt_Conventions_in_SAT.md
+_include introduction/System_Admin_Toolkit_Command_Overview.md
+
+# SAT Installation
+
+_include install/Collect_Data_From_Healthy_Shasta_1.3_System_for_EX_1.4_Installation.md
+_include install/Install_the_System_Admin_Toolkit_Product_Stream.md
+_include install/Install_the_System_Admin_Toolkit_Product_Stream_Update.md
+_include install/SAT_Authentication.md
+_include install/run_sat_setrev_to_set_system_information.md
+
+# SAT Operational Tasks
+
+_include operations/AER_Kibana_Dashboard.md
+_include operations/ATOM_Kibana_Dashboard.md
+_include operations/Disable_Search_Highlighting_in_Kibana_Dashboard.md
+_include operations/Grafana_Fabric_Congestion_Dashboard.md
+_include operations/Grafana_Fabric_Errors_Dashboard.md
+_include operations/Grafana_Fabric_Port_State_Dashboard.md
+_include operations/Grafana_Fabric_RFC3635_Dashboard.md
+_include operations/Heartbeat_Kibana_Dashboard.md
+_include operations/Kernel_Kibana_Dashboard.md
+_include operations/MCE_Kibana_Dashboard.md
+_include operations/Navigate_SAT_Grafana_Dashboards.md
+_include operations/Rasdaemon_Kibana_Dashboard.md
+_include operations/SAT_Grafana_Dashboards.md
+_include operations/SAT_Grafana_Interval_and_Locations_Options.md
+_include operations/SAT_Kibana_Dashboards.md
+_include operations/View_the_AER_Kibana_Dashboard.md
+_include operations/View_the_ATOM_Kibana_Dashboard.md
+_include operations/View_the_Heartbeat_Kibana_Dashboard.md
+_include operations/View_the_Kernel_Kibana_Dashboard.md
+_include operations/View_the_MCE_Kibana_Dashboard.md
+_include operations/View_the_Rasdaemon_Kibana_Dashboard.md

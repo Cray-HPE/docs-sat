@@ -1,4 +1,4 @@
-# **Run sat setrev to Set System Information**
+# Run sat setrev to Set System Information
 
 ## Prerequisites
 
