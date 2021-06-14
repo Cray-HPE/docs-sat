@@ -6,8 +6,6 @@ category: numbered
 
 Describes how to use command prompts in SAT.
 
-### Command Prompt Conventions
-
 **Host name and account in command prompt**
 
 The host name in a command prompt indicates where the command must be run. The account that must run the command is also indicated in the prompt.
@@ -16,19 +14,18 @@ The host name in a command prompt indicates where the command must be run. The a
 -   Any non-`root` account is indicated with account@hostname\>. A user account that is neither `root` nor `crayadm` is referred to as `user`.
 -   The command prompt inside the SAT container environment is indicated with the string as follows. It also has the "\#" character at the end of the prompt.
 
-|`ncn-m001#`|Run on one of the Kubernetes Manager servers.|
-|`(CONTAINER_ID) sat-container#`|Run the command inside the SAT container environment by first running sat bash.|
+| Command Prompt                  | Meaning                                                                                              |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `ncn-m001#`                     | Run on one of the Kubernetes Manager servers. (**Non-interactive**)                                  |
+| `(CONTAINER_ID) sat-container#` | Run the command inside the SAT container environment by first running `sat bash`.  (**Interactive**) |
 
-Examples of this command used by an administrator:
+Examples of the `sat status` command used by an administrator:
 
 ```screen
-ncn-m001# `sat status`
+ncn-m001# sat status
 ```
 
 ```screen
-ncn-m001# `sat bash
-(CONTAINER_ID) sat-container# sat status`
+ncn-m001# sat bash
+(CONTAINER_ID) sat-container# sat status
 ```
-
-**Parent topic:**[System Admin Toolkit Command Overview](System_Admin_Toolkit_Command_Overview.md)
-

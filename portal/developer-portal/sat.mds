@@ -5,8 +5,8 @@ title: System Admin Toolkit (SAT)
 # Introduction to SAT
 
 _include introduction/About_the_System_Admin_Toolkit.md
-_include introduction/Command_Prompt_Conventions_in_SAT.md
 _include introduction/System_Admin_Toolkit_Command_Overview.md
+_include introduction/Command_Prompt_Conventions_in_SAT.md
 
 # SAT Installation
 
