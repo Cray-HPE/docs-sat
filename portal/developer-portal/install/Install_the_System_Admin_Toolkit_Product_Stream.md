@@ -2,7 +2,7 @@
 category: Cray Software Preview System Installation Guide numbered
 ---
 
-# Install the System Admin Toolkit Product Stream
+## Install the System Admin Toolkit Product Stream
 
 Describes the steps needed to install the System Admin Toolkit \(SAT\) product stream.
 

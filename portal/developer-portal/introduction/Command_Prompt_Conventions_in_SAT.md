@@ -2,11 +2,11 @@
 category: numbered
 ---
 
-# Command Prompt Conventions in SAT
+## Command Prompt Conventions in SAT
 
 Describes how to use command prompts in SAT.
 
-## Command Prompt Conventions
+### Command Prompt Conventions
 
 **Host name and account in command prompt**
 

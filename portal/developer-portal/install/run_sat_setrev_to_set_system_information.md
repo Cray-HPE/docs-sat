@@ -1,11 +1,11 @@
-# Run sat setrev to Set System Information
+## Run sat setrev to Set System Information
 
-## Prerequisites
+### Prerequisites
 
 - S3 credentials have been generated. See Generate SAT S3 Credentials.
 - SAT authentication has been set up. See SAT Authentication.
 
-## About this task
+### About this task
 
 **ROLE**
 - System Administrator
@@ -16,7 +16,7 @@
 **LIMITATIONS**
 - None
 
-## Procedure
+### Procedure
 
 1.  Run sat setrev to set System Revision Information.
 

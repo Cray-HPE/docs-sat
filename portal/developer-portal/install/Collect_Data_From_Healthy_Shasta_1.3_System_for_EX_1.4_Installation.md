@@ -2,7 +2,7 @@
 category: Cray Software Preview System Installation Guide numbered
 ---
 
-# Collect Data From Healthy Shasta 1.3 System for EX 1.4 Installation
+## Collect Data From Healthy Shasta 1.3 System for EX 1.4 Installation
 
 This procedure describes how to collect data from a healthy Shasta v1.3 system to prepare for a EX System 1.4 installation.
 

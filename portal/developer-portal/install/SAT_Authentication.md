@@ -2,7 +2,7 @@
 category: numbered
 ---
 
-# SAT Authentication
+## SAT Authentication
 
 Explains the authentication and credentials requires for SAT authentication.
 

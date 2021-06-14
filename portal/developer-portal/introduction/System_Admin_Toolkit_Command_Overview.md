@@ -2,7 +2,7 @@
 category: numbered
 ---
 
-# System Admin Toolkit Command Overview
+## System Admin Toolkit Command Overview
 
 Describes the SAT Command Line Utility, lists the key commands found in the System Admin Toolkit man pages, and provides instruction on the SAT Container Environment.
 

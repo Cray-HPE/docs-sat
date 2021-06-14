@@ -2,7 +2,7 @@
 category: Cray Software Preview System Installation Guide numbered
 ---
 
-# Install the System Admin Toolkit Product Stream Update
+## Install the System Admin Toolkit Product Stream Update
 
 Describes the steps needed to install the System Admin Toolkit \(SAT\) product stream update for the 1.4.1 patch.
 

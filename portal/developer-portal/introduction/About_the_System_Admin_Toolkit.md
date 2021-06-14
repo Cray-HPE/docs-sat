@@ -2,7 +2,7 @@
 category: numbered
 ---
 
-# About the System Admin Toolkit \(SAT\)
+## About the System Admin Toolkit \(SAT\)
 
 **System Admin Toolkit \(SAT\)**
 
