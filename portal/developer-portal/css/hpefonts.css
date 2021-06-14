@@ -1,0 +1,38 @@
+/*
+Hewlett-Packard Company
+Copyright 2015-2018 Hewlett Packard Enterprise Development LP
+Written for Hewlett Packard Enterprise, Knowledge Management
+*/
+
+@font-face {
+    font-family: "Metric";
+    src: url(https://hpefonts.s3.amazonaws.com/MetricWeb-Regular.woff) format("woff");
+}
+@font-face {
+    font-family: "Metric";
+    font-weight: 600;
+    src: url(https://hpefonts.s3.amazonaws.com/MetricWeb-Semibold.woff) format("woff");
+}
+@font-face {
+    font-family: "Metric";
+    font-weight: 700;
+    src: url(https://hpefonts.s3.amazonaws.com/MetricWeb-Bold.woff) format("woff");
+}
+/* To deliver local fonts, remove the calls above. Add the font files to a folder, modify the src: url path, and then uncomment below */
+/* Official fonts at brand central: https://h10014.www1.hpe.com/brand-central/content/font#external-fonts-metrichpe-and-hpe-simple */
+/* 
+@font-face {
+    font-family: "Metric";
+    src: url(pathto/fontfolder/MetricWeb-Regular.woff) format("woff");
+}
+@font-face {
+    font-family: "Metric";
+    font-weight: 600;
+    src: url(pathto/fontfolder/MetricWeb-SemiBold.woff) format("woff");
+}
+@font-face {
+    font-family: "Metric";
+    font-weight: 700;
+    src: url(pathto/fontfolder/MetricWeb-Bold.woff) format("woff");
+}
+*/
