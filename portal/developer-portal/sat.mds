@@ -20,8 +20,8 @@ _include install/generate_sat_s3_credentials.md
 
 _include install/run_sat_setrev_to_set_system_information.md
 
-# SAT Operational Tasks
+# SAT Dashboards
 
-_include operations/SAT_Kibana_Dashboards.md
+_include dashboards/SAT_Kibana_Dashboards.md
 
-_include operations/SAT_Grafana_Dashboards.md
+_include dashboards/SAT_Grafana_Dashboards.md
