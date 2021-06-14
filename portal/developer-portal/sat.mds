@@ -5,18 +5,23 @@ title: System Admin Toolkit (SAT)
 # Introduction to SAT
 
 _include introduction/About_the_System_Admin_Toolkit.md
+
 _include introduction/System_Admin_Toolkit_Command_Overview.md
+
 _include introduction/Command_Prompt_Conventions_in_SAT.md
 
 # SAT Installation
 
-_include install/Collect_Data_From_Healthy_Shasta_1.3_System_for_EX_1.4_Installation.md
 _include install/Install_the_System_Admin_Toolkit_Product_Stream.md
-_include install/Install_the_System_Admin_Toolkit_Product_Stream_Update.md
+
 _include install/SAT_Authentication.md
+
+_include install/generate_sat_s3_credentials.md
+
 _include install/run_sat_setrev_to_set_system_information.md
 
 # SAT Operational Tasks
 
 _include operations/SAT_Kibana_Dashboards.md
+
 _include operations/SAT_Grafana_Dashboards.md
