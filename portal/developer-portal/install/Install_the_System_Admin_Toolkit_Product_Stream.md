@@ -20,7 +20,8 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
     ncn-m001# export PS1='\u@\H \D{%Y-%m-%d} \t \w # '
     ```
 
-2.  Copy the release distribution gzipped tar file, e.g. `sat-2.1.x.tar.gz`, to ncn-m001.
+2.  Copy the release distribution gzipped tar file to ncn-m001. This procedure uses a template version
+    of `2.1.x`, so the release distribution file is named `sat-2.1.x.tar.gz`.
 
 3.  Unzip and extract the release distribution.
 
@@ -65,7 +66,7 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
     ncn-m003: source <(kubectl completion bash)
     ```
 
-7.  Optional: Check the progress of the SAT configuration import Kubernetes job. Replace `2.1.x` with the
+7.  Check the progress of the SAT configuration import Kubernetes job. Replace `2.1.x` with the
     version of the SAT product stream being installed.
 
     First, check the status of the job:
@@ -78,8 +79,10 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
     ncn-m001# kubectl logs -n services --selector job-name=sat-config-import-2.1.x --all-containers
     ```
 
-8.  Obtain the git commit ID for the branch matching the version of SAT being installed. This represents a
-    revision of ansible configuration content stored in VCS, and in this example is `82537e59c24dd5607d5f5d6f92cdff971bd9c615`.
+8.  Once the SAT configuration import Kubernetes job has completed, obtain the git commit ID for the
+    branch matching the version of SAT being installed. This represents a revision of Ansible
+    configuration content stored in VCS, and in this example is
+    `82537e59c24dd5607d5f5d6f92cdff971bd9c615`.
 
     ```screen
     ncn-m001# VCS_PASS=$(kubectl get secret -n services vcs-user-credentials --template={{.data.vcs_password}} | base64 --decode)
@@ -104,9 +107,10 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
 
     If this is the case, simply proceed by creating a new `ncn-personalization.json` file with just a single layer.
 
-10. Add a `sat` layer to the local file. **If COS is present, then COS must remain the first entry in the list.** Re-use the git
-    commit ID from step 8, `82537e59c24dd5607d5f5d6f92cdff971bd9c615`. The `name` and `playbook` fields must also match the example
-    below.
+10. Add a `sat` layer to the local file. **If COS is present, then COS must remain the first entry in the list.** Use the git
+    commit ID from step 8, e.g. `82537e59c24dd5607d5f5d6f92cdff971bd9c615`. The `name` and `playbook` fields must also match
+    the example below.
+
 
     ```screen
     ncn-m001# vim ncn-personalization.json
@@ -150,7 +154,7 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
     ncn-m001# cray cfs sessions create --name sat-session --configuration-name ncn-personalization --configuration-limit sat-ncn
     ```
 
-14. Optional: monitor the progress of the CFS configuration. First, list all containers associated with the CFS session:
+14. Monitor the progress of the CFS configuration. First, list all containers associated with the CFS session:
 
     ```screen
     ncn-m001# kubectl get pod -n services --selector=cfsession=sat-session -o json | jq '.items[0].spec.containers[] | .name'
@@ -167,7 +171,9 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
     ```
 
 15. Verify that SAT is successfully installed by running the following command to confirm the expected version.
-    This version number will be different than the version number of the SAT release distribution.
+    This version number will be different than the version number of the SAT release distribution. This is the
+    semantic version of the `sat` Python package, which is different from the version number of the overall SAT
+    release distribution.
 
     ```screen
     ncn-m001# sat --version
@@ -184,6 +190,8 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
     ...
     sat 3.7.0
     ```
+    This will occur the first time `sat` is run on each manager NCN. For example, if you run `sat` for the first
+    time on `ncn-m001` and then for the first time on `ncn-m002`, you will see this additional output both times.
 
 16. Finish the typescript file started at the beginning of this procedure.
 
