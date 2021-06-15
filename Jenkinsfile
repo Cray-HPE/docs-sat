@@ -1,46 +1,22 @@
 @Library('dst-shared@master') _
 
-//Possible Parameters Include
-// * executeScript         Name of script which creates .tar file
-// * executeScript2        Name of script which creates CLI .md files
-// * dockerfile            Path to the Docker file relative to the repository root.  Default Dockerfile
-// * dockerBuildContextDir The build context directory for Docker builds.  Default to '.' i.e. workspace root
-// * dockerArguments       Additional arguments to pass to the build of the Docker application
-// * dockerBuildTarget     Target to build when building the Docker application. Defaults to unset
-// * masterBranch          Branch to consider as master, only this branch will receive the latest tag.  Default master
-// * repository            Docker repository name to use
-// * imagePrefix           Docker image name prefix
-// * app                   Docker image name suffix
-// * name                  Name of the Docker image used to add metadata to the image
-// * description           Description of the Docker image used to add metadata to the image
-// * slackNotification     Array: ["<slack_channel>", "<jenkins_credential_id", <notify_on_start>, <notify_on_success>, <notify_on_failure>, <notify_on_fixed>]]
-// * product               String: set product for the transfer function
-// * targetOS              String: set targetOS for the transfer function
+// Possible Parameters:
+// * makefile              Path to the makefile that compiles the documentation
+// * repo                  The name of the repository, used as the prefix for the RPM and tar archive
+// * slackNotification     Array: ["<slack_channel>", "<jenkins_credential_id>", <notify_on_start>, <notify_on_success>, <notify_on_failure>, <notify_on_fixed>]]
+// * targetOS              Used when transferring to artifactory
+// * targetArch            Used when transferring to artifactory
 
-// Jenkins library for building docker files
-// Copyright 2019 Cray Inc. All rights reserved.
+// Jenkinsfile for building documentation
+// Copyright 2021 Hewlett Packard Enterprise Development LP.
 
 
-def pipelineParams= [
-    executeScript: "createTar.sh",
-    executeScript2: "createCLI.sh",
-    executeScript3: "import_yaml.sh",
-    makeMakefile: "portal/developer-portal/Makefile",
-    dockerfile: "Dockerfile",
-    dockerfileSpell: "Dockerfile.spellcheck",
-    repository: "cray",
-    imagePrefix: "demo-product-docs",
-    app: "website",
-    name: "product-docs",
-    description: "Docs as code demo",
-    masterBranch: 'master',
-    dockerBuildContextDir: '.',
-    dockerArguments: "",
-    dockerBuildTarget: "application",
-    useEntryPointForTest: true,
-    slackNotification: ["", "", true, true, true, true],
-    product: "shasta-standard,shasta-premium",
-    targetOS: "noos",
+def pipelineParams = [
+    makefile: "portal/developer-portal/Makefile",
+    repo: "sat-docs",
+    slackNotification: ["", "", false, false, true, true],
+    targetOS: 'noos',
+    targetArch: 'noarch'
 ]
 
 // Build date
@@ -83,25 +59,17 @@ pipeline {
         // Add timestamps and color to console output, cuz pretty
         timestamps()
     }
-
     environment {
-        VERSION = sh(returnStdout: true, script: "./setup_versioning.sh;cat .version").trim()
-        VERSION_RPM = sh(returnStdout: true, script: "cat .version_rpm").trim()
+        VERSION = sh(returnStdout: true, script: "cat .version").trim()
         GIT_TAG = sh(returnStdout: true, script: "git rev-parse --short HEAD").trim()
         BUILD_DATE = "${buildDate}" 
         IMAGE_TAG = getDockerImageTag(version: "${VERSION}", buildDate: "${BUILD_DATE}", gitTag: "${GIT_TAG}")
-        IMAGE_NAME = "${pipelineParams.imagePrefix}-directory-${IMAGE_TAG}"
-        IMAGE_NAME_PDFHTML = "${pipelineParams.imagePrefix}-pdfhtml-${IMAGE_TAG}"
-        IMAGE_NAME_PDF = "${pipelineParams.imagePrefix}-pdf-${IMAGE_TAG}"
-        IMAGE_VERSIONED = getDockerImageReference(repository: "${pipelineParams.repository}", imageName: "${pipelineParams.imagePrefix}-${pipelineParams.app}", imageTag: "${IMAGE_TAG}")
-        IMAGE_LATEST = getDockerImageReference(repository: "${pipelineParams.repository}", imageName: "${pipelineParams.imagePrefix}-${pipelineParams.app}", imageTag: "latest")
-        TEST_IMAGE_VERSIONED = getDockerImageReference(repository: "${pipelineParams.repository}", imageName: "${pipelineParams.imagePrefix}-${pipelineParams.app}-test", imageTag: "${IMAGE_TAG}")
-        TEST_IMAGE_LATEST = getDockerImageReference(repository: "${pipelineParams.repository}", imageName: "${pipelineParams.imagePrefix}-${pipelineParams.app}-test", imageTag: "latest")
-        PRODUCT = "${pipelineParams.product}"
+        IMAGE_NAME = "${pipelineParams.repo}-directory-${IMAGE_TAG}"
+        IMAGE_NAME_PDFHTML = "${pipelineParams.repo}-pdfhtml-${IMAGE_TAG}"
+        IMAGE_NAME_PDF = "${pipelineParams.repo}-pdf-${IMAGE_TAG}"
         TARGET_OS = "${pipelineParams.targetOS}"
-        TARGET_ARCH = "noarch"
+        TARGET_ARCH = "${pipelineParams.targetArch}"
     }
-
     stages {
         // For debugging
         stage('Print Build Info') {
@@ -113,198 +81,49 @@ pipeline {
                     }
             }
         }
-        stage('Workdir Preparation') {
-            steps {
-                sh "mkdir -p build"
-                echo "Docker image tag for this build is ${IMAGE_TAG}"
-                echo "Docker image reference for this build is ${IMAGE_VERSIONED}"
-            }
-        }
-        /*
-        stage('Import Yaml File') {
-            steps {
-                sh """
-                  if [ ! -f ${pipelineParams.executeScript3} ]; then
-                        echo \"ERROR: ${pipelineParams.executeScript3} does not exist\" >&2
-                  else
-                        sh -x ${pipelineParams.executeScript3}
-                  fi
-                """
-            }
-        }
-        stage('Build CLI') {
-          steps {
-                sh """
-                  if [ ! -f ${pipelineParams.executeScript2} ]; then
-                        echo \"ERROR: ${pipelineParams.executeScript2} does not exist\"
-                  else
-                        sh -x ${pipelineParams.executeScript2}
-                  fi
-
-                """
-          }
-        }
-        */
-        stage('Check Docker File') {
-            steps {
-                sh """
-                    if [ ! -f ${pipelineParams.dockerfile} ]; then
-                        echo \"ERROR: ${pipelineParams.dockerfile} does not exist\"
-                        exit 1;
-                    fi
-                """
-            }
-        }
-        
         stage('Spellcheck') {
+            // Skip 'make spellcheck' which requires pandoc
+            // TODO: run in docker
+            when { expression { false }}
             steps {
-                sh """
-                    docker build -t basecontainer-${containerId_toss} --target build -f ${pipelineParams.dockerfileSpell} .
-                """
+                dir("portal/developer-portal"){
+                    sh "make spellcheck"
+                }
             }
         }
-
         stage('Build PDF HTML') {
             environment {
                 BUILD_DATE = "${buildDate}" 
             }
             steps {
-            // Build PDF HTML
-            echo "${BUILD_DATE}"
-            sh """
-                if [[ -f ${pipelineParams.makeMakefile} ]]; then
-                    mkdir -p ${WORKSPACE}/build/results
-                    cd portal/developer-portal;make lint;make tar
-                    cp docs/*.tar ${WORKSPACE}/build/results/${IMAGE_NAME_PDFHTML}.tar
-                    cp docs/pdf ${WORKSPACE}/build/results/${IMAGE_NAME_PDF} -rf
-                else
-                    echo "${pipelineParams.makeMakefile} doesn't exist"
-                    exit 1
-                fi
-                """
-
-            }
-        }
-
-        /*
-        // Generate docker image
-        stage('Build both Docker image and tar file') {
-            parallel {
-                stage('Parallel Container Build') {
-                    stages('Build and Create Docker Container') {
-                        stage('Build') {
-                            environment {
-                                BUILD_DATE = "${buildDate}" 
-                            }
-                            steps {
-                                // Build docker image
-                                echo "${BUILD_DATE}"
-                                labelAndBuildDockerImage(
-                                    name: "${pipelineParams.name}",
-                                    description: "${pipelineParams.description}",
-                                    dockerfile: "${pipelineParams.dockerfile}",
-                                    dockerBuildContextDir: "${pipelineParams.dockerBuildContextDir}",
-                                    dockerArguments: "${pipelineParams.dockerArguments}",
-                                    dockerBuildTarget: "${pipelineParams.dockerBuildTarget}",
-                                    imageReference: "${IMAGE_VERSIONED}",
-                                    masterBranch: "${pipelineParams.masterBranch}",
-                                    tarball: "${pipelineParams.app}")
-                            }
-                        }
-
-                        // Generate '.tar.gz' file of the image
-                        stage('Generate Docker Image Tarball') {
-                            steps {
-                                dockerRetagAndSave(
-                                    imageReference: "${IMAGE_VERSIONED}",
-                                    imageRepo: "sms.local:5000",
-                                    imageName: "${pipelineParams.imagePrefix}-${pipelineParams.app}",
-                                    imageTag: "${IMAGE_TAG}",
-                                    repository: "${pipelineParams.repository}")
-                            }
-                        }
-
-                        stage('Publish') {
-                        // For Master branch builds, send the artifacts to the artifact repository and internal docker registry
-                            when { branch "${pipelineParams.masterBranch}" }
-                            steps {
-                                echo "Log Stash: dockerBuildPipeline - Publish"
-                                publishDockerImage(
-                                    image: env.IMAGE_VERSIONED,
-                                    imageTag: env.IMAGE_TAG,
-                                    repository: "${pipelineParams.repository}",
-                                    imagePrefix: "${pipelineParams.imagePrefix}",
-                                    app: "${pipelineParams.app}",
-                                    masterBranch: "${pipelineParams.masterBranch}")
-
-                            }
-                        }
-                    }
-                    post {
-                        always {
-                            // Once the image has been pushed, lets untag it so it's not sitting around and consuming
-                            // valuable hardware space.
-                            cleanupDockerImages( image: env.IMAGE_VERSIONED,
-                                                imageTag: env.IMAGE_TAG,
-                                                imageLatest: env.IMAGE_LATEST,
-                                                repository: "${pipelineParams.repository}",
-                                                imagePrefix: "${pipelineParams.imagePrefix}",
-                                                app: "${pipelineParams.app}",
-                                                masterBranch: "${pipelineParams.masterBranch}"
-                                               )
-                        }
-                    }
+                echo "${BUILD_DATE}"
+                sh """
+                    if [[ -f ${pipelineParams.makefile} ]]; then
+                        mkdir -p ${WORKSPACE}/build/results
+                        cd portal/developer-portal; make lint && make tar
+                        cp docs/*.tar ${WORKSPACE}/build/results/${IMAGE_NAME_PDFHTML}.tar
+                        cp docs/pdf ${WORKSPACE}/build/results/${IMAGE_NAME_PDF} -rf
+                    else
+                        echo "${pipelineParams.makefile} doesn't exist"
+                        exit 1
+                    fi
+                    """
                 }
-                stage('Parallel Source Tar File Creation') {
-                    stages('Build and Create Source Tar File') {
-                        stage('Build Base Image') {
-                            steps {
-                                sh """
-                                    docker build -t basecontainer-${containerId_sq} --target base -f ${pipelineParams.dockerfile} .
-                                """
-                            }
-                        }
-                        stage('Create Tar and RPM File') {
-                            steps {
-                                sh """
-                                    if [[ -f ${pipelineParams.executeScript} ]]; then
-                                        mkdir -p ${WORKSPACE}/build/results
-                                        docker run --rm -v ${WORKSPACE}:/root/ -v ${WORKSPACE}/build/results:${WORKSPACE}/build/results \
-                                        basecontainer-${containerId_sq} /bin/sh /root/${pipelineParams.executeScript} ${IMAGE_NAME} ${WORKSPACE}/build/results
-                                    else
-                                        echo "${pipelineParams.executeScript} doesn't exist"
-                                        exit 1
-                                    fi
-                                """
-                            }
-                        }
-                    }
-                    post("Docker Cleanup"){
-                        always {
-                            sh """
-                                docker rmi basecontainer-${containerId_sq}
-                            """
-                        }
-                    }
-                }
-            }
         }
-        */
         stage('Create RPM') {
-            environment {
-                VERSION = "${env.VERSION_RPM}" 
-            
-            }
+            // Skip building RPM temporarily
+            // TODO: get RPM build working
+            when { expression { false }}
             steps {
             sh """
-                if [[ -f ${pipelineParams.makeMakefile} ]]; then
+                if [[ -f ${pipelineParams.makefile} ]]; then
                     ls -latr ${WORKSPACE}/build/results
                     cd portal/developer-portal;    
                     cp  ${WORKSPACE}/build/results/${IMAGE_NAME_PDF} pdf -rf
                     make package
                     cp -r rpmbuild/RPMS/x86_64/*.rpm ${WORKSPACE}/build/results
                 else
-                    echo "${pipelineParams.makeMakefile} doesn't exist"
+                    echo "${pipelineParams.makefile} doesn't exist"
                     exit 1
                 fi
                 """
@@ -313,11 +132,6 @@ pipeline {
         stage('Transfer') {
             steps {
                 script {
-                    /*
-                    if ( checkFileExists(filePath: 'build/results/*.tar.gz') ) {
-                        transfer(artifactName: "build/results/*.tar.gz")
-                    }
-                    */
                     if ( checkFileExists(filePath: 'build/results/*.tar') ) {
                         transfer(artifactName: "build/results/*.tar")
                     }

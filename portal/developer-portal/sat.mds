@@ -16,9 +16,9 @@ _include install/Install_the_System_Admin_Toolkit_Product_Stream.md
 
 _include install/SAT_Authentication.md
 
-_include install/generate_sat_s3_credentials.md
+_include install/Generate_SAT_S3_Credentials.md
 
-_include install/run_sat_setrev_to_set_system_information.md
+_include install/Run_SAT_Setrev_to_Set_System_Information.md
 
 # SAT Dashboards
 
