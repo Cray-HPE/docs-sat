@@ -1,0 +1,1491 @@
+/*
+Hewlett-Packard Company
+Copyright 2015-2018 Hewlett Packard Enterprise Development LP
+Written for Hewlett Packard Enterprise, Knowledge Management
+
+===========
+TOC
+===========
+Color palette
+Fonts
+CSS reset (normalize.css)
+Standard body stuff
+Block elements
+Inline elements
+Tables
+
+===========
+Color palette
+===========
+Primary
+#01A982 - HPE green
+#000000 - Font color
+#FFFFFF - Background
+
+Secondary
+Neutrals
+#425563 - HPE Slate
+#5F7A76 - HPE Dark Steel
+#80746E - HPE Bronze
+#C6C9CA - HPE Gray 1
+Vibrants
+#2AD2C9 - HPE Turquouise
+#FF8D6D - HPE Orange
+#614767 - HPE Purple*/
+
+/* SPEC
+Change:
+mTS1183: Removed hpefonts.css import */
+/* @import url(hpefonts.css); */
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
+button, hr, input {
+	overflow: visible
+}
+audio, canvas, progress, video {
+	display: inline-block
+}
+progress, sub, sup {
+	vertical-align: baseline
+}
+html {
+	font-family: sans-serif;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%
+}
+body {
+	margin: 0
+}
+menu, article, aside, details, footer, header, nav, section {
+	display: block
+}
+h1 {
+	font-size: 2em;
+	margin: .67em 0
+}
+figcaption, figure, main {
+	display: block
+}
+figure {
+	margin: 1em 40px
+}
+hr {
+	box-sizing: content-box;
+	height: 0
+}
+code, kbd, pre, samp {
+	font-family: monospace, monospace;
+	font-size: 1em
+}
+a {
+	background-color: transparent;
+	-webkit-text-decoration-skip: objects;
+        word-wrap: break-word; 
+}
+a:active, a:hover {
+	outline-width: 0
+}
+abbr[title] {
+	border-bottom: none;
+	text-decoration: underline;
+	text-decoration: underline dotted
+}
+b, strong {
+	font-weight: bolder
+}
+dfn {
+	font-style: italic
+}
+mark {
+	background-color: #ff0;
+	color: #000
+}
+small {
+	font-size: 80%
+}
+sub, sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative
+}
+sub {
+	bottom: -.25em
+}
+sup {
+	top: -.5em
+}
+audio:not([controls]) {
+	display: none;
+	height: 0
+}
+img {
+	border-style: none
+}
+svg:not(:root) {
+	overflow: hidden
+}
+button, input, optgroup, select, textarea {
+	font-family: sans-serif;
+	font-size: 100%;
+	line-height: 1.15;
+	margin: 0
+}
+button, input {}
+button, select {
+	text-transform: none
+}
+[type=submit], [type=reset], button, html [type=button] {
+	-webkit-appearance: button
+}
+[type=button]::-moz-focus-inner, [type=reset]::-moz-focus-inner, [type=submit]::-moz-focus-inner, button::-moz-focus-inner {
+	border-style: none;
+	padding: 0
+}
+[type=button]:-moz-focusring, [type=reset]:-moz-focusring, [type=submit]:-moz-focusring, button:-moz-focusring {
+	outline: ButtonText dotted 1px
+}
+fieldset {
+	border: 1px solid silver;
+	margin: 0 2px;
+	padding: .35em .625em .75em
+}
+legend {
+	box-sizing: border-box;
+	color: inherit;
+	display: table;
+	max-width: 100%;
+	padding: 0;
+	white-space: normal
+}
+progress {}
+textarea {
+	overflow: auto
+}
+[type=checkbox], [type=radio] {
+	box-sizing: border-box;
+	padding: 0
+}
+[type=number]::-webkit-inner-spin-button, [type=number]::-webkit-outer-spin-button {
+	height: auto
+}
+[type=search] {
+	-webkit-appearance: textfield;
+	outline-offset: -2px
+}
+[type=search]::-webkit-search-cancel-button, [type=search]::-webkit-search-decoration {
+	-webkit-appearance: none
+}
+::-webkit-file-upload-button {
+	-webkit-appearance: button;
+	font: inherit
+}
+summary {
+	display: list-item
+}
+[hidden], template {
+	display: none
+}
+
+/* Resets tables */
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Resets table rows */
+
+th, td {
+	text-align: left;
+	font-weight: inherit;
+}
+
+/* Resets lists */
+
+main ol, main ul {
+	list-style: none;
+}
+
+/* Prevents font scaling in landscape */
+
+html {
+	-webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+}
+
+/* Always show scrollbar */
+
+
+/* Cleanup junk created by SDL */
+
+hr {
+	display: none;
+}
+div[style] {
+	border-bottom: 0.25pt solid white !important;
+}
+
+/* End of resets and cleanup */
+
+
+/* Start body layout and media queries */
+
+body {
+	background-color: #ffffff !important;
+	display: block;
+}
+body.frmBody {
+	overflow: scroll;
+	padding-left: 0px !important;
+}
+main {
+	display: block;
+	margin: 0 auto;
+	width: 1000px;
+	padding: 1em 0;
+}
+@media screen and (max-width:1020px) {
+	main, footer {
+		width: 96% !important;
+		margin: 0 2%;
+	}
+	header[role="banner"] {
+		margin: 0;
+		width:98%;
+	}
+}
+
+/* End body layout */
+
+
+/* Start fonts */
+/* Metric fonts */
+html:lang(en-us), /* english us */
+html:lang(en-gb), /* english uk */
+html:lang(de-de), /* german */
+html:lang(fr-fr), /* french */
+html:lang(es-es), /* spanish */
+html:lang(it-it), /* italian */
+html:lang(pt-br), /* portuguese brazil */
+html:lang(pt-pt), /* portuguese portugal */
+html:lang(tr-tr), /* turkish */
+html:lang(hu-hu), /* hungarian */
+html:lang(cs-cz), /* czech */
+html:lang(da-dk), /* danish */
+html:lang(nb-no), /* norwegian */
+html:lang(hr-hr), /* croatian */
+html:lang(nl-nl), /* dutch */
+html:lang(fi-fi), /* finnish */
+html:lang(fr-ca), /* french canadian */
+html:lang(id-id), /* indonesian */
+html:lang(pl-pl), /* polish */
+html:lang(sk-sk), /* slovakian */
+html:lang(sl-si), /* slovenian */
+html:lang(sv-se)  /* swedish */ {
+font-family: "Metric", Arial, sans-serif;
+}
+/* Arial fonts */
+html:lang(kk-kz), /* kazakh */
+html:lang(ru-ru), /* russia */
+html:lang(uk-ua), /* ukrainian */
+html:lang(ar-sa), /* arabic */
+html:lang(el-gr), /* greek */
+html:lang(he-il)  /* hebrew */ {
+font-family: Arial, "Arial Unicode MS", sans-serif;
+}
+html:lang(zh-cn) /* chinese simplified */ {
+font-family: Arial, "SimHei", "Arial Unicode MS", sans-serif;
+}
+html:lang(zh-tw) /* chinese traditional */ {
+font-family: Arial, "Microsoft JhengHei", "Arial Unicode MS", sans-serif;
+}
+html:lang(ja-jp), /* japanese */
+html:lang(ja)     /* japanese */ {
+font-family: Arial, "MS Gothic", "Arial Unicode MS", sans-serif;
+}
+html:lang(ko-kr) /* korean */ {
+font-family: Arial, Dotum, "Arial Unicode MS", sans-serif;
+}
+html:lang(th-th) /* thai */ {
+font-family: Arial, "AngsanaUPC", "Arial Unicode MS", sans-serif;
+}
+
+body {
+	font-family: inherit;
+	font-size: 16px;
+	color: #333;
+}
+main {
+	font-family: inherit;
+	font-size: 1em;
+	line-height: 1.125;
+	color: #333 !important;
+	font-weight: 400;
+}
+h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333 !important;
+  margin: 30px 0px 20px 0px;
+  line-height: 30px; }
+h2 {
+  font-size: 21px;
+  font-weight: 700;
+  color: #333 !important;
+  margin: 20px 0px 10px 0px; }
+h3 {
+  font-size: 19px;
+	font-weight: 700;
+  color: #333 !important;
+  margin: 10px 0px !important; }
+h4 {
+  font-size: 18px;
+  color: #333 !important;
+  font-weight: bold;
+  margin: 5px 0px !important;
+  line-height: 22px; }
+h5, h6 {
+  font-size: 16px;
+  color: #333 !important;
+  font-weight: bold;
+  margin: 5px 0px !important; }
+
+p {
+	margin-top: 0px !important;
+	margin-bottom: 12px;
+}
+
+sup {
+	position:relative;
+	/*! top: -.15em; */
+	vertical-align: 50%;
+}
+.bookpage sup {
+	font-size: 100%;
+	top: 1px;
+}
+table .fn sup {
+	padding-left: 4px;
+}
+.fn.fn_table:last-of-type {
+	margin-bottom: 1em;
+}
+h1#ariaid-title1:first-of-type {
+	margin-top: 0px !important;
+}
+strong {
+	font-weight: 600;
+}
+.related_links_header {
+	font-weight: bold;
+}
+
+/* Start preformatted font */
+
+kbd, pre, samp, .pre, .codeblock {
+	font-family: "Courier New", monospace !important;
+	font-size: 14px !important;
+	color: black !important;
+	tab-size: 4 !important;
+	-moz-tab-size: 4 !important;
+	hyphens: none !important;
+	line-height: 1.5 !important;
+	overflow-wrap: normal;
+	text-align: left !important;
+	white-space: pre;
+	overflow: auto !important;
+	word-break: normal !important;
+	word-spacing: normal !important;
+	vertical-align: baseline !important;
+	border: none  !important;
+	box-shadow: none !important;
+	position: relative;
+}
+.ph.msgph, .codeph, .codephrase {
+	white-space: normal;
+        word-wrap: break-word; 
+}
+table pre {
+	width: auto;
+	overflow-wrap: normal !important;
+	margin: 0px;
+}
+table code {
+	white-space: unset !important;
+}
+/* Overwrite skin.css*/
+pre.screen {
+	background-color: #eff0f1 !important;
+	color: #333333;
+	font-size: 1.1em;
+	font-family: "Courier New", Courier, monospace !important;
+	border: none !important;
+
+}
+/* Future work for styling an actual keycap action
+kbd kbd {
+  font-size:14px;
+  background-color: #eff0f1;
+  border: 1px solid #adb3b9;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgba(12, 13, 14, 0.2), 0 0 0 2px #fff inset;
+  color: #242729;
+  display: inline-block;
+  line-height: 1.4;
+  padding: 0.1em 0.6em;
+  text-shadow: 0 1px 0 #fff;
+  white-space: nowrap;
+}
+*/
+
+pre, code, samp, kbd {
+	background: #eff0f1 none repeat scroll 0 0 !important;
+	border-radius: 4px !important;
+}
+.userinput {
+	font-weight: 700 !important;
+}
+.uicontrol, .wintitle, .dt, .menucascade {
+	font-weight: 600;
+}
+dt {
+	margin-bottom: 12px;
+}
+.prereq_statement, .procedure_statement {
+	font-weight: 700;
+	margin: 0 0 12px 0;
+}
+code, .codeblock, pre, samp, kbd {
+	padding: 0 4px;
+}
+pre samp {
+	padding: 0;
+}
+
+/* Removes padding within codeblocks */
+
+.codeblock code, pre kbd {
+	padding: 0;
+}
+
+/* Titles containing code element */
+
+.title code, .sectiontitle code {
+	font-size: inherit;
+}
+
+/* End of fonts */
+
+
+/* Start anchors and links */
+
+main a[target="_blank"]:link, main a[target="_blank"]:active, main a[target="_blank"]:visited, main a[target="_blank"]:hover {
+	color: #333 !important;
+	font-size: 1em;
+	line-height: 22px;
+	text-decoration: underline !important;
+	font-weight: 700;
+}
+main a.xref:link, main a.xref:visited, main a.link:link, main a.link:visited, main a sup {
+	color: #333;
+	text-decoration: underline;
+}
+main a.xref:hover, main a.link:hover {
+	text-decoration: underline;
+}
+main a.xref:active, main a.link:active {
+	text-decoration: none;
+}
+.fn a, a.fn:link, a.fn:active, a.fn:visited, a.fn:hover, #endnotes a {
+	text-decoration: none;
+}
+a.fn {
+	color: #333;
+	text-decoration: none;
+}
+a.fn:focus {
+	outline: 0;
+}
+main li a[name].fn {
+	display: initial;
+}
+a[href^="MAILTO"] {
+	color: #333 !important;
+	font-weight: 700;
+	text-decoration: underline !important;
+}
+
+/* End of anchors and links */
+
+
+/* Start lists and footnotes */
+
+/* Listed item structure */
+main li {
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	line-height: 22px !important;
+	margin: 0 0 12px 0;
+	text-align: left !important;
+	padding-left: 5px;
+}
+main li p {
+	margin: 0 0 12px 0;
+}
+main li:last-of-type {
+	margin-bottom: 12px;
+}
+li.step span.cmd {
+	display: block;
+	margin-bottom: 12px;
+}
+.itemgroup {
+	margin-bottom: 12px;
+}
+main table .ul {
+	margin-bottom: 0px !important;
+}
+main table .li {
+	margin: 0 !important;
+}
+main li a[name] {
+	display: none;
+}
+table .p {
+	margin: 0px !important;
+}
+dl {
+	margin: 0 0 12px 0;
+}
+main li p p, li p, .stepresult p {
+	margin-bottom: 12px;
+}
+main .step span.cmd:only-of-type {
+	display: block;
+	margin-bottom: 12px;
+}
+main li a.xref, main li a.link {
+	display: inline;
+}
+main li .info p {
+	margin: 0 0 12px 0;
+}
+/* mts 1320 - relationship table output in HTML publications */
+.relinfo{
+	margin: 0px;
+}
+main li table {
+	margin-top: 16px;
+}
+.li.stepsection {
+	font-weight: bold;
+}
+.ulchildlink br {
+	display:none;
+}
+  /* Margins for task topic sections */
+section.context {
+	margin-bottom: 12px !important;
+}
+/* Ordered lists */
+  /* Level I */
+main ol {
+	list-style: decimal outside none;
+	margin: 0 0 12px 21px;
+	padding: 0;
+}
+  /* Level II */
+main ol li ol {
+	margin: 12px 0 12px 15px;
+	list-style-type: lower-alpha;
+}
+  /* Level III */
+main ol ol ol {
+	list-style-type: lower-roman;
+}
+  /* Level IV */
+main ol ol ol ol {
+	list-style-type: upper-alpha;
+}
+/* Unordered lists */
+  /* Level I */
+main ul {
+	list-style: disc outside none;
+	margin: 0 0 12px 20px !important;
+	padding: 0px;
+}
+  /* Level II */
+main ul ul {
+	list-style-type: circle;
+}
+  /* Level III */
+main ul ul ul {
+	list-style-type: none;
+}
+main ul ul ul li:before {
+	content: '-';
+	position: absolute;
+	margin-left: -21px;
+}
+  /* Checklists */
+  /* Remove default */
+
+  main ul.checklist {
+	list-style-type: none !important;
+	list-style-image: none !important;
+	margin: 0 0 0 14px !important;
+}
+main ul.checklist li::before {
+	border: 2px solid #666;
+	content: "";
+	display: block;
+	float: left;
+	margin: 5px 5px 5px -19px;
+	padding: 6px;
+	position: relative;
+	top: -1px;
+	margin-bottom: 12px;
+	cursor: pointer;
+	font-size: 22px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	transition: all 250ms;
+}
+ul.checklist li:hover:before {
+	border: 2px solid #000;
+	transition: all 250ms;
+}
+
+/* Footnotes - for link styles, see anchors and links */
+.fn .p {
+	margin: 0;
+}
+.fn_table, .fn_endnotes {
+	margin-left: 18px;
+}
+.fn_table a.fn sup, .fn_endnotes a.fn sup {
+	top: -6px;
+	left: -15px;
+}
+.fn.fn_table a.fn, .fn.fn_endnotes a.fn {
+	position: absolute;
+}
+/* End lists and footnotes */
+
+
+/* Start tables */
+
+#tablecaption {
+	font-size: 1.1em;
+	font-weight: 700;
+	padding: 1em 0 0 0;
+	text-align: left;
+	margin-bottom: 0.3em;
+}
+.tablecap {
+	font-size: 1.1em !important;
+	color:#333 !important;
+}
+.table tr:hover {
+	background-color: #eee;
+}
+td p {
+	margin: 3px 0;
+}
+th.entry {
+	border-top: 3px solid #01A982 !important;
+	border-right: none;
+	/*! border-bottom: 1px solid #ccc !important; */
+	border-left: none;
+	background-color: transparent !important;
+	color: #333 !important;
+}
+thead tr th {
+	font-weight: 700;
+}
+td.entry {
+	border-top: 1px solid #333 !important;
+	border-right: none;
+	/*! border-bottom: 1px solid #C6C9CA !important; */
+	border-left: none;
+	line-height: inherit;
+	padding: 4px !important;
+}
+table, .table, .tablenoborder, .tableborder {
+	border: 1px solid transparent !important;
+	max-width: 100% !important;
+	width: auto;
+	margin-bottom: 1.5em;
+}
+.navfooter table {
+	margin-bottom: 0px;
+}
+/* End tables */
+
+
+/* Start alerts and notes */
+.dangertitle,
+div[class = "danger"] > h3{
+    background-image: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' role='img'%3E %3Cpath fill='none' stroke='%23FF8D6D' stroke-width='2' d='M12,17 L12,19 M12,10 L12,16 M12,3 L2,22 L22,22 L12,3 Z'%3E%3C/path%3E %3C/svg%3E") !important;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 20px;
+    height: 20px;
+    float: left;
+	margin-top: 6px;
+	margin-left: 24px;
+}
+.warningtitle,
+div[class = "warning"] > h3{
+    background-image: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' role='img'%3E %3Cpath fill='none' stroke='%23333' stroke-width='2' d='M12,17 L12,19 M12,10 L12,16 M12,3 L2,22 L22,22 L12,3 Z'%3E%3C/path%3E %3C/svg%3E") !important;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 20px;
+    height: 20px;
+    float: left;
+	margin-top: 6px;
+	margin-left: 24px;
+}
+.cautiontitle,
+div[class = "caution"] > h3{
+    background-image: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 24 24' xml:space='preserve'%3E %3Cpolygon fill='none' stroke='%23333' stroke-width='2' points='22,21 12,3 2,21 '/%3E %3C/svg%3E") !important;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 20px;
+    height: 20px;
+    float: left;
+	margin-top: 6px;
+	margin-left: 24px;
+}
+.importanttitle, div[class="important"] > h3, .attentiontitle, div[class="attention"] > h3, .noticetitle, div[class="notice"] > h3 {
+	background-image: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' role='img'%3E %3Cpath fill='none' stroke='%23333' stroke-width='2' d='M12,22 C17.5228475,22 22,17.5228475 22,12 C22,6.4771525 17.5228475,2 12,2 C6.4771525,2 2,6.4771525 2,12 C2,17.5228475 6.4771525,22 12,22 Z M12,10 L12,18 M12,6 L12,8'%3E%3C/path%3E %3C/svg%3E") !important;
+	background-repeat: no-repeat;
+	background-size: 90% 85%;
+	width: 24px;
+	height: 24px;
+	float: left;
+	margin-top: 6px;
+	margin-left: 23px;
+}
+
+.notetitle, div[class="note"] > h3 {
+	background-image: url("data:image/svg+xml,%3Csvg version='1.1' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' role='img'%3E %3Cpath fill='none' stroke='%23333' stroke-width='2' d='M3,1 L3,23 L16,23 L21,18 L21,1 L3,1 Z M6,17 L11,17 M6,13 L18,13 M6,9 L16,9 M3,5 L21,5 M21,17 L15,17 L15,23'%3E %3C/path%3E %3C/svg%3E") !important;
+	background-repeat: no-repeat;
+	background-size: 84% 80%;
+	width: 24px;
+	height: 24px;
+	float: left;
+	margin-top:6px;
+	margin-left: 25px;
+}
+.tiptitle, div[class="tip"] > h3 {
+	background-image: url("data:image/svg+xml,%3Csvg version='1.1' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' role='img'%3E %3Cpath fill='none' stroke='%23333' stroke-width='2' d='M16.0073529,18 L22,18 L22,2 L2,2 L2,18 L8.24264706,18 L12.125,22 L16.0073529,18 Z'%3E %3C/path%3E %3C/svg%3E") !important;
+	background-repeat: no-repeat;
+	background-size: 93% 88%;
+	width: 24px;
+	height: 24px;
+	float: left;
+	margin-left: 21px;
+	margin-top: 6px;
+}
+.note {
+	width: 600px;
+	margin: 0 10px 12px 10px;
+	padding: 5px 0 5px 44px;
+	border-top: 2px solid #01A982;
+	border-bottom: 2px solid #01A982;
+}
+.note:hover {
+	background-color: #eee;
+}
+.note p {
+	display: block;
+	margin: 6px 0 !important;
+}
+td .note {
+        width: auto !important;
+}
+
+/* Interactive elements */
+.btn, .printbtn, .btn-center {
+	display: inline-block;
+	background-color: #01a982 ;
+	border-radius: 0px;
+	color: #fff !important;
+	font-weight: bold;
+	font-size: 19px;
+	padding: 6px 22px;
+	cursor: pointer;
+	margin-right: 10px;
+	border: 2px solid #01a982;
+  transition: 0.1s ease-in-out;
+	text-decoration: none !important;
+}
+.btn:hover, .printbtn:hover {
+	box-shadow: 0px 0px 0px 2px #01a982;
+}
+#searchForm::before {
+	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' aria-label='FormSearch' viewBox='0 0 24 24' class='StyledIcon-ofa7kd-0 fwnGzl'%3E%3Cpath fill='none' stroke='%23ccc' stroke-width='2' d='M13.8,13.8 L18,18 L13.8,13.8 Z M10.5,15 C12.9852814,15 15,12.9852814 15,10.5 C15,8.01471863 12.9852814,6 10.5,6 C8.01471863,6 6,8.01471863 6,10.5 C6,12.9852814 8.01471863,15 10.5,15 Z'%3E%3C/path%3E%3C/svg%3E");
+	content: " ";
+	position: absolute;
+	height: 31px;
+	width: 28px;
+	margin: 4px 198px;
+	cursor: pointer;
+}
+#searchForm {
+	margin-bottom: 12px;
+}
+input {
+  font-family: "Metric", "Arial";
+  line-height: 1.25em
+}
+.tableFilter {
+	color: #000 !important;
+	font-family: "Metric",Arial !important;
+	font-size: 0.9em !important;
+	line-height: 21px !important;
+	padding: 6px !important;
+	border-color: #ccc;
+	border-style: solid;
+	border-width: 2px;
+	-webkit-appearance: none;
+	width: 230px;
+	border-radius: 0;
+}
+.search-box input[type="search"],
+.search-box input[type="text"] {
+  line-height: 25px;
+}
+.text-center {
+	text-align: center !important;
+}
+
+/* Tables */
+td .p {
+       margin-bottom: 10px !important;
+}
+td .p:not(:first-child) {
+       margin-top: 10px !important;
+}
+table[frame="hsides"] {
+	width: 700px !important;
+	margin: 0.8em 10px;
+	padding: 5px 0;
+}
+table tr {
+	transition: background-color 0.2s;
+}
+table[frame="hsides"] td {
+	/*! border-top: 2px solid #01A982 !important; */
+	/*! border-bottom: 2px solid #01A982 !important; */
+}
+@media all and (max-width:670px) {
+	.note, table[frame="hsides"] {
+		width: 88% !important;
+	}
+}
+
+/* removes margin from top if preceding paragraph is last-of-type */
+
+main li .note:last-of-type {
+	margin-top: 0;
+}
+
+/* End alerts and notes */
+
+
+/* Start images and media */
+
+img, video {
+	max-width: 100% !important;
+	height: auto;
+}
+@media all and (max-width:900px) {
+	figure {
+		margin: 1em 0px;
+	}
+}
+div.imageright {
+	text-align: right;
+}
+div.imageleft {
+	text-align: left;
+}
+div.imagecenter {
+	text-align: center;
+}
+span.figcap {
+	font-size: 1.2em;
+	font-weight: 700;
+	padding: 1em 0 0 0;
+	display: block;
+}
+.icon {
+	height: auto;
+	vertical-align: middle;
+	width: 23px;
+}
+
+/* Start front matter classes */
+
+
+h1.masterbanner, .subtitle, .toc, .abstract, .desc, .pubsnumber, .publishedDate, .edition, .copyright {
+	display: block;
+	margin: 0 auto;
+	width: 1000px;
+}
+.copyright {
+	margin: 20px auto;
+}
+@media screen and (min-width:321px) and (max-width:1020px) {
+	h1.masterbanner, .subtitle, .abstract, .desc, .pubsnumber, .edition, .publishedDate, .bookpartno, .toc {
+		width: 96%;
+		margin: 0 2%;
+	}
+	#bookpage main.bookpage .edition {
+		margin: 0;
+	}
+	.bookpage .body .copyright {
+		margin: 20px auto;
+	}
+}
+@media screen and (min-width:321px) and (max-width:1020px) {
+	.bookpartno, #bookpage main.bookpage .publishedDate, .body {
+		width: 96%;
+		margin: 0;
+	}
+	.copyright {
+		margin: 20px 2%;
+	}
+	.bookpage .edition, .bookpage .copyright, .bookpage #bookpage main.bookpage .publishedDate {
+		width: 100%;
+	}
+}
+@media screen and (min-width:100px) and (max-width:1020px) {
+	.bookHead .masterbanner {
+		font-size: 1.2rem;
+		text-align:left;
+		padding-bottom: 0;
+	}
+	.logo {
+		width:140px;
+	}
+}
+/*
+.masterbanner::before {
+  background-image: url("https://www.hpe.com/etc/designs/hpeweb/logo.jpg");
+  background-size: 178px auto;
+  content: "";
+  display: block;
+  height: 120px;
+  left: -28px;
+  position: relative;
+  top: -23px;
+  width: 178px;
+  z-index: -1;
+}
+*/
+.mainbooktitle {
+	font-size: 24px;
+	font-weight: bold;
+}
+.booktitlealt {
+	font-size: 18px;
+	margin-bottom: 1em;
+	font-weight: bold;
+}
+.masterbanner {
+	padding-bottom: 0.67em;
+}
+span.masterbanner {
+	padding-bottom:0;
+}
+.toc {
+	padding-top: 0.67em;
+}
+
+/* Revision page */
+
+.bookHead {
+	margin-bottom: 30px;
+	width: 100%;
+}
+.bookHead .masterbanner {
+	text-align: center;
+}
+.logo {
+	max-width:179px !important;
+	padding: 15px;
+}
+.bookHead tr {
+	background-color: #425563 !important;
+	color: white !important;
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+/*
+.toc::before {
+  color: inherit;
+  content: "Contents";
+  font-size: 2.815em;
+  font-weight: 700;
+  margin-top: 40px;
+}
+*/
+
+.toc ul, .topicref {
+	list-style: outside none none;
+}
+ul.map, ul.bookmap {
+	padding-left: 0px;
+	margin-top: unset;
+}
+.topicref a {
+	color: #01a982;
+	text-decoration: none;
+}
+.abstract {
+	font-weight: 700;
+}
+.desc {
+	padding-bottom: 0.67em;
+}
+.bookpage {
+	margin:15px !important;
+}
+/* End front matter classes */
+
+
+/* Start navigation arrows */
+
+header {
+	width: 1000px;
+}
+header[role="banner"] {
+	margin: 0 auto;
+}
+#bookpage header {
+	width: 100%;
+}
+.banner {
+	margin: 0 !important;
+}
+table.header {
+	margin-top: 20px;
+	width: 100%;
+}
+.navheader_label img {
+	width: 20px;
+}
+header td.prev {
+	text-align: left;
+	width: 50%;
+}
+header td.next {
+	text-align: right;
+	width: 50%;
+}
+footer {
+	width: 1000px;
+	margin: 0 auto 40px auto;
+}
+table.footer {
+	margin-bottom: 20px;
+	width: 100%;
+}
+.navfooter_label img {
+	width: 20px;
+}
+footer td.prev {
+	text-align: left;
+	width: 40%;
+}
+footer td.next {
+	text-align: right;
+	width: 40%;
+}
+footer td.home {
+	text-align: center;
+	width: 20%;
+}
+header tr:hover, footer tr:hover {
+	background-color: #fff;
+}
+footer[role="contentinfo"] {
+	display: block;
+	font-family: inherit;
+	font-size: 16px;
+}
+footer[role="contentinfo"] a {
+	color: #333;
+	font-weight: normal;
+	text-decoration: none;
+}
+.footer_home {
+	text-align:center;
+	margin: 10px;
+}
+
+/* End navigation arrows */
+
+
+/* Start troubleshooting topics */
+
+.troubleshootingdefaulttext {
+	display: inline-block;
+	font-weight: 700;
+	margin-bottom: 12px;
+}
+.troubleSolution section {
+	margin-left: 0.5em;
+}
+.condition p {
+	margin-left: 0.5em;
+}
+div[style^="width:100%"] {
+	margin: 0 !important;
+}
+.troubleSolution span.troubleshootingdefaulttext {
+	display: inline-block;
+	font-size:1.2em;
+	margin-bottom: 12px;
+}
+.section span.troubleshootingdefaulttext{
+	font-size:1.0em;
+} 
+/* End troubleshooting topics */
+
+
+/* Nav styles for related links */
+
+nav.related-links {
+	display: block;
+}
+nav ul.ullinks {
+	list-style: none !important;
+}
+nav .ulchildlink {
+	margin-top: 0px !important;
+	margin-bottom: 0px !important;
+}
+nav.wh_footer {
+	display: none;
+}
+.navnext .link {
+	color: #333;
+}
+nav.related-links a {
+	color: #333 !important;
+}
+nav.related-links::before {
+	content: "";
+	font-size: 18px;
+	font-weight: bold;
+	color: #333 !important;
+}
+nav.related-links .ullinks {
+	margin-top: 12px !important;
+}
+.related_links_header {
+	margin-bottom: 4px;
+}
+.taskbody, .refbody, .conbody, .troublebody, .troubleSolution {
+	margin-bottom: 30px;
+}
+.taskbody section, .refbody section, .conbody section {
+	margin-bottom: 18px;
+}
+.taskbody section:last-of-type, .refbody section:last-of-type, .conbody section:last-of-type {
+	margin-bottom: 0px;
+}
+header table.nav {
+    width: 98%;
+	margin: 13px 0px;
+}
+span.navheader {
+    float: right;
+}
+.topic_breadcrumb_link + .topic_breadcrumb_link::before {
+	content: " / ";
+}
+.navheader_parent_path {
+	color: #333;
+}
+.navnext {
+	display: block !important;
+}
+/* Search Styles */
+.highlight {
+    background-color: #FFFF88;
+}
+
+/* Start mTS 1554 - Minor updates to HPE branded tables */
+/* table[frame="border"] thead.thead tr:first-child,table[frame="hsides"] thead.thead tr:first-child,table[frame="above"] thead.thead tr:first-child th{
+	border-top: 5pt solid #01A982 !important;
+}
+table[frame="above"] tbody tr[isthead="nothead"]:first-child td{
+	border-top: 5pt solid #01A982 !important;
+}
+table[frame="hsides"] tbody.tbody tr[isthead="nothead"]:first-child td{
+	border-top: 5pt solid #01A982 !important;
+}
+table[frame="border"] tbody.tbody tr[isthead="nothead"]:first-child td{
+	border-top: 5pt solid #01A982 !important;
+}
+table[rules="all"] thead.thead tr:first-child th{
+	border-top: 5pt solid #01A982 !important;
+}
+table.column-rules thead.thead tr:first-child th{
+	border-top: 5pt solid #01A982 !important;
+}
+tatable[rules=cols] tbody.tbody tr:first-child td.entry{
+	border-top: 5pt solid #01A982 !important;
+}
+tbody tr[isthead="nothead"]:first-child td.nocellnorowborder{
+	border-top: 5pt solid #01A982 !important;
+}
+tbody tr[isthead="thead"]{
+	border-top: 1px solid #333 !important;
+} */
+thead.thead tr.row th.entry{
+	border-top: 3px solid white !important;
+}
+tbody.tbody[brand="OEM"]{
+	border-top: 5pt solid #000000 !important;
+}
+tbody.tbody[brand="HPE"]{
+	border-top: 5pt solid #000000 !important;
+}
+tbody.tbody{
+	border-top: 5pt solid #01A982 !important;
+}
+table[frame="border"] tbody.tbody tr:last-child{
+	border-bottom: 3pt solid #333 !important;
+}
+table[frame="hsides"] tr:last-child td{
+	border-bottom: 3pt solid #333 !important;
+}
+table[frame="above"] tbody.tbody tr:last-child  {
+	border-bottom: 3pt solid #333 !important;
+}
+table[rules="all"] tbody.tbody tr:last-child td {
+	border-bottom: 3pt solid #333 !important;
+}
+table.column-rules tbody.tbody tr:last-child td {
+	border-bottom: 3pt solid #333 !important;
+}
+table[rules="cols"] tbody.tbody tr:last-child td{
+	border-bottom: 3pt solid #333 !important;
+}
+/* End mTS 1554 - Minor updates to HPE branded tables */
+
+/* Start mTS 1623 Make TOC display dynamic for single/multiple HTML*/
+.caret {
+  cursor: pointer;
+  -webkit-user-select: none; /* Safari 3.1+ */
+  -moz-user-select: none; /* Firefox 2+ */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none;
+}
+
+.caret::before {
+  content: "\25B7";
+  color: black;
+  display: inline-block;
+  margin-right: 6px;
+  font-size:13.33px;
+}
+
+.caret-down::before {
+  -ms-transform: rotate(90deg); /* IE 9 */
+  -webkit-transform: rotate(90deg); /* Safari */'
+  transform: rotate(90deg);  
+}
+
+.nested {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+#tab_nav_tree_placeholder #expnd {
+	padding-left: 40px;
+	margin:0 auto;
+	width:1000px;
+}
+
+#tab_nav_tree_placeholder #tree {
+	padding-left: 40px;
+}
+
+#tab_nav_tree_placeholder #tree li > span {
+	display: inline-block;
+	padding: 2px 5px 5px 18px;
+	margin-left: -36px;
+}
+
+#tab_nav_tree_placeholder #expandAllLink::before {
+  content: "\ff0b";
+  color: black;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+#tab_nav_tree_placeholder #collapseAllLink::before {
+  content: "\2212";
+  color: black;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+/* for firefox */
+@-moz-document url-prefix() {
+	.caret::before {
+	font-size:13.33px;
+	}
+	#tab_nav_tree_placeholder #expandAllLink::before {
+		font-size:26px;
+	}
+
+	#tab_nav_tree_placeholder #collapseAllLink::before {
+	  font-size:26px;
+	}
+	sup.reg {
+		position: relative;
+		font-size: 130%;
+		vertical-align: text-bottom;
+		text-decoration:none;
+		line-height: 0;
+	}
+	sup.tm {
+		position: relative;
+		font-size: 130%;
+		vertical-align: -moz-middle-with-baseline;
+		vertical-align:text-bottom;
+	}
+}
+
+
+/* for chrome */
+@media screen and (-webkit-min-device-pixel-ratio: 0) not(@-moz-document url-prefix()) {
+	.caret::before {
+	  font-size:16px;
+	}
+
+	  #tab_nav_tree_placeholder #expandAllLink::before {
+	  font-size:26px;
+	}
+
+	#tab_nav_tree_placeholder #collapseAllLink::before {
+	  font-size:26px;
+	}
+	sup.reg {
+		position: relative;
+		font-size: 150%;
+		vertical-align: -webkit-baseline-middle;
+		vertical-align:text-bottom;
+		text-decoration:none;
+		line-height: 0;
+	}
+	sup.tm {
+		position: relative;
+		font-size: 150%;
+		vertical-align: -webkit-baseline-middle;
+		vertical-align:text-bottom;
+	}
+}
+
+/* support for Edge */
+@supports (-ms-ime-align:auto) {
+	#tab_nav_tree_placeholder #expandAllLink::before {
+	font-size:26px;
+	}
+	#tab_nav_tree_placeholder #collapseAllLink::before {
+	font-size:26px;
+	}
+	sup.reg {
+		font-size: xx-large !important;
+		vertical-align:-0.5em !important;
+		text-decoration:none;
+		line-height: 0;
+	}
+	sup.tm {
+		position: relative;
+		font-size: xx-large !important;
+		vertical-align:-0.5em !important;
+	}
+	table sup.sup {
+		font-size: large !important;
+		vertical-align:-0.25em !important;
+		padding-left: 2px;
+	}
+}
+
+/* IE 9 and above */
+@media screen and (min-width:0\0) and (min-resolution: +72dpi) {
+    sup.reg {
+		position: relative;
+		font-size: xx-large !important;
+		vertical-align:-0.5em !important;
+	}
+	sup.tm {
+		position: relative;
+		font-size: xx-large !important;
+		vertical-align:-0.5em !important;
+	}
+	table sup.sup {
+		font-size: large !important;
+		vertical-align:-0.25em !important;
+		padding-left: 2px;
+    }
+	main li a[name].fn {
+		display: inline;
+	}
+}
+/* End mTS 1623 Make TOC display dynamic for single/multiple HTML */
+sup.reg {
+	position: relative;
+	font-size: 130%;
+	vertical-align:text-bottom;
+	text-decoration:none;
+	line-height: 0;
+}
+sup.tm {
+	position: relative;
+	font-size: 130%;
+	vertical-align:text-bottom;
+}
+table sup.sup {
+	font-size: unset;
+	vertical-align: sub;
+	padding-left: 2px;
+}
+.tmhpe {
+	vertical-align: sub;
+	font-size: 90%;
+	text-decoration:none;
+}
+.tmhpegreen {
+	vertical-align: sub;
+	font-size: 90%;
+	text-decoration:none;
+}
+.responsive {
+	width: 100%;
+	height: 0;
+	padding-bottom: 56.25%;
+	position: relative;
+}
+.responsive iframe {
+	position: absolute;
+	width: 100%;
+	height:100%;
+}
