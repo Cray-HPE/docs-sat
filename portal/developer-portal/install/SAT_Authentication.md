@@ -2,10 +2,10 @@
 
 Initially, as part of the installation and configuration, SAT authentication is set up so sat commands can be used in
 later steps of the install process. The account used to authenticate with sat auth must be enabled in keycloak and must
-have the "admin" role assigned in the "shasta" client role. For instructions on editing *Role Mappings* see section,
-Create Internal User Accounts in the Keycloak Shasta Realm in the *HPE Cray EX System Administration Guide S-8001*.
-For additional information on SAT authentication, see section, System Security and Authentication in the *HPE Cray EX
-System Administration Guide S-8001*.
+have the "admin" role assigned in the "shasta" client role. For instructions on editing *Role Mappings* see
+_Create Internal User Accounts in the Keycloak Shasta Realm_ in the CSM product documentation.
+For additional information on SAT authentication, see _System Security and Authentication_ in the CSM
+documentation.
 
 ### Description of SAT Command Authentication Types
 
