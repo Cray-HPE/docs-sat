@@ -1,7 +1,3 @@
----
-category: numbered
----
-
 ## About System Admin Toolkit (SAT)
 
 The System Admin Toolkit \(SAT\) is installed as a separate product stream as part of the HPE Cray EX System base installation.
