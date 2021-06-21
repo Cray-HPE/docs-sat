@@ -204,3 +204,27 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
     - [SAT Authentication](#sat-authentication)
     - [Generate SAT S3 Credentials](#generate-sat-s3-credentials)
     - [Run Sat Setrev to Set System Information](#run-sat-setrev-to-set-system-information)
+
+#### Optional: Remove Old Versions After Upgrade
+
+If upgrading from a previous version of SAT, The old version of the `cray/cray-sat` container image will still be
+present in the registry on the system, although it will not be the default. If desired, the admin may remove the older
+version of the `cray/cray-sat` container image. It is **not** removed by default.
+
+The `cray-product-catalog` Kubernetes configuration map  will also show both versions of SAT that are installed. This
+is viewed with the command `sat showrev --products` as shown in the following example.
+
+```screen
+ncn-m001# sat showrev --products
+###############################################################################
+Product Revision Information
+###############################################################################
++--------------+-----------------+--------------------+-----------------------+
+| product_name | product_version | images             | image_recipes         |
++--------------+-----------------+--------------------+-----------------------+
+...
+| sat          | 2.1.3           | -                  | -                     |
+| sat          | 2.0.4           | -                  | -                     |
+...
++--------------+-----------------+--------------------+-----------------------+
+```
