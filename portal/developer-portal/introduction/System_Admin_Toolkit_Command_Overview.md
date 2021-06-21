@@ -5,7 +5,7 @@ instruction on the SAT Container Environment.
 
 ### SAT Command Line Utility
 
-The primary component of the System Admin Toolkit \(SAT\) is a command-line utility run from Kubernetes manager nodes.
+The primary component of the System Admin Toolkit (SAT) is a command-line utility run from Kubernetes manager nodes.
 It is designed to assist administrators with common tasks, such as troubleshooting and querying information about the
 HPE Cray EX System and its components, system boot and shutdown, and replacing hardware components. There are
 similarities between SAT commands and xt commands used on the Cray XC platform.
@@ -55,7 +55,7 @@ container beforehand may save time, as the container does not need to be launche
 
 #### Non-interactive Advantages
 
-The non-interactive mode is useful if calling satwith a script, or when running a single satcommand as a part of
+The non-interactive mode is useful if calling `sat` with a script, or when running a single `sat` command as a part of
 several steps that need to be executed from a management NCN.
 
 #### Man Pages - Interactive and Non-interactive Modes
@@ -68,7 +68,7 @@ ncn-m001# sat-man status
 ```
 
 A man page describing the SAT container environment is available on the Kubernetes manager nodes, which can be viewed
-either with man sat or man sat-podman from the manager node.
+either with `man sat` or man `sat-podman` from the manager node.
 
 ```screen
 ncn-m001# man sat
