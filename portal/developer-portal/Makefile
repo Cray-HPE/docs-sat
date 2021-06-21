@@ -15,7 +15,7 @@ RPM_BUILD_ROOT := `pwd`
 endif
 
 ## Build dir
-BUILDDIR = build
+BUILDDIR = docs
 
 SOURCEDIR = .
 OPENAPI = ../openapi
@@ -44,9 +44,6 @@ YAML_SRC = $(patsubst %.page.yaml,%.yaml,$(wildcard $(YAML)) )
 
 # Need dependency when .mds contains other mds's and add to clean
 
-Operations_Guide_Customer.md: taxonomy.md install_sw.md admin_sw.md
-Operations_Guide_Manufacturing.md: taxonomy.md install_sw.md install_hw.md admin_sw.md
-
 MDOBJECTS = $(patsubst %.mds,%.md,$(MDS_SRC))
 
 HTMLOBJECTS = $(patsubst $(SOURCEDIR)/%.md,$(HTMLBUILDDIR)/%.html,$(MD_SRC))
@@ -71,7 +68,6 @@ PDFOBJECTS2 = $(patsubst $(SOURCEDIR)/%.mds,$(PDFBUILDDIR)/%.pdf,$(MDS_SRC))
 
 # Convert .mds to .md file
 COMPILEMDS = ../../scripts/compileMDS.py
-MKVERSION = ../../scripts/mkversionmd.sh
 
 # PANDOC experiments for reference
 #
@@ -130,7 +126,7 @@ dir: $(TMPDIR)/VeRsIoN.md
 
 $(TMPDIR)/VeRsIoN.md:
 	mkdir -p $(TMPDIR)
-	$(MKVERSION) > $(TMPDIR)/VeRsIoN.md
+	cat ../../.version > $(TMPDIR)/VeRsIoN.md
 
 # Some build environments may not have docker installed
 # In this case, specify make NODOCKER='y', and
@@ -205,19 +201,14 @@ tar: all $(BUILDDIR)/pdfhtml.tar
 	rm $(TMPDIR)/VeRsIoN.md
 
 $(BUILDDIR)/pdfhtml.tar: $(HTMLOBJECTS) $(PDFOBJECTS)
-	rm -f $(BUILDDIR)/*/apis* \
-		$(BUILDDIR)/*/admin* \
-		$(BUILDDIR)/*/overview* \
-		$(BUILDDIR)/*/install* \
-		$(BUILDDIR)/*/taxonomy*
 	tar cf $@ $(BUILDDIR)/*
 
-slingshot-docs-$(VERSION).tar.bz2:
-	mkdir -p slingshot-docs-$(VERSION)
-	cp -a pdf public slingshot-docs-$(VERSION)
-	tar cjf $@ slingshot-docs-$(VERSION)
+sat-docs-$(VERSION).tar.bz2:
+	mkdir -p sat-docs-$(VERSION)
+	cp -a docs/pdf docs/html sat-docs-$(VERSION)
+	tar cjf $@ sat-docs-$(VERSION)
 
-install: slingshot-docs-$(VERSION).tar.bz2
+install: sat-docs-$(VERSION).tar.bz2
 	cp -r $< $(RPM_BUILD_ROOT)/rpmbuild/SOURCES/
 
 $(RPM_BUILD_ROOT)/rpmbuild:
@@ -229,4 +220,4 @@ $(RPM_BUILD_ROOT)/rpmbuild:
 	mkdir -p $@/SRPMS
 	
 package: $(RPM_BUILD_ROOT)/rpmbuild install
-	rpmbuild -ba product-docs.spec --define "_topdir $(RPM_BUILD_ROOT)/rpmbuild"
+	rpmbuild -ba sat-docs.spec --define "_topdir $(RPM_BUILD_ROOT)/rpmbuild"
