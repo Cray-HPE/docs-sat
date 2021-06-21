@@ -17,7 +17,7 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
    ```
 
 2. Copy the release distribution gzipped tar file to `ncn-m001`. In the examples below, replace
-    `2.1.x` with the version of the SAT product stream being installed.
+   `2.1.x` with the version of the SAT product stream being installed.
 
 3. Unzip and extract the release distribution.
 
