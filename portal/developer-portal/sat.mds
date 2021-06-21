@@ -10,6 +10,8 @@ _include introduction/System_Admin_Toolkit_Command_Overview.md
 
 _include introduction/Command_Prompt_Conventions_in_SAT.md
 
+_include introduction/SAT_Dependencies.md
+
 # SAT Installation
 
 _include install/Install_the_System_Admin_Toolkit_Product_Stream.md
