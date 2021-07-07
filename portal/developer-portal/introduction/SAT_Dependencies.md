@@ -1,9 +1,8 @@
 ## SAT Dependencies
 
-The SAT product stream has some dependencies on other product streams for some of its functionality. The following table
-shows the dependencies that each `sat` subcommand has on other products in the HPE Cray EX (Shasta) software stack. It
-shows the products as well as the specific services or components of those products on which the given `sat` command
-depends.
+SAT has dependencies on other products for some of its functionality. The following table shows the dependencies that
+each `sat` subcommand has on other products in the HPE Cray EX (Shasta) software stack. It shows the products as well
+as the specific services or components of those products on which the given `sat` command depends.
 
 +-----------------+---------------------------------------------------------+
 | SAT Subcommand  | Product Dependencies                                    |
