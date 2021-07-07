@@ -62,19 +62,18 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
    ncn-m003: source <(kubectl completion bash)
    ```
 
-7. Check the progress of the SAT configuration import Kubernetes job. Replace `2.1.x` with the
-   version of the SAT product stream being installed.
+7. Check the progress of the SAT configuration import Kubernetes job.
 
    First, check the status of the job:
 
    ```screen
-   ncn-m001# kubectl describe job sat-config-import-2.1.x -n services
+   ncn-m001# kubectl describe job sat-config-import -n services
    ```
 
    Next, check the logs from the job:
 
    ```screen
-   ncn-m001# kubectl logs -n services --selector job-name=sat-config-import-2.1.x --all-containers
+   ncn-m001# kubectl logs -n services --selector job-name=sat-config-import --all-containers
    ```
 
 8. Once the SAT configuration import Kubernetes job completed, obtain the git commit ID for the
