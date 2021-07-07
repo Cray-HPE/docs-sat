@@ -50,8 +50,8 @@ ncn-m001# sat status
 #### Interactive Advantages
 
 Running `sat` using the interactive command prompt gives the ability to read and write local files on ephemeral
-container storage, and if multiple `sat` commands are being run in succession, then using sat bash to launch the
-container beforehand may save time, as the container does not need to be launched for each `sat` command.
+container storage. If multiple `sat` commands are being run in succession, then use sat bash to launch the
+container beforehand. This will save time because the container does not need to be launched for each `sat` command.
 
 #### Non-interactive Advantages
 
