@@ -1,8 +1,8 @@
 ## SAT Authentication
 
 Initially, as part of the installation and configuration, SAT authentication is set up so sat commands can be used in
-later steps of the install process. The account used to authenticate with sat auth must be enabled in keycloak and must
-have the "admin" role assigned in the "shasta" client role. For instructions on editing *Role Mappings* see
+later steps of the install process. The admin account used to authenticate with `sat auth` must be enabled in
+Keycloak and must have its *assigned role* set to *admin*. For instructions on editing *Role Mappings* see
 _Create Internal User Accounts in the Keycloak Shasta Realm_ in the CSM product documentation.
 For additional information on SAT authentication, see _System Security and Authentication_ in the CSM
 documentation.
@@ -34,7 +34,7 @@ commands and the types of authentication they require.
 |`sat xname2nid`|Requires authentication to the API gateway.|`sat-xname2nid`|Translate node and node BMC xnames to node IDs.|
 |`sat switch`|**This command has been deprecated.** It has been replaced by `sat swap`.|
 
-In order to authenticate to the API gateway, you must run the sat auth command. This command will prompt for a password
+In order to authenticate to the API gateway, you must run the `sat auth` command. This command will prompt for a password
 on the command line. The username value is obtained from the following locations, in order of higher precedence to lower
 precedence:
 
@@ -42,7 +42,7 @@ precedence:
 - The `username` option in the `api_gateway` section of the config file at `~/.config/sat/sat.toml`.
 - The name of currently logged in user running the `sat` command.
 
-If credentials are entered correctly when prompted by sat auth, a token file will be obtained and saved to
+If credentials are entered correctly when prompted by `sat auth`, a token file will be obtained and saved to
 `~/.config/sat/tokens`. Subsequent sat commands will determine the username the same way as `sat auth` described above,
 and will use the token for that username if it has been obtained and saved by `sat auth`.
 
