@@ -11,8 +11,11 @@ documentation.
 
 Some SAT subcommands make requests to the Shasta services through the API gateway and thus require authentication to
 the API gateway in order to function. Other SAT subcommands use the Kubernetes API. Some `sat` commands require S3 to
-be configured (see: [Generate SAT S3 Credentials](#generate-sat-s3-credentials)). Below is a table describing SAT
-commands and the types of authentication they require.
+be configured (see: [Generate SAT S3 Credentials](#generate-sat-s3-credentials)). In order to use the SAT S3 bucket,
+the System Administrator must generate the S3 access key and secret keys and write them to a local file. This must be
+done on every Kubernetes manager node where SAT commands are run.
+
+Below is a table describing SAT commands and the types of authentication they require.
 
 |SAT Subcommand|Authentication/Credentials Required|Man Page|Description|
 |--------------|-----------------------------------|--------|-----------|
