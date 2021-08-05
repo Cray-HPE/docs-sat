@@ -4,6 +4,9 @@ Generate S3 credentials and write them to a local file so the SAT user can acces
 S3 bucket, the System Administrator must generate the S3 access key and secret keys and write them to a local file.
 This must be done on every Kubernetes master node where SAT commands are run.
 
+SAT uses S3 storage for several purposes, most importantly to store the site-specific information set with `sat setrev`
+(see: [Run Sat Setrev to Set System Information](#run-sat-setrev-to-set-system-information)).
+
 ### Prerequisites
 
 - The `sat` CLI has been installed following [Install The System Admin Toolkit Product Stream](#install-the-system-admin-toolkit-product-stream).
