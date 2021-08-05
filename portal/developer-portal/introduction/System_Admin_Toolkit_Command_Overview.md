@@ -40,7 +40,7 @@ examples show the same action, checking the system status, using interactive and
 
 ```screen
 ncn-m001# sat bash
-(CONTAINER-ID)sat-container\# sat status
+(CONTAINER-ID)sat-container# sat status
 ```
 
 #### Non-interactive

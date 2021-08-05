@@ -136,7 +136,7 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
 11. Update the `ncn-personalization` CFS configuration using the local file from the previous step.
 
     ```screen
-      ncn-m001# cray cfs configurations update ncn-personalization --file ncn-personalization.json --format json
+    ncn-m001# cray cfs configurations update ncn-personalization --file ncn-personalization.json --format json
     ```
 
 12. Optional: remove the local file from the previous step.
