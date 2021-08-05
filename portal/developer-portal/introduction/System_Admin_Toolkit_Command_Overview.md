@@ -5,7 +5,9 @@ instruction on the SAT Container Environment.
 
 ### SAT Command Line Utility
 
-The primary component of the System Admin Toolkit (SAT) is a command-line utility run from Kubernetes manager nodes.
+The primary component of the System Admin Toolkit (SAT) is a command-line utility run from Kubernetes manager nodes
+(`ncn-m` nodes).
+
 It is designed to assist administrators with common tasks, such as troubleshooting and querying information about the
 HPE Cray EX System and its components, system boot and shutdown, and replacing hardware components. There are
 similarities between SAT commands and xt commands used on the Cray XC platform.
