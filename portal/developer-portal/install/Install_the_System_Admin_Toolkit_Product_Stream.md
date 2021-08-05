@@ -34,8 +34,29 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
 
 5. Run the installer, **install.sh**.
 
+   The script results in a lot of output, and the last several lines are included
+   below for reference. Omitted lines are indicated with an ellipsis (`...`) below.
+
    ```screen
    ncn-m001# ./install.sh
+   ...
+   ConfigMap data updates exist; Exiting.
+   + clean-install-deps
+   + for image in "${vendor_images[@]}"
+   + podman rmi -f docker.io/library/cray-nexus-setup:sat-2.1.x-20210804163905-8dbb87d
+   Untagged: docker.io/library/cray-nexus-setup:sat-2.1.x-20210804163905-8dbb87d
+   Deleted: 2c196c0c6364d9a1699d83dc98550880dc491cc3433a015d35f6cab1987dd6da
+   + for image in "${vendor_images[@]}"
+   + podman rmi -f docker.io/library/skopeo:sat-2.1.x-20210804163905-8dbb87d
+   Untagged: docker.io/library/skopeo:sat-2.1.x-20210804163905-8dbb87d
+   Deleted: 1b38b7600f146503e246e753cd9df801e18409a176b3dbb07b0564e6bc27144c
+   ```
+
+   It is recommended to check the return code of the installer, which should be zero.
+
+   ```screen
+   ncn-m001# echo $?
+   0
    ```
 
 6. Ensure that the environment variable `SAT_TAG` is not being set in the `~/.bashrc` file
