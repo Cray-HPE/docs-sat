@@ -84,19 +84,31 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
    ncn-m003: source <(kubectl completion bash)
    ```
 
-7. Check the progress of the SAT configuration import Kubernetes job. Replace `2.1.x` with the
-   version of the SAT product stream being installed.
+7. Check the progress of the SAT configuration import Kubernetes job, which is initiated by `install.sh`.
+   Replace `2.1.x` with the version of the SAT product being installed.
 
-   First, check the status of the job:
+   Check the status of the job. If the "Pods Statuses" appear as "Succeeded", then the job has completed
+   successfully. The job usually takes between 30 seconds and 2 minutes.
 
    ```screen
    ncn-m001# kubectl describe job sat-config-import-2.1.x -n services
+   ...
+   Pods Statuses:  0 Running / 1 Succeeded / 0 Failed
+   ...
    ```
 
-   Next, check the logs from the job:
+   If desired, monitor the progress of the job using `kubectl logs`. The example below includes the final
+   log lines from a successful configuration import Kubernetes job.
 
    ```screen
-   ncn-m001# kubectl logs -n services --selector job-name=sat-config-import-2.1.x --all-containers
+   ncn-m001# kubectl logs -f -n services --selector job-name=sat-config-import-2.1.x --all-containers
+   ...
+   ConfigMap update attempt=1
+   Resting 1s before reading ConfigMap
+   ConfigMap data updates exist; Exiting.
+   2021-08-04T21:50:10.275886Z  info    Agent has successfully terminated
+   2021-08-04T21:50:10.276118Z  warning envoy main  caught SIGTERM
+   # Completed on Wed Aug  4 21:49:44 2021
    ```
 
 8. Once the SAT configuration import Kubernetes job completed, obtain the git commit ID for the
