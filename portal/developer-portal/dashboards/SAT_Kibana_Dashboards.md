@@ -5,6 +5,13 @@ in Elasticsearch indices. Kibana runs as a web service and has a browser-based i
 node data in the forms of charts, tables and maps that display real-time Elasticsearch queries. Viewing system data in
 this way breaks down the complexity of large data volumes into easily understood information.
 
+Kibana can be accessed via web browser at the following URL:
+
+- `https://sma-kibana.<system_name>.<system_domain>`
+
+For additional details about how to access the Kibana Dashboards refer to _View Logs Via Kibana_ in the SMA product
+documentation.
+
 Additional details about the AER, ATOM, Heartbeat, Kernel, MCE, and Rasdaemon Kibana Dashboards are included in this
 table.
 
