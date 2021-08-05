@@ -140,6 +140,8 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
 
    If this is the case, simply proceed by creating a new `ncn-personalization.json` file with just a single layer.
 
+   For more on NCN personalization, please refer to "Managing Configuration with CFS" in the CSM product documentation.
+
 10. Add a `sat` layer to the local file. **If COS is present, then COS must remain the first entry in the list.**
     Use the git commit ID from step 8, e.g. `82537e59c24dd5607d5f5d6f92cdff971bd9c615`. The `name` and `playbook`
     fields must also match the example below.
