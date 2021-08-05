@@ -6,6 +6,7 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
 
 - CSM is installed and verified.
 - cray-product-catalog is running.
+- There must be at least 2 gigabytes of free space on the manager NCN on which the procedure is run.
 
 ### Procedure
 
@@ -194,13 +195,20 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
     This will occur the first time `sat` is run on each manager NCN. For example, if you run `sat` for the first
     time on `ncn-m001` and then for the first time on `ncn-m002`, you will see this additional output both times.
 
-16. Finish the typescript file started at the beginning of this procedure.
+16. Optional: Remove the SAT release distribution tar file and extracted directory.
+
+    ```screen
+    ncn-m001# rm sat-2.1.x.tar.gz
+    ncn-m001# rm -rf sat-2.1.x/
+    ```
+
+17. Finish the typescript file started at the beginning of this procedure.
 
     ```screen
     ncn-m001# exit
     ```
 
-17. Complete installation by running the following procedures to set up SAT:
+18. Complete installation by running the following procedures to set up SAT:
     - [SAT Authentication](#sat-authentication)
     - [Generate SAT S3 Credentials](#generate-sat-s3-credentials)
     - [Run Sat Setrev to Set System Information](#run-sat-setrev-to-set-system-information)
