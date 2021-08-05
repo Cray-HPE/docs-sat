@@ -171,8 +171,19 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
 
 11. Update the `ncn-personalization` CFS configuration using the local file from the previous step.
 
+    The command should output a JSON-formatted representation of the `ncn-personalization` CFS configuration,
+    which will look like `ncn-personalization.json`, but with `lastUpdated` and `name` fields (output below
+    is truncated for brevity).
+
     ```screen
     ncn-m001# cray cfs configurations update ncn-personalization --file ncn-personalization.json --format json
+    {
+      "lastUpdated": "2021-08-05T16:38:53Z",
+      "layers": {
+        ...
+      },
+      "name": "ncn-personalization"
+    }
     ```
 
 12. Optional: remove the local file from the previous step.
