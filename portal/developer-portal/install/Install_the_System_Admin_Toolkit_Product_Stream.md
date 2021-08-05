@@ -194,10 +194,14 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
 
 13. Use `cray cfs` to invoke the configuration, which will install SAT on the manager NCNs. This command uses the
     `--configuration-limit` option to only run the `sat-ncn` layer of `ncn-personalization`, so that it does not run
-    any other product's configuration.
+    any other product's configuration. This command will output a representation of the CFS session.
 
     ```screen
     ncn-m001# cray cfs sessions create --name sat-session --configuration-name ncn-personalization --configuration-limit sat-ncn
+    name = "sat-session"
+
+    [ansible]
+    ...
     ```
 
 14. Monitor the progress of the CFS configuration. First, list all containers associated with the CFS session:
@@ -214,6 +218,18 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
 
     ```screen
     ncn-m001# kubectl logs -c ansible-1 --tail 100 -f -n services --selector=cfsession=sat-session
+    ```
+
+    The CFS configuration session will run Ansible plays that install SAT on all the manager NCNs on the system.
+    You should expect to find successful results for all of the manager NCN xnames at the end of the container
+    log, for example:
+
+    ```
+    ...
+    PLAY RECAP *********************************************************************
+    x3000c0s1b0n0              : ok=3    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+    x3000c0s3b0n0              : ok=3    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+    x3000c0s5b0n0              : ok=3    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
     ```
 
 15. Verify that SAT is successfully installed by running the following command to confirm the expected version.
