@@ -15,7 +15,7 @@ depends.
 | `sat bmccreds`  | **CSM**                                                 |
 |                 |                                                         |
 |                 | * Hardware State Manager (HSM)                          |
-|                 | * System Configuration Service (SCS)                    |
+|                 | * System Configuration Service (SCSD)                    |
 |                 |                                                         |
 +-----------------+---------------------------------------------------------+
 | `sat bootsys`   | **CSM**                                                 |
