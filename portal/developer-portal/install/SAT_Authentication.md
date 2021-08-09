@@ -17,7 +17,7 @@ commands and the types of authentication they require.
 |SAT Subcommand|Authentication/Credentials Required|Man Page|Description|
 |--------------|-----------------------------------|--------|-----------|
 |`sat auth`|Responsible for authenticating to the API gateway and storing a token.|`sat-auth`|Authenticate to the API gateway and save the token.|
-|`sat bmccreds`|Requires authentication to the API gateway.|`sat bmccreds`|Set BMC passwords.|
+|`sat bmccreds`|Requires authentication to the API gateway.|`sat-bmccreds`|Set BMC passwords.|
 |`sat bootsys`|Requires authentication to the API gateway. Requires kubernetes configuration and authentication, which is configured on `ncn-m001` during the install. Some stages require passwordless SSH to be configured to all other NCNs. Requires S3 to be configured for some stages.|`sat-bootsys`|Boot or shutdown the system, including compute nodes, application nodes, and non-compute nodes (NCNs) running the management software.|
 |`sat diag`|Requires authentication to the API gateway.|`sat-diag`|Launch diagnostics on the HSN switches and generate a report.|
 |`sat firmware`|Requires authentication to the API gateway.|`sat-firmware`|Report firmware version.|
