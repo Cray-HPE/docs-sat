@@ -11,6 +11,12 @@ as the specific services or components of those products on which the given `sat
 |                 |                                                         |
 |                 | * Keycloak                                              |
 +-----------------+---------------------------------------------------------+
+| `sat bmccreds`  | **CSM**                                                 |
+|                 |                                                         |
+|                 | * Hardware State Manager (HSM)                          |
+|                 | * System Configuration Service (SCSD)                    |
+|                 |                                                         |
++-----------------+---------------------------------------------------------+
 | `sat bootsys`   | **CSM**                                                 |
 |                 |                                                         |
 |                 | * Boot Orchestration Service (BOS)                      |
