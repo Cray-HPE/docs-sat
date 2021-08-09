@@ -239,6 +239,8 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
     ```
 
 15. Verify that SAT is successfully installed by running the following command to confirm the expected version.
+    The examples below use an example version of 3.7.0.
+
     This version number will be different than the version number of the SAT release distribution. This is the
     semantic version of the `sat` Python package, which is different from the version number of the overall SAT
     release distribution.
