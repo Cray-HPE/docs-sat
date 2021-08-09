@@ -12,6 +12,12 @@ depends.
 |                 |                                                         |
 |                 | * Keycloak                                              |
 +-----------------+---------------------------------------------------------+
+| `sat bmccreds`  | **CSM**                                                 |
+|                 |                                                         |
+|                 | * Hardware State Manager (HSM)                          |
+|                 | * System Configuration Service (SCS)                    |
+|                 |                                                         |
++-----------------+---------------------------------------------------------+
 | `sat bootsys`   | **CSM**                                                 |
 |                 |                                                         |
 |                 | * Boot Orchestration Service (BOS)                      |
