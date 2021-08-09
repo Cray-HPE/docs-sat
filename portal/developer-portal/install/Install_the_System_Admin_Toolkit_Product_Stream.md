@@ -111,6 +111,12 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
    # Completed on Wed Aug  4 21:49:44 2021
    ```
 
+   The following error may appear in this log and can be ignored:
+
+   ```bash
+   error accept tcp [::]:15020: use of closed network connection
+   ```
+
 8. Once the SAT configuration import Kubernetes job completed, obtain the git commit ID for the
    branch matching the version of SAT being installed. This represents a revision of Ansible
    configuration content stored in VCS, and in this example is
