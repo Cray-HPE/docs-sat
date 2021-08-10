@@ -33,7 +33,11 @@ as the specific services or components of those products on which the given `sat
 |                 |                                                         |
 |                 | * Node Memory Dump (NMD)                                |
 +-----------------+---------------------------------------------------------+
-| `sat diag`      | **CSM-Diag**                                            |
+| `sat diag`      | **CSM**                                                 |
+|                 |                                                         |
+|                 | * Hardware State Manager (HSM)                          |
+|                 |                                                         |
+|                 | **CSM-Diag**                                            |
 |                 |                                                         |
 |                 | * Fox                                                   |
 +-----------------+---------------------------------------------------------+
