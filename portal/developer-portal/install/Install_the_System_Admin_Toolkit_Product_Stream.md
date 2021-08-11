@@ -6,6 +6,7 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
 
 - CSM is installed and verified.
 - cray-product-catalog is running.
+- There must be at least 2 gigabytes of free space on the manager NCN on which the procedure is run.
 
 ### Procedure
 
@@ -33,8 +34,29 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
 
 5. Run the installer, **install.sh**.
 
+   The script results in a lot of output, and the last several lines are included
+   below for reference. Omitted lines are indicated with an ellipsis (`...`) below.
+
    ```screen
    ncn-m001# ./install.sh
+   ...
+   ConfigMap data updates exist; Exiting.
+   + clean-install-deps
+   + for image in "${vendor_images[@]}"
+   + podman rmi -f docker.io/library/cray-nexus-setup:sat-2.1.x-20210804163905-8dbb87d
+   Untagged: docker.io/library/cray-nexus-setup:sat-2.1.x-20210804163905-8dbb87d
+   Deleted: 2c196c0c6364d9a1699d83dc98550880dc491cc3433a015d35f6cab1987dd6da
+   + for image in "${vendor_images[@]}"
+   + podman rmi -f docker.io/library/skopeo:sat-2.1.x-20210804163905-8dbb87d
+   Untagged: docker.io/library/skopeo:sat-2.1.x-20210804163905-8dbb87d
+   Deleted: 1b38b7600f146503e246e753cd9df801e18409a176b3dbb07b0564e6bc27144c
+   ```
+
+   It is recommended to check the return code of the installer, which should be zero.
+
+   ```screen
+   ncn-m001# echo $?
+   0
    ```
 
 6. Ensure that the environment variable `SAT_TAG` is not being set in the `~/.bashrc` file
@@ -62,18 +84,37 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
    ncn-m003: source <(kubectl completion bash)
    ```
 
-7. Check the progress of the SAT configuration import Kubernetes job.
+7. Check the progress of the SAT configuration import Kubernetes job, which is initiated by `install.sh`.
+   Replace `2.1.x` with the version of the SAT product being installed.
 
-   First, check the status of the job:
+   Check the status of the job. If the "Pods Statuses" appear as "Succeeded", then the job has completed
+   successfully. The job usually takes between 30 seconds and 2 minutes.
 
    ```screen
-   ncn-m001# kubectl describe job sat-config-import -n services
+   ncn-m001# kubectl describe job sat-config-import-2.1.x -n services
+   ...
+   Pods Statuses:  0 Running / 1 Succeeded / 0 Failed
+   ...
    ```
 
-   Next, check the logs from the job:
+   If desired, monitor the progress of the job using `kubectl logs`. The example below includes the final
+   log lines from a successful configuration import Kubernetes job.
 
    ```screen
-   ncn-m001# kubectl logs -n services --selector job-name=sat-config-import --all-containers
+   ncn-m001# kubectl logs -f -n services --selector job-name=sat-config-import-2.1.x --all-containers
+   ...
+   ConfigMap update attempt=1
+   Resting 1s before reading ConfigMap
+   ConfigMap data updates exist; Exiting.
+   2021-08-04T21:50:10.275886Z  info    Agent has successfully terminated
+   2021-08-04T21:50:10.276118Z  warning envoy main  caught SIGTERM
+   # Completed on Wed Aug  4 21:49:44 2021
+   ```
+
+   The following error may appear in this log and can be ignored:
+
+   ```bash
+   error accept tcp [::]:15020: use of closed network connection
    ```
 
 8. Once the SAT configuration import Kubernetes job completed, obtain the git commit ID for the
@@ -105,6 +146,8 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
 
    If this is the case, simply proceed by creating a new `ncn-personalization.json` file with just a single layer.
 
+   For more on NCN personalization, please refer to "Managing Configuration with CFS" in the CSM product documentation.
+
 10. Add a `sat` layer to the local file. **If COS is present, then COS must remain the first entry in the list.**
     Use the git commit ID from step 8, e.g. `82537e59c24dd5607d5f5d6f92cdff971bd9c615`. The `name` and `playbook`
     fields must also match the example below.
@@ -134,8 +177,19 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
 
 11. Update the `ncn-personalization` CFS configuration using the local file from the previous step.
 
+    The command should output a JSON-formatted representation of the `ncn-personalization` CFS configuration,
+    which will look like `ncn-personalization.json`, but with `lastUpdated` and `name` fields (output below
+    is truncated for brevity).
+
     ```screen
-      ncn-m001# cray cfs configurations update ncn-personalization --file ncn-personalization.json --format json
+    ncn-m001# cray cfs configurations update ncn-personalization --file ncn-personalization.json --format json
+    {
+      "lastUpdated": "2021-08-05T16:38:53Z",
+      "layers": {
+        ...
+      },
+      "name": "ncn-personalization"
+    }
     ```
 
 12. Optional: remove the local file from the previous step.
@@ -146,10 +200,14 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
 
 13. Use `cray cfs` to invoke the configuration, which will install SAT on the manager NCNs. This command uses the
     `--configuration-limit` option to only run the `sat-ncn` layer of `ncn-personalization`, so that it does not run
-    any other product's configuration.
+    any other product's configuration. This command will output a representation of the CFS session.
 
     ```screen
     ncn-m001# cray cfs sessions create --name sat-session --configuration-name ncn-personalization --configuration-limit sat-ncn
+    name = "sat-session"
+
+    [ansible]
+    ...
     ```
 
 14. Monitor the progress of the CFS configuration. First, list all containers associated with the CFS session:
@@ -168,7 +226,21 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
     ncn-m001# kubectl logs -c ansible-1 --tail 100 -f -n services --selector=cfsession=sat-session
     ```
 
+    The CFS configuration session will run Ansible plays that install SAT on all the manager NCNs on the system.
+    You should expect to find successful results for all of the manager NCN xnames at the end of the container
+    log, for example:
+
+    ```
+    ...
+    PLAY RECAP *********************************************************************
+    x3000c0s1b0n0              : ok=3    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+    x3000c0s3b0n0              : ok=3    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+    x3000c0s5b0n0              : ok=3    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+    ```
+
 15. Verify that SAT is successfully installed by running the following command to confirm the expected version.
+    The examples below use an example version of 3.7.0.
+
     This version number will be different than the version number of the SAT release distribution. This is the
     semantic version of the `sat` Python package, which is different from the version number of the overall SAT
     release distribution.
@@ -193,13 +265,20 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
     This will occur the first time `sat` is run on each manager NCN. For example, if you run `sat` for the first
     time on `ncn-m001` and then for the first time on `ncn-m002`, you will see this additional output both times.
 
-16. Finish the typescript file started at the beginning of this procedure.
+16. Optional: Remove the SAT release distribution tar file and extracted directory.
+
+    ```screen
+    ncn-m001# rm sat-2.1.x.tar.gz
+    ncn-m001# rm -rf sat-2.1.x/
+    ```
+
+17. Finish the typescript file started at the beginning of this procedure.
 
     ```screen
     ncn-m001# exit
     ```
 
-17. Complete installation by running the following procedures to set up SAT:
+18. Complete installation by running the following procedures to set up SAT:
     - [SAT Authentication](#sat-authentication)
     - [Generate SAT S3 Credentials](#generate-sat-s3-credentials)
     - [Run Sat Setrev to Set System Information](#run-sat-setrev-to-set-system-information)

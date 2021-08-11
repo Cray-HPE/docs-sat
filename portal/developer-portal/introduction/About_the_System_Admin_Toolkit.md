@@ -1,8 +1,11 @@
 ## About System Admin Toolkit (SAT)
 
-The System Admin Toolkit \(SAT\) is installed as a separate product stream as part of the HPE Cray EX System base installation.
-SAT offers a command line utility which uses subcommands that each have a manual page. For more information on SAT commands,
-see [System Admin Toolkit Command Overview](#system-admin-toolkit-command-overview).
+The System Admin Toolkit \(SAT\) is designed to assist administrators with common tasks, such as troubleshooting and
+querying information about the HPE Cray EX System and its components, system boot and shutdown, and replacing hardware
+components.
+
+SAT offers a command line utility which uses subcommands. There are similarities between SAT commands and xt commands
+used on the Cray XC platform. For more information on SAT commands, see [System Admin Toolkit Command Overview](#system-admin-toolkit-command-overview).
 
 Six Kibana Dashboards are included with SAT. They provide organized output for system health information.
 
@@ -21,3 +24,4 @@ are reported through Redfish.
 - [Grafana Fabric Port State Dashboard](#grafana-fabric-port-state-dashboard)
 - [Grafana Fabric RFC3635 Dashboard](#grafana-fabric-rfc3635-dashboard)
 
+SAT is installed as a separate product as part of the HPE Cray EX System base installation.
