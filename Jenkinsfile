@@ -35,6 +35,7 @@ def pipelineParams= [
     slackNotification: ["", "", true, true, true, true],
     product: "pubs",
     targetOS: "noos",
+    targetArch: "noarch",
 ]
 
 // Build date
@@ -80,16 +81,17 @@ pipeline {
 
     environment {
         VERSION = sh(returnStdout: true, script: "./setup_versioning.sh;cat .version").trim()
-        VERSION_RPM = "${VERSION}" 
+        STREAM_VERSION=sh(returnStdout: true, script: "cat ./sat-version.txt").trim()
+        VERSION_RPM = "${VERSION}"
         GIT_TAG = sh(returnStdout: true, script: "git rev-parse --short HEAD").trim()
         BUILD_DATE = "${buildDate}"
-        IMAGE_TAG = getDockerImageTag(version: "${VERSION}", buildDate: "${BUILD_DATE}", gitTag: "${GIT_TAG}")
+        IMAGE_TAG = getDockerImageTag(version: "${STREAM_VERSION}", buildDate: "${BUILD_DATE}", gitTag: "${GIT_TAG}")
         IMAGE_NAME_PDFHTML = "${pipelineParams.imagePrefix}-pdfhtml-${IMAGE_TAG}"
         IMAGE_NAME_PDF = "${pipelineParams.imagePrefix}-pdf-${IMAGE_TAG}"
         IMAGE_NAME_HTML = "${pipelineParams.imagePrefix}-html-${IMAGE_TAG}"
         PRODUCT = "${pipelineParams.product}"
         TARGET_OS = "${pipelineParams.targetOS}"
-        TARGET_ARCH = "noarch"
+        TARGET_ARCH = "${pipelineParams.targetArch}"
     }
 
     stages {
@@ -99,7 +101,7 @@ pipeline {
                 printBuildInfo(pipelineParams)
                 script {
                         echo "Print all Environment Variables"
-                        sh "env | sort"
+                        sh "env | sort -f"
                     }
             }
         }
@@ -109,7 +111,7 @@ pipeline {
                 echo "image tag for this build is ${IMAGE_TAG}"
             }
         }
-        
+
         /*
         stage('Spellcheck') {
             steps {
@@ -132,6 +134,8 @@ pipeline {
                     mkdir -p ${WORKSPACE}/build/results
                     cd portal/developer-portal;make tar
                     cp build/*.tar ${WORKSPACE}/build/results/${IMAGE_NAME_PDFHTML}.tar
+                    mkdir ${WORKSPACE}/build/results/${pipelineParams.name}
+                    mv ${WORKSPACE}/build/results/${IMAGE_NAME_PDFHTML}.tar ${WORKSPACE}/build/results/${pipelineParams.name}/${IMAGE_NAME_PDFHTML}.tar
                     cp build/pdf ${WORKSPACE}/build/results/${IMAGE_NAME_PDF} -rf
                     cp build/html ${WORKSPACE}/build/results/${IMAGE_NAME_HTML} -rf
                 else
@@ -143,7 +147,7 @@ pipeline {
             }
         }
 
-        /* 
+        /*
         stage('Create RPM') {
             environment {
                 VERSION = "${env.VERSION_RPM}"
@@ -168,8 +172,8 @@ pipeline {
         stage('Transfer') {
             steps {
                 script {
-                    if ( checkFileExists(filePath: 'build/results/*.tar') ) {
-                        transfer(artifactName: "build/results/*.tar")
+                    if ( checkFileExists(filePath: "build/results/${pipelineParams.name}/*.tar") ) {
+                        transfer(artifactName: "build/results/${pipelineParams.name}")
                     }
                     if ( checkFileExists(filePath: 'build/results/*.rpm') ) {
                         transfer(artifactName: "build/results/*.rpm")
