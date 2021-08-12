@@ -1,22 +1,41 @@
 @Library('dst-shared@master') _
 
-// Possible Parameters:
-// * makefile              Path to the makefile that compiles the documentation
-// * repo                  The name of the repository, used as the prefix for the RPM and tar archive
-// * slackNotification     Array: ["<slack_channel>", "<jenkins_credential_id>", <notify_on_start>, <notify_on_success>, <notify_on_failure>, <notify_on_fixed>]]
-// * targetOS              Used when transferring to artifactory
-// * targetArch            Used when transferring to artifactory
+//Possible Parameters Include
+// * executeScript         Name of script which creates .tar file
+// * executeScript2        Name of script which creates CLI .md files
+// * dockerfile            Path to the Docker file relative to the repository root.  Default Dockerfile
+// * dockerBuildContextDir The build context directory for Docker builds.  Default to '.' i.e. workspace root
+// * dockerArguments       Additional arguments to pass to the build of the Docker application
+// * dockerBuildTarget     Target to build when building the Docker application. Defaults to unset
+// * masterBranch          Branch to consider as master, only this branch will receive the latest tag.  Default master
+// * repository            Docker repository name to use
+// * imagePrefix           Docker image name prefix
+// * name                  Name of the Docker image used to add metadata to the image
+// * description           Description of the Docker image used to add metadata to the image
+// * slackNotification     Array: ["<slack_channel>", "<jenkins_credential_id", <notify_on_start>, <notify_on_success>, <notify_on_failure>, <notify_on_fixed>]]
+// * product               String: set product for the transfer function
+// * targetOS              String: set targetOS for the transfer function
 
-// Jenkinsfile for building documentation
-// Copyright 2021 Hewlett Packard Enterprise Development LP.
+// Jenkins library for building docker files
+// Copyright 2019 - 2021 Hewlett Packard Enterprise Development, LP
 
 
-def pipelineParams = [
-    makefile: "portal/developer-portal/Makefile",
-    repo: "sat-docs",
-    slackNotification: ["", "", false, false, true, true],
-    targetOS: 'noos',
-    targetArch: 'noarch'
+def pipelineParams= [
+    makeMakefile: "portal/developer-portal/Makefile",
+    dockerfileSpell: "Dockerfile.spellcheck",
+    repository: "cray",
+    imagePrefix: "sat-docs",
+    name: "sat-docs",
+    description: "Docs-as-code template",
+    masterBranch: 'master',
+    dockerBuildContextDir: '.',
+    dockerArguments: "",
+    dockerBuildTarget: "application",
+    useEntryPointForTest: true,
+    slackNotification: ["", "", true, true, true, true],
+    product: "pubs",
+    targetOS: "noos",
+    targetArch: "noarch",
 ]
 
 // Build date
@@ -59,17 +78,22 @@ pipeline {
         // Add timestamps and color to console output, cuz pretty
         timestamps()
     }
+
     environment {
-        VERSION = sh(returnStdout: true, script: "cat .version").trim()
+        VERSION = sh(returnStdout: true, script: "./setup_versioning.sh;cat .version").trim()
+        STREAM_VERSION=sh(returnStdout: true, script: "cat ./sat-version.txt").trim()
+        VERSION_RPM = "${VERSION}"
         GIT_TAG = sh(returnStdout: true, script: "git rev-parse --short HEAD").trim()
-        BUILD_DATE = "${buildDate}" 
-        IMAGE_TAG = getDockerImageTag(version: "${VERSION}", buildDate: "${BUILD_DATE}", gitTag: "${GIT_TAG}")
-        IMAGE_NAME = "${pipelineParams.repo}-directory-${IMAGE_TAG}"
-        IMAGE_NAME_PDFHTML = "${pipelineParams.repo}-pdfhtml-${IMAGE_TAG}"
-        IMAGE_NAME_PDF = "${pipelineParams.repo}-pdf-${IMAGE_TAG}"
+        BUILD_DATE = "${buildDate}"
+        IMAGE_TAG = getDockerImageTag(version: "${STREAM_VERSION}", buildDate: "${BUILD_DATE}", gitTag: "${GIT_TAG}")
+        IMAGE_NAME_PDFHTML = "${pipelineParams.imagePrefix}-pdfhtml-${IMAGE_TAG}"
+        IMAGE_NAME_PDF = "${pipelineParams.imagePrefix}-pdf-${IMAGE_TAG}"
+        IMAGE_NAME_HTML = "${pipelineParams.imagePrefix}-html-${IMAGE_TAG}"
+        PRODUCT = "${pipelineParams.product}"
         TARGET_OS = "${pipelineParams.targetOS}"
         TARGET_ARCH = "${pipelineParams.targetArch}"
     }
+
     stages {
         // For debugging
         stage('Print Build Info') {
@@ -77,63 +101,79 @@ pipeline {
                 printBuildInfo(pipelineParams)
                 script {
                         echo "Print all Environment Variables"
-                        sh "env | sort"
+                        sh "env | sort -f"
                     }
             }
         }
-        stage('Spellcheck') {
-            // Skip 'make spellcheck' which requires pandoc
-            // TODO: run in docker
-            when { expression { false }}
+        stage('Workdir Preparation') {
             steps {
-                dir("portal/developer-portal"){
-                    sh "make spellcheck"
-                }
+                sh "mkdir -p build"
+                echo "image tag for this build is ${IMAGE_TAG}"
             }
         }
+
+        /*
+        stage('Spellcheck') {
+            steps {
+                sh """
+                    docker build -t basecontainer-${containerId_toss} --target build -f ${pipelineParams.dockerfileSpell} .
+                """
+            }
+        }
+        */
+
         stage('Build PDF HTML') {
             environment {
-                BUILD_DATE = "${buildDate}" 
+                BUILD_DATE = "${buildDate}"
             }
             steps {
-                echo "${BUILD_DATE}"
-                sh """
-                    if [[ -f ${pipelineParams.makefile} ]]; then
-                        mkdir -p ${WORKSPACE}/build/results
-                        cd portal/developer-portal; make lint && make tar
-                        cp docs/*.tar ${WORKSPACE}/build/results/${IMAGE_NAME_PDFHTML}.tar
-                        cp docs/pdf ${WORKSPACE}/build/results/${IMAGE_NAME_PDF} -rf
-                    else
-                        echo "${pipelineParams.makefile} doesn't exist"
-                        exit 1
-                    fi
-                    """
-                }
+            // Build PDF HTML
+            echo "${BUILD_DATE}"
+            sh """
+                if [[ -f ${pipelineParams.makeMakefile} ]]; then
+                    mkdir -p ${WORKSPACE}/build/results
+                    cd portal/developer-portal;make tar
+                    cp build/*.tar ${WORKSPACE}/build/results/${IMAGE_NAME_PDFHTML}.tar
+                    mkdir ${WORKSPACE}/build/results/${pipelineParams.name}
+                    mv ${WORKSPACE}/build/results/${IMAGE_NAME_PDFHTML}.tar ${WORKSPACE}/build/results/${pipelineParams.name}/${IMAGE_NAME_PDFHTML}.tar
+                    cp build/pdf ${WORKSPACE}/build/results/${IMAGE_NAME_PDF} -rf
+                    cp build/html ${WORKSPACE}/build/results/${IMAGE_NAME_HTML} -rf
+                else
+                    echo "${pipelineParams.makeMakefile} doesn't exist"
+                    exit 1
+                fi
+                """
+
+            }
         }
+
+        /*
         stage('Create RPM') {
-            // Skip building RPM temporarily
-            // TODO: get RPM build working
-            when { expression { false }}
+            environment {
+                VERSION = "${env.VERSION_RPM}"
+            }
             steps {
             sh """
-                if [[ -f ${pipelineParams.makefile} ]]; then
+                if [[ -f ${pipelineParams.makeMakefile} ]]; then
                     ls -latr ${WORKSPACE}/build/results
-                    cd portal/developer-portal;    
+                    cd portal/developer-portal;
                     cp  ${WORKSPACE}/build/results/${IMAGE_NAME_PDF} pdf -rf
+                    cp  ${WORKSPACE}/build/results/${IMAGE_NAME_HTML} html -rf
                     make package
                     cp -r rpmbuild/RPMS/x86_64/*.rpm ${WORKSPACE}/build/results
                 else
-                    echo "${pipelineParams.makefile} doesn't exist"
+                    echo "${pipelineParams.makeMakefile} doesn't exist"
                     exit 1
                 fi
                 """
             }
         }
+        */
         stage('Transfer') {
             steps {
                 script {
-                    if ( checkFileExists(filePath: 'build/results/*.tar') ) {
-                        transfer(artifactName: "build/results/*.tar")
+                    if ( checkFileExists(filePath: "build/results/${pipelineParams.name}/*.tar") ) {
+                        transfer(artifactName: "build/results/${pipelineParams.name}")
                     }
                     if ( checkFileExists(filePath: 'build/results/*.rpm') ) {
                         transfer(artifactName: "build/results/*.rpm")
