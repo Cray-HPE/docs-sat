@@ -15,7 +15,7 @@ RPM_BUILD_ROOT := `pwd`
 endif
 
 ## Build dir
-BUILDDIR = docs
+BUILDDIR = build
 
 SOURCEDIR = .
 OPENAPI = ../openapi
@@ -35,6 +35,7 @@ CSSDIR = css
 ## Expands to a list of all markdown files in the working directory
 MD_SRC = $(wildcard $(SOURCEDIR)/*.md)
 MDS_SRC = $(wildcard $(SOURCEDIR)/*.mds)
+CHK_SRC = $(wildcard $(SOURCEDIR)/*.mds)
 YAML = $(wildcard $(OPENAPI)/*.yaml)
 YAML_SRC = $(patsubst %.page.yaml,%.yaml,$(wildcard $(YAML)) )
 
@@ -44,7 +45,13 @@ YAML_SRC = $(patsubst %.page.yaml,%.yaml,$(wildcard $(YAML)) )
 
 # Need dependency when .mds contains other mds's and add to clean
 
+# Per STP-2786-feedback, commenting before removals
+# Operations_Guide_Customer.md: taxonomy.md install_sw.md admin_sw.md
+# Operations_Guide_Manufacturing.md: taxonomy.md install_sw.md install_hw.md admin_sw.md
+
 MDOBJECTS = $(patsubst %.mds,%.md,$(MDS_SRC))
+
+CHKOBJECTS = $(patsubst %.mds,%.md,$(MDS_SRC))
 
 HTMLOBJECTS = $(patsubst $(SOURCEDIR)/%.md,$(HTMLBUILDDIR)/%.html,$(MD_SRC))
 
@@ -68,26 +75,22 @@ PDFOBJECTS2 = $(patsubst $(SOURCEDIR)/%.mds,$(PDFBUILDDIR)/%.pdf,$(MDS_SRC))
 
 # Convert .mds to .md file
 COMPILEMDS = ../../scripts/compileMDS.py
+MKVERSION = ../../setup_versioning.sh
 
 # PANDOC experiments for reference
 #
-#HTMLPANDOC = /usr/local/bin/pandoc --to html5 --standalone
-#PANDOC  = pandoc -c css/H*.css -V papersize:a4 -V urlcolor:blue --from markdown+autolink_bare_uris+simple_tables+table_captions+yaml_metadata_block
-#PANDOC = docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` pandoc/latex:2.6 -c css/H*.css -V papersize:a4 -V urlcolor:blue
-#PANDOC = docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` pandoc/latex:2.6 -s --toc -c css/H*.css -V urlcolor:blue
 
-#PANDOC = docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` pandoc/latex:2.6 -c css/H*.css -s --toc -V monofontoptions:"Scale=0.4" -V geometry:"top=2cm, bottom=1.5cm, left=1.5cm, right=1.5cm" --pdf-engine=xelatex -H make-code-footnotesize.tex
+PANDOC-N = pandoc -c $(CSSDIR)/H.css -s --toc -V monofontoptions:"Scale=0.4" -V geometry:"top=2cm, bottom=1.5cm, left=1.5cm, right=1.5cm" --pdf-engine=xelatex --number-sections
 
-PANDOC-N = pandoc -c $(CSSDIR)/H*.css -s --toc -V monofontoptions:"Scale=0.4" -V geometry:"top=2cm, bottom=1.5cm, left=1.5cm, right=1.5cm" --pdf-engine=xelatex 
-PANDOC = docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` pandoc/latex:latest -c $(CSSDIR)/H*.css -s --toc -V monofontoptions:"Scale=0.4" -V geometry:"top=2cm, bottom=1.5cm, left=1.5cm, right=1.5cm" --pdf-engine=xelatex 
+PANDOC = docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` pandoc/latex:2.6 -c css/H.css -s --toc -V monofontoptions:"Scale=0.4" -V geometry:"top=2cm, bottom=1.5cm, left=1.5cm, right=1.5cm" --pdf-engine=xelatex  --number-sections
 
-PANDOC = docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` pandoc/latex:2.6 -c css/H*.css -s --toc -V monofontoptions:"Scale=0.4" -V geometry:"top=2cm, bottom=1.5cm, left=1.5cm, right=1.5cm" --pdf-engine=xelatex 
+HTMLPANDOC = docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` pandoc/latex:2.6 -c css/H.css -V urlcolor:blue -s --toc --to html5 --number-sections
 
-HTMLPANDOC = docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` pandoc/latex:2.6 -c css/H*.css -V urlcolor:blue -s --toc --to html5
+HTMLPANDOC-N = pandoc -c css/H.css -V urlcolor:blue -s --toc --to html5 --number-sections
 
-REDOC = docker run -v "`pwd`/..:/data" broothie/redoc-cli bundle
+REDOC = docker run -v "`pwd`/..:/data" broothie/redoc-cli:0.9.8 bundle
 MDL =	docker run --rm -v `pwd`:/workspace  -v `pwd`/lint/.mdlrc:/mdl/.mdlrc wpengine/mdl /workspace
-MDL-N =	mdl *.md 
+MDL-N =	mdl *.md
 
 
 # Also, include non-file targets in .PHONY so they are run regardless of any
@@ -106,7 +109,14 @@ pdf:    dir md $(PDFOBJECTS) $(PDFOBJECTS2)
 
 html:   dir md $(HTMLOBJECTS) $(HTMLOBJECTS2)
 
-api: dir md $(YAMLOBJECTS)
+api:    dir md $(YAMLOBJECTS)
+
+## For future, used if build artifacts do not perfectly align to .mds files
+## Then, create a pscript.sh in this directory with explicit pandoc commands
+## Not necessary in this case.
+##
+## pscript: dir md
+## 	docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` --entrypoint "/data/pscript.sh" pandoc/latex:2.6
 
 ## Implicit rules
 ## https://www.gnu.org/software/make/manual/html_node/Using-Implicit.html#Using-Implicit
@@ -126,7 +136,7 @@ dir: $(TMPDIR)/VeRsIoN.md
 
 $(TMPDIR)/VeRsIoN.md:
 	mkdir -p $(TMPDIR)
-	cat ../../.version > $(TMPDIR)/VeRsIoN.md
+	$(MKVERSION) -d > $(TMPDIR)/VeRsIoN.md
 
 # Some build environments may not have docker installed
 # In this case, specify make NODOCKER='y', and
@@ -161,7 +171,7 @@ clean:
 
 spellcheck: clean md
 	mkdir -p $(TMPDIR);touch $(TMPDIR)/spellerrors.txt
-	$(foreach mdobj,$(MDOBJECTS), echo "===== $(mdobj)" >> $(TMPDIR)/spellerrors.txt;pandoc --lua-filter ../spelling/spellcheck.lua $(mdobj) >> $(TMPDIR)/spellerrors.txt;)
+	$(foreach mdobj,$(CHKOBJECTS), echo "===== $(mdobj)" >> $(TMPDIR)/spellerrors.txt;pandoc --lua-filter ../spelling/spellcheck.lua $(mdobj) >> $(TMPDIR)/spellerrors.txt;)
 	@if [ `grep -v ===== ./tmp/spellerrors.txt | wc -l` -ne 0 ]; then \
 		cat ./tmp/spellerrors.txt ; \
 		exit ;\
@@ -201,14 +211,16 @@ tar: all $(BUILDDIR)/pdfhtml.tar
 	rm $(TMPDIR)/VeRsIoN.md
 
 $(BUILDDIR)/pdfhtml.tar: $(HTMLOBJECTS) $(PDFOBJECTS)
+
 	tar cf $@ $(BUILDDIR)/*
 
-sat-docs-$(VERSION).tar.bz2:
-	mkdir -p sat-docs-$(VERSION)
-	cp -a docs/pdf docs/html sat-docs-$(VERSION)
-	tar cjf $@ sat-docs-$(VERSION)
+product-docs-$(VERSION).tar.bz2:
+	mkdir -p product-docs-$(VERSION)
+	cp -a pdf product-docs-$(VERSION)
+	cp -a html product-docs-$(VERSION)
+	tar cjf $@ product-docs-$(VERSION)
 
-install: sat-docs-$(VERSION).tar.bz2
+install: product-docs-$(VERSION).tar.bz2
 	cp -r $< $(RPM_BUILD_ROOT)/rpmbuild/SOURCES/
 
 $(RPM_BUILD_ROOT)/rpmbuild:
@@ -218,6 +230,6 @@ $(RPM_BUILD_ROOT)/rpmbuild:
 	mkdir -p $@/SOURCES
 	mkdir -p $@/SPECS
 	mkdir -p $@/SRPMS
-	
+
 package: $(RPM_BUILD_ROOT)/rpmbuild install
-	rpmbuild -ba sat-docs.spec --define "_topdir $(RPM_BUILD_ROOT)/rpmbuild"
+	rpmbuild -ba product-docs.spec --define "_topdir $(RPM_BUILD_ROOT)/rpmbuild"
