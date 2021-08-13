@@ -68,7 +68,8 @@ The following is the procedure to globally configure the username used by SAT an
     **Note:** If the config file already exists, it will print out an error:
 
     ```screen
-    ERROR: Configuration file "/root/.config/sat/sat.toml" already exists.  Not generating configuration file.
+    ERROR: Configuration file "/root/.config/sat/sat.toml" already exists.
+    Not generating configuration file.
     ```
 
 2. Edit `~/.config/sat/sat.toml` and set the username option in the `api_gateway` section of the config file. E.g.:
