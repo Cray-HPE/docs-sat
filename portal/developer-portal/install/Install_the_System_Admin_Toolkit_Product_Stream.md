@@ -12,141 +12,148 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
 
 1. Start a typescript to capture the commands and output from this installation.
 
-   ```screen
-   ncn-m001# script -af product-sat.$(date +%Y-%m-%d).txt
-   ncn-m001# export PS1='\u@\H \D{%Y-%m-%d} \t \w # '
-   ```
+    ```screen
+    ncn-m001# script -af product-sat.$(date +%Y-%m-%d).txt
+    ncn-m001# export PS1='\u@\H \D{%Y-%m-%d} \t \w # '
+    ```
 
 2. Copy the release distribution gzipped tar file to `ncn-m001`. In the examples below, replace
-   `2.1.x` with the version of the SAT product stream being installed.
+    `2.1.x` with the version of the SAT product stream being installed.
 
 3. Unzip and extract the release distribution.
 
-   ```screen
-   ncn-m001# tar -xvzf sat-2.1.x.tar.gz
-   ```
+    ```screen
+    ncn-m001# tar -xvzf sat-2.1.x.tar.gz
+    ```
 
 4. Change directory to the extracted release distribution directory.
 
-   ```screen
-   ncn-m001# cd sat-2.1.x
-   ```
+    ```screen
+    ncn-m001# cd sat-2.1.x
+    ```
 
 5. Run the installer, **install.sh**.
 
-   The script results in a lot of output, and the last several lines are included
-   below for reference. Omitted lines are indicated with an ellipsis (`...`) below.
+    The script results in a lot of output, and the last several lines are included
+    below for reference. Omitted lines are indicated with an ellipsis (`...`) below.
 
-   ```screen
-   ncn-m001# ./install.sh
-   ...
-   ConfigMap data updates exist; Exiting.
-   + clean-install-deps
-   + for image in "${vendor_images[@]}"
-   + podman rmi -f docker.io/library/cray-nexus-setup:sat-2.1.x-20210804163905-8dbb87d
-   Untagged: docker.io/library/cray-nexus-setup:sat-2.1.x-20210804163905-8dbb87d
-   Deleted: 2c196c0c6364d9a1699d83dc98550880dc491cc3433a015d35f6cab1987dd6da
-   + for image in "${vendor_images[@]}"
-   + podman rmi -f docker.io/library/skopeo:sat-2.1.x-20210804163905-8dbb87d
-   Untagged: docker.io/library/skopeo:sat-2.1.x-20210804163905-8dbb87d
-   Deleted: 1b38b7600f146503e246e753cd9df801e18409a176b3dbb07b0564e6bc27144c
-   ```
+    ```screen
+    ncn-m001# ./install.sh
+    ...
+    ConfigMap data updates exist; Exiting.
+    + clean-install-deps
+    + for image in "${vendor_images[@]}"
+    + podman rmi -f docker.io/library/cray-nexus-setup:sat-2.1.x-20210804163905-8dbb87d
+    Untagged: docker.io/library/cray-nexus-setup:sat-2.1.x-20210804163905-8dbb87d
+    Deleted: 2c196c0c6364d9a1699d83dc98550880dc491cc3433a015d35f6cab1987dd6da
+    + for image in "${vendor_images[@]}"
+    + podman rmi -f docker.io/library/skopeo:sat-2.1.x-20210804163905-8dbb87d
+    Untagged: docker.io/library/skopeo:sat-2.1.x-20210804163905-8dbb87d
+    Deleted: 1b38b7600f146503e246e753cd9df801e18409a176b3dbb07b0564e6bc27144c
+    ```
 
-   It is recommended to check the return code of the installer, which should be zero.
+    It is recommended to check the return code of the installer, which should be zero.
 
-   ```screen
-   ncn-m001# echo $?
-   0
-   ```
+    ```screen
+    ncn-m001# echo $?
+    0
+    ```
 
 6. Ensure that the environment variable `SAT_TAG` is not being set in the `~/.bashrc` file
-   on any of the management NCNs. **NOTE**: This step should only be required when updating from
-   Shasta 1.4.1 or Shasta 1.4.2.
+    on any of the management NCNs.
 
-   The example below assumes three management NCNs (`ncn-m001`, `ncn-m002`, and `ncn-m003`) and shows output from
-   a system in which no further action is needed.
+    **NOTE**: This step should only be required when updating from
+    Shasta 1.4.1 or Shasta 1.4.2.
 
-   ```screen
-   ncn-m001# pdsh -w ncn-m00[1-3] cat ~/.bashrc
-   ncn-m001: source <(kubectl completion bash)
-   ncn-m003: source <(kubectl completion bash)
-   ncn-m002: source <(kubectl completion bash)
-   ```
+    The example below assumes three management NCNs (`ncn-m001`, `ncn-m002`, and `ncn-m003`) and shows output from
+    a system in which no further action is needed.
 
-   In the following example, `SAT_TAG` is being set in `~/.bashrc` on `ncn-m002`. This line should be removed
-   from the `~/.bashrc` file on `ncn-m002`.
+    ```screen
+    ncn-m001# pdsh -w ncn-m00[1-3] cat ~/.bashrc
+    ncn-m001: source <(kubectl completion bash)
+    ncn-m003: source <(kubectl completion bash)
+    ncn-m002: source <(kubectl completion bash)
+    ```
 
-   ```screen
-   ncn-m001# pdsh -w ncn-m00[1-3] cat ~/.bashrc
-   ncn-m001: source <(kubectl completion bash)
-   ncn-m002: source <(kubectl completion bash)
-   ncn-m002: export SAT_TAG=3.5.0
-   ncn-m003: source <(kubectl completion bash)
-   ```
+    In the following example, `SAT_TAG` is being set in `~/.bashrc` on `ncn-m002`. This line should be removed
+    from the `~/.bashrc` file on `ncn-m002`.
+
+    ```screen
+    ncn-m001# pdsh -w ncn-m00[1-3] cat ~/.bashrc
+    ncn-m001: source <(kubectl completion bash)
+    ncn-m002: source <(kubectl completion bash)
+    ncn-m002: export SAT_TAG=3.5.0
+    ncn-m003: source <(kubectl completion bash)
+    ```
 
 7. Check the progress of the SAT configuration import Kubernetes job, which is initiated by `install.sh`.
-   Replace `2.1.x` with the version of the SAT product being installed.
+    Replace `2.1.x` with the version of the SAT product being installed.
 
-   Check the status of the job. If the "Pods Statuses" appear as "Succeeded", then the job has completed
-   successfully. The job usually takes between 30 seconds and 2 minutes.
+    Check the status of the job. If the "Pods Statuses" appear as "Succeeded", then the job has completed
+    successfully. The job usually takes between 30 seconds and 2 minutes.
 
-   ```screen
-   ncn-m001# kubectl describe job sat-config-import-2.1.x -n services
-   ...
-   Pods Statuses:  0 Running / 1 Succeeded / 0 Failed
-   ...
-   ```
+    ```screen
+    ncn-m001# kubectl describe job sat-config-import-2.1.x -n services
+    ...
+    Pods Statuses:  0 Running / 1 Succeeded / 0 Failed
+    ...
+    ```
 
-   If desired, monitor the progress of the job using `kubectl logs`. The example below includes the final
-   log lines from a successful configuration import Kubernetes job.
+    If desired, monitor the progress of the job using `kubectl logs`. The example below includes the final
+    log lines from a successful configuration import Kubernetes job.
 
-   ```screen
-   ncn-m001# kubectl logs -f -n services --selector job-name=sat-config-import-2.1.x --all-containers
-   ...
-   ConfigMap update attempt=1
-   Resting 1s before reading ConfigMap
-   ConfigMap data updates exist; Exiting.
-   2021-08-04T21:50:10.275886Z  info    Agent has successfully terminated
-   2021-08-04T21:50:10.276118Z  warning envoy main  caught SIGTERM
-   # Completed on Wed Aug  4 21:49:44 2021
-   ```
+    ```screen
+    ncn-m001# kubectl logs -f -n services --selector \
+        job-name=sat-config-import-2.1.x --all-containers
+    ...
+    ConfigMap update attempt=1
+    Resting 1s before reading ConfigMap
+    ConfigMap data updates exist; Exiting.
+    2021-08-04T21:50:10.275886Z  info    Agent has successfully terminated
+    2021-08-04T21:50:10.276118Z  warning envoy main  caught SIGTERM
+    # Completed on Wed Aug  4 21:49:44 2021
+    ```
 
-   The following error may appear in this log and can be ignored:
+    The following error may appear in this log and can be ignored:
 
-   ```bash
-   error accept tcp [::]:15020: use of closed network connection
-   ```
+    ```bash
+    error accept tcp [::]:15020: use of closed network connection
+    ```
 
 8. Once the SAT configuration import Kubernetes job completed, obtain the git commit ID for the
-   branch matching the version of SAT being installed. This represents a revision of Ansible
-   configuration content stored in VCS, and in this example is
-   `82537e59c24dd5607d5f5d6f92cdff971bd9c615`.
+    branch matching the version of SAT being installed. This represents a revision of Ansible
+    configuration content stored in VCS, and in this example is
+    `82537e59c24dd5607d5f5d6f92cdff971bd9c615`.
 
-   ```screen
-   ncn-m001# VCS_PASS=$(kubectl get secret -n services vcs-user-credentials --template={{.data.vcs_password}} | base64 --decode)
-   ```
+    ```screen
+    ncn-m001# VCS_PASS=$(kubectl get secret -n services vcs-user-credentials \
+        --template={{.data.vcs_password}} | base64 --decode)
+    ```
 
-   ```screen
-   ncn-m001# git ls-remote https://crayvcs:$VCS_PASS@api-gw-service-nmn.local/vcs/cray/sat-config-management.git refs/heads/cray/sat/*
-   82537e59c24dd5607d5f5d6f92cdff971bd9c615    refs/heads/cray/sat/2.1.x
-   ```
+    ```screen
+    ncn-m001# git ls-remote \
+        https://crayvcs:$VCS_PASS@api-gw-service-nmn.local/vcs/cray/sat-config-management.git \
+        refs/heads/cray/sat/*
+    82537e59c24dd5607d5f5d6f92cdff971bd9c615 refs/heads/cray/sat/2.1.x
+    ```
 
 9. Add a `sat` layer to the `ncn-personalization` CFS configuration. First, get the current ncn-personalization
-   configuration layers and save this data to a local file:
+    configuration layers and save this data to a local file:
 
-   ```screen
-   ncn-m001# cray cfs configurations describe ncn-personalization --format json | jq ". | {layers}" > ncn-personalization.json
-   ```
+    ```screen
+    ncn-m001# cray cfs configurations describe ncn-personalization --format \
+        json | jq ". | {layers}" > ncn-personalization.json
+    ```
 
-   **NOTE**: If the `ncn-personalization` configuration does not yet exist, you may see the following error:
+    **NOTE**: If the `ncn-personalization` configuration does not yet exist, you may see the following error:
 
-   ```screen
-   Error: Configuration could not found.: Configuration ncn-personalization could not be found
-   ```
+    ```screen
+    Error: Configuration could not found.: Configuration ncn-personalization could not be found
+    ```
 
-   If this is the case, simply proceed by creating a new `ncn-personalization.json` file with just a single layer.
+    If this is the case, simply proceed by creating a new `ncn-personalization.json` file with just a single layer.
 
-   For more on NCN personalization, please refer to "Managing Configuration with CFS" in the CSM product documentation.
+    For more on NCN personalization, please refer to "Managing Configuration with CFS" in the CSM product documentation.
 
 10. Add a `sat` layer to the local file. **If COS is present, then COS must remain the first entry in the list.**
     Use the git commit ID from step 8, e.g. `82537e59c24dd5607d5f5d6f92cdff971bd9c615`. The `name` and `playbook`
@@ -157,21 +164,21 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
     ...
     ncn-m001# cat ncn-personalization.json
     {
-      "layers": [
-        {
-          "cloneUrl": "https://api-gw-service-nmn.local/vcs/cray/cos-config-management.git",
-          "commit": "b21074092b44a3f8ddb67ee2b021d9ee0f18bff9",
-          "name": "cos-integration-2.0.27",
-          "playbook": "ncn.yml"
-        },
-        ...
-        {
-          "cloneUrl": "https://api-gw-service-nmn.local/vcs/cray/sat-config-management.git",
-          "commit": "82537e59c24dd5607d5f5d6f92cdff971bd9c615",
-          "name": "sat-ncn",
-          "playbook": "sat-ncn.yml"
-        }
-      ]
+        "layers": [
+            {
+                "cloneUrl": "https://api-gw-service-nmn.local/vcs/cray/cos-config-management.git",
+                "commit": "b21074092b44a3f8ddb67ee2b021d9ee0f18bff9",
+                "name": "cos-integration-2.0.27",
+                "playbook": "ncn.yml"
+            },
+            ...
+            {
+                "cloneUrl": "https://api-gw-service-nmn.local/vcs/cray/sat-config-management.git",
+                "commit": "82537e59c24dd5607d5f5d6f92cdff971bd9c615",
+                "name": "sat-ncn",
+                "playbook": "sat-ncn.yml"
+            }
+        ]
     }
     ```
 
@@ -182,13 +189,14 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
     is truncated for brevity).
 
     ```screen
-    ncn-m001# cray cfs configurations update ncn-personalization --file ncn-personalization.json --format json
+    ncn-m001# cray cfs configurations update ncn-personalization --file \
+        ncn-personalization.json --format json
     {
-      "lastUpdated": "2021-08-05T16:38:53Z",
-      "layers": {
-        ...
-      },
-      "name": "ncn-personalization"
+        "lastUpdated": "2021-08-05T16:38:53Z",
+        "layers": {
+            ...
+        },
+        "name": "ncn-personalization"
     }
     ```
 
@@ -203,8 +211,9 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
     any other product's configuration. This command will output a representation of the CFS session.
 
     ```screen
-    ncn-m001# cray cfs sessions create --name sat-session --configuration-name ncn-personalization --configuration-limit sat-ncn
-    name = "sat-session"
+    ncn-m001# cray cfs sessions create --name sat-session --configuration-name \
+        ncn-personalization --configuration-limit sat-ncn
+    name="sat-session"
 
     [ansible]
     ...
@@ -213,7 +222,8 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
 14. Monitor the progress of the CFS configuration. First, list all containers associated with the CFS session:
 
     ```screen
-    ncn-m001# kubectl get pod -n services --selector=cfsession=sat-session -o json | jq '.items[0].spec.containers[] | .name'
+    ncn-m001# kubectl get pod -n services --selector=cfsession=sat-session \
+        -o json | jq '.items[0].spec.containers[] | .name'
     "inventory"
     "ansible-1"
     "istio-proxy"
@@ -223,7 +233,8 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
     index of the `sat-ncn` layer within the `ncn-personalization` layers.
 
     ```screen
-    ncn-m001# kubectl logs -c ansible-1 --tail 100 -f -n services --selector=cfsession=sat-session
+    ncn-m001# kubectl logs -c ansible-1 --tail 100 -f -n services \
+        --selector=cfsession=sat-session
     ```
 
     The CFS configuration session will run Ansible plays that install SAT on all the manager NCNs on the system.

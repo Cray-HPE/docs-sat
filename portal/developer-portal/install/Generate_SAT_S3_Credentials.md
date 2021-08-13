@@ -17,49 +17,58 @@ SAT uses S3 storage for several purposes, most importantly to store the site-spe
 
 1. Ensure the files are readable only by `root`.
 
-   ```screen
-   ncn-m001# touch /root/.config/sat/s3_access_key /root/.config/sat/s3_secret_key
-   ```
+    ```screen
+    ncn-m001# touch /root/.config/sat/s3_access_key \
+        /root/.config/sat/s3_secret_key
+    ```
 
-   ```screen
-   ncn-m001# chmod 600 /root/.config/sat/s3_access_key /root/.config/sat/s3_secret_key
-   ```
+    ```screen
+    ncn-m001# chmod 600 /root/.config/sat/s3_access_key \
+        /root/.config/sat/s3_secret_key
+    ```
 
 2. Write the credentials to local files using `kubectl`.
 
-   ```screen
-   ncn-m001# kubectl get secret sat-s3-credentials -o json -o jsonpath='{.data.access_key}' | base64 -d > /root/.config/sat/s3_access_key
-   ```
+    ```screen
+    ncn-m001# kubectl get secret sat-s3-credentials -o json -o \
+        jsonpath='{.data.access_key}' | base64 -d > \
+        /root/.config/sat/s3_access_key
+    ```
 
-   ```screen
-   ncn-m001# kubectl get secret sat-s3-credentials -o json -o jsonpath='{.data.secret_key}' | base64 -d > /root/.config/sat/s3_secret_key
-   ```
+    ```screen
+    ncn-m001# kubectl get secret sat-s3-credentials -o json -o \
+        jsonpath='{.data.secret_key}' | base64 -d > \
+        /root/.config/sat/s3_secret_key
+    ```
 
 3. Verify the S3 endpoint specified in the SAT configuration file is correct.
 
-   **NOTE:** If the second line of the example that follows is commented out, as indicated by a preceding #
-   comment character, it will take the default value, which is `"https://rgw-vip.nmn"`.
+    **NOTE:** If the second line of the example that follows is commented out, as indicated by a preceding #
+    comment character, it will take the default value, which is `"https://rgw-vip.nmn"`.
 
-   ```screen
-   ncn-m001# grep endpoint ~/.config/sat/sat.toml
-   # endpoint = "https://rgw-vip.nmn"
-   ```
+    ```screen
+    ncn-m001# grep endpoint ~/.config/sat/sat.toml
+    # endpoint = "https://rgw-vip.nmn"
+    ```
 
 4. Check the value specified in the `sat-s3-credentials` secret and if these values do not match, modify the
-   SAT configuration file so that it matches the value in the secret.
+    SAT configuration file so that it matches the value in the secret.
 
-   ```screen
-   ncn-m001# kubectl get secret sat-s3-credentials -o json -o jsonpath='{.data.s3_endpoint}' | base64 -d | xargs
-   https://rgw-vip.nmn
-   ```
+    ```screen
+    ncn-m001# kubectl get secret sat-s3-credentials -o json -o \
+        jsonpath='{.data.s3_endpoint}' | base64 -d | xargs
+    https://rgw-vip.nmn
+    ```
 
 5. Copy SAT configurations to every manager node on the system.
 
-   ```screen
-   ncn-m001# for i in ncn-m002 ncn-m003; do echo $i; ssh ${i} mkdir -p /root/.config/sat; scp -pr /root/.config/sat ${i}:/root/.config; done
-   ```
+    ```screen
+    ncn-m001# for i in ncn-m002 ncn-m003; do echo $i; ssh ${i} \
+        mkdir -p /root/.config/sat; \
+        scp -pr /root/.config/sat ${i}:/root/.config; done
+    ```
 
-   **NOTE**: Depending on how many manager nodes are on the system, the list of manager nodes may
-   be different. This example assumes three manager nodes, where the configuration files must be
-   copied from ncn-m001 to ncn-m002 and ncn-m003. Therefore, the list of hosts above is ncn-m002
-   and ncn-m003.
+    **NOTE**: Depending on how many manager nodes are on the system, the list of manager nodes may
+    be different. This example assumes three manager nodes, where the configuration files must be
+    copied from ncn-m001 to ncn-m002 and ncn-m003. Therefore, the list of hosts above is ncn-m002
+    and ncn-m003.
