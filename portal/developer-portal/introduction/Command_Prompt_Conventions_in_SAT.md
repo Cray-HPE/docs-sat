@@ -4,11 +4,11 @@ The host name in a command prompt indicates where the command must be run. The a
 also indicated in the prompt.
 
 - The `root` or super-user account always has the `#` character at the end of the prompt and has the host name of the
-  host in the prompt.
+    host in the prompt.
 - Any non-`root` account is indicated with account@hostname\>. A user account that is neither `root` nor `crayadm` is
-  referred to as `user`.
+    referred to as `user`.
 - The command prompt inside the SAT container environment is indicated with the string as follows. It also has the "#"
-  character at the end of the prompt.
+    character at the end of the prompt.
 
 | Command Prompt                  | Meaning                                                                                             |
 | ------------------------------- | --------------------------------------------------------------------------------------------------- |
