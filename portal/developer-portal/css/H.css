@@ -1,0 +1,1268 @@
+/*
+Hewlett-Packard Company
+Copyright 2015-2018 Hewlett Packard Enterprise Development LP
+Written for Hewlett Packard Enterprise, Knowledge Management
+
+CHANGES HEREIN MADE TO CRAY PUBS ZOOMIN PORTAL SITE TO ADOPT HPE UI CHANGES FOR BUS. DAY 1.
+
+*/
+
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+/*  Define Metric Font Family for HPE use    */
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+
+@font-face {
+    font-family: "Metric";
+    src: MetricWeb-Regular.woff;
+}
+@font-face {
+    font-family: "Metric";
+    font-weight: 600;
+    src: MetricWeb-Semibold.woff;
+}
+@font-face {
+    font-family: "Metric";
+    font-weight: 700;
+    src: MetricWeb-Bold.woff;
+}
+
+/* latin-ext
+@font-face {
+  font-family: 'Oxygen Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Oxygen Mono'), local('OxygenMono-Regular'), url(https://fonts.gstatic.com/s/oxygenmono/v8/h0GsssGg9FxgDgCjLeAd7hjWx-6_Pg.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Oxygen Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Oxygen Mono'), local('OxygenMono-Regular'), url(https://fonts.gstatic.com/s/oxygenmono/v8/h0GsssGg9FxgDgCjLeAd7hjYx-4.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+*/
+    
+
+/* Metric fonts */
+/* Change default font to MetricHPE */
+html:lang(en-us), /* english us */ {
+font-family: "Metric", Arial, sans-serif;
+}
+
+
+/* --------------------------------------------- */
+/* --------------------------------------------- */
+/*  SECTION OF CHANGES TO COMMON PAGE ELEMENTS   */
+/* --------------------------------------------- */
+/* --------------------------------------------- */
+
+/* Change HPE logo height */
+#nav > a.zDocsLogo > img.logo.d-none.d-lg-inline-block {
+    height:   120px;
+}
+
+
+/* Change color of portal page header */
+#root > div.zDocsLayout > main > div.zDocsHeader {
+     background: #425563!important;
+}
+
+div.zDocsHeader > div > div {
+     background: #425563!important;
+}
+
+/* Change Portal Page Title to Inherit Font */
+#content > div > section > div > h1.jumbotron-heading {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    font-family: "Metric", Arial, sans-serif;
+    line-height: 1.1em;
+    margin-bottom: 12px!important;
+    color: #ffffff!important;
+}
+
+/* Change font on Portal Page Subtitle */
+#content > div > section > div > h2.jumbotron-heading {
+     font-weight: 400;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-family: "Metric", Arial, sans-serif;
+    margin-bottom:  18px!important;
+    color: #ffffff!important;
+}
+
+/* Change root font size on <html> to 16px */
+html {
+    font-size:  16px;
+}
+
+/* HPE CSS - Change Font for Basic Body to MetricHPE */
+body {
+    font-family: "Metric", Arial, sans-serif;
+    font-size: 1rem;
+    color:  #333;
+}
+
+/* HPE CSS */
+main {
+	font-family: "Metric", Arial, sans-serif;
+	font-size: 1rem;
+	line-height: 1.125;
+	color: #333 !important;
+	font-weight: 400;
+}
+
+/* Change color of home page search button to HPE green */
+div.zDocsSearchBoxSubmitButton button {
+    background-color:  #01a982!important;
+}
+
+
+/* Change Color of Footer Top Border to HPE Green */
+#root > div.zDocsLayout > footer {
+    border-top:  15px solid #01a982!important;
+}
+
+/* Change color of footer section separator to HPE green */
+/* 1st section - after copyright */
+#root > div.zDocsLayout > footer > ul > li+li:before {
+     color:  #01a982!important;   
+}
+
+#root > div.zDocsLayout > footer > ul > li:nth-child(1) {
+    margin-top:  3px!important;
+}
+
+/* 2nd section - after terms of use */
+#root > div.zDocsLayout > footer > ul > li:nth-child(2) > a+a:before {
+    color:  #01a982!important;
+    top: 0px;
+}
+/* 3rd section - after privacy */
+#root > div.zDocsLayout > footer > ul > li:nth-child(3) {
+    top: 4px;
+}
+/* 4th section - powered by zoomin text */
+#root > div.zDocsLayout > footer > ul > li:nth-child(3) > div > div {
+    color: #7f7f7f;
+    position: relative;
+    top: -4px;
+}
+
+/* Change footer height */
+footer.zDocsFooter {
+    height:  70px!important;
+    padding-bottom:  24px;
+}
+
+/* Watermark Parameters */
+div.wm {
+    width: 60%;
+    font-weight:  700;
+}
+
+/* Change lright padding of the MyTopics tabs container */
+#zDocsContent > div.zDocsMyDocsTocContainer > div.zDocsMyDocsToc > ul {
+
+padding:  27px 14px 16px!important;
+}
+
+
+/* ------------------------------------------------------ */
+/* ------------------------------------------------------ */
+/* THIS SECTION CHANGES VISUAL ELEMENTS IN CONTENT PAGES  */
+/* ------------------------------------------------------ */
+/* ------------------------------------------------------ */
+
+/* Ensure proper horizontal spacing when <screen> has long scrolling lines
+   avoids pushing the action icons and related links to the right */
+pre.codeblock, pre.screen  {
+  white-space: break-spaces;
+}
+
+
+
+/* Ensure spacing above an important note */
+div.note.important.note_important {
+  /*  padding-top: 12px;   */
+    width: 65%;
+    margin: 12px 10px 12px;
+    padding: 5px 10px 5px 20px;
+    border-top: 2px solid #01a982;
+    border-bottom: 2px solid #01a982;
+}
+
+/* Ensure spacing above tip note */
+div.note.tip.note_tip {
+ /*   margin: 12px 0 12px;   */
+    width: 65%;
+    margin: 12px 10px 12px;
+    padding: 5px 10px 5px 20px;
+    border-top: 2px solid #01a982;
+    border-bottom: 2px solid #01a982;
+}
+
+/* Ensure spacing above caution note */
+div.note.caution.note_caution {
+ /*   margin: 12px 0 12px;   */
+    width: 65%;
+    margin: 12px 10px 12px;
+    padding: 5px 10px 5px 20px;
+    border-top: 2px solid #01a982;
+    border-bottom: 2px solid #01a982;
+}
+
+
+/* Ensure spacing above danger note */
+div.note.danger.note_danger {
+ /*   margin: 12px 0 12px;   */
+    width: 65%;
+    margin: 12px 10px 12px;
+    padding: 5px 10px 5px 20px;
+    border-top: 2px solid #01a982;
+    border-bottom: 2px solid #01a982;
+}
+
+/* Ensure spacing above warning note */
+div.note.warning.note_warning {
+ /*   margin: 12px 0 12px;   */
+    width: 65%;
+    margin: 12px 10px 12px;
+    padding: 5px 10px 5px 20px;
+    border-top: 2px solid #01a982;
+    border-bottom: 2px solid #01a982;
+}
+
+/* Ensure spacing above generic note */
+div.note.note.note_note {
+ /*   margin: 12px 0 12px;   */
+    width: 65%;
+    margin: 12px 10px 12px;
+    padding: 5px 10px 5px 20px;
+    border-top: 2px solid #01a982;
+    border-bottom: 2px solid #01a982;
+}
+
+
+
+/* Set note intro word to bold */
+span.note__title {
+    font-weight:  700!important;
+}
+
+/* Change default font size for content pages */
+#root > div.zDocsLayout > main {
+    font-size:  1rem;
+}
+
+/* Change default line height */
+div.articleContainer {
+    line-height:  1.25!important;
+}
+
+
+/* Grouping of CSS code for monospaced fonts  */
+
+/* Change default font size for codeph wrapped in code.ph */
+code.ph.codeph {
+    font-size: .8rem;
+    font-family: "Oxygen Mono"!important;
+    color: #000;
+}
+
+/* Change default font size for cmdname wrapped in span.keyword */
+span.keyword.cmdname {
+    font-size: .8rem;
+    font-family: "Oxygen Mono"!important;
+    color: #000;
+}
+
+/* Change default font size for option wrapped in span.keyword */
+span.keyword.option {
+    font-size: .8rem;
+    font-family: "Oxygen Mono"!important;
+    color: #000;
+}
+
+/* Change default font size for filepath wrapped in span.ph */
+span.ph.filepath {
+    font-size: .8rem;
+    font-family: "Oxygen Mono"!important;
+    color: #000;
+}
+
+/* Change font for monospaced font wrapped in <samp> */
+samp.ph.msgph {
+    font-family:  "Oxygen Mono"!important;
+    font-size:  .8rem;
+    color: #000;
+}
+
+/* Change default font size for screen wrapped in pre.pre */
+pre.pre.screen {
+    font-size: .8rem;
+    font-family: "Oxygen Mono"!important;
+    line-height:  1.5;
+    color: #000;
+}
+
+/* Change default font size for codeblock wrapped in pre.pre */
+pre.pre.codeblock {
+    font-size: .8rem;
+    font-family: "Oxygen Mono"!important;
+    line-height:  1.5;
+    background-color: #efefef;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 0;
+    display: block;
+    white-space: pre;
+    overflow: auto;
+    color: #000;
+    margin-bottom:  12px;
+}
+
+/* Change default font size for userinput wrapped in kbd.ph */
+kbd.ph.userinput {
+    font-size: .8rem;
+    font-family: "Oxygen Mono"!important;
+    color: #000;
+}
+
+/* Change default font size for uicontrol wrapped in span.ph */
+span.ph.uicontrol {
+    font-weight: 600;
+    font-family: "Metric", Arial, sans-serif!important;
+    font-size:  1rem;
+    color: #000;
+}
+
+/*  HPE CSS Standard Hxx definitions */
+h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333 !important;
+  margin: 30px 0px 20px 0px;
+  line-height: 30px; }
+h2 {
+  font-size: 1.3125rem;
+  font-weight: 700;
+  color: #333 !important;
+  margin: 20px 0px 10px 0px; }
+h3 {
+  font-size: 1.1875rem;
+	font-weight: 700;
+  color: #333 !important;
+  margin: 10px 0px !important; }
+h4 {
+  font-size: 1.125rem;
+  color: #333 !important;
+  font-weight: bold;
+  margin: 5px 0px !important;
+  line-height: 22px; }
+h5, h6 {
+  font-size: 1rem;
+  color: #333 !important;
+  font-weight: bold;
+  margin: 5px 0px !important; }
+
+/* Hxx variations for Zoomin portal */
+/*  Task topic prerequisites */
+div.section.prereq.p > div.tasklabel > h2.sectiontitle.tasklabel {
+    font-size:  1rem;
+}
+/*  Task topic About this task */
+section.section.context > div.tasklabel > h2.sectiontitle.tasklabel {
+    font-size:  1rem;
+}
+
+/* Task topic Procedure section label */
+div.body > div.tasklabel > h2.sectiontitle.tasklabel {
+    font-size:  1rem;
+}
+
+/* Task topic Post-req section label */
+div.body > section.section.postreq > div.tasklabel > h2.sectiontitle.tasklabel {
+    font-size:  1rem;
+}
+
+  
+/* Change spacing between <p> elements  */
+p.p {
+    margin-top: 0px!important;
+    margin-bottom:  12px;
+}
+div.p {
+    margin-top: 0px!important;
+    margin-bottom:  12px;
+}
+
+/* Ensure correct spacing when div.p wrapped in section.section */
+section.section > div.p {
+    margin-top:  12px!important;
+}
+
+/* Ensure correct spacing when div.p wrapped in section.section */
+section.section > p.p {
+    margin-top:  12px!important;
+}
+
+/* Ensure spacing of p.p when wrapped in div.itemgroup.info  */
+div.itemgroup.info > p.p {
+    margin-top:  12px!important;
+}
+
+/* Ensure proper above spacing when the <p> is a class in a <div> followed by a ul.ul unordered list */
+div.p ul.ul {
+    margin:  12px 0 12px!important;
+}
+
+/* Do not add the 8px before items in a <dl> */
+table.dl > tbody > tr.dlentry > td:nth-child(2) > div > p {
+    padding-top: 0;
+}
+
+/* Margin above start of a <dd> in a table */
+table.dl > tbody > tr.dlentry > td > div.dd.pd.ddexpand {
+    margin:  6px;
+}
+
+/* Margin between multiple <dd> tags  */
+table.dl > tbody > tr.dlentry > td > div.dd {
+    margin: 0 0 6px;
+}
+
+/*  HPE CSS - Workaround to make <ol> <li> tags space the same */
+ol > li {
+    padding: 12px 0 1px 15px!important;
+}
+
+/* Ensure proper above spacing when a sublevel <ul> introduced on parent level <li> */
+li.li ul.ul {
+    margin:  12px 0 12px;
+}
+
+/* Ensure spacing when step followed by <info> and <stepresult> */
+ol.ol.steps  li.step.stepexpand  div.itemgroup.info {
+    margin: 12px 0 12px!important;
+}
+
+/* Ensure spacing when substeps followed by <info> and <stepresult> */
+ol.ol.steps  li.step.stepexpand  div.itemgroup.info ol.ol {
+    margin: 12px 0 12px!important;
+}
+
+/* Ensure spacing between <step> and <stepresult> */
+ol.ol.steps  li.step.stepexpand  div.itemgroup.stepresult {
+    margin: 12px 0 12px!important;
+}
+
+/* Ensure indentation for ol.substeps  */
+ol.ol.substeps {
+    margin-left:  5px!important;
+}
+
+
+
+/* Make font bold when wintitle element wrapped in a <p> element */ 
+span.keyword.wintitle {
+    font-weight: 600;
+}
+
+/* Default HPE Table cell props */
+
+/* Default HPE border etc. */
+table.table.frame-all,table.table.frame-none {
+    border: 1px solid transparent!important;
+    margin-bottom:  1.5em;
+}
+
+/* Default HPE table caption Table Number */
+table.table caption {
+    font-size:  1.1rem!important;
+    font-weight:  700!important;
+    color:  #333!important;
+}
+/* Default HPE table caption Table Number */
+table.table.frame-all caption,table.table.frame-none caption {
+    font-size:  1.1rem!important;
+    font-weight:  700!important;
+    color:  #333!important;
+}
+
+/* Default HPE table caption */
+table.table.frame-all caption span.title,table.table.frame-none caption span.title {
+    font-size:  1.1rem!important;
+    font-weight:  700;
+}
+
+/* Default HPE Table - Hide rule between caption and table header */
+table.table.frame-all thead.thead tr.row th,table.table.frame-none thead.thead tr.row th,table.table thead.thead tr.row th {
+    border-top: 1px solid transparent!important;
+}
+
+/* Default HPE - hide rules between table rows */
+table.table.frame-all tbody.tbody tr.row td,table.table.frame-none tbody.tbody tr.row td {
+    border-top: 1px solid transparent!important;
+}
+
+main article div.body section.section table.table {
+    margin-bottom:  .75em!important;
+}
+
+/* Default HPE green rule under col headings */
+table tbody.tbody {
+    border-top: 5pt solid #01a982!important;
+    border-bottom:  3pt solid #333!important;
+}
+
+/* Set default <th> alignment as left */
+table.table > thead.thead > tr.row > th.entry {
+    text-align:  left;
+}
+
+/* Set <th> alignment to match author setting */
+table.table > thead.thead > tr.row > th.entry.align-left {
+    text-align:  left!important;
+}
+table.table > thead.thead > tr.row > th.entry.align-center {
+    text-align:  center!important;
+}
+table.table > thead.thead > tr.row > th.entry.align-right {
+    text-align:  right!important;
+}
+
+/* Default HPE CSS - Change font color on table captions */
+table > caption > span.title {
+    color:  #333;
+}
+
+/* Default Table Cell Valign and padding */
+td {
+    vertical-align: top;
+    padding:  10px!important;
+}
+
+/* Change figure caption font and space above */
+figure > figcaption {
+    font-size:  1.2rem!important;
+    font-weight:  700!important;
+    color:  #333!important;
+    padding: 1em 0 .5em!important;
+    display: block;
+}  
+
+/* Change figure caption font and space above */
+figure > span.figcap {
+    font-size:  1.2rem!important;
+    font-weight:  700!important;
+    color:  #333!important;
+    padding: 1em 0 .5em!important;
+    display: block;
+}  
+
+/* Change padding after <figure>  */
+figure.fig.fignone {
+    padding:  8px;
+}    
+
+
+
+/* --------------------------------------------- */
+/* --------------------------------------------- */
+/*  SECTION OF CHANGES TO HOME PAGE              */
+/* --------------------------------------------- */
+/* --------------------------------------------- */
+
+/* Adjust font for top level headings on sub-category pages */
+.zDocsCategoriesTile h2 {
+    font-family: "Metric", Arial, sans-serif;
+    font-size: 1.5rem!important;
+    font-weight: 600!important;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+/* Adjust spacing of sub-category boxes containing individual links */
+#zDocsContent > div > div > div {
+    padding: 16px 50px;
+}
+
+
+/* Adjust spacing between sub-category boxes and heading above them */
+#zDocsContent > div > div > p {
+    margin-top: 15px;
+    margin-bottom:  15px;
+}
+
+.zDocsCategoriesTile p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+/* Force table cell center alignment when specified by writer */
+tr td.align-center {
+   text-align: center;
+}
+
+/* Change color of breadcrumbs */
+#zDocsContent > div.zDocsBundlePageResultsHead > div > div > span:nth-child(1) > a {
+    color: #01a982;
+}  
+#zDocsContent > div > div.zDocsBreadcrumbs > span.undefined > a {
+    color: #01a982;
+}
+#zDocsContent > div > div.zDocsBreadcrumbs > span.undefined > svg {
+    color: #01a982;
+}
+#zDocsContent > div > div.zDocsBreadcrumbs > span:nth-child(2) > a {
+    color: #01a982;
+}
+#ico-angle-arrow-right {
+    color: #01a982;
+}    
+
+
+/* Change Font on Category Titles to MetricHPE */
+#content > div > div > div > div.zDocsHomeCategories > div.zDocsHomeCategoriesHeader > h2 {
+     font-family: "Metric", Arial, sans-serif;  
+}
+
+/* Change Font on Top-of-Page Menu Tabs to MetricHPE */
+#navbarHead > div > ul > li > a {
+    font-family: "Metric", Arial, sans-serif;
+}
+
+
+#content > div > div > div > div.zDocsHomeCategories > div.zDocsHomeCategoriesInner > div > div > div.zDocsCategoryContent > h5 > a {
+    font-family: "Metric", Arial, sans-serif;
+    font-weight:  600;
+    font-size:  1.5rem;
+}
+
+/* Change font for home page category tile line items */
+#content > div > div > div > div.zDocsHomeCategories > div.zDocsHomeCategoriesInner > div > div > div.zDocsCategoryContent > ul > li > a {
+    font-family: "Metric", Arial, sans-serif;
+    font-size:  1rem!important;
+}  
+ 
+
+/*  Change Footer Font to MetricHPE */
+#root > div.zDocsLayout > footer > ul > li {
+    font-family: "Metric", Arial, sans-serif;
+    
+}
+
+/* Change color of page header bottom border to HPE green */
+#content > div > section {
+     border-bottom: 20px solid #01a982!important;   
+}
+
+/* Change color of page header bottom border on Library page to HPE green */
+#content > section {
+     border-bottom: 10px solid #01a982!important;    
+}
+
+/* Change Color of Learn-by-Product heading on home page to HPE green. */
+#content > div > div > div > div.zDocsHomeCategories > div.zDocsHomeCategoriesHeader > h2 {
+    border-bottom: 4px solid #01a982!important;
+}
+
+
+
+/* --------------------------------------------- */
+/* --------------------------------------------- */
+/*  SECTION OF CHANGES TO LIBRARY PAGES          */
+/* --------------------------------------------- */
+/* --------------------------------------------- */
+
+/* Change tag icons color on Library page */
+#zDocsContent > div.zDocsBundlePageResultsWrapper > div.zDocsBundlePageResultsInner > div.row > div > ul > li:nth-child(1) > div.zDocsBundlesListBundleExtraDetails > ul > li > ul > li > svg {
+    color: #5d6369!important;
+}
+
+/* Change Tag label color and size on Library page */
+#zDocsContent > div.zDocsBundlePageResultsWrapper > div.zDocsBundlePageResultsInner > div.row > div > ul > li > div.zDocsBundlesListBundleExtraDetails > ul > li > ul > li {
+    font-size: .8rem;
+    font-weight: 300;
+    color: #5d6369!important;    
+}
+
+/* Change properties of Legacy PDF topic page tag icons and labels */ 
+#content > div > div > article > ul > li:nth-child(1) > ul.articleLabels > li > svg.ico-tag {
+    color: #5d6369!important;
+}
+#content > div > div > article > ul > li:nth-child(1) > ul.articleLabels > li > h5 {
+       font-family: "Metric", Arial, sans-serif!important;    font-size: .8rem;
+    font-weight: 300;
+    color: #5d6369!important;
+}    
+
+/* Change font color on Last Update heading and the date on Legacy PDF page */
+#content > div > div > article > ul > li:nth-child(2) > span {
+    color:  #333;
+    font-weight:  700;
+    margin-top:  3px!important;
+    margin-left: 36px!important;
+}
+#content > div > div > article > ul > li:nth-child(2) {
+    color:  #333;
+    font-weight:  400!important;
+    margin-top:  3px;
+}
+ 
+
+/* Change font for Library heading to MetricHPE */
+#zDocsContent > div.zDocsBundlePageResultsWrapper > div.zDocsBundlePageResultsInner > div:nth-child(1) > div.zDocsBundlePageResultsInnerContentTitle > div > h3 {
+    font-family: "Metric", Arial, sans-serif!important;    
+}
+
+/* Change font on sort and ppv dropdown boxes to Metric HPE */
+#zDocsContent > div.zDocsBundlePageResultsWrapper > div.zDocsBundlePageResultsInner > div:nth-child(1) > div.zDocsBundlePageResultsInnerContentFilters > div > div > div > button > div > div > div {
+    font-family: "Metric", Arial, sans-serif!important;    
+}
+
+/* Change font on Library bundle titles to MetricHPE */
+#zDocsContent > div.zDocsBundlePageResultsWrapper > div.zDocsBundlePageResultsInner > div.row > div > ul > li > div.zDocsBundlesListBundleTitle > a {
+    font-family: "Metric", Arial, sans-serif!important;   
+    font-size: 1rem; 
+    font-weight:  600;    
+}
+
+/* Change Font weight on publication date label and date */
+div.date {
+    font-weight:  600;
+}
+div.date > span {
+    font-weight:  400;
+}
+
+/* Change space between Library Save PDF link and tags set */
+#zDocsContent > div.zDocsBundlePageResultsWrapper > div.zDocsBundlePageResultsInner > div.row > div > ul > li > div.zDocsBundlesListBundleExtraDetails > ul > div {
+    margin-top: 12px;
+}
+
+/* Change font on Refine Results heading on Library page */
+#resultSidebar > div > div.zDocsSideFiltersHeader > h4 {
+    font-family: "Metric", Arial, sans-serif!important;   
+    font-size:  1.2rem;
+    font-weight:  600;
+    }
+
+/* Change font on Reset Filters heading on Library page */
+#resultSidebar > div > div.zDocsSideFiltersHeader > a {
+    font-family: "Metric", Arial, sans-serif!important;   
+    font-size:  1rem;
+    font-weight:  600;
+}
+
+
+/* ------------------------------------------------- */
+/* ------------------------------------------------- */
+/*  SECTION OF CHANGES TO TOPIC SEARCH RESULTS PAGES */
+/* ------------------------------------------------- */
+/* ------------------------------------------------- */
+
+#content > div > div > div.zDocsSearchPageResults > div.zDocsSearchPageResultsHead > div > div > span:nth-child(1) > a {
+    color: #01a982;
+}
+#content > div > div > div.zDocsSearchPageResults > div.zDocsSearchPageResultsHead > div > div > span:nth-child(1) > svg.ico-angle-arrow-right.d-none.d-lg-inline-block {
+    color: #01a982;
+}
+
+
+/* Change font on title for Search results page to MetricHPE */
+#zDocsContent > div.zDocsSearchPageResultsInner > div > h2 {
+     font-family: "Metric", Arial, sans-serif!important;      
+}
+
+/* Change font on Search results topic titles to MetricHPE */
+#zDocsContent > div.zDocsSearchPageResultsInner > ul > li > h4 > a {
+    font-family: "Metric", Arial, sans-serif!important;   
+    font-size: 1rem;
+}
+/* Change font weight for search results titles */
+#zDocsContent > div.zDocsSearchPageResultsInner > ul > li.zDocsSearchResultItem > h4 {
+    font-weight: 600!important;
+}
+
+/* Change line height on search results blurbs under title */
+#zDocsContent > div.zDocsSearchPageResultsInner > ul > li > p {
+    line-height:  1.25em!important;
+}
+
+/* Change space between search results blurb and tag set */
+#zDocsContent > div.zDocsSearchPageResultsInner > ul > li > ul {
+    margin-block-start:  .8em;
+}
+
+/* Change font on Relevance and RPP dropdowns on the Sarch results page to Metric HPE */
+/* These changes also work on the Library page dropdowns */
+
+#zDocsContent > div.zDocsSearchPageResultsInner > div > div.zDocsSearchPageResultsInnerContentFilters > div:nth-child(2) > div > div > button > div > div > div {
+    font-family: "Metric", Arial, sans-serif!important;
+}
+#zDocsContent > div.zDocsSearchPageResultsInner > div > div.zDocsSearchPageResultsInnerContentFilters > div:nth-child(3) > div > div > button > div > div > div {
+    font-family: "Metric", Arial, sans-serif!important;
+}
+
+#bs-select-1 > ul > li {
+    font-family: "Metric", Arial, sans-serif!important;
+    color:  #01a982;
+}
+#bs-select-1 > ul > li.selected.active {
+    font-family: "Metric", Arial, sans-serif!important;
+}
+#bs-select-2 > ul > li {
+    font-family: "Metric", Arial, sans-serif!important;
+    color:  #01a982;
+}
+#bs-select-2 > ul > li.selected.active {
+    font-family: "Metric", Arial, sans-serif!important;
+}
+#bs-select-3 > ul > li {
+    font-family: "Metric", Arial, sans-serif!important;
+    color:  #01a982;
+}
+#bs-select-3 > ul > li.selected.active {
+    font-family: "Metric", Arial, sans-serif!important;
+}
+#bs-select-4 > ul > li {
+    font-family: "Metric", Arial, sans-serif!important;
+    color:  #01a982;
+}
+#bs-select-4 > ul > li.selected.active {
+    font-family: "Metric", Arial, sans-serif!important;
+}
+#bs-select-5 > ul > li {
+    font-family: "Metric", Arial, sans-serif!important;
+    color:  #01a982;
+}
+#bs-select-5 > ul > li.selected.active {
+    font-family: "Metric", Arial, sans-serif!important;
+}
+#bs-select-6 > ul > li {
+    font-family: "Metric", Arial, sans-serif!important;
+    color:  #01a982;
+}
+#bs-select-6 > ul > li.selected.active {
+    font-family: "Metric", Arial, sans-serif!important;
+}
+#bs-select-7 > ul > li {
+    font-family: "Metric", Arial, sans-serif!important;
+    color:  #01a982;
+}
+#bs-select-7 > ul > li.selected.active {
+    font-family: "Metric", Arial, sans-serif!important;
+}
+
+/* Change vertical bar color on Search Results tag set line */
+#zDocsContent > div.zDocsSearchPageResultsInner > ul > li > ul > li+li:before {
+    color: #01a982;
+    font-weight: 600;
+}
+
+/* Change color of Personalize Search Results slider */
+#zDocsContent > div.zDocsSearchPageResultsInner > div > div.zDocsSearchPreferencesToggle > div.zDocsSlideCheckbox > input:checked+.label:before {
+    background-color: #01a982;
+}
+
+/* Change font on Personalized Search Results label */
+#personalizedSearchLabel {
+    font-family: "Metric", Arial, sans-serif!important;
+}    
+
+/* Change font on Edit Preferences label */
+#zDocsContent > div.zDocsSearchPageResultsInner > div > div.zDocsSearchPreferencesToggle > a {
+    font-family: "Metric", Arial, sans-serif!important;
+}    
+
+/* Change color on selected search preferences products slider */
+#searchPreferences_products > ul > li > div.zDocsSlideCheckbox > input:checked+.label:before {
+    background-color: #01a982;
+}
+
+/* Change color on selected search preferences content slider */
+#searchPreferences_content > ul > li > div.zDocsSlideCheckbox > input:checked+.label:before {
+    background-color: #01a982;
+}
+
+/* Change color on selected search preferences content slider */
+#searchPreferences_role > ul > li > div.zDocsSlideCheckbox > input:checked+.label:before {
+    background-color: #01a982;
+}
+
+/* Change Publication Title Font on Content Page to MetricHPE */
+#content > section > div.zDocsSubHeaderBreadcrumbsContainer > div > span {
+    font-family: "Metric", Arial, sans-serif!important;
+}
+
+/* Change font on each search result topic blurb */
+#zDocsContent > div.zDocsSearchPageResultsInner > ul > li > p {
+     font-family: "Metric", Arial, sans-serif!important;
+} 
+
+/* Change font on pub date on search results */
+#zDocsContent > div.zDocsSearchPageResultsInner > ul > li > ul > li {
+    font-family: "Metric", Arial, sans-serif!important;
+    font-size: .9rem;
+}
+
+/* Change font on publication title after pub date */
+#zDocsContent > div.zDocsSearchPageResultsInner > ul > li > ul > li {
+    font-family: "Metric", Arial, sans-serif!important;
+    font-size: .9rem;
+}
+
+/* Change font on Also Available In label */
+#zDocsContent > div.zDocsSearchPageResultsInner > ul > li > ul > li.zDocsSearchResultItemClustering {
+    font-family: "Metric", Arial, sans-serif!important;
+    font-size: .9rem;
+}    
+
+/* Change font/color on tag labels on search results entries */
+#zDocsContent > div.zDocsSearchPageResultsInner > ul > li > ul > li > ul > li {
+    font-family: "Metric", Arial, sans-serif;
+    font-weight: 300;
+    font-size: .9rem;
+    color: #5d6369!important;
+}    
+
+/* Change font props on Search page filter subject scheme group names when expanded */
+#resultSidebar > div > div.zDocsSideFiltersInner > ul > li > div > div > a > h6 {
+    font-size:  .9rem;
+    font-weight: 600;
+}
+
+
+/* Adjust spacing of line underneath My Collections Heading */
+#my-collections-tab:after {
+    margin-top:  20px;
+    background-color:  #01a982!important;
+}
+#my-collections-tab {
+   font-size: 1.2rem;
+   font-weight:  600;
+    font-family: "Metric", Arial, sans-serif;
+}
+#shared-collections-tab {
+   font-size: 1rem;
+   font-weight:  400;
+    font-family: "Metric", Arial, sans-serif;
+}
+#my-collections > ul > li.zDocsMyDocsTocCollectionItem.expanded.zDocsMyDocsTocCollectionItemDefault > div > span {
+   font-size: 1rem;
+   font-weight:  400;
+    font-family: "Metric", Arial, sans-serif;
+} 
+#my-collections > ul > li > div > span {
+   font-size: 1rem;
+   font-weight:  400;
+   font-family: "Metric", Arial, sans-serif;
+}
+
+/* Change fonts on My Topics content page */
+#zDocsContent > div.zDocsMyDocsTopicContainer > div.zDocsMyDocsWelcome > h1 {
+    font-family: "Metric", Arial, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333 !important;
+    margin: 30px 0px 20px 0px;
+    line-height: 30px;
+}  
+#zDocsContent > div.zDocsMyDocsTopicContainer > div.zDocsMyDocsWelcome > h2 {
+    font-family: "Metric", Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #333 !important;
+    margin-top: 0px!important;
+    margin-bottom:  12px;
+  	line-height: 1.125;
+    padding: 0 0 0 0;
+} 
+#zDocsContent > div.zDocsMyDocsTopicContainer > div.zDocsMyDocsWelcome > ul {
+    list-style-position: outside!important;
+    margin-left: 5px!important;
+    margin:  12px 0 12px;
+    padding:  0;
+}
+
+#zDocsContent > div.zDocsMyDocsTopicContainer > div.zDocsMyDocsWelcome > ul > li {
+    margin:  0 0 5px;
+    font-family: "Metric", Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #333 !important;
+    line-height:  1.125;
+    padding-left: 3px;
+    margin-left: 15px;
+}    
+div.zDocsMyDocsTocCollectionItemActions > button.zDocsCollectionActionsMenuToggle {
+    right:  10.5em;
+    padding:  8px 6px;
+}
+#search_mydocs {
+   font-size: .85rem;
+   font-weight:  300;
+    font-family: "Metric", Arial, sans-serif;
+}    
+
+/* Change Watch List properties */
+#zDocsContent > div:nth-child(2) > header > h5 {
+     font-family: "Metric", Arial, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333 !important;
+    margin: 30px 0px 20px 0px;
+    line-height: 30px;
+}
+#zDocsContent > div:nth-child(2) > header > p {
+     font-family: "Metric", Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #333 !important;
+    margin-top: 0px!important;
+    margin-bottom:  12px;
+  	line-height: 1.125;
+    padding: 0 0 0 0;
+}
+#watchByTopicLabel {
+    font-family: "Metric", Arial, sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333 !important;
+    margin-top: 0px!important;
+    margin-bottom:  12px;
+  	line-height: 1.125;
+    padding: 0 0 0 0;
+} 
+#zDocsContent > div:nth-child(2) > header > div.zDocsSlideCheckbox > input:checked+.label:before {
+    background-color: #01a982!important;
+}
+#zDocsContent > div:nth-child(2) > header > div.zDocsWatchListPageControls > button {
+    font-family: "Metric", Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #333 !important;
+}   
+#zDocsContent > div.zDocsWatchListPageItems {
+    font-family: "Metric", Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #333 !important;
+}    
+
+/* Change color on watch eye icon when watching */
+#ico-eye-slash {
+    color:  #01a982!important;
+}  
+
+/* Change appearance of watchlist entries */
+#zDocsContent > div.zDocsWatchListPageItems > ul > li > a {
+    font-family: "Metric", Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333 !important;
+}    
+#zDocsContent > div.zDocsWatchListPageItems > ul > li > div > ul > li > div > label > a {
+    font-family: "Metric", Arial, sans-serif;
+    font-size: 1rem!important;
+    font-weight: 400;
+    color: #333 !important;
+} 
+#zDocsContent > div.zDocsWatchListPageItems > ul > li > div > ul > li > a > p {
+    font-family: "Metric", Arial, sans-serif;
+    font-size: 1rem!important;
+    font-weight: 400;
+    color: #333 !important;
+} 
+
+
+
+
+
+
+
+/* --------------------------------------------- */
+/* --------------------------------------------- */
+/*  SECTION OF CHANGES TO TOPIC CONTENT PAGES    */
+/* --------------------------------------------- */
+/* --------------------------------------------- */
+
+/* Change color of breadcrumbs */
+#content > div > div.topicContainer > div > div > span.zDocsBreadcrumbsItem > a {
+    color: #01a982;
+}
+#content > div > div.topicContainer > div > div > span.zDocsBreadcrumbsItem > svg {
+    color: #01a982;
+}
+#content > div > div.topicContainer > div > div > span > a {
+    color: #01a982;
+}
+
+/* Change Font on Content Page Title (above tags) to Metric */
+#zDocsContent > div.articleHead > h2 {
+    font-family: "Metric", Arial, sans-serif;  
+}
+
+
+article > div.articleHead > h2 {
+    font-family: "Metric", Arial, sans-serif!important;
+    font-size:  1.5rem!important;
+    font-weight:  600!important;
+    color:  #333;
+    padding:  35px 0!important;
+}
+
+/* Change tag labels on content pages to Metric */
+#zDocsContent > ul > li:nth-child(1) > ul > li > h5 {
+    font-family: "Metric", Arial, sans-serif;
+    font-weight: 300;
+    font-size:  .8rem;
+    color:  #5d6369;
+}
+
+/* Change color of browse arrows to HPE green */
+#zDocsContent > div.articleHead > div.zDocsTopicActions > div:nth-child(2) > span > span > svg {
+    color: #01a982;
+}
+#zDocsContent > div.articleHead > div.zDocsTopicActions > div:nth-child(3) > span > a > span > svg {
+    color: #01a982;
+}
+#zDocsContent > div.articleHead > div.zDocsTopicActions > div:nth-child(2) > span > a > span > svg {
+    color: #01a982;
+}
+
+/* Change other colors of icons to the right of the browse arrows */
+/* Favorites icon Star */
+#ico-star {
+    color: #01a982;
+}
+/* Watch list icon Eye */
+#ico-eye {
+    color: #01a982;
+}
+/* Share icon  */
+#ico-share {
+    color: #01a982;
+}
+/* PDF icon */
+#ico-pdf {
+    color: #01a982;
+}
+/* Feedback icon */
+#ico-feedback {
+    color: #01a982;
+}
+
+/* Fix specific spacing of contents page action icons at right side of screen */
+#zDocsContent > div.articleHead > div.zDocsTopicActions > div {
+    padding:  16px 10px;
+}
+
+
+/* Change tag colors on content pages */
+#ico-tag > path {
+    color: #5d6369;
+}
+
+/* Change font color on Last Update heading and the date */
+#zDocsContent > ul > li:nth-child(2) {
+    color:  #333;
+    font-weight:  400;
+    margin-top:  3px!important;
+    margin-left: 36px!important;
+}
+#zDocsContent > ul > li:nth-child(2) > span {
+    color:  #333;
+    font-weight:  700!important;
+}
+    
+
+
+/* Change Font on Related Content Sidebar Heading */
+#zDocsContent > div.articleBody > div.zDocsSideBoxes > div > h5 {
+    font-family: "Metric", Arial, sans-serif!important;
+    font-weight: 300;
+    font-size:  .9rem;
+}
+
+/* Change Font of Related Content Links */
+#zDocsContent > div.articleBody > div.zDocsSideBoxes > div > ul > li > a {
+    font-family: "Metric", Arial, sans-serif;
+    font-weight: 300;
+    font-size:  .9rem;
+}
+
+/* Change Padding Beneath Related Content Heading */
+#zDocsContent > div.articleBody > div.zDocsSideBoxes > div > h5 {
+   margin-bottom: 10px; 
+}
+
+/* Change Padding Beneath Each Related Content Link */
+#zDocsContent > div.articleBody > div.zDocsSideBoxes > div > ul > li {
+    margin-bottom:  10px;
+}
+
+/* Change space below a <ul> element */
+/* Also change left margin on some <ul> <li> bullet items */
+main ul.ul {
+    margin: 0 0 12px 5px;
+}
+
+/* Change margins on ul after div.p  */
+/* ALso change left margin on some bullet list items */
+div.p ul.ul {
+    margin:  12px 0 12px 5px!important;
+}
+
+/* Change space below a bullet item in a <ul> */
+/* Also change left margin on some <ul> <li> bullet items */
+main ul.ul li {
+    margin: 0 0 5px;
+}
+
+/* Set indent on <ol> */
+main ol {
+    margin:  0 0 12px 21px;
+}
+
+/* Adjust bullet list left margin on another bullet list construct */
+main article div.body.conbody section ul {
+    margin-left: 5px!important;
+}
+
+/* Adjust bullet list left margin on another bullet list construct */
+main article div.body.refbody div.bodydiv.refbodydiv section.section ul {
+    margin-left: 5px!important;
+}
+
+/* Adjust bullet list left margin on another bullet list construct */
+main article div.body.taskbody section.section.context ul {
+    margin-left: 5px!important;
+}
+/* Adjust bullet list left margin on another bullet list construct */
+main article div.body.conbody dl.dl dd.dd ul {
+    margin-left: 5px!important;
+}
+
+/* Adjust bullet list left margin on another ordered list construct */
+main article div.body.conbody section ol {
+    margin-left: 5px!important;
+}
+main article div.body.conbody div.p ol {
+    margin-left:  5px!important;
+}
+main article div.body.taskbody ol.ol.steps {
+    margin-left:  5px!important;
+}
+
+/* Adjust <ol> number indent when <ol> wrapped in a important note */
+div.note.important.note_important ol.ol {
+    margin-left:  5px!important;
+}
+

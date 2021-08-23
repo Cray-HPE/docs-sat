@@ -1,0 +1,188 @@
+openapi: 3.0.0
+
+
+#This reference serves as guideline to create uniformity across OAS .yaml files.
+#This is a work in progress.
+
+#Most important to observe uniformity around
+# 1) tags: they are used to group endpoints.  should reflect resource name
+# 2) paths: use lowercase and hyphens i.e. /resource/sub-resource.  i.e. /big-resources/{resource-id}:
+# 3) version: Version changes when fmt/type of response data changes or any api call is removed
+# 4) servers: see https://swagger.io/docs/specification/api-host-and-base-path/
+
+
+
+# references:
+# https://restfulapi.net/resource-naming/
+# https://github.com/byrondover/api-guidelines/blob/master/Guidelines.md
+# https://github.com/OAI/OpenAPI-Specification/blob/master/examples/v3.0/link-example.yaml
+
+info:
+  title: This Service
+  version: 1.2.27
+  # Use semantic versioning, major.minor.patch
+  # major - version of api, changes when format/type of response data changes, or any call is deleted
+  # minor - irrelevant for api level version.  relflects internal rev cycle, i.e. integration point
+  # patch - irrelevant for api level version.  reflects internal rev cycle, i.e. build version
+  description: >-
+    The service does what? Who are the likely consumers? What kind of
+    application is likely to be the client?
+    The following headers are in markdown format. The description should include Resources and Workflow sections.
+
+
+    ## Resources
+
+    ### /this
+
+    Describe this resource. Do not restate summary.
+
+    ### /that
+
+    Describe that resource. Do not restate summary.
+
+    ### /the-other
+
+    Describe the-other. Do not restate summary.
+
+    ## Workflow
+
+    ### State What Will be Accomplished in This Set of Calls
+
+    #### GET /this
+
+    Describe a simplified workflow.  When response element is returned that is subsequently used, describe it.  For example,
+    the id in the response is used as an path parameter for the subsequent xyz call.
+
+    #### GET /that
+
+    Retrieve a list of this.
+
+    #### POST /that
+
+    Update that.
+
+    ### State What Will be Accomplished in This Set of Calls
+
+    #### GET /that
+
+    Retrieve that.
+
+    #### POST /that
+
+    Update that.
+
+    ## Interactions with Other APIs
+
+    Discuss, if appropriate.
+
+
+servers:
+      - url: http://api-gw-service-nmn.local/api/ars
+        description: Preview System URL (unversioned)
+      - url: http://api-gw-service-nmn.local/api/ars/v1
+        description: Preview System URL (versioned)
+      - url: https://api-gw-service-nmn.local/api/ars
+        description: Secure Preview System URL (unversioned)
+      - url: https://api-gw-service-nmn.local/api/ars/v1
+        description: Secure Preview System URL (versioned)
+      - url: http://localhost:8080/
+        description: Local Development
+
+paths:
+  /this:
+  # paths lowercase.  hypenated if it improves readablity for multi-word
+    get:
+      operationId: getThis
+      # Summary does not reuse method if possible. Use imperative tense, no period.
+      summary: List this resource
+      tags:
+        - this
+        # tags group calls in editors/portal.  Most common choice is resource name.
+      description: >-
+        Resources are represented by nouns.  If they are plural nouns, then it
+        is a collection resource.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/This'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  '/this/{resourceid}':
+    get:
+      operationId: getThisByResourceId
+      summary: List resources by resourceid
+      tags:
+        - this
+      description: >-
+        Resources are represented by nouns.
+      parameters:
+        - in: path
+          name: resourceid
+          required: true
+          schema:
+            type: integer
+          description: Identifies unique resource
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/This'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /that:
+    get:
+      operationId: getThat
+      summary: List that resource
+      tags:
+        - that
+      description: >-
+        Resources are represented by nouns.  If they are plural nouns, then it
+        is a collection resource.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/That'
+components:
+  # schema names capitalized, CamelCase
+  schemas:
+    This:
+      type: object
+      properties:
+        id:
+          type: integer
+        uuid:
+          type: string
+    That:
+      type: object
+      properties:
+        id:
+          type: integer
+        uuid:
+          type: string
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string

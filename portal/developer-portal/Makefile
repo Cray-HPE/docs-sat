@@ -45,9 +45,8 @@ YAML_SRC = $(patsubst %.page.yaml,%.yaml,$(wildcard $(YAML)) )
 
 # Need dependency when .mds contains other mds's and add to clean
 
-# Per STP-2786-feedback, commenting before removals
-# Operations_Guide_Customer.md: taxonomy.md install_sw.md admin_sw.md
-# Operations_Guide_Manufacturing.md: taxonomy.md install_sw.md install_hw.md admin_sw.md
+Operations_Guide_Customer.md: taxonomy.md install_sw.md admin_sw.md
+Operations_Guide_Manufacturing.md: taxonomy.md install_sw.md install_hw.md admin_sw.md
 
 MDOBJECTS = $(patsubst %.mds,%.md,$(MDS_SRC))
 
@@ -80,17 +79,17 @@ MKVERSION = ../../setup_versioning.sh
 # PANDOC experiments for reference
 #
 
-PANDOC-N = pandoc -c $(CSSDIR)/H.css -s --toc -V monofontoptions:"Scale=0.4" -V geometry:"top=2cm, bottom=1.5cm, left=1.5cm, right=1.5cm" --pdf-engine=xelatex --number-sections
+PANDOC-N = pandoc -c $(CSSDIR)/H.css -s --toc -V urlcolor:blue -V linkcolor:blue -V monofontoptions:"Scale=0.4" -V geometry:"top=2cm, bottom=1.5cm, left=1.5cm, right=1.5cm" --pdf-engine=xelatex --number-sections -H ./pdf-templates/fancy.tex 
 
-PANDOC = docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` pandoc/latex:2.6 -c css/H.css -s --toc -V monofontoptions:"Scale=0.4" -V geometry:"top=2cm, bottom=1.5cm, left=1.5cm, right=1.5cm" --pdf-engine=xelatex  --number-sections
+PANDOC = docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` pandoc/latex:2.6 -c css/H.css -s --toc -V urlcolor:blue -V linkcolor:blue -V monofontoptions:"Scale=0.4" -V geometry:"top=2cm, bottom=1.5cm, left=1.5cm, right=1.5cm" --pdf-engine=xelatex  --number-sections -H ./pdf-templates/fancy.tex
 
-HTMLPANDOC = docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` pandoc/latex:2.6 -c css/H.css -V urlcolor:blue -s --toc --to html5 --number-sections
+HTMLPANDOC = docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` pandoc/latex:2.6 -c css/H.css -s --toc -V urlcolor:blue -V linkcolor:blue --to html5 --number-sections
 
-HTMLPANDOC-N = pandoc -c css/H.css -V urlcolor:blue -s --toc --to html5 --number-sections
+HTMLPANDOC-N = pandoc -c css/H.css -s --toc  -V urlcolor:blue -V linkcolor:blue --to html5 --number-sections
 
 REDOC = docker run -v "`pwd`/..:/data" broothie/redoc-cli:0.9.8 bundle
 MDL =	docker run --rm -v `pwd`:/workspace  -v `pwd`/lint/.mdlrc:/mdl/.mdlrc wpengine/mdl /workspace
-MDL-N =	mdl *.md
+MDL-N =	mdl *.md 
 
 
 # Also, include non-file targets in .PHONY so they are run regardless of any
@@ -103,7 +102,7 @@ MDL-N =	mdl *.md
 
 all:    dir md pdf html api
 
-md:	    $(MDOBJECTS)
+md:	    dir $(MDOBJECTS)
 
 pdf:    dir md $(PDFOBJECTS) $(PDFOBJECTS2)
 
@@ -127,14 +126,15 @@ api:    dir md $(YAMLOBJECTS)
 ## '$@' is a variable holding the name of the target,
 ## and '$<' is a variable holding the (first) dependency of a rule.
 
-dir: $(TMPDIR)/VeRsIoN.md
+dir: $(TMPDIR)/VeRsIoN.md pdf-templates/fancy.tex
 	mkdir -p $(PDFBUILDDIR)
 	mkdir -p $(HTMLBUILDDIR)
 	cp -r $(IMAGESDIR) $(HTMLBUILDDIR)
 	cp -r $(CSSDIR) $(HTMLBUILDDIR)
 
 
-$(TMPDIR)/VeRsIoN.md:
+## Setup Version/Copyright for Doc section, and for Doc page footers
+$(TMPDIR)/VeRsIoN.md pdf-templates/fancy.tex:
 	mkdir -p $(TMPDIR)
 	$(MKVERSION) -d > $(TMPDIR)/VeRsIoN.md
 
@@ -144,16 +144,16 @@ $(TMPDIR)/VeRsIoN.md:
 
 ifdef NODOCKER
 $(HTMLBUILDDIR)/%.html: $(SOURCEDIR)/%.md
-	$(HTMLPANDOC-N) -o $@ $< $(TMPDIR)/VeRsIoN.md
+	$(HTMLPANDOC-N) -o $@ $(TMPDIR)/VeRsIoN.md $< 
 
 $(PDFBUILDDIR)/%.pdf: $(SOURCEDIR)/%.md
-	$(PANDOC-N) -o $@ $< $(TMPDIR)/VeRsIoN.md
+	$(PANDOC-N) -o $@ $(TMPDIR)/VeRsIoN.md $< 
 else
 $(HTMLBUILDDIR)/%.html: $(SOURCEDIR)/%.md
-	$(HTMLPANDOC) -o $@ $< $(TMPDIR)/VeRsIoN.md
+	$(HTMLPANDOC) -o $@ $(TMPDIR)/VeRsIoN.md $< 
 
 $(PDFBUILDDIR)/%.pdf: $(SOURCEDIR)/%.md
-	$(PANDOC) -o $@ $< $(TMPDIR)/VeRsIoN.md
+	$(PANDOC) -o $@ $(TMPDIR)/VeRsIoN.md $< 
 endif
 
 
@@ -211,7 +211,11 @@ tar: all $(BUILDDIR)/pdfhtml.tar
 	rm $(TMPDIR)/VeRsIoN.md
 
 $(BUILDDIR)/pdfhtml.tar: $(HTMLOBJECTS) $(PDFOBJECTS)
-
+	rm -f $(BUILDDIR)/*/apis* \
+		$(BUILDDIR)/*/admin* \
+		$(BUILDDIR)/*/overview* \
+		$(BUILDDIR)/*/install* \
+		$(BUILDDIR)/*/taxonomy*
 	tar cf $@ $(BUILDDIR)/*
 
 product-docs-$(VERSION).tar.bz2:
@@ -230,6 +234,6 @@ $(RPM_BUILD_ROOT)/rpmbuild:
 	mkdir -p $@/SOURCES
 	mkdir -p $@/SPECS
 	mkdir -p $@/SRPMS
-
+	
 package: $(RPM_BUILD_ROOT)/rpmbuild install
 	rpmbuild -ba product-docs.spec --define "_topdir $(RPM_BUILD_ROOT)/rpmbuild"
