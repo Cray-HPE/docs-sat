@@ -59,8 +59,8 @@ if ((pipelineParams.slackNotification[2] != false && skipSlack != true)) {
 }
 
 // Set cron to build nightly for master or release, not other branches
-def relpattern = /release/
-String cron_str = BRANCH_NAME == "master" || BRANCH_NAME ==~ relpattern ? "H H(0-7) * * *" : ""
+def relpattern = "release/"
+String cron_str = BRANCH_NAME == "master" || BRANCH_NAME ==~ "${relpattern}" ? "H H(0-7) * * *" : ""
 
 pipeline {
     agent { node { label 'dstbuild' } }
@@ -134,7 +134,7 @@ pipeline {
                     mkdir -p ${WORKSPACE}/build/results
                     cd portal/developer-portal;make tar
                     cp build/*.tar ${WORKSPACE}/build/results/${IMAGE_NAME_PDFHTML}.tar
-                    mkdir ${WORKSPACE}/build/results/${pipelineParams.name}
+                    mkdir -p ${WORKSPACE}/build/results/${pipelineParams.name}
                     mv ${WORKSPACE}/build/results/${IMAGE_NAME_PDFHTML}.tar ${WORKSPACE}/build/results/${pipelineParams.name}/${IMAGE_NAME_PDFHTML}.tar
                     cp build/pdf ${WORKSPACE}/build/results/${IMAGE_NAME_PDF} -rf
                     cp build/html ${WORKSPACE}/build/results/${IMAGE_NAME_HTML} -rf

@@ -1,0 +1,8 @@
+\usepackage{fancyhdr}
+\setlength{\headheight}{15.2pt}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\bfseries\nouppercase\leftmark}
+\rhead{\bfseries\thepage}
+\rfoot{VERSIONFOOTER}
+\cfoot{DRAFT DOCUMENT} 
