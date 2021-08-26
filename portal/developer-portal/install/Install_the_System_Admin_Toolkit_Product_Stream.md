@@ -11,7 +11,7 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
 ### Notes on the Procedure
 
 - Ellipses (`...`) in shell output indicate omitted lines.
-- In the examples below, replace `2.1.x` with the version of the SAT product stream being installed.
+- In the examples below, replace `2.2.x` with the version of the SAT product stream being installed.
 - 'manager' and 'master' are used interchangeably in the steps below.
 
 ### Procedure
@@ -28,13 +28,13 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
 3. Unzip and extract the release distribution.
 
     ```screen
-    ncn-m001# tar -xvzf sat-2.1.x.tar.gz
+    ncn-m001# tar -xvzf sat-2.2.x.tar.gz
     ```
 
 4. Change directory to the extracted release distribution directory.
 
     ```screen
-    ncn-m001# cd sat-2.1.x
+    ncn-m001# cd sat-2.2.x
     ```
 
 5. Run the installer, **install.sh**.
@@ -48,12 +48,12 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
     ConfigMap data updates exist; Exiting.
     + clean-install-deps
     + for image in "${vendor_images[@]}"
-    + podman rmi -f docker.io/library/cray-nexus-setup:sat-2.1.x-20210804163905-8dbb87d
-    Untagged: docker.io/library/cray-nexus-setup:sat-2.1.x-20210804163905-8dbb87d
+    + podman rmi -f docker.io/library/cray-nexus-setup:sat-2.2.x-20210804163905-8dbb87d
+    Untagged: docker.io/library/cray-nexus-setup:sat-2.2.x-20210804163905-8dbb87d
     Deleted: 2c196c0c6364d9a1699d83dc98550880dc491cc3433a015d35f6cab1987dd6da
     + for image in "${vendor_images[@]}"
-    + podman rmi -f docker.io/library/skopeo:sat-2.1.x-20210804163905-8dbb87d
-    Untagged: docker.io/library/skopeo:sat-2.1.x-20210804163905-8dbb87d
+    + podman rmi -f docker.io/library/skopeo:sat-2.2.x-20210804163905-8dbb87d
+    Untagged: docker.io/library/skopeo:sat-2.2.x-20210804163905-8dbb87d
     Deleted: 1b38b7600f146503e246e753cd9df801e18409a176b3dbb07b0564e6bc27144c
     ```
 
@@ -97,7 +97,7 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
     successfully. The job usually takes between 30 seconds and 2 minutes.
 
     ```screen
-    ncn-m001# kubectl describe job sat-config-import-2.1.x -n services
+    ncn-m001# kubectl describe job sat-config-import-2.2.x -n services
     ...
     Pods Statuses:  0 Running / 1 Succeeded / 0 Failed
     ...
@@ -108,7 +108,7 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
 
     ```screen
     ncn-m001# kubectl logs -f -n services --selector \
-        job-name=sat-config-import-2.1.x --all-containers
+        job-name=sat-config-import-2.2.x --all-containers
     ...
     ConfigMap update attempt=1
     Resting 1s before reading ConfigMap
@@ -138,7 +138,7 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
     ncn-m001# git ls-remote \
         https://crayvcs:$VCS_PASS@api-gw-service-nmn.local/vcs/cray/sat-config-management.git \
         refs/heads/cray/sat/*
-    82537e59c24dd5607d5f5d6f92cdff971bd9c615 refs/heads/cray/sat/2.1.x
+    82537e59c24dd5607d5f5d6f92cdff971bd9c615 refs/heads/cray/sat/2.2.x
     ```
 
 9. Add a `sat` layer to the CFS configuration(s) associated with the manager NCNs.
@@ -351,8 +351,8 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
 13. Optional: Remove the SAT release distribution tar file and extracted directory.
 
     ```screen
-    ncn-m001# rm sat-2.1.x.tar.gz
-    ncn-m001# rm -rf sat-2.1.x/
+    ncn-m001# rm sat-2.2.x.tar.gz
+    ncn-m001# rm -rf sat-2.2.x/
     ```
 
 14. Finish the typescript file started at the beginning of this procedure.
