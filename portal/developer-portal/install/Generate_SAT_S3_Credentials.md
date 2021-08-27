@@ -65,7 +65,7 @@ SAT uses S3 storage for several purposes, most importantly to store the site-spe
 
         If the values differ, modify the SAT configuration file's endpoint value to match the secret's.
 
-5. Copy SAT configurations to every manager node on the system.
+4. Copy SAT configurations to every manager node on the system.
 
     ```screen
     ncn-m001# for i in ncn-m002 ncn-m003; do echo $i; ssh ${i} \
