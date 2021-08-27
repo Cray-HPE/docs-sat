@@ -54,9 +54,6 @@ SAT uses S3 storage for several purposes, most importantly to store the site-spe
         ```
     
     2. Get the `sat-s3-credentials` secret's endpoint value.
-    
-        The following example shows how to get the `sat-s3-credentials` secret's
-        endpoint value.
 
         ```screen
         ncn-m001# kubectl get secret sat-s3-credentials -o json -o \
