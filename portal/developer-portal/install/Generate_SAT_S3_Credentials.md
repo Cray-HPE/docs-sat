@@ -43,24 +43,29 @@ SAT uses S3 storage for several purposes, most importantly to store the site-spe
 
 3. Verify the S3 endpoint specified in the SAT configuration file is correct.
 
-    **NOTE:** If the second line of the example that follows is commented out, as indicated by a preceding #
-    comment character, it will take the default value, which is `"https://rgw-vip.nmn"`.
+    1. Get the SAT configuration file's endpoint valie.
 
-    ```screen
-    ncn-m001# grep endpoint ~/.config/sat/sat.toml
-    # endpoint = "https://rgw-vip.nmn"
-    ```
+        **NOTE:** If the command's output is commented out, indicated by an initial #
+        character, the SAT configuration will take the default value – `"https://rgw-vip.nmn"`.
 
-4. Check the value specified in the `sat-s3-credentials` secret and if these values do not match, modify the
-    SAT configuration file so that it matches the value in the secret.
+        ```screen
+        ncn-m001# grep endpoint ~/.config/sat/sat.toml
+        # endpoint = "https://rgw-vip.nmn"
+        ```
+    
+    2. Get the `sat-s3-credentials` secret's endpoint value.
 
-    ```screen
-    ncn-m001# kubectl get secret sat-s3-credentials -o json -o \
-        jsonpath='{.data.s3_endpoint}' | base64 -d | xargs
-    https://rgw-vip.nmn
-    ```
+        ```screen
+        ncn-m001# kubectl get secret sat-s3-credentials -o json -o \
+            jsonpath='{.data.s3_endpoint}' | base64 -d | xargs
+        https://rgw-vip.nmn
+        ```
 
-5. Copy SAT configurations to every manager node on the system.
+    3. Compare the two endpoint values.
+
+        If the values differ, modify the SAT configuration file's endpoint value to match the secret's.
+
+4. Copy SAT configurations to every manager node on the system.
 
     ```screen
     ncn-m001# for i in ncn-m002 ncn-m003; do echo $i; ssh ${i} \
