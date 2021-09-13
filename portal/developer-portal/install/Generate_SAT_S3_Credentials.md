@@ -43,7 +43,7 @@ SAT uses S3 storage for several purposes, most importantly to store the site-spe
 
 3. Verify the S3 endpoint specified in the SAT configuration file is correct.
 
-    1. Get the SAT configuration file's endpoint valie.
+    1. Get the SAT configuration file's endpoint value.
 
         **NOTE:** If the command's output is commented out, indicated by an initial #
         character, the SAT configuration will take the default value – `"https://rgw-vip.nmn"`.
@@ -63,9 +63,9 @@ SAT uses S3 storage for several purposes, most importantly to store the site-spe
 
     3. Compare the two endpoint values.
 
-        If the values differ, modify the SAT configuration file's endpoint value to match the secret's.
+        If the values differ, change the SAT configuration file's endpoint value to match the secret's.
 
-4. Copy SAT configurations to every manager node on the system.
+4. Copy SAT configurations to each manager node on the system.
 
     ```screen
     ncn-m001# for i in ncn-m002 ncn-m003; do echo $i; ssh ${i} \
