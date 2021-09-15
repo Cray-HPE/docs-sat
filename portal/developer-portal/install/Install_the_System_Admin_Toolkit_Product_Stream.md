@@ -206,7 +206,10 @@ Describes the steps to install the System Admin Toolkit (SAT) product stream.
         the `sat` layer entry.
 
         Use the git commit ID from step 8, e.g. `82537e59c24dd5607d5f5d6f92cdff971bd9c615`.
-        The `name` and `playbook` fields must also match the example below.
+
+        **NOTE:** The `name` value in the example below may be changed, but the installation
+        procedure uses the example value, `sat-ncn`. If an alternate value is used, some
+        of the following examples must be updated accordingly before they are executed.
 
         ```screen
         ncn-m001# vim ncn-personalization.json
