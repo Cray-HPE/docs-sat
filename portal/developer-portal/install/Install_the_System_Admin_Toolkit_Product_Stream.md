@@ -1,6 +1,6 @@
 ## Install the System Admin Toolkit Product Stream
 
-Describes the steps needed to install the System Admin Toolkit (SAT) product stream.
+Describes the steps to install the System Admin Toolkit (SAT) product stream.
 
 ### Prerequisites
 
@@ -144,7 +144,7 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
 9. Add a `sat` layer to the CFS configuration(s) associated with the manager NCNs.
     1. Get the name(s) of the CFS configuration(s).
 
-        **NOTE:** Each manager NCN uses a single CFS configuration. An indivudual CFS configuration
+        **NOTE:** Each manager NCN uses a single CFS configuration. An individual CFS configuration
         may be used by any number of manage NCNs, i.e., three manager NCNs might use one,
         two, or three CFS configurations.
 
@@ -169,11 +169,11 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
         ncn-personalization-m003
         ```
 
-        **NOTES:**
-        * Examples in the following sub-steps assume that all manager NCNs use the
-        CFS configuration "ncn-personalization."
-        * Execute the following sub-steps (9.2 through 9.5) once for each unique CFS
+        Execute the following sub-steps (9.2 through 9.5) once for each unique CFS
         configuration name.
+
+        **NOTE:** Examples in the following sub-steps assume that all manager NCNs use the
+        CFS configuration `ncn-personalization`.
 
     2. Get the current configuration layers for each CFS configuration, and save the
         data to a local JSON file.
@@ -196,11 +196,14 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
         **NOTE:** For more on CFS configuration management, refer to "Manage a Configuration
         with CFS" in the CSM product documentation.
 
-    3. Add a `sat` layer to the JSON file.
+    3. Append a `sat` layer to the end of the JSON file's list of layers.
 
-        **CAUTION:** If the file contains a COS layer entry, it must remain the first in the list.
+        If the file already contains a `sat` layer entry, update it.
 
-        **NOTE:** If the file already contains a `sat` layer entry, update it.
+        If the configuration data could not be found in the previous sub-step, the JSON file
+        will be empty. In this case, copy the `ncn-personalization.json` example below,
+        paste it into the JSON file, delete the ellipsis, and make appropriate changes to
+        the `sat` layer entry.
 
         Use the git commit ID from step 8, e.g. `82537e59c24dd5607d5f5d6f92cdff971bd9c615`.
         The `name` and `playbook` fields must also match the example below.
@@ -211,12 +214,6 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
         ncn-m001# cat ncn-personalization.json
         {
             "layers": [
-                {
-                    "cloneUrl": "https://api-gw-service-nmn.local/vcs/cray/cos-config-management.git",
-                    "commit": "b21074092b44a3f8ddb67ee2b021d9ee0f18bff9",
-                    "name": "cos-integration-2.0.27",
-                    "playbook": "ncn.yml"
-                },
                 ...
                 {
                     "cloneUrl": "https://api-gw-service-nmn.local/vcs/cray/sat-config-management.git",
@@ -319,12 +316,14 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
     **NOTE:** Ensure that the PLAY RECAPs for each session show successes for all
     manager NCNs before proceeding.
 
-12. Verify that SAT is successfully installed by running the following command to
-    confirm the expected version. The examples below use an example version of 3.7.0.
+12. Verify that SAT is now installed.
 
-    This version number will be different than the version number of the SAT release distribution. This is the
-    semantic version of the `sat` Python package, which is different from the version number of the overall SAT
-    release distribution.
+    If `sat` is installed, the `--version` command will indicate which version
+    is installed. If `sat` is not installed, the command will fail.
+
+    **NOTE:** This version number will differ from the version number of the SAT
+    release distribution. This is the semantic version of the `sat` Python package,
+    which is different from the version number of the overall SAT release distribution.
 
     ```screen
     ncn-m001# sat --version
@@ -361,7 +360,9 @@ Describes the steps needed to install the System Admin Toolkit (SAT) product str
     ncn-m001# exit
     ```
 
-15. Complete the installation by running the following procedures to set up SAT:
+15. Complete the installation.
+
+    Run the following procedures to set up SAT:
     - [SAT Authentication](#sat-authentication)
     - [Generate SAT S3 Credentials](#generate-sat-s3-credentials)
     - [Run Sat Setrev to Set System Information](#run-sat-setrev-to-set-system-information)
