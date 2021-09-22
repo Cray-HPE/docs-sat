@@ -11,8 +11,11 @@ Describes the steps to install the System Admin Toolkit (SAT) product stream.
 ### Notes on the Procedure
 
 - Ellipses (`...`) in shell output indicate omitted lines.
-- In the examples below, replace `2.2.x` with the version of the SAT product stream being installed.
+- In the examples below, replace `2.2.x` with the version of the SAT product stream
+being installed.
 - 'manager' and 'master' are used interchangeably in the steps below.
+- To upgrade SAT, execute this installation procedure for a newer distribution.
+The newly installed version will become the default.
 
 ### Procedure
 
@@ -365,12 +368,15 @@ Describes the steps to install the System Admin Toolkit (SAT) product stream.
 
 15. Complete the installation.
 
-    Run the following procedures to set up SAT:
+    **NOTE:** The following procedures are **not** required when upgrading SAT.
+    They should have been executed during the first installation of SAT.
+
+    Execute the following procedures to set up SAT:
     - [SAT Authentication](#sat-authentication)
     - [Generate SAT S3 Credentials](#generate-sat-s3-credentials)
     - [Run Sat Setrev to Set System Information](#run-sat-setrev-to-set-system-information)
 
-#### Optional: Remove Old Versions After Upgrade
+#### **Optional**: Remove Old Versions After Upgrade
 
 If upgrading from a previous version of SAT, the old version of the `cray/cray-sat`
 container image will remain in the registry on the system, although it will not be
