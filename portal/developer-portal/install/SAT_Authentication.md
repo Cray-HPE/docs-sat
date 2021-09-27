@@ -7,6 +7,9 @@ _Create Internal User Accounts in the Keycloak Shasta Realm_ in the CSM product 
 For additional information on SAT authentication, see _System Security and Authentication_ in the CSM
 documentation.
 
+**NOTE:** This procedure is only required after initially installing SAT. It is not
+required after upgrading SAT.
+
 ### Description of SAT Command Authentication Types
 
 Some SAT subcommands make requests to the Shasta services through the API gateway and thus require authentication to

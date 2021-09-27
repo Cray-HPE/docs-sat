@@ -1,5 +1,8 @@
 ## Run sat setrev to Set System Information
 
+**NOTE:** This procedure is only required after initially installing SAT. It is not
+required after upgrading SAT.
+
 ### Prerequisites
 
 - S3 credentials have been generated. See [Generate SAT S3 Credentials](#generate-sat-s3-credentials).
