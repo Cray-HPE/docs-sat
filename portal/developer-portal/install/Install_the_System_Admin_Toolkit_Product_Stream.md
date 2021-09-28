@@ -34,7 +34,7 @@ Describes how to install the System Admin Toolkit (SAT) product stream.
 
 1. Copy the release distribution gzipped tar file to `ncn-m001`.
 
-2. Unzip and extract the release distribution.
+2. Unzip and extract the release distribution, `2.2.x`.
 
     ```screen
     ncn-m001# tar -xvzf sat-2.2.x.tar.gz
@@ -154,7 +154,7 @@ Describes how to install the System Admin Toolkit (SAT) product stream.
     After upgrading from a previous version of SAT, the old version of the `cray/cray-sat`
     container image will remain in the registry on the system. It is **not** removed by
     automatically, but it will **not** be the default version.
-    
+
     The admin can remove the older version of the `cray/cray-sat` container image.
 
     The `cray-product-catalog` Kubernetes configuration map will also show all versions
@@ -176,7 +176,14 @@ Describes how to install the System Admin Toolkit (SAT) product stream.
     +--------------+-----------------+--------------------+-----------------------+
     ```
 
-4. Proceed to the SAT configuration and setup procedures. 
+4. Next steps.
+
+    If other HPE Cray EX software products are being installed or upgraded in conjunction
+    with SAT, refer to the *HPE Cray EX System Software Getting Started Guide* to determine
+    which step to execute next.
+
+    If no other HPE Cray EX software products are being installed or upgraded at this time,
+    proceed to the sections listed below.
 
     **NOTE:** The setup procedures are **not** required when upgrading SAT.
     They should have been executed during the first installation of SAT. The
@@ -189,3 +196,9 @@ Describes how to install the System Admin Toolkit (SAT) product stream.
     - [SAT Authentication](#sat-authentication)
     - [Generate SAT S3 Credentials](#generate-sat-s3-credentials)
     - [Run Sat Setrev to Set System Information](#run-sat-setrev-to-set-system-information)
+
+SAT version `2.2.x` is now installed/upgraded:
+
+- SAT configuration content for this release has been uploaded to VCS.
+- SAT content for this release has been uploaded to the CSM product catalog.
+- SAT content for this release has been uploaded to Nexus repositories.

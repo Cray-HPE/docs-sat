@@ -37,7 +37,7 @@ Describes how to configure the System Admin Toolkit (SAT) product stream using C
 
     In this example, the git commit ID is `82537e59c24dd5607d5f5d6f92cdff971bd9c615`,
     and the version number is `2.2.x`.
-    
+
     ```screen
     ncn-m001# git ls-remote \
         https://crayvcs:$VCS_PASS@api-gw-service-nmn.local/vcs/cray/sat-config-management.git \
@@ -74,7 +74,7 @@ Describes how to configure the System Admin Toolkit (SAT) product stream using C
         ncn-personalization-m003
         ```
 
-        Execute the following sub-steps (9.2 through 9.5) once for each unique CFS
+        Execute the following sub-steps (3.2 through 3.5) once for each unique CFS
         configuration name.
 
         **NOTE:** Examples in the following sub-steps assume that all manager NCNs use the
@@ -223,10 +223,10 @@ Describes how to configure the System Admin Toolkit (SAT) product stream using C
     **NOTE:** Ensure that the PLAY RECAPs for each session show successes for all
     manager NCNs before proceeding.
 
-7. Verify that SAT is now installed.
+6. Verify that SAT was successfully configured.
 
-    If `sat` is installed, the `--version` command will indicate which version
-    is installed. If `sat` is not installed, the command will fail.
+    If `sat` is configured, the `--version` command will indicate which version
+    is installed. If `sat` is not properly configured, the command will fail.
 
     **NOTE:** This version number will differ from the version number of the SAT
     release distribution. This is the semantic version of the `sat` Python package,
@@ -258,3 +258,11 @@ Describes how to configure the System Admin Toolkit (SAT) product stream using C
     ```screen
     ncn-m001# exit
     ```
+
+SAT version `2.2.x` is now configured:
+
+- The SAT RPM package is installed on the associated NCNs. 
+
+If other HPE Cray EX software products are being installed or upgraded in conjunction
+with SAT, refer to the *HPE Cray EX System Software Getting Started Guide* to determine
+which step to execute next.
