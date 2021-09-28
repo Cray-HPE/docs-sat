@@ -152,7 +152,7 @@ Describes how to install the System Admin Toolkit (SAT) product stream.
 3. **Optional:** Remove old versions after an upgrade.
 
     After upgrading from a previous version of SAT, the old version of the `cray/cray-sat`
-    container image will remain in the registry on the system. It is **not** removed by
+    container image will remain in the registry on the system. It is **not** removed
     automatically, but it will **not** be the default version.
 
     The admin can remove the older version of the `cray/cray-sat` container image.
