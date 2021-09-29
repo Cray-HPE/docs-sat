@@ -7,6 +7,9 @@ This must be done on every Kubernetes master node where SAT commands are run.
 SAT uses S3 storage for several purposes, most importantly to store the site-specific information set with `sat setrev`
 (see: [Run Sat Setrev to Set System Information](#run-sat-setrev-to-set-system-information)).
 
+**NOTE:** This procedure is only required after initially installing SAT. It is not
+required after upgrading SAT.
+
 ### Prerequisites
 
 - The `sat` CLI has been installed following [Install The System Admin Toolkit Product Stream](#install-the-system-admin-toolkit-product-stream).
