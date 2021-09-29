@@ -18,6 +18,8 @@ _include install/Install_the_System_Admin_Toolkit_Product_Stream.md
 
 _include install/Configure_SAT_Using_CFS.md
 
+# SAT Setup
+
 _include install/SAT_Authentication.md
 
 _include install/Generate_SAT_S3_Credentials.md
