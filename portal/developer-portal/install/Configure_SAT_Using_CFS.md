@@ -12,6 +12,10 @@ Describes how to configure the System Admin Toolkit (SAT) product stream using C
 - In the examples below, replace `2.2.x` with the version of the SAT product stream
     being installed.
 - 'manager' and 'master' are used interchangeably in the steps below.
+- If upgrading SAT, the existing configuration will likely include other Cray EX product
+    entries. Update the SAT entry as desribed in this procedure. The *HPE Cray EX System
+    Software Getting Started Guide* provides guidance on how and when to update the
+    entries for the other products.
 
 ### Procedure
 
@@ -261,8 +265,15 @@ Describes how to configure the System Admin Toolkit (SAT) product stream using C
 
 SAT version `2.2.x` is now configured:
 
-- The SAT RPM package is installed on the associated NCNs. 
+- The SAT RPM package is installed on the associated NCNs.
+
+### Next Steps
 
 If other HPE Cray EX software products are being installed or upgraded in conjunction
 with SAT, refer to the *HPE Cray EX System Software Getting Started Guide* to determine
 which step to execute next.
+
+If no other HPE Cray EX software products are being installed or upgraded at this time,
+proceed to the remaining initial setup procedures.
+
+**NOTE:** The setup procedures are **not** required when upgrading SAT.

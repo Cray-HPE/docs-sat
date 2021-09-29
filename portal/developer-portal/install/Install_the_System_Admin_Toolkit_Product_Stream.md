@@ -176,29 +176,29 @@ Describes how to install the System Admin Toolkit (SAT) product stream.
     +--------------+-----------------+--------------------+-----------------------+
     ```
 
-4. Next steps.
-
-    If other HPE Cray EX software products are being installed or upgraded in conjunction
-    with SAT, refer to the *HPE Cray EX System Software Getting Started Guide* to determine
-    which step to execute next.
-
-    If no other HPE Cray EX software products are being installed or upgraded at this time,
-    proceed to the sections listed below.
-
-    **NOTE:** The setup procedures are **not** required when upgrading SAT.
-    They should have been executed during the first installation of SAT. The
-    configuration procedure, however, **is** required when upgrading SAT.
-
-    Execute the following procedure to configure SAT:
-    - [SAT Configuration](#configure-sat-using-cfs)
-
-    Execute the following procedures to set up SAT:
-    - [SAT Authentication](#sat-authentication)
-    - [Generate SAT S3 Credentials](#generate-sat-s3-credentials)
-    - [Run Sat Setrev to Set System Information](#run-sat-setrev-to-set-system-information)
-
 SAT version `2.2.x` is now installed/upgraded:
 
 - SAT configuration content for this release has been uploaded to VCS.
 - SAT content for this release has been uploaded to the CSM product catalog.
 - SAT content for this release has been uploaded to Nexus repositories.
+
+### Next Steps
+
+If other HPE Cray EX software products are being installed or upgraded in conjunction
+with SAT, refer to the *HPE Cray EX System Software Getting Started Guide* to determine
+which step to execute next.
+
+If no other HPE Cray EX software products are being installed or upgraded at this time,
+proceed to the sections listed below.
+
+**NOTE:** The initial setup procedures are **not** required when upgrading SAT.
+They should have been executed during the first installation of SAT. The
+configuration procedure, however, **is** required when upgrading SAT.
+
+Execute the following **configuration** procedure:
+- [SAT Configuration](#configure-sat-using-cfs)
+
+Execute the following **initial setup** procedures:
+- [SAT Authentication](#sat-authentication)
+- [Generate SAT S3 Credentials](#generate-sat-s3-credentials)
+- [Run Sat Setrev to Set System Information](#run-sat-setrev-to-set-system-information)
