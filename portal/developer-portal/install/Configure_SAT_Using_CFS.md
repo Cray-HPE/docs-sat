@@ -13,7 +13,7 @@ Describes how to configure the System Admin Toolkit (SAT) product stream using C
     being installed.
 - 'manager' and 'master' are used interchangeably in the steps below.
 - If upgrading SAT, the existing configuration will likely include other Cray EX product
-    entries. Update the SAT entry as desribed in this procedure. The *HPE Cray EX System
+    entries. Update the SAT entry as described in this procedure. The *HPE Cray EX System
     Software Getting Started Guide* provides guidance on how and when to update the
     entries for the other products.
 
