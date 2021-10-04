@@ -68,29 +68,20 @@ Describes how to install the System Admin Toolkit (SAT) product stream.
 
 4. Run the installer, **install.sh**.
 
-    The script produces a lot of output. The last several lines are included
-    below for reference.
+    The script produces a lot of output. A successful install ends with "SAT
+    version 2.2.x has been installed".
 
     ```screen
     ncn-m001# ./install.sh
     ...
-    ConfigMap data updates exist; Exiting.
-    + clean-install-deps
-    + for image in "${vendor_images[@]}"
-    + podman rmi -f docker.io/library/cray-nexus-setup:sat-2.2.x-20210804163905-8dbb87d
-    Untagged: docker.io/library/cray-nexus-setup:sat-2.2.x-20210804163905-8dbb87d
+    ====> Cleaning up install dependencies
+    Untagged: docker.io/library/cray-nexus-setup:sat-2.2.x
     Deleted: 2c196c0c6364d9a1699d83dc98550880dc491cc3433a015d35f6cab1987dd6da
-    + for image in "${vendor_images[@]}"
-    + podman rmi -f docker.io/library/skopeo:sat-2.2.x-20210804163905-8dbb87d
-    Untagged: docker.io/library/skopeo:sat-2.2.x-20210804163905-8dbb87d
-    Deleted: 1b38b7600f146503e246e753cd9df801e18409a176b3dbb07b0564e6bc27144c
-    ```
-
-    Check the return code of the installer. Zero indicates a successful installation.
-
-    ```screen
-    ncn-m001# echo $?
-    0
+    Untagged: docker.io/library/skopeo:sat-2.2.x
+    Deleted: db751fd578769d77b46f1011d0298857b3325e83b60d9362fb4cdabbee20678b
+    ====> Waiting 300 seconds for sat-config-import-2.2.x to complete
+    job.batch/sat-config-import-2.2.x condition met
+    ====> SAT version 2.2.x has been installed.
     ```
 
 5. Ensure that the environment variable `SAT_TAG` is not set in the `~/.bashrc` file
@@ -118,40 +109,6 @@ Describes how to install the System Admin Toolkit (SAT) product stream.
     ncn-m002: source <(kubectl completion bash)
     ncn-m002: export SAT_TAG=3.5.0
     ncn-m003: source <(kubectl completion bash)
-    ```
-
-6. Check the progress of the SAT configuration import Kubernetes job, which is
-    initiated by `install.sh`.
-
-    If the "Pods Statuses" appear as "Succeeded", the job has completed
-    successfully. The job usually takes between 30 seconds and 2 minutes.
-
-    ```screen
-    ncn-m001# kubectl describe job sat-config-import-2.2.x -n services
-    ...
-    Pods Statuses:  0 Running / 1 Succeeded / 0 Failed
-    ...
-    ```
-
-    The job's progress may be monitored using `kubectl logs`. The example below includes
-    the final log lines from a successful configuration import Kubernetes job.
-
-    ```screen
-    ncn-m001# kubectl logs -f -n services --selector \
-        job-name=sat-config-import-2.2.x --all-containers
-    ...
-    ConfigMap update attempt=1
-    Resting 1s before reading ConfigMap
-    ConfigMap data updates exist; Exiting.
-    2021-08-04T21:50:10.275886Z  info    Agent has successfully terminated
-    2021-08-04T21:50:10.276118Z  warning envoy main  caught SIGTERM
-    # Completed on Wed Aug  4 21:49:44 2021
-    ```
-
-    The following error may appear in this log, but it can be ignored.
-
-    ```screen
-    error accept tcp [::]:15020: use of closed network connection
     ```
 
 ### Post-Installation Procedure
