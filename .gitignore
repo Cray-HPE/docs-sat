@@ -15,5 +15,6 @@ portal/developer-portal/install_hw
 portal/developer-portal/install_sw
 portal/developer-portal/release_notes
 portal/developer-portal/taxonomy
+portal/developer-portal/pdf-templates/fancy.tex
 .vscode
 sat-product-stream
