@@ -1,6 +1,5 @@
 portal/developer-portal/sat.md
 portal/developer-portal/docs/
-sat-version.txt
 .DS_Store
 portal/developer-portal/Operations_Guide_Customer.mds
 portal/developer-portal/Operations_Guide_Manufacturing.mds
@@ -16,3 +15,7 @@ portal/developer-portal/install_hw
 portal/developer-portal/install_sw
 portal/developer-portal/release_notes
 portal/developer-portal/taxonomy
+portal/developer-portal/pdf-templates/fancy.tex
+.vscode
+sat-product-stream
+sat-version.txt
