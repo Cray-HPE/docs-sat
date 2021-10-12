@@ -66,7 +66,7 @@ Describes how to install the System Admin Toolkit (SAT) product stream.
     ncn-m001# cd sat-2.2.x
     ```
 
-4. Run the installer, **install.sh**.
+4. Run the installer: **install.sh**.
 
     The script produces a lot of output. A successful install ends with "SAT
     version 2.2.x has been installed".
@@ -173,9 +173,11 @@ They should have been executed during the first installation of SAT. The
 configuration procedure, however, **is** required when upgrading SAT.
 
 Execute the following **configuration** procedure:
-- [SAT Configuration](#configure-sat-using-cfs)
+
+- [Perform NCN Personalization](#perform-ncn-personalization)
 
 Execute the following **initial setup** procedures:
+
 - [SAT Authentication](#sat-authentication)
 - [Generate SAT S3 Credentials](#generate-sat-s3-credentials)
 - [Run Sat Setrev to Set System Information](#run-sat-setrev-to-set-system-information)

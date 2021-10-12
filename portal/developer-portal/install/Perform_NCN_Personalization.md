@@ -18,9 +18,10 @@
 [//]: # (ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR)
 [//]: # (OTHER DEALINGS IN THE SOFTWARE.)
 
-## Configure SAT Using CFS
+## Perform NCN Personalization
 
-Describes how to configure the System Admin Toolkit (SAT) product stream using CFS.
+Describes how to perform NCN personalization using CFS. This personalization process
+will configure the System Admin Toolkit (SAT) product stream.
 
 ### Prerequisites
 
