@@ -36,7 +36,7 @@ _include introduction/SAT_Dependencies.md
 
 _include install/Install_the_System_Admin_Toolkit_Product_Stream.md
 
-_include install/Configure_SAT_Using_CFS.md
+_include install/Perform_NCN_Personalization.md
 
 # SAT Setup
 
