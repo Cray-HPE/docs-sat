@@ -59,8 +59,8 @@ if ((pipelineParams.slackNotification[2] != false && skipSlack != true)) {
 }
 
 // Set cron to build nightly for master or release, not other branches
-def relpattern = "release/"
-String cron_str = BRANCH_NAME == "master" || BRANCH_NAME ==~ "${relpattern}" ? "H H(0-7) * * *" : ""
+String cron_str = BRANCH_NAME == "master" ? "H H(0-7) * * *" : ""
+cron_str = BRANCH_NAME ==~ /^release\/.*/ ? "H H(0-7) * * *" : "${cron_str}"
 
 pipeline {
     agent { node { label 'dstbuild' } }
@@ -81,7 +81,7 @@ pipeline {
 
     environment {
         VERSION = sh(returnStdout: true, script: "./setup_versioning.sh;cat .version").trim()
-        STREAM_VERSION=sh(returnStdout: true, script: "cat ./sat-version.txt").trim()
+        STREAM_VERSION=sh(returnStdout: true, script: "./sat-versioning.sh; cat ./sat-version.txt").trim()
         VERSION_RPM = "${VERSION}"
         GIT_TAG = sh(returnStdout: true, script: "git rev-parse --short HEAD").trim()
         BUILD_DATE = "${buildDate}"
