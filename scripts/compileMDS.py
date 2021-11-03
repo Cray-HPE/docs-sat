@@ -40,6 +40,10 @@ from os import path
 MD_LINK_REGEX = re.compile('\[(.*)\]\(.+.md#(.*)\)')
 MD_FILE_EXTENSION = ".md"
 
+# This is actually a reference link used as a comment by convention
+# See docstring of `line_is_comment` for details.
+MD_COMMENT_REGEX = re.compile(r'^\[//\]: # \(.*\)')
+
 
 def convert_md_links(line):
     """Convert links between markdown files into anchor links.
@@ -58,6 +62,56 @@ def convert_md_links(line):
         print('Converting .md link {} to anchor link {}'.format(original_link, anchor_link))
         return line.replace(original_link, anchor_link)
     return line
+
+
+def line_is_comment(line):
+    """Return true if the given line is a comment.
+
+    Markdown does not really support comments, but we use reference links to
+    write comments in the markdown. These reference links all use "//" as the
+    link identifier, an empty anchor (i.e. "#") as the link target, and then
+    enclose the comment's contents in parentheses as the link's title. E.g.:
+
+        [//]: # (This is the content of the comment)
+
+    These reference links are ignored by most markdown parsers and result in no
+    output in the rendered markdown. However, there is a requirement to provide
+    the bare markdown in a readable format, and we are using these comments to
+    include license text in every file, so we must provide a way to identify
+    and remove these lines when compiling a markdown file.
+
+    Args:
+        line (str): the line to check
+
+    Returns:
+        bool: True if the line is a comment of the form described above, False
+            otherwise
+    """
+    return MD_COMMENT_REGEX.match(line) is not None
+
+
+def get_lines_without_license(file_object):
+    """Get lines from a file with leading leading license text removed.
+
+    License text is included at the top of the file using the comment format
+    described in `line_is_comment` above.
+
+    Args:
+        file_object (IOBase): the opened file object
+
+    Returns:
+        list of str: the lines in the file with leading license lines stripped
+    """
+    file_lines = file_object.readlines()
+    for idx, line in enumerate(file_lines):
+        # Omit all comments and empty lines at the beginning of the file
+        if not line.strip() or line_is_comment(line):
+            continue
+
+        return file_lines[idx:]
+
+    # No lines in file or all lines are empty or comments
+    return []
 
 
 if len(sys.argv) != 2:
@@ -93,7 +147,8 @@ for line in fd_mds.readlines():
         include_location = line.split()[1]
         # Open Include file
         fd_include = open(base_dir + "/"+ include_location, 'r')
-        fd_output.writelines([convert_md_links(l) for l in fd_include.readlines()])
+        cleaned_lines = get_lines_without_license(fd_include)
+        fd_output.writelines([convert_md_links(l) for l in cleaned_lines])
         fd_include.close()
     else:
         fd_output.write(line)
