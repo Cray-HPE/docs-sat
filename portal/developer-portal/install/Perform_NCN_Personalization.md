@@ -25,9 +25,10 @@ will configure the System Admin Toolkit (SAT) product stream.
 
 ### Prerequisites
 
-- SAT is installed.
+- The [Install the System Admin Toolkit Product Stream](#install-the-system-admin-toolkit-product-stream)
+    procedure has been successfully completed.
 - The names of the CFS configurations created or updated during installation
-  were recorded.
+    were recorded.
 
 ### Notes on the Procedure
 
@@ -42,7 +43,7 @@ will configure the System Admin Toolkit (SAT) product stream.
 
 ### Procedure
 
-1. Start a typescript.
+1. Start a typescript if not already using one.
 
     The typescript will capture the commands and the output from this installation procedure.
 
@@ -165,6 +166,14 @@ with SAT, refer to the [*HPE Cray EX System Software Getting Started Guide*](htt
 to determine which step to execute next.
 
 If no other HPE Cray EX software products are being installed or upgraded at this time,
-proceed to the remaining initial setup procedures.
+proceed to the remaining **SAT Setup** or **SAT Post-Upgrade** procedures.
 
-**NOTE:** When upgrading SAT, the SAT Setup procedures are not required.
+If performing a fresh install, execute the **SAT Setup** procedures:
+
+- [SAT Authentication](#sat-authentication)
+- [Generate SAT S3 Credentials](#generate-sat-s3-credentials)
+- [Run Sat Setrev to Set System Information](#run-sat-setrev-to-set-system-information)
+
+If performing an upgrade, execute the **SAT Post-Upgrade** procedures:
+
+- [SAT Post-Upgrade](#sat-post-upgrade)
