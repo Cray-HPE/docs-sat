@@ -12,7 +12,7 @@ _include introduction/Command_Prompt_Conventions_in_SAT.md
 
 _include introduction/SAT_Dependencies.md
 
-# SAT Installation
+# SAT Installation and Upgrade
 
 _include install/Install_the_System_Admin_Toolkit_Product_Stream.md
 
@@ -25,6 +25,10 @@ _include install/SAT_Authentication.md
 _include install/Generate_SAT_S3_Credentials.md
 
 _include install/Run_SAT_Setrev_to_Set_System_Information.md
+
+# SAT Post-Upgrade
+
+_include install/SAT_Post_Upgrade.md
 
 # SAT Dashboards
 
