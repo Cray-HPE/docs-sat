@@ -271,10 +271,10 @@ SAT version `2.1.x` is now configured:
 ### Next Steps
 
 If other HPE Cray EX software products are being installed or upgraded in conjunction
-with SAT, refer to the *HPE Cray EX System Software Getting Started Guide* to determine
-which step to execute next.
+with SAT, refer to the [*HPE Cray EX System Software Getting Started Guide*](https://www.hpe.com/support/ex-gsg)
+to determine which step to execute next.
 
 If no other HPE Cray EX software products are being installed or upgraded at this time,
 proceed to the remaining initial setup procedures.
 
-**NOTE:** The setup procedures are **not** required when upgrading SAT.
+**NOTE:** When upgrading SAT, the SAT Setup procedures are not required.
