@@ -26,6 +26,8 @@ will configure the System Admin Toolkit (SAT) product stream.
 ### Prerequisites
 
 - SAT is installed.
+- The names of the CFS configurations created or updated during installation
+  were recorded.
 
 ### Notes on the Procedure
 
@@ -49,167 +51,35 @@ will configure the System Admin Toolkit (SAT) product stream.
     ncn-m001# export PS1='\u@\H \D{%Y-%m-%d} \t \w # '
     ```
 
-2. Get the git commit ID for the branch with a version number matching the version of SAT.
+2. Invoke each CFS configuration that was created or updated during installation.
 
-    This represents a revision of Ansible configuration content stored in VCS.
+    The CFS configurations that were created or updated during installation are
+    noted in the log output from `install.sh` and should have been recorded during
+    the installation process. The subsequent instructions assume that the CFS
+    configuration names were saved in the file
+    `/tmp/sat-ncn-cfs-configurations.txt` during the installation process.
 
-    Get and store the VCS password (required to access the remote VCS repo).
-
-    ```screen
-    ncn-m001# VCS_PASS=$(kubectl get secret -n services vcs-user-credentials \
-        --template={{.data.vcs_password}} | base64 --decode)
-    ```
-
-    In this example, the git commit ID is `82537e59c24dd5607d5f5d6f92cdff971bd9c615`,
-    and the version number is `2.2.x`.
-
-    ```screen
-    ncn-m001# git ls-remote \
-        https://crayvcs:$VCS_PASS@api-gw-service-nmn.local/vcs/cray/sat-config-management.git \
-        refs/heads/cray/sat/*
-    ...
-    82537e59c24dd5607d5f5d6f92cdff971bd9c615 refs/heads/cray/sat/2.2.x
-    ```
-
-3. Add a `sat` layer to the CFS configuration(s) associated with the manager NCNs.
-    1. Get the name(s) of the CFS configuration(s).
-
-        **NOTE:** Each manager NCN uses a single CFS configuration. An individual CFS configuration
-        may be used by any number of manage NCNs, i.e., three manager NCNs might use one,
-        two, or three CFS configurations.
-
-        In the following example, all three manager NCNs use the same CFS configuration – `ncn-personalization`.
-
-        ```screen
-        ncn-m001:~ # for component in $(cray hsm state components list \
-            --role Management --subrole Master --format json | jq -r \
-            '.Components | .[].ID'); do cray cfs components describe $component \
-            --format json | jq -r '.desiredConfig'; done
-        ncn-personalization
-        ncn-personalization
-        ncn-personalization
-        ```
-
-        In the following example, the three manager NCNs all use different configurations,
-        each with a unique name.
-
-        ```
-        ncn-personalization-m001
-        ncn-personalization-m002
-        ncn-personalization-m003
-        ```
-
-        Execute the following sub-steps (3.2 through 3.5) once for each unique CFS
-        configuration name.
-
-        **NOTE:** Examples in the following sub-steps assume that all manager NCNs use the
-        CFS configuration `ncn-personalization`.
-
-    2. Get the current configuration layers for each CFS configuration, and save the
-        data to a local JSON file.
-
-        The JSON file created in this sub-step will serve as a template for updating
-        an existing CFS configuration, or creating a new one.
-
-        ```screen
-        ncn-m001# cray cfs configurations describe ncn-personalization --format \
-            json | jq '{ layers }' > ncn-personalization.json
-        ```
-
-        If the configuration does not exist yet, you may see the following error.
-        In this case, create a new JSON file for that CFS configuration, e.g., `ncn-personalization.json`.
-
-        ```screen
-        Error: Configuration could not found.: Configuration ncn-personalization could not be found
-        ```
-
-        **NOTE:** For more on CFS configuration management, refer to "Manage a Configuration
-        with CFS" in the CSM product documentation.
-
-    3. Append a `sat` layer to the end of the JSON file's list of layers.
-
-        If the file already contains a `sat` layer entry, update it.
-
-        If the configuration data could not be found in the previous sub-step, the JSON file
-        will be empty. In this case, copy the `ncn-personalization.json` example below,
-        paste it into the JSON file, delete the ellipsis, and make appropriate changes to
-        the `sat` layer entry.
-
-        Use the git commit ID from step 8, e.g. `82537e59c24dd5607d5f5d6f92cdff971bd9c615`.
-
-        **NOTE:** The `name` value in the example below may be changed, but the installation
-        procedure uses the example value, `sat-ncn`. If an alternate value is used, some
-        of the following examples must be updated accordingly before they are executed.
-
-        ```screen
-        ncn-m001# vim ncn-personalization.json
-        ...
-        ncn-m001# cat ncn-personalization.json
-        {
-            "layers": [
-                ...
-                {
-                    "cloneUrl": "https://api-gw-service-nmn.local/vcs/cray/sat-config-management.git",
-                    "commit": "82537e59c24dd5607d5f5d6f92cdff971bd9c615",
-                    "name": "sat-ncn",
-                    "playbook": "sat-ncn.yml"
-                }
-            ]
-        }
-        ```
-
-    4. Update the existing CFS configuration, or create a new one.
-
-        The command should output a JSON-formatted representation of the CFS configuration,
-        which will look like the JSON file, but with `lastUpdated` and `name` fields.
-
-        ```screen
-        ncn-m001# cray cfs configurations update ncn-personalization --file \
-            ncn-personalization.json --format json
-        {
-            "lastUpdated": "2021-08-05T16:38:53Z",
-            "layers": {
-                ...
-            },
-            "name": "ncn-personalization"
-        }
-        ```
-
-    5. **Optional:** Delete the JSON file.
-
-        **NOTE:** There is no reason to keep the file. If you keep it, verify that
-        it is up-to-date with the actual CFS configuration before using it again.
-
-        ```screen
-        ncn-m001# rm ncn-personalization.json
-        ```
-
-4. Invoke the CFS configurations that you created or updated in the previous step.
-
-    This step will create a CFS session based on the given configuration and install
+    This step will create a CFS session for each given configuration and install
     SAT on the associated manager NCNs.
 
     The `--configuration-limit` option causes only the `sat-ncn` layer of the configuration,
     `ncn-personalization`, to run.
 
-    **CAUTION:** In this example, the session `--name` is `sat-session`. That value
-    is only an example. Declare a unique name for each configuration session.
-
     You should see a representation of the CFS session in the output.
 
     ```screen
-    ncn-m001# cray cfs sessions create --name sat-session --configuration-name \
-        ncn-personalization --configuration-limit sat-ncn
+    ncn-m001# for cfs_configuration in $(cat /tmp/sat-ncn-cfs-configurations.txt);
+    do cray cfs sessions create --name "sat-session-${cfs-configuration}" --configuration-name \
+        "$cfs_configuration" --configuration-limit sat-ncn;
+    done
+
     name="sat-session"
 
     [ansible]
     ...
     ```
 
-    Execute this step once for each unique CFS configuration that you created or
-    updated in the previous step.
-
-5. Monitor the progress of each CFS session.
+3. Monitor the progress of each CFS session.
 
     First, list all containers associated with the CFS session:
 
@@ -248,7 +118,7 @@ will configure the System Admin Toolkit (SAT) product stream.
     **NOTE:** Ensure that the PLAY RECAPs for each session show successes for all
     manager NCNs before proceeding.
 
-6. Verify that SAT was successfully configured.
+4. Verify that SAT was successfully configured.
 
     If `sat` is configured, the `--version` command will indicate which version
     is installed. If `sat` is not properly configured, the command will fail.

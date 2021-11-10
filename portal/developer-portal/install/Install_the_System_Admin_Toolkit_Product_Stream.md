@@ -74,17 +74,25 @@ Describes how to install the System Admin Toolkit (SAT) product stream.
     ```screen
     ncn-m001# ./install.sh
     ...
-    ====> Cleaning up install dependencies
-    Untagged: docker.io/library/cray-nexus-setup:sat-2.2.x
-    Deleted: 2c196c0c6364d9a1699d83dc98550880dc491cc3433a015d35f6cab1987dd6da
-    Untagged: docker.io/library/skopeo:sat-2.2.x
-    Deleted: db751fd578769d77b46f1011d0298857b3325e83b60d9362fb4cdabbee20678b
-    ====> Waiting 300 seconds for sat-config-import-2.2.x to complete
-    job.batch/sat-config-import-2.2.x condition met
+    ====> Updating active CFS configurations
+    INFO: Retrieving available Ansible configurations from VCS
+    INFO: Found matching Ansible configuration at remote ref "refs/heads/cray/sat/2.2.x" in VCS
+    INFO: Querying CFS configurations for the following NCNs: <ncn-m001>, <ncn-m002>, <ncn-m003>
+    INFO: Found the following configurations for NCNs: ncn-personalization
+    INFO: Updating CFS configuration "ncn-personalization"
+    INFO: Found existing layer with name "sat-ncn" in configuration "ncn-personalization"; updating.
+    INFO: Successfully updated layer "sat-ncn" in configuration "ncn-personalization"
     ====> SAT version 2.2.x has been installed.
     ```
 
-5. Ensure that the environment variable `SAT_TAG` is not set in the `~/.bashrc` file
+5. Note the name of each CFS configuration created or updated by the installer in the
+   previous step. In this example, it is "ncn-personalization".
+   ```screen
+   ncn-m001# echo ncn-personalization >> /tmp/sat-ncn-cfs-configurations.txt
+   ```
+   Repeat the command above for each CFS configuration.
+
+6. Ensure that the environment variable `SAT_TAG` is not set in the `~/.bashrc` file
     on any of the management NCNs.
 
     **NOTE**: This step should only be required when updating from
