@@ -66,38 +66,11 @@ Describes how to install the System Admin Toolkit (SAT) product stream.
     Deleted: 1b38b7600f146503e246e753cd9df801e18409a176b3dbb07b0564e6bc27144c
     ```
 
-    Check the return code of the installer. Zero indicates a successful installation.
+5.  Check the return code of the installer. Zero indicates a successful installation.
 
     ```screen
     ncn-m001# echo $?
     0
-    ```
-
-5. Ensure that the environment variable `SAT_TAG` is not set in the `~/.bashrc` file
-    on any of the management NCNs.
-
-    **NOTE**: This step should only be required when updating from
-    Shasta 1.4.1 or Shasta 1.4.2.
-
-    The following example assumes three manager NCNs: `ncn-m001`, `ncn-m002`, and `ncn-m003`,
-    and shows output from a system in which no further action is needed.
-
-    ```screen
-    ncn-m001# pdsh -w ncn-m00[1-3] cat ~/.bashrc
-    ncn-m001: source <(kubectl completion bash)
-    ncn-m003: source <(kubectl completion bash)
-    ncn-m002: source <(kubectl completion bash)
-    ```
-
-    The following example shows that `SAT_TAG` is set in `~/.bashrc` on `ncn-m002`.
-    Remove that line from the `~/.bashrc` file on `ncn-m002`.
-
-    ```screen
-    ncn-m001# pdsh -w ncn-m00[1-3] cat ~/.bashrc
-    ncn-m001: source <(kubectl completion bash)
-    ncn-m002: source <(kubectl completion bash)
-    ncn-m002: export SAT_TAG=3.5.0
-    ncn-m003: source <(kubectl completion bash)
     ```
 
 6. Check the progress of the SAT configuration import Kubernetes job, which is
@@ -136,51 +109,57 @@ Describes how to install the System Admin Toolkit (SAT) product stream.
 
 ### Post-Installation Procedure
 
-1. Stop the typescript.
+1. **Optional:** Remove the SAT release distribution tar file and extracted directory.
+
+    ```screen
+    ncn-m001# rm sat-2.2.x.tar.gz
+    ncn-m001# rm -rf sat-2.2.x/
+    ```
+
+2. **Upgrade only**: Ensure that the environment variable `SAT_TAG` is not set
+    in the `~/.bashrc` file on any of the management NCNs.
+
+    **NOTE**: This step should only be required when updating from
+    Shasta 1.4.1 or Shasta 1.4.2.
+
+    The following example assumes three manager NCNs: `ncn-m001`, `ncn-m002`, and `ncn-m003`,
+    and shows output from a system in which no further action is needed.
+
+    ```screen
+    ncn-m001# pdsh -w ncn-m00[1-3] cat ~/.bashrc
+    ncn-m001: source <(kubectl completion bash)
+    ncn-m003: source <(kubectl completion bash)
+    ncn-m002: source <(kubectl completion bash)
+    ```
+
+    The following example shows that `SAT_TAG` is set in `~/.bashrc` on `ncn-m002`.
+    Remove that line from the `~/.bashrc` file on `ncn-m002`.
+
+    ```screen
+    ncn-m001# pdsh -w ncn-m00[1-3] cat ~/.bashrc
+    ncn-m001: source <(kubectl completion bash)
+    ncn-m002: source <(kubectl completion bash)
+    ncn-m002: export SAT_TAG=3.5.0
+    ncn-m003: source <(kubectl completion bash)
+    ```
+
+3. Stop the typescript.
+
+   **NOTE**: This step can be skipped if you wish to use the same typescript
+   for the remainder of the SAT install. See [Next Steps](#next-steps).
 
     ```screen
     ncn-m001# exit
     ```
 
-2. **Optional:** Remove the SAT release distribution tar file and extracted directory.
-
-    ```screen
-    ncn-m001# rm sat-2.1.x.tar.gz
-    ncn-m001# rm -rf sat-2.1.x/
-    ```
-
-3. **Optional:** Remove old versions after an upgrade.
-
-    After upgrading from a previous version of SAT, the old version of the `cray/cray-sat`
-    container image will remain in the registry on the system. It is **not** removed
-    automatically, but it will **not** be the default version.
-
-    The admin can remove the older version of the `cray/cray-sat` container image.
-
-    The `cray-product-catalog` Kubernetes configuration map will also show all versions
-    of SAT that are installed. The command `sat showrev --products` will display these
-    versions. See the example:
-
-    ```screen
-    ncn-m001# sat showrev --products
-    ###############################################################################
-    Product Revision Information
-    ###############################################################################
-    +--------------+-----------------+--------------------+-----------------------+
-    | product_name | product_version | images             | image_recipes         |
-    +--------------+-----------------+--------------------+-----------------------+
-    ...
-    | sat          | 2.1.3           | -                  | -                     |
-    | sat          | 2.0.4           | -                  | -                     |
-    ...
-    +--------------+-----------------+--------------------+-----------------------+
-    ```
-
-SAT version `2.1.x` is now installed/upgraded:
+SAT version `2.1.x` is now installed/upgraded, meaning the SAT `2.1.x` release
+has been loaded into the system software repository.
 
 - SAT configuration content for this release has been uploaded to VCS.
 - SAT content for this release has been uploaded to the CSM product catalog.
 - SAT content for this release has been uploaded to Nexus repositories.
+- The `sat` command won't be available until the [NCN Personalization](#perform-ncn-personalization)
+    procedure has been executed.
 
 ### Next Steps
 
@@ -200,8 +179,12 @@ Execute the **NCN Personalization** procedure:
 
 - [Perform NCN Personalization](#perform-ncn-personalization)
 
-Execute the **SAT Setup** procedures:
+If performing a fresh install, execute the **SAT Setup** procedures:
 
 - [SAT Authentication](#sat-authentication)
 - [Generate SAT S3 Credentials](#generate-sat-s3-credentials)
 - [Run Sat Setrev to Set System Information](#run-sat-setrev-to-set-system-information)
+
+If performing an upgrade, execute the **upgrade** procedures:
+
+- [SAT Post-Upgrade](#sat-post-upgrade)
