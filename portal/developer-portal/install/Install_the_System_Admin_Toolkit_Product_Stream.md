@@ -185,21 +185,22 @@ SAT version `2.1.x` is now installed/upgraded:
 ### Next Steps
 
 If other HPE Cray EX software products are being installed or upgraded in conjunction
-with SAT, refer to the *HPE Cray EX System Software Getting Started Guide* to determine
-which step to execute next.
+with SAT, refer to the [*HPE Cray EX System Software Getting Started Guide*](https://www.hpe.com/support/ex-gsg)
+to determine which step to execute next.
 
 If no other HPE Cray EX software products are being installed or upgraded at this time,
 proceed to the sections listed below.
 
-**NOTE:** The initial setup procedures are **not** required when upgrading SAT.
-They should have been executed during the first installation of SAT. The
-configuration procedure, however, **is** required when upgrading SAT.
+**NOTE:** The **NCN Personalization** procedure **is required when
+upgrading SAT**. The setup procedures in **SAT Setup**, however, are
+**not required when upgrading SAT**. They should have been executed
+during the first installation of SAT.
 
-Execute the following **configuration** procedure:
+Execute the **NCN Personalization** procedure:
 
 - [Perform NCN Personalization](#perform-ncn-personalization)
 
-Execute the following **initial setup** procedures:
+Execute the **SAT Setup** procedures:
 
 - [SAT Authentication](#sat-authentication)
 - [Generate SAT S3 Credentials](#generate-sat-s3-credentials)
