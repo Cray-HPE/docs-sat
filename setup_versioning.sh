@@ -4,7 +4,7 @@
 
 CHANGE_LOG=changelog$$
 REPO_PATH=$(git rev-parse --show-toplevel)
-COPYRIGHT=$(curl https://stash.us.cray.com/projects/SHASTADOCS/repos/docs-as-code/raw/copyright.txt?at=refs%2Fheads%2Fmaster)
+COPY_RIGHT=$(cat "$(find "${REPO_PATH}" -name copyright.txt)")
 source ${REPO_PATH}/sat-versioning.sh
 PRODUCT_VERSION=${SAT_VERSION}
 date=`date '+%a %b %d %Y'`
@@ -34,7 +34,7 @@ if [[ "-d" = "${1}" ]]; then
 \pagebreak
 
 # Copyright and Version
-${COPYRIGHT}
+${COPY_RIGHT}
 
 SAT: ${SAT_VERSION}-${RELEASE}; ${date}
 
