@@ -5,4 +5,3 @@
 \lhead{\bfseries\nouppercase\leftmark}
 \rhead{\bfseries\thepage}
 \rfoot{VERSIONFOOTER}
-\cfoot{DRAFT DOCUMENT} 
