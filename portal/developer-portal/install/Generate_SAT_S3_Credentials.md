@@ -75,7 +75,7 @@ required after upgrading SAT.
         ncn-m001# grep endpoint ~/.config/sat/sat.toml
         # endpoint = "https://rgw-vip.nmn"
         ```
-    
+
     2. Get the `sat-s3-credentials` secret's endpoint value.
 
         ```screen

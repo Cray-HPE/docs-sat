@@ -43,11 +43,31 @@ TMPDIR = ./tmp
 
 PDFBUILDDIR = $(BUILDDIR)/pdf
 HTMLBUILDDIR = $(BUILDDIR)/html
-MDSBUILDDIR = $(SOURCEDIR)
+MDBUILDDIR = $(BUILDDIR)/md
 YAMLBUILDDIR = $(BUILDDIR)/html
 
 IMAGESDIR = images
 CSSDIR = css
+
+# MDS_DOCS are docs that will be copied to tar file.
+
+# If all *.mds files are release artifacts and none of them
+# are subordinate .mds files, you can create generic MDS_DOCS
+# as follows, othewise you need to be specific.
+#
+# Are there subordinate *.mds files?
+# If not, then use following wildcard definition, otherwise they
+# should be explicitly defined.
+# MDS_DOCS = $(wildcard $(SOURCEDIR)/*.mds)
+
+# In the case of this repo, we have subordinate .mds files,
+# so explicitly define MDS_DOCS.
+
+# MDS_DOCS = $(SOURCEDIR)/Operations_Guide_Customer.mds \
+# 					 $(SOURCEDIR)/Operations_Guide_Manufacturing.mds \
+# 					 $(SOURCEDIR)/writing.mds
+MDS_DOCS = $(wildcard $(SOURCEDIR)/*.mds)
+MD_DOCS = $(patsubst %.mds,%.md,$(MDS_DOCS))
 
 ## Target file names with extensions (use substitution references)
 ## https://www.gnu.org/software/make/manual/make.html#Substitution-Refs
@@ -72,15 +92,15 @@ MDOBJECTS = $(patsubst %.mds,%.md,$(MDS_SRC))
 
 CHKOBJECTS = $(patsubst %.mds,%.md,$(MDS_SRC))
 
-HTMLOBJECTS = $(patsubst $(SOURCEDIR)/%.md,$(HTMLBUILDDIR)/%.html,$(MD_SRC))
+HTMLOBJECTS = $(patsubst $(SOURCEDIR)/%.md,$(HTMLBUILDDIR)/%.html,$(MD_DOCS))
 
-HTMLOBJECTS2 = $(patsubst $(SOURCEDIR)/%.mds,$(HTMLBUILDDIR)/%.html,$(MDS_SRC))
+HTMLOBJECTS2 = $(patsubst $(SOURCEDIR)/%.mds,$(HTMLBUILDDIR)/%.html,$(MDS_DOCS))
 
 YAMLOBJECTS = $(patsubst $(OPENAPI)/%.yaml,$(YAMLBUILDDIR)/%.html,$(YAML_SRC))
 
-PDFOBJECTS = $(patsubst $(SOURCEDIR)/%.md,$(PDFBUILDDIR)/%.pdf,$(MD_SRC))
+PDFOBJECTS = $(patsubst $(SOURCEDIR)/%.md,$(PDFBUILDDIR)/%.pdf,$(MD_DOCS))
 
-PDFOBJECTS2 = $(patsubst $(SOURCEDIR)/%.mds,$(PDFBUILDDIR)/%.pdf,$(MDS_SRC))
+PDFOBJECTS2 = $(patsubst $(SOURCEDIR)/%.mds,$(PDFBUILDDIR)/%.pdf,$(MDS_DOCS))
 
 
 # MAIN LATEXMK RULE
@@ -99,9 +119,9 @@ MKVERSION = ../../setup_versioning.sh
 # PANDOC experiments for reference
 #
 
-PANDOC-N = pandoc -c $(CSSDIR)/H.css -s --toc -V urlcolor:blue -V linkcolor:blue -V monofontoptions:"Scale=0.4" -V geometry:"top=2cm, bottom=1.5cm, left=1.5cm, right=1.5cm" --pdf-engine=xelatex --number-sections -H ./pdf-templates/fancy.tex 
+PANDOC-N = pandoc -c $(CSSDIR)/H.css -s --toc -V urlcolor:blue -V linkcolor:blue -V monofontoptions:"Scale=0.4" -V geometry:"top=2cm, bottom=1.5cm, left=1.5cm, right=1.5cm" -V 'mainfontoptions:Path=./fonts/,BoldFont=MetricHPE-Desktop-Bold.otf, ItalicFont=MetricHPE-Desktop-MediumItalic.otf, BoldItalicFont=MetricHPE-Desktop-BoldItalic.otf' -V 'mainfont:MetricHPE-Desktop-Regular.otf' --pdf-engine=xelatex --number-sections -H ./pdf-templates/fancy.tex
 
-PANDOC = docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` pandoc/latex:2.6 -c css/H.css -s --toc -V urlcolor:blue -V linkcolor:blue -V monofontoptions:"Scale=0.4" -V geometry:"top=2cm, bottom=1.5cm, left=1.5cm, right=1.5cm" --pdf-engine=xelatex  --number-sections -H ./pdf-templates/fancy.tex
+PANDOC = docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` pandoc/latex:2.6 -c css/H.css -s --toc --data-dir=./pdf-templates -V urlcolor:blue -V linkcolor:blue -V monofontoptions:"Scale=0.4" -V geometry:"top=2cm, bottom=1.5cm, left=1.5cm, right=1.5cm" -V 'mainfontoptions:Path=./fonts/, BoldFont=MetricHPE-Desktop-Bold.otf, ItalicFont=MetricHPE-Desktop-MediumItalic.otf, BoldItalicFont=MetricHPE-Desktop-BoldItalic.otf' -V 'mainfont:MetricHPE-Desktop-Regular.otf' --pdf-engine=xelatex --number-sections -H ./pdf-templates/fancy.tex
 
 HTMLPANDOC = docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` pandoc/latex:2.6 -c css/H.css -s --toc -V urlcolor:blue -V linkcolor:blue --to html5 --number-sections
 
@@ -109,7 +129,7 @@ HTMLPANDOC-N = pandoc -c css/H.css -s --toc  -V urlcolor:blue -V linkcolor:blue 
 
 REDOC = docker run -v "`pwd`/..:/data" broothie/redoc-cli:0.9.8 bundle
 MDL =	docker run --rm -v `pwd`:/workspace  -v `pwd`/lint/.mdlrc:/mdl/.mdlrc wpengine/mdl /workspace
-MDL-N =	mdl *.md 
+MDL-N =	mdl *.md
 
 
 # Also, include non-file targets in .PHONY so they are run regardless of any
@@ -148,6 +168,7 @@ api:    dir md $(YAMLOBJECTS)
 
 dir: $(TMPDIR)/VeRsIoN.md pdf-templates/fancy.tex
 	mkdir -p $(PDFBUILDDIR)
+	mkdir -p $(MDBUILDDIR)
 	mkdir -p $(HTMLBUILDDIR)
 	cp -r $(IMAGESDIR) $(HTMLBUILDDIR)
 	cp -r $(CSSDIR) $(HTMLBUILDDIR)
@@ -156,7 +177,8 @@ dir: $(TMPDIR)/VeRsIoN.md pdf-templates/fancy.tex
 ## Setup Version/Copyright for Doc section, and for Doc page footers
 $(TMPDIR)/VeRsIoN.md pdf-templates/fancy.tex:
 	mkdir -p $(TMPDIR)
-	$(MKVERSION) -d > $(TMPDIR)/VeRsIoN.md
+	ls ../../
+	sh -x $(MKVERSION) -d > $(TMPDIR)/VeRsIoN.md
 
 # Some build environments may not have docker installed
 # In this case, specify make NODOCKER='y', and
@@ -164,16 +186,16 @@ $(TMPDIR)/VeRsIoN.md pdf-templates/fancy.tex:
 
 ifdef NODOCKER
 $(HTMLBUILDDIR)/%.html: $(SOURCEDIR)/%.md
-	$(HTMLPANDOC-N) -o $@ $(TMPDIR)/VeRsIoN.md $< 
+	$(HTMLPANDOC-N) -o $@ $(TMPDIR)/VeRsIoN.md $<
 
 $(PDFBUILDDIR)/%.pdf: $(SOURCEDIR)/%.md
-	$(PANDOC-N) -o $@ $(TMPDIR)/VeRsIoN.md $< 
+	$(PANDOC-N) -o $@ $(TMPDIR)/VeRsIoN.md $<
 else
 $(HTMLBUILDDIR)/%.html: $(SOURCEDIR)/%.md
-	$(HTMLPANDOC) -o $@ $(TMPDIR)/VeRsIoN.md $< 
+	$(HTMLPANDOC) -o $@ $(TMPDIR)/VeRsIoN.md $<
 
 $(PDFBUILDDIR)/%.pdf: $(SOURCEDIR)/%.md
-	$(PANDOC) -o $@ $(TMPDIR)/VeRsIoN.md $< 
+	$(PANDOC) -o $@ $(TMPDIR)/VeRsIoN.md $<
 endif
 
 
@@ -187,6 +209,7 @@ clean:
 	rm -fr $(BUILDDIR)
 	rm -fr $(TMPDIR)
 	rm -f $(MDOBJECTS)
+	rm -f pdf-templates/fancy.tex
 
 
 spellcheck: clean md
@@ -194,7 +217,6 @@ spellcheck: clean md
 	$(foreach mdobj,$(CHKOBJECTS), echo "===== $(mdobj)" >> $(TMPDIR)/spellerrors.txt;pandoc --lua-filter ../spelling/spellcheck.lua $(mdobj) >> $(TMPDIR)/spellerrors.txt;)
 	@if [ `grep -v ===== ./tmp/spellerrors.txt | wc -l` -ne 0 ]; then \
 		cat ./tmp/spellerrors.txt ; \
-		exit ;\
 	fi;\
 
 ifdef NODOCKER
@@ -231,6 +253,8 @@ tar: all $(BUILDDIR)/pdfhtml.tar
 	rm $(TMPDIR)/VeRsIoN.md
 
 $(BUILDDIR)/pdfhtml.tar: $(HTMLOBJECTS) $(PDFOBJECTS)
+	cp $(TMPDIR)/VeRsIoN.md $(BUILDDIR)/md
+	cp $(MD_DOCS) $(BUILDDIR)/md
 	rm -f $(BUILDDIR)/*/apis* \
 		$(BUILDDIR)/*/admin* \
 		$(BUILDDIR)/*/overview* \
@@ -254,6 +278,6 @@ $(RPM_BUILD_ROOT)/rpmbuild:
 	mkdir -p $@/SOURCES
 	mkdir -p $@/SPECS
 	mkdir -p $@/SRPMS
-	
+
 package: $(RPM_BUILD_ROOT)/rpmbuild install
 	rpmbuild -ba product-docs.spec --define "_topdir $(RPM_BUILD_ROOT)/rpmbuild"
