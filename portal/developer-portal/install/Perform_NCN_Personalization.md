@@ -70,11 +70,11 @@ will configure the System Admin Toolkit (SAT) product stream.
 
     ```screen
     ncn-m001# for cfs_configuration in $(cat /tmp/sat-ncn-cfs-configurations.txt);
-    do cray cfs sessions create --name "sat-session-${cfs-configuration}" --configuration-name \
-        "$cfs_configuration" --configuration-limit sat-ncn;
+    do cray cfs sessions create --name "sat-session-${cfs_configuration}" --configuration-name \
+        "${cfs_configuration}" --configuration-limit sat-ncn;
     done
 
-    name="sat-session"
+    name="sat-session-ncn-personalization"
 
     [ansible]
     ...
@@ -82,10 +82,12 @@ will configure the System Admin Toolkit (SAT) product stream.
 
 3. Monitor the progress of each CFS session.
 
+    This step assumes a single session named `sat-session-ncn-personalization` was created in the previous step.
+
     First, list all containers associated with the CFS session:
 
     ```screen
-    ncn-m001# kubectl get pod -n services --selector=cfsession=sat-session \
+    ncn-m001# kubectl get pod -n services --selector=cfsession=sat-session-ncn-personalization \
         -o json | jq '.items[0].spec.containers[] | .name'
     "inventory"
     "ansible-1"
@@ -99,7 +101,7 @@ will configure the System Admin Toolkit (SAT) product stream.
 
     ```screen
     ncn-m001# kubectl logs -c ansible-1 --tail 100 -f -n services \
-        --selector=cfsession=sat-session
+        --selector=cfsession=sat-session-ncn-personalization
     ```
 
     Ansible plays, which are run by the CFS session, will install SAT on all the
@@ -149,7 +151,7 @@ will configure the System Admin Toolkit (SAT) product stream.
     sat 3.7.0
     ```
 
-7. Stop the typescript.
+5. Stop the typescript.
 
     ```screen
     ncn-m001# exit

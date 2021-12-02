@@ -18,41 +18,6 @@
 [//]: # (ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR)
 [//]: # (OTHER DEALINGS IN THE SOFTWARE.)
 
-## Optional: Remove old versions after an upgrade
-
-### Prerequisites
-
-- The [Install the System Admin Toolkit Product Stream](#install-the-system-admin-toolkit-product-stream)
-    procedure has been successfully completed.
-- The [Perform NCN Personalization](#perform-ncn-personalization) procedure has been successfully completed.
-
-### Procedure
-
-After upgrading from a previous version of SAT, the old version of the `cray/cray-sat`
-container image will remain in the registry on the system. It is **not** removed
-automatically, but it will **not** be the default version.
-
-The admin can remove the older version of the `cray/cray-sat` container image.
-
-The `cray-product-catalog` Kubernetes configuration map will also show all versions
-of SAT that are installed. The command `sat showrev --products` will display these
-versions. See the example:
-
-```screen
-ncn-m001# sat showrev --products
-###############################################################################
-Product Revision Information
-###############################################################################
-+--------------+-----------------+--------------------+-----------------------+
-| product_name | product_version | images             | image_recipes         |
-+--------------+-----------------+--------------------+-----------------------+
-...
-| sat          | 2.1.3           | -                  | -                     |
-| sat          | 2.0.4           | -                  | -                     |
-...
-+--------------+-----------------+--------------------+-----------------------+
-```
-
 ## Remove obsolete configuration file sections
 
 ### Prerequisites
