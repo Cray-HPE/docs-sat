@@ -87,9 +87,11 @@ Describes how to install the System Admin Toolkit (SAT) product stream.
 
 5. Note the name of each CFS configuration created or updated by the installer in the
    previous step. In this example, it is "ncn-personalization".
+
    ```screen
    ncn-m001# echo ncn-personalization >> /tmp/sat-ncn-cfs-configurations.txt
    ```
+
    Repeat the command above for each CFS configuration.
 
 ### Post-Installation Procedure

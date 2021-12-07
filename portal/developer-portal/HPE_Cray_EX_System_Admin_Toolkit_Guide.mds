@@ -50,6 +50,10 @@ _include install/Run_SAT_Setrev_to_Set_System_Information.md
 
 _include install/SAT_Post_Upgrade.md
 
+# SAT Uninstall and Downgrade
+
+_include install/Uninstall_and_Downgrade.md
+
 # SAT Dashboards
 
 _include dashboards/SAT_Kibana_Dashboards.md
