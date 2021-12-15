@@ -50,7 +50,7 @@ required after upgrading SAT.
         /root/.config/sat/s3_secret_key
     ```
 
-2. Write the credentials to local files using `kubectl`.
+1. Write the credentials to local files using `kubectl`.
 
     ```screen
     ncn-m001# kubectl get secret sat-s3-credentials -o json -o \
@@ -64,7 +64,7 @@ required after upgrading SAT.
         /root/.config/sat/s3_secret_key
     ```
 
-3. Verify the S3 endpoint specified in the SAT configuration file is correct.
+1. Verify the S3 endpoint specified in the SAT configuration file is correct.
 
     1. Get the SAT configuration file's endpoint value.
 
@@ -76,7 +76,7 @@ required after upgrading SAT.
         # endpoint = "https://rgw-vip.nmn"
         ```
 
-    2. Get the `sat-s3-credentials` secret's endpoint value.
+    1. Get the `sat-s3-credentials` secret's endpoint value.
 
         ```screen
         ncn-m001# kubectl get secret sat-s3-credentials -o json -o \
@@ -84,11 +84,11 @@ required after upgrading SAT.
         https://rgw-vip.nmn
         ```
 
-    3. Compare the two endpoint values.
+    1. Compare the two endpoint values.
 
         If the values differ, change the SAT configuration file's endpoint value to match the secret's.
 
-4. Copy SAT configurations to each manager node on the system.
+1. Copy SAT configurations to each manager node on the system.
 
     ```screen
     ncn-m001# for i in ncn-m002 ncn-m003; do echo $i; ssh ${i} \
