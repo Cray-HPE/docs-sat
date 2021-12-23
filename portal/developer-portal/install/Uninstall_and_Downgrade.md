@@ -54,6 +54,7 @@ This section contains two procedures:
 2. Use `prodmgr` to uninstall a version of SAT.
 
     This command will do three things:
+
     - Remove all hosted-type package repositories associated with the given version of SAT. Group-type
       repositories are not removed.
     - Remove all container images associated with the given version of SAT.
@@ -98,6 +99,7 @@ This procedure can be used to downgrade the active version of SAT.
 2. Use `prodmgr` to activate a different version of SAT.
 
     This command will do three things:
+
     - For all hosted-type package repositories associated with this version of SAT, set them as the sole member
       of their corresponding group-type repository. For example, activating SAT version `2.2.10`
       sets the repository `sat-2.2.10-sle-15sp2` as the only member of the `sat-sle-15sp2` group.
@@ -194,7 +196,7 @@ This procedure can be used to downgrade the active version of SAT.
 6. Verify the new version of the SAT CLI.
 
     **NOTE:** This version number will differ from the version number of the SAT
-    release distribution. This is the semantic version of the `sat` Python package,
+    release distribution. This is the semantic version of the SAT Python package,
     which is different from the version number of the overall SAT release distribution.
 
     ```screen

@@ -20,7 +20,7 @@
 
 ## About System Admin Toolkit (SAT)
 
-The System Admin Toolkit \(SAT\) is designed to assist administrators with common tasks, such as troubleshooting and
+The System Admin Toolkit (SAT) is designed to assist administrators with common tasks, such as troubleshooting and
 querying information about the HPE Cray EX System and its components, system boot and shutdown, and replacing hardware
 components.
 

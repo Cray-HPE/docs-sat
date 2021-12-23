@@ -32,8 +32,8 @@ required after upgrading SAT.
 
 ### Prerequisites
 
-- The `sat` CLI has been installed following [Install The System Admin Toolkit Product Stream](#install-the-system-admin-toolkit-product-stream).
-- The `sat` configuration file has been created (See [SAT Authentication](#sat-authentication)).
+- The SAT CLI has been installed following [Install The System Admin Toolkit Product Stream](#install-the-system-admin-toolkit-product-stream)
+- The SAT configuration file has been created (See [SAT Authentication](#sat-authentication)).
 - CSM has been installed and verified.
 
 ### Procedure
