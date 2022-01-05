@@ -52,7 +52,7 @@ will configure the System Admin Toolkit (SAT) product stream.
     ncn-m001# export PS1='\u@\H \D{%Y-%m-%d} \t \w # '
     ```
 
-2. Invoke each CFS configuration that was created or updated during installation.
+1. Invoke each CFS configuration that was created or updated during installation.
 
     The CFS configurations that were created or updated during installation are
     noted in the log output from `install.sh` and should have been recorded during
@@ -80,7 +80,7 @@ will configure the System Admin Toolkit (SAT) product stream.
     ...
     ```
 
-3. Monitor the progress of each CFS session.
+1. Monitor the progress of each CFS session.
 
     This step assumes a single session named `sat-session-ncn-personalization` was created in the previous step.
 
@@ -121,7 +121,7 @@ will configure the System Admin Toolkit (SAT) product stream.
     **NOTE:** Ensure that the PLAY RECAPs for each session show successes for all
     manager NCNs before proceeding.
 
-4. Verify that SAT was successfully configured.
+1. Verify that SAT was successfully configured.
 
     If `sat` is configured, the `--version` command will indicate which version
     is installed. If `sat` is not properly configured, the command will fail.
@@ -151,7 +151,7 @@ will configure the System Admin Toolkit (SAT) product stream.
     sat 3.7.0
     ```
 
-5. Stop the typescript.
+1. Stop the typescript.
 
     ```screen
     ncn-m001# exit

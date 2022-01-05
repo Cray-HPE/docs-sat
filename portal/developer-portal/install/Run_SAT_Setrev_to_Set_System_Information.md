@@ -51,7 +51,7 @@ required after upgrading SAT.
     ...
     ```
 
-2. Run `sat showrev` to verify System Revision Information. The following tables contain example information.
+1. Run `sat showrev` to verify System Revision Information. The following tables contain example information.
 
     ```screen
     ncn-m001# sat showrev

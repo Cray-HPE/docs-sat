@@ -42,6 +42,9 @@ rule 'MD021'
 # Headers must start at beginning of line
 rule 'MD023'
 
+# Ordered lists should mark each step with '1'
+rule 'MD029'
+
 # Spaces after list markers
 #rule 'MD030'
 

@@ -51,7 +51,7 @@ This section contains two procedures:
     +--------------+-----------------+--------+-------------------+-----------------------+
     ```
 
-2. Use `prodmgr` to uninstall a version of SAT.
+1. Use `prodmgr` to uninstall a version of SAT.
 
     This command will do three things:
     - Remove all hosted-type package repositories associated with the given version of SAT. Group-type
@@ -95,7 +95,7 @@ This procedure can be used to downgrade the active version of SAT.
     +--------------+-----------------+--------+--------------------+-----------------------+
     ```
 
-2. Use `prodmgr` to activate a different version of SAT.
+1. Use `prodmgr` to activate a different version of SAT.
 
     This command will do three things:
     - For all hosted-type package repositories associated with this version of SAT, set them as the sole member
@@ -115,7 +115,7 @@ This procedure can be used to downgrade the active version of SAT.
     Updated CFS configurations: [ncn-personalization]
     ```
 
-3. Verify that the chosen version is marked as active.
+1. Verify that the chosen version is marked as active.
 
     ```screen
     ncn-m001# sat showrev --products --filter product_name=sat
@@ -130,7 +130,7 @@ This procedure can be used to downgrade the active version of SAT.
     +--------------+-----------------+--------+--------------------+-----------------------+
     ```
 
-4. Run NCN Personalization.
+1. Run NCN Personalization.
 
     At this point, the command has modified Nexus package repositories to set a particular package repository
     as active, but no packages on the NCNs have been changed. In order to complete the activation process,
@@ -150,7 +150,7 @@ This procedure can be used to downgrade the active version of SAT.
     done
     ```
 
-5. Monitor the progress of each CFS session.
+1. Monitor the progress of each CFS session.
 
     This step assumes a single session named `sat-session-ncn-personalization` was created in the previous step.
 
@@ -191,7 +191,7 @@ This procedure can be used to downgrade the active version of SAT.
     **NOTE:** Ensure that the PLAY RECAPs for each session show successes for all
     manager NCNs before proceeding.
 
-6. Verify the new version of the SAT CLI.
+1. Verify the new version of the SAT CLI.
 
     **NOTE:** This version number will differ from the version number of the SAT
     release distribution. This is the semantic version of the `sat` Python package,
