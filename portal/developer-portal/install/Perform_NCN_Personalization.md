@@ -26,20 +26,20 @@ will configure the System Admin Toolkit (SAT) product stream.
 ### Prerequisites
 
 - The [Install the System Admin Toolkit Product Stream](#install-the-system-admin-toolkit-product-stream)
-    procedure has been successfully completed.
+  procedure has been successfully completed.
 - The names of the CFS configurations created or updated during installation
-    were recorded.
+  were recorded.
 
 ### Notes on the Procedure
 
 - Ellipses (`...`) in shell output indicate omitted lines.
 - In the examples below, replace `2.2.x` with the version of the SAT product stream
-    being installed.
+  being installed.
 - 'manager' and 'master' are used interchangeably in the steps below.
 - If upgrading SAT, the existing configuration will likely include other Cray EX product
-    entries. Update the SAT entry as described in this procedure. The *HPE Cray EX System
-    Software Getting Started Guide* provides guidance on how and when to update the
-    entries for the other products.
+  entries. Update the SAT entry as described in this procedure. The *HPE Cray EX System
+  Software Getting Started Guide* provides guidance on how and when to update the
+  entries for the other products.
 
 ### Procedure
 
@@ -57,8 +57,8 @@ will configure the System Admin Toolkit (SAT) product stream.
     The CFS configurations that were created or updated during installation are
     noted in the log output from `install.sh` and should have been recorded during
     the installation process. The subsequent instructions assume that the CFS
-    configuration names were saved in the file
-    `/tmp/sat-ncn-cfs-configurations.txt` during the installation process.
+    configuration names were saved in the file `/tmp/sat-ncn-cfs-configurations.txt`
+    during the installation process.
 
     This step will create a CFS session for each given configuration and install
     SAT on the associated manager NCNs.

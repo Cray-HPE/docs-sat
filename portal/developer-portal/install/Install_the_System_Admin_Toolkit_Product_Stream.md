@@ -27,17 +27,17 @@ Describes how to install the System Admin Toolkit (SAT) product stream.
 - CSM is installed and verified.
 - cray-product-catalog is running.
 - There must be at least 2 gigabytes of free space on the manager NCN on which the
-    procedure is run.
+  procedure is run.
 
 ### Notes on the Procedures
 
 - Ellipses (`...`) in shell output indicate omitted lines.
 - In the examples below, replace `2.2.x` with the version of the SAT product stream
-    being installed.
+  being installed.
 - 'manager' and 'master' are used interchangeably in the steps below.
 - To upgrade SAT, execute the pre-installation, installation, and post-installation
-    procedures for a newer distribution. The newly installed version will become
-    the default.
+  procedures for a newer distribution. The newly installed version will become
+  the default.
 
 ### Pre-Installation Procedure
 
@@ -146,7 +146,7 @@ has been loaded into the system software repository.
 - SAT content for this release has been uploaded to the CSM product catalog.
 - SAT content for this release has been uploaded to Nexus repositories.
 - The `sat` command won't be available until the [NCN Personalization](#perform-ncn-personalization)
-    procedure has been executed.
+  procedure has been executed.
 
 ### Next Steps
 

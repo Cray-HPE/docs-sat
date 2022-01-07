@@ -23,7 +23,7 @@
 ### Prerequisites
 
 - The [Install the System Admin Toolkit Product Stream](#install-the-system-admin-toolkit-product-stream)
-    procedure has been successfully completed.
+  procedure has been successfully completed.
 - The [Perform NCN Personalization](#perform-ncn-personalization) procedure has been successfully completed.
 
 ### Procedure

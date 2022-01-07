@@ -15,7 +15,7 @@ rule 'MD003'
 # Consistent indentation levels
 rule 'MD005'
 # Consistent ordered list indentation
-rule 'MD007'
+rule 'MD007', :indent => 4
 
 #Trailing spaces - valid, but will cause much work to clean up 
 #rule 'MD009'
