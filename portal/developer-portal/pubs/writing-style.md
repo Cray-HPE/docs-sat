@@ -248,11 +248,11 @@ Avoid information overload. If alerts include too many items and sections contai
 If more than one alert is included in the same place, position the alerts in the following order:
 
 1. DANGER
-2. WARNING
-3. CAUTION
-4. NOTICE
-5. IMPORTANT
-6. NOTE or TIP
+1. WARNING
+1. CAUTION
+1. NOTICE
+1. IMPORTANT
+1. NOTE or TIP
 
 ### Alert style and symbol
 
@@ -307,8 +307,8 @@ Verbs
 When alphabetizing a list of mixed information types, use this order:
 
 1. Special characters (symbols), without spelling them out
-2. Numerals, in ascending order
-3. Words, in alphabetical order
+1. Numerals, in ascending order
+1. Words, in alphabetical order
 
 
 ## Among, between

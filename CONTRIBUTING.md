@@ -4,27 +4,27 @@ If you would like to contribute to this project, please open a pull request.
 
 Contributors must follow the guidelines below:
 
-1. Contributions must follow the [style
+- Contributions must follow the [style
    guide](./portal/developer-portal/pubs/writing-style.md).
-2. When making commits, use the ``--signoff``/``-s`` option to ``git commit``. By
+- When making commits, use the ``--signoff``/``-s`` option to ``git commit``. By
    doing so, you are certifying that you have the rights to submit this work
    under the same license used by this project and agree to the
    [Developer Certificate of Origin](https://developercertificate.org).
-3. Include detailed commit messages that start with a short subject line,
+- Include detailed commit messages that start with a short subject line,
    followed by a blank line, followed by a longer description that documents
    what the commit changes and why. For guidance, see [How to Write a Git
    Commit Message](https://chris.beams.io/posts/git-commit/).
-4. Organize commits into cohesive, functional units, such that each commit
+- Organize commits into cohesive, functional units, such that each commit
    contains comprehensive, self-contained documentation, and the text makes
    sense as a whole at each point in the commit history. I.e., don't include
    multiple commits where the first commit is an incomplete bit of
    documentation, and the following commits complete the text.
-5. Address feedback received in the pull request as additional commits. Then
+- Address feedback received in the pull request as additional commits. Then
    once approval is attained, squash bugfixes and feedback commits into the
    original commit(s) as appropriate per guideline #4 above. The reason for the
    separate commits addressing feedback is that it provides an easy way for
    reviewers to see only what changed if desired.
-6. Pull requests should, at a minimum, contain a summary of the proposed changes
+- Pull requests should, at a minimum, contain a summary of the proposed changes
    in their descriptions. For many small changes with a single commit, simply
    copying the commit message is likely sufficient. For larger changes or new
    features, it may be appropriate to elaborate on the proposed changes, and

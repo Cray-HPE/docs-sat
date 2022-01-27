@@ -59,13 +59,13 @@ The Kibana Dashboard should be open on your system.
 
 1. Navigate to **Management**
 
-2. Navigate to **Advanced Settings** in the Kibana section, below the Elastic search section
+1. Navigate to **Advanced Settings** in the Kibana section, below the Elastic search section
 
-3. Scroll down to the **Discover** section
+1. Scroll down to the **Discover** section
 
-4. Change **Highlight results** from *on* to *off*
+1. Change **Highlight results** from *on* to *off*
 
-5. Click **Save** to save changes
+1. Click **Save** to save changes
 
 ### AER Kibana Dashboard
 
@@ -76,11 +76,11 @@ are split up into separate visualizations depending on whether they are fatal or
 
 1. Go to the dashboard section.
 
-2. Select **sat-aer** dashboard.
+1. Select **sat-aer** dashboard.
 
-3. Choose the time range of interest.
+1. Choose the time range of interest.
 
-4. View the Corrected and Fatal Advanced Error Reporting messages from PCI Express devices on each node. View the
+1. View the Corrected and Fatal Advanced Error Reporting messages from PCI Express devices on each node. View the
    matching log messages in the panel(s) on the right, and view the counts of each message per NID in the panel(s) on
    the left. If desired, results can be filtered by NID by clicking the icon showing a **+** inside a magnifying glass
    next to each NID.
@@ -98,11 +98,11 @@ HPE Cray EX is installed on the system along with the System Admin Toolkit, whic
 
 1. Go to the dashboard section.
 
-2. Select **sat-atom** dashboard.
+1. Select **sat-atom** dashboard.
 
-3. Choose the time range of interest.
+1. Choose the time range of interest.
 
-4. View any nodes marked **admindown** and any ATOM test failures. These failures occur during health checks and
+1. View any nodes marked **admindown** and any ATOM test failures. These failures occur during health checks and
    application test failures. Test failures marked **admindown** are important to note. View the matching log messages
    in the panel(s) on the right, and view the counts of each message per NID in the panel(s) on the left. If desired,
    results can be filtered by NID by clicking the icon showing a **+** inside a magnifying glass next to each NID.
@@ -116,11 +116,11 @@ are responsible for monitoring nodes in the system for heartbeat loss.
 
 1. Go to the dashboard section.
 
-2. Select **sat-heartbeat** dashboard.
+1. Select **sat-heartbeat** dashboard.
 
-3. Choose the time range of interest.
+1. Choose the time range of interest.
 
-4. View the heartbeat loss messages that are logged by the hbtd pods in the system. The hbtd pods are responsible for
+1. View the heartbeat loss messages that are logged by the hbtd pods in the system. The hbtd pods are responsible for
    monitoring nodes in the system for heartbeat loss.View the matching log messages in the panel.
 
 ### Kernel Kibana Dashboard
@@ -135,11 +135,11 @@ too much memory.
 
 1. Go to the dashboard section.
 
-2. Select **sat-kernel** dashboard.
+1. Select **sat-kernel** dashboard.
 
-3. Choose the time range of interest.
+1. Choose the time range of interest.
 
-4. View the compute node failures such as kernel assertions, kernel panics, and Lustre LBUG messages. View the matching
+1. View the compute node failures such as kernel assertions, kernel panics, and Lustre LBUG messages. View the matching
    log messages in the panel(s) on the right, and view the counts of each message per NID in the panel(s) on the left.
    If desired, results can be filtered by NID by clicking the icon showing a **+** inside a magnifying glass next to
    each NID.
@@ -152,11 +152,11 @@ The MCE Dashboard displays CPU detected processor-level hardware errors.
 
 1. Go to the dashboard section.
 
-2. Select **sat-mce** dashboard.
+1. Select **sat-mce** dashboard.
 
-3. Choose the time range of interest.
+1. Choose the time range of interest.
 
-4. View the Machine Check Exceptions (MCEs) listed including the counts per NID (node). For an MCE, the CPU number and
+1. View the Machine Check Exceptions (MCEs) listed including the counts per NID (node). For an MCE, the CPU number and
    DIMM number can be found in the message, if applicable. View the matching log messages in the panel(s) on the right,
    and view the counts of each message per NID in the panel(s) on the left. If desired, results can be filtered by NID
    by clicking the icon showing a **+** inside a magnifying glass next to each NID.
@@ -173,11 +173,11 @@ for only messages of severity "emerg" or "err" and another for all messages from
 
 1. Go to the dashboard section.
 
-2. Select **sat-rasdaemon** dashboard.
+1. Select **sat-rasdaemon** dashboard.
 
-3. Choose the time range of interest.
+1. Choose the time range of interest.
 
-4. View the errors that come from the Reliability, Availability, and Serviceability (RAS) daemon service on nodes in
+1. View the errors that come from the Reliability, Availability, and Serviceability (RAS) daemon service on nodes in
    the system. View the matching log messages in the panel(s) on the right, and view the counts of each message per NID
    in the panel(s) on the left. If desired, results can be filtered by NID by clicking the icon showing a **+** inside
    a magnifying glass next to each NID.

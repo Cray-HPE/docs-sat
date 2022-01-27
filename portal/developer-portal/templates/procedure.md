@@ -38,12 +38,9 @@ This documents two possible formats for structing a list of steps in a procedure
 ### Steps are an ordered list
 
 1. Do A
-
-2. Do B
-
-3. Do C
-
-4. And on and on
+1. Do B
+1. Do C
+1. And on and on
 
 
 ### Steps are headers

@@ -95,13 +95,13 @@ The following is the procedure to globally configure the username used by SAT an
     Not generating configuration file.
     ```
 
-2. Edit `~/.config/sat/sat.toml` and set the username option in the `api_gateway` section of the config file. E.g.:
+1. Edit `~/.config/sat/sat.toml` and set the username option in the `api_gateway` section of the config file. E.g.:
 
     ```screen
     username = "crayadmin"
     ```
 
-3. Run `sat auth`. Enter your password when prompted. E.g.:
+1. Run `sat auth`. Enter your password when prompted. E.g.:
 
     ```screen
     ncn-m001# sat auth
@@ -109,7 +109,7 @@ The following is the procedure to globally configure the username used by SAT an
     Succeeded!
     ```
 
-4. Other `sat` commands are now authenticated to make requests to the API gateway. E.g.:
+1. Other `sat` commands are now authenticated to make requests to the API gateway. E.g.:
 
     ```screen
     ncn-m001# sat status

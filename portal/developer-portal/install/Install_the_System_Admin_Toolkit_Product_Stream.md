@@ -27,17 +27,17 @@ Describes how to install the System Admin Toolkit (SAT) product stream.
 - CSM is installed and verified.
 - cray-product-catalog is running.
 - There must be at least 2 gigabytes of free space on the manager NCN on which the
-    procedure is run.
+  procedure is run.
 
 ### Notes on the Procedures
 
 - Ellipses (`...`) in shell output indicate omitted lines.
 - In the examples below, replace `2.2.x` with the version of the SAT product stream
-    being installed.
+  being installed.
 - 'manager' and 'master' are used interchangeably in the steps below.
 - To upgrade SAT, execute the pre-installation, installation, and post-installation
-    procedures for a newer distribution. The newly installed version will become
-    the default.
+  procedures for a newer distribution. The newly installed version will become
+  the default.
 
 ### Pre-Installation Procedure
 
@@ -54,19 +54,19 @@ Describes how to install the System Admin Toolkit (SAT) product stream.
 
 1. Copy the release distribution gzipped tar file to `ncn-m001`.
 
-2. Unzip and extract the release distribution, `2.2.x`.
+1. Unzip and extract the release distribution, `2.2.x`.
 
     ```screen
     ncn-m001# tar -xvzf sat-2.2.x.tar.gz
     ```
 
-3. Change directory to the extracted release distribution directory.
+1. Change directory to the extracted release distribution directory.
 
     ```screen
     ncn-m001# cd sat-2.2.x
     ```
 
-4. Run the installer: **install.sh**.
+1. Run the installer: **install.sh**.
 
     The script produces a lot of output. A successful install ends with "SAT
     version 2.2.x has been installed".
@@ -85,7 +85,7 @@ Describes how to install the System Admin Toolkit (SAT) product stream.
     ====> SAT version 2.2.x has been installed.
     ```
 
-5. Note the name of each CFS configuration created or updated by the installer in the
+1. Note the name of each CFS configuration created or updated by the installer in the
    previous step. In this example, it is "ncn-personalization".
 
    ```screen
@@ -103,7 +103,7 @@ Describes how to install the System Admin Toolkit (SAT) product stream.
     ncn-m001# rm -rf sat-2.2.x/
     ```
 
-2. **Upgrade only**: Ensure that the environment variable `SAT_TAG` is not set
+1. **Upgrade only**: Ensure that the environment variable `SAT_TAG` is not set
     in the `~/.bashrc` file on any of the management NCNs.
 
     **NOTE**: This step should only be required when updating from
@@ -130,7 +130,7 @@ Describes how to install the System Admin Toolkit (SAT) product stream.
     ncn-m003: source <(kubectl completion bash)
     ```
 
-3. Stop the typescript.
+1. Stop the typescript.
 
    **NOTE**: This step can be skipped if you wish to use the same typescript
    for the remainder of the SAT install. See [Next Steps](#next-steps).
@@ -146,7 +146,7 @@ has been loaded into the system software repository.
 - SAT content for this release has been uploaded to the CSM product catalog.
 - SAT content for this release has been uploaded to Nexus repositories.
 - The `sat` command won't be available until the [NCN Personalization](#perform-ncn-personalization)
-    procedure has been executed.
+  procedure has been executed.
 
 ### Next Steps
 
