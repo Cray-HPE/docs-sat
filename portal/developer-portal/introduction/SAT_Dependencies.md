@@ -37,6 +37,15 @@ as the specific services or components of those products on which the given `sat
 |                 | * System Configuration Service (SCSD)                   |
 |                 |                                                         |
 +-----------------+---------------------------------------------------------+
+| `sat bootprep`  | **CSM**                                                 |
+|                 |                                                         |
+|                 | * Boot Orchestration Service (BOS)                      |
+|                 | * Configuration Framework Service (CFS)                 |
+|                 | * Image Management Service (IMS)                        |
+|                 | * Version Control Service (VCS)                         |
+|                 | * Kubernetes                                            |
+|                 | * S3                                                    |
++-----------------+---------------------------------------------------------+
 | `sat bootsys`   | **CSM**                                                 |
 |                 |                                                         |
 |                 | * Boot Orchestration Service (BOS)                      |
