@@ -1,4 +1,4 @@
-@Library('dst-shared@master') _
+@Library('dst-shared@release/sat-2.2') _
 
 //Possible Parameters Include
 // * executeScript         Name of script which creates .tar file
