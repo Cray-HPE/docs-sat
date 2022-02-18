@@ -59,8 +59,8 @@ if ((pipelineParams.slackNotification[2] != false && skipSlack != true)) {
 }
 
 // Set cron to build nightly for master or release, not other branches
-String cron_str = BRANCH_NAME == "master" ? "H H(0-7) * * *" : ""
-cron_str = BRANCH_NAME ==~ /^release\/.*/ ? "H H(0-7) * * *" : "${cron_str}"
+String cron_str = BRANCH_NAME == "master" ? "0 7 * * 1" : ""
+cron_str = BRANCH_NAME ==~ /^release\/.*/ ? "0 7 * * 1" : "${cron_str}"
 
 pipeline {
     agent { node { label 'dstbuild' } }
