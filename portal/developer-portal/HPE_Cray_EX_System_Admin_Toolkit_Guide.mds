@@ -59,3 +59,7 @@ _include install/Uninstall_and_Downgrade.md
 _include dashboards/SAT_Kibana_Dashboards.md
 
 _include dashboards/SAT_Grafana_Dashboards.md
+
+# SAT Usage
+
+_include usage/SAT_Bootprep.md
