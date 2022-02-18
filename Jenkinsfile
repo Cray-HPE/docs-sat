@@ -58,9 +58,9 @@ if ((pipelineParams.slackNotification[2] != false && skipSlack != true)) {
     slackNotify(channel: "${pipelineParams.slackNotification[0]}", credential: "${pipelineParams.slackNotification[1]}", color: "good", message: "Starting: ${env.JOB_NAME} | Build URL: ${env.BUILD_URL}")
 }
 
-// Set cron to build nightly for master or release, not other branches
-String cron_str = BRANCH_NAME == "master" ? "H H(0-7) * * *" : ""
-cron_str = BRANCH_NAME ==~ /^release\/.*/ ? "H H(0-7) * * *" : "${cron_str}"
+// Set cron to build weekly for master or release, not other branches
+String cron_str = BRANCH_NAME == "master" ? "0 7 * * 1" : ""
+cron_str = BRANCH_NAME ==~ /^release\/.*/ ? "0 7 * * 1" : "${cron_str}"
 
 pipeline {
     agent { node { label 'dstbuild' } }
