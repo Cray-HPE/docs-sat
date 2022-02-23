@@ -43,7 +43,7 @@ will configure the System Admin Toolkit (SAT) product stream.
 
 ### Procedure
 
-1. Start a typescript if not already using one.
+1.  Start a typescript if not already using one.
 
     The typescript will capture the commands and the output from this installation procedure.
 
@@ -51,14 +51,40 @@ will configure the System Admin Toolkit (SAT) product stream.
     ncn-m001# script -af product-sat.$(date +%Y-%m-%d).txt
     ncn-m001# export PS1='\u@\H \D{%Y-%m-%d} \t \w # '
     ```
+1.  **Fresh install only**: Add the SAT layer to the NCN personalization JSON file.
 
-1. Invoke each CFS configuration that was created or updated during installation.
+    If the SAT install script, `install.sh`, did not identify and modify the CFS
+    configurations that apply to each master management NCN, it will have printed
+    the SAT CFS configuration layer in JSON format. This layer must be added to
+    the JSON file being used to construct the CFS configuration. For example,
+    if the file being used is named `ncn-personalization.json`, and the SAT
+    layer was saved to the file `/tmp/sat-layer.json` as described in the
+    install instructions, the following `jq` command will append the SAT layer
+    and save the result in a new file named `ncn-personalization.json`.
 
-    The CFS configurations that were created or updated during installation are
-    noted in the log output from `install.sh` and should have been recorded during
-    the installation process. The subsequent instructions assume that the CFS
-    configuration names were saved in the file `/tmp/sat-ncn-cfs-configurations.txt`
-    during the installation process.
+    ```screen
+    ncn-m001# jq -s '{layers: (.[0].layers + [.[1]])}' ncn-personalization.json \
+        /tmp/sat-layer.json > ncn-personalization.new.json
+    ```
+
+    For instructions on how to create a CFS configuration from the previous
+    file and how to apply it to the management NCNs, refer to "Perform NCN
+    Personalization" in the *HPE Cray System Management Documentation*. After
+    the CFS configuration has been created and applied, return to this
+    procedure.
+
+1.  **Upgrade only**: Invoke each CFS configuration that was created or updated
+    during installation.
+
+    If the SAT install script, `install.sh`, identified CFS configurations that
+    apply to the master management NCNs and modified them in place, invoke each
+    CFS configuration that was created or updated during installation.
+
+    The CFS configurations that were updated during installation are noted in
+    the log output from `install.sh` and should have been recorded during the
+    installation process. The subsequent instructions assume that the CFS
+    configuration names were saved in the file
+    `/tmp/sat-ncn-cfs-configurations.txt` during the installation process.
 
     This step will create a CFS session for each given configuration and install
     SAT on the associated manager NCNs.
@@ -80,7 +106,7 @@ will configure the System Admin Toolkit (SAT) product stream.
     ...
     ```
 
-1. Monitor the progress of each CFS session.
+1.  **Upgrade only**: Monitor the progress of each CFS session.
 
     This step assumes a single session named `sat-session-ncn-personalization` was created in the previous step.
 
@@ -121,7 +147,7 @@ will configure the System Admin Toolkit (SAT) product stream.
     **NOTE:** Ensure that the PLAY RECAPs for each session show successes for all
     manager NCNs before proceeding.
 
-1. Verify that SAT was successfully configured.
+1.  Verify that SAT was successfully configured.
 
     If `sat` is configured, the `--version` command will indicate which version
     is installed. If `sat` is not properly configured, the command will fail.
@@ -151,7 +177,7 @@ will configure the System Admin Toolkit (SAT) product stream.
     sat 3.7.0
     ```
 
-1. Stop the typescript.
+1.  Stop the typescript.
 
     ```screen
     ncn-m001# exit
