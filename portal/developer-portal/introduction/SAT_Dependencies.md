@@ -20,9 +20,9 @@
 
 ## SAT Dependencies
 
-SAT has dependencies on other products for some of its functionality. The following table shows the dependencies that
-each `sat` subcommand has on other products in the HPE Cray EX (Shasta) software stack. It shows the products as well
-as the specific services or components of those products on which the given `sat` command depends.
+Most `sat` subcommands depend on services or components from other products in the
+HPE Cray EX (Shasta) software stack. The following table shows these dependencies
+for each subcommand. Each service or component is listed under the product it belongs to.
 
 +-----------------+---------------------------------------------------------+
 | SAT Subcommand  | Product Dependencies                                    |
@@ -36,6 +36,15 @@ as the specific services or components of those products on which the given `sat
 |                 | * Hardware State Manager (HSM)                          |
 |                 | * System Configuration Service (SCSD)                   |
 |                 |                                                         |
++-----------------+---------------------------------------------------------+
+| `sat bootprep`  | **CSM**                                                 |
+|                 |                                                         |
+|                 | * Boot Orchestration Service (BOS)                      |
+|                 | * Configuration Framework Service (CFS)                 |
+|                 | * Image Management Service (IMS)                        |
+|                 | * Version Control Service (VCS)                         |
+|                 | * Kubernetes                                            |
+|                 | * S3                                                    |
 +-----------------+---------------------------------------------------------+
 | `sat bootsys`   | **CSM**                                                 |
 |                 |                                                         |
@@ -64,6 +73,10 @@ as the specific services or components of those products on which the given `sat
 | `sat firmware`  | **CSM**                                                 |
 |                 |                                                         |
 |                 | * Firmware Action Service (FAS)                         |
++-----------------+---------------------------------------------------------+
+| `sat hwhist`    | **CSM**                                                 |
+|                 |                                                         |
+|                 | * Hardware State Manager (HSM)                          |
 +-----------------+---------------------------------------------------------+
 | `sat hwinv`     | **CSM**                                                 |
 |                 |                                                         |
@@ -101,6 +114,11 @@ as the specific services or components of those products on which the given `sat
 |                 | * Hardware State Manager (HSM)                          |
 |                 | * Kubernetes                                            |
 |                 | * S3                                                    |
++-----------------+---------------------------------------------------------+
+| `sat slscheck`  | **CSM**                                                 |
+|                 |                                                         |
+|                 | * Hardware State Manager (HSM)                          |
+|                 | * System Layout Service (SLS)                           |
 +-----------------+---------------------------------------------------------+
 | `sat status`    | **CSM**                                                 |
 |                 |                                                         |
