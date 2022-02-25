@@ -41,7 +41,7 @@ Describes how to install the System Admin Toolkit (SAT) product stream.
 
 ### Pre-Installation Procedure
 
-1. Start a typescript.
+1.  Start a typescript.
 
     The typescript will record the commands and the output from this installation.
 
@@ -52,21 +52,21 @@ Describes how to install the System Admin Toolkit (SAT) product stream.
 
 ### Installation Procedure
 
-1. Copy the release distribution gzipped tar file to `ncn-m001`.
+1.  Copy the release distribution gzipped tar file to `ncn-m001`.
 
-1. Unzip and extract the release distribution, `2.2.x`.
+1.  Unzip and extract the release distribution, `2.2.x`.
 
     ```screen
     ncn-m001# tar -xvzf sat-2.2.x.tar.gz
     ```
 
-1. Change directory to the extracted release distribution directory.
+1.  Change directory to the extracted release distribution directory.
 
     ```screen
     ncn-m001# cd sat-2.2.x
     ```
 
-1. Run the installer: **install.sh**.
+1.  Run the installer: **install.sh**.
 
     The script produces a lot of output. A successful install ends with "SAT
     version 2.2.x has been installed".
@@ -75,35 +75,88 @@ Describes how to install the System Admin Toolkit (SAT) product stream.
     ncn-m001# ./install.sh
     ...
     ====> Updating active CFS configurations
-    INFO: Retrieving available Ansible configurations from VCS
-    INFO: Found matching Ansible configuration at remote ref "refs/heads/cray/sat/2.2.x" in VCS
-    INFO: Querying CFS configurations for the following NCNs: <ncn-m001>, <ncn-m002>, <ncn-m003>
-    INFO: Found the following configurations for NCNs: ncn-personalization
-    INFO: Updating CFS configuration "ncn-personalization"
-    INFO: Found existing layer with name "sat-ncn" in configuration "ncn-personalization"; updating.
-    INFO: Successfully updated layer "sat-ncn" in configuration "ncn-personalization"
+    ...
     ====> SAT version 2.2.x has been installed.
     ```
 
-1. Note the name of each CFS configuration created or updated by the installer in the
-   previous step. In this example, it is "ncn-personalization".
+1.  **Upgrade only**: Record the names of the CFS configuration or
+    configurations modified by `install.sh`.
 
-   ```screen
-   ncn-m001# echo ncn-personalization >> /tmp/sat-ncn-cfs-configurations.txt
-   ```
+    The `install.sh` script attempts to modify any CFS configurations that apply
+    to the master management NCNs. During an upgrade, `install.sh` will log
+    messages indicating the CFS configuration or configurations that were
+    modified. For example, if there are three master nodes all using the same
+    CFS configuration named "ncn-personalization", the output would look like
+    this:
 
-   Repeat the command above for each CFS configuration.
+    ```screen
+    ====> Updating active CFS configurations
+    INFO: Querying CFS configurations for the following NCNs: x3000c0s1b0n0, x3000c0s3b0n0, x3000c0s5b0n0
+    INFO: Found configuration "ncn-personalization" for component x3000c0s1b0n0
+    INFO: Found configuration "ncn-personalization" for component x3000c0s3b0n0
+    INFO: Found configuration "ncn-personalization" for component x3000c0s5b0n0
+    INFO: Updating CFS configuration "ncn-personalization"
+    INFO: Successfully updated layers in configuration "ncn-personalization"
+    ```
+
+    Save the name of each CFS configuration updated by the installer. In the
+    previous example, a single configuration named "ncn-personalization" was
+    updated, so that name is saved to a temporary file.
+
+    ```screen
+    ncn-m001# echo ncn-personalization >> /tmp/sat-ncn-cfs-configurations.txt
+    ```
+
+    Repeat the previous command for each CFS configuration that was updated.
+
+1.  **Fresh install only**: Save the CFS configuration layer for SAT to a file
+    for later use.
+
+    The `install.sh` script attempts to modify any CFS configurations that apply
+    to the master management NCNs. During a fresh install, no such CFS
+    configurations will be found, and it will instead log the SAT configuration
+    layer that must be added to the CFS configuration that will be created. Here
+    is an example of the output in that case:
+
+    ```screen
+    ====> Updating active CFS configurations
+    INFO: Querying CFS configurations for the following NCNs: x3000c0s1b0n0, x3000c0s3b0n0, x3000c0s5b0n0
+    WARNING: No CFS configurations found that apply to components with role Management and subrole Master.
+    INFO: The following sat layer should be used in the CFS configuration that will be applied to NCNs with role Management and subrole Master.
+    {
+        "name": "sat-2.2.15",
+        "commit": "9a74b8f5ba499af6fbcecfd2518a40e081312933",
+        "cloneUrl": "https://api-gw-service-nmn.local/vcs/cray/sat-config-management.git",
+        "playbook": "sat-ncn.yml"
+    }
+    ```
+
+    Save the JSON output to a file for later use. For example:
+
+    ```screen
+    ncn-m001# cat > /tmp/sat-layer.json <<EOF
+    > {
+    >     "name": "sat-2.2.15",
+    >     "commit": "9a74b8f5ba499af6fbcecfd2518a40e081312933",
+    >     "cloneUrl": "https://api-gw-service-nmn.local/vcs/cray/sat-config-management.git",
+    >     "playbook": "sat-ncn.yml"
+    > }
+    > EOF
+    ```
+
+    Do not copy the previous command verbatim. Use the JSON output from the
+    `install.sh` script.
 
 ### Post-Installation Procedure
 
-1. **Optional:** Remove the SAT release distribution tar file and extracted directory.
+1.  **Optional:** Remove the SAT release distribution tar file and extracted directory.
 
     ```screen
     ncn-m001# rm sat-2.2.x.tar.gz
     ncn-m001# rm -rf sat-2.2.x/
     ```
 
-1. **Upgrade only**: Ensure that the environment variable `SAT_TAG` is not set
+1.  **Upgrade only**: Ensure that the environment variable `SAT_TAG` is not set
     in the `~/.bashrc` file on any of the management NCNs.
 
     **NOTE**: This step should only be required when updating from
@@ -130,10 +183,10 @@ Describes how to install the System Admin Toolkit (SAT) product stream.
     ncn-m003: source <(kubectl completion bash)
     ```
 
-1. Stop the typescript.
+1.  Stop the typescript.
 
-   **NOTE**: This step can be skipped if you wish to use the same typescript
-   for the remainder of the SAT install. See [Next Steps](#next-steps).
+    **NOTE**: This step can be skipped if you wish to use the same typescript
+    for the remainder of the SAT install. See [Next Steps](#next-steps).
 
     ```screen
     ncn-m001# exit
