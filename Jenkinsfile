@@ -81,7 +81,7 @@ pipeline {
 
     environment {
         VERSION = sh(returnStdout: true, script: "./setup_versioning.sh;cat .version").trim()
-        STREAM_VERSION=sh(returnStdout: true, script: "./sat-versioning.sh; cat ./sat-version.txt").trim()
+        STREAM_VERSION=sh(returnStdout: true, script: "cat ./sat-version.txt").trim()
         VERSION_RPM = "${VERSION}"
         GIT_TAG = sh(returnStdout: true, script: "git rev-parse --short HEAD").trim()
         BUILD_DATE = "${buildDate}"
