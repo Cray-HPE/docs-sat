@@ -5,8 +5,7 @@
 CHANGE_LOG=changelog$$
 REPO_PATH=$(git rev-parse --show-toplevel)
 COPY_RIGHT=$(cat "$(find "${REPO_PATH}" -name copyright.txt)")
-source ${REPO_PATH}/sat-versioning.sh
-PRODUCT_VERSION=${SAT_VERSION}
+PRODUCT_VERSION=$(cat sat-version.txt)
 date=`date '+%a %b %d %Y'`
 git_hash=`git rev-parse HEAD`
 if [[ -z "${BUILD_NUMBER}" ]]; then
@@ -36,7 +35,7 @@ if [[ "-d" = "${1}" ]]; then
 # Copyright and Version
 ${COPY_RIGHT}
 
-SAT: ${SAT_VERSION}-${RELEASE}; ${date}
+SAT: ${PRODUCT_VERSION}-${RELEASE}; ${date}
 
 Doc git hash:
 ${git_hash}
