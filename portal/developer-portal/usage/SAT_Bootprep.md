@@ -190,7 +190,8 @@ images:
     name: example-compute-image-recipe
     is_recipe: true
   configuration: example configuration
-  configuration_group_names: Compute
+  configuration_group_names:
+  - Compute
 ```
 
 #### Creating BOS session templates

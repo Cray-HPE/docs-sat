@@ -96,6 +96,8 @@ Describes how to install the System Admin Toolkit (SAT) product stream.
     INFO: Found configuration "ncn-personalization" for component x3000c0s3b0n0
     INFO: Found configuration "ncn-personalization" for component x3000c0s5b0n0
     INFO: Updating CFS configuration "ncn-personalization"
+    INFO: Updating existing layer with repo path /vcs/cray/sat-config-management.git and playbook sat-ncn.yml in configuration "ncn-personalization".
+    INFO: Key "name" in layer with repo path /vcs/cray/sat-config-management.git and playbook sat-ncn.yml updated from sat-ncn to sat-2.2.16
     INFO: Successfully updated layers in configuration "ncn-personalization"
     ```
 
@@ -108,6 +110,16 @@ Describes how to install the System Admin Toolkit (SAT) product stream.
     ```
 
     Repeat the previous command for each CFS configuration that was updated.
+
+1.  **Upgrade only**: Save the new name of the SAT CFS configuration layer.
+
+    In the example `install.sh` output above, the new layer name is
+    `sat-2.2.16`. Save this value to a file to be used later.
+
+    ```screen
+    ncn-m001# echo sat-2.2.16 > /tmp/sat-layer-name.txt
+    ```
+
 
 1.  **Fresh install only**: Save the CFS configuration layer for SAT to a file
     for later use.

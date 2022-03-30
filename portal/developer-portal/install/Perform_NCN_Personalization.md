@@ -27,8 +27,12 @@ will configure the System Admin Toolkit (SAT) product stream.
 
 - The [Install the System Admin Toolkit Product Stream](#install-the-system-admin-toolkit-product-stream)
   procedure has been successfully completed.
-- The names of the CFS configurations created or updated during installation
-  were recorded.
+- If upgrading, the names of the CFS configurations updated during installation
+  were saved to the file `/tmp/sat-ncn-cfs-configurations.txt`.
+- If upgrading, the name of the new SAT CFS configuration layer was saved to
+  the file `/tmp/sat-layer-name.txt`.
+- If performing a fresh install, the SAT CFS configuration layer was saved to
+  the file `/tmp/sat-layer.json`.
 
 ### Notes on the Procedure
 
@@ -73,31 +77,25 @@ will configure the System Admin Toolkit (SAT) product stream.
     the CFS configuration has been created and applied, return to this
     procedure.
 
-1.  **Upgrade only**: Invoke each CFS configuration that was created or updated
-    during installation.
+1.  **Upgrade only**: Invoke each CFS configuration that was updated during the
+    upgrade.
 
     If the SAT install script, `install.sh`, identified CFS configurations that
     apply to the master management NCNs and modified them in place, invoke each
     CFS configuration that was created or updated during installation.
 
-    The CFS configurations that were updated during installation are noted in
-    the log output from `install.sh` and should have been recorded during the
-    installation process. The subsequent instructions assume that the CFS
-    configuration names were saved in the file
-    `/tmp/sat-ncn-cfs-configurations.txt` during the installation process.
-
     This step will create a CFS session for each given configuration and install
     SAT on the associated manager NCNs.
 
-    The `--configuration-limit` option causes only the `sat-ncn` layer of the configuration,
-    `ncn-personalization`, to run.
+    The `--configuration-limit` option limits the configuration session to run
+    only the SAT layer of the configuration.
 
     You should see a representation of the CFS session in the output.
 
     ```screen
     ncn-m001# for cfs_configuration in $(cat /tmp/sat-ncn-cfs-configurations.txt);
     do cray cfs sessions create --name "sat-session-${cfs_configuration}" --configuration-name \
-        "${cfs_configuration}" --configuration-limit sat-ncn;
+        "${cfs_configuration}" --configuration-limit $(cat /tmp/sat-layer-name.txt);
     done
 
     name="sat-session-ncn-personalization"
