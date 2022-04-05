@@ -35,3 +35,15 @@ _include install/SAT_Post_Upgrade.md
 _include dashboards/SAT_Kibana_Dashboards.md
 
 _include dashboards/SAT_Grafana_Dashboards.md
+
+# SAT Release Notes
+
+_include release-notes/sat_shasta_1.5.md
+
+_include release-notes/sat_shasta_1.4.1.md
+
+_include release-notes/sat_shasta_1.4.md
+
+_include release-notes/sat_shasta_1.3.2.md
+
+_include release-notes/sat_shasta_1.3.md
