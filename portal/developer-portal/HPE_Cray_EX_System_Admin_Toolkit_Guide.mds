@@ -66,6 +66,8 @@ _include usage/SAT_Bootprep.md
 
 # SAT Release Notes
 
+_include release-notes/sat_2.2.md
+
 _include release-notes/sat_shasta_1.5.md
 
 _include release-notes/sat_shasta_1.4.1.md
