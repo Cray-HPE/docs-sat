@@ -1,4 +1,4 @@
-[//]: # ((C) Copyright 2021 Hewlett Packard Enterprise Development LP)
+[//]: # ((C) Copyright 2022 Hewlett Packard Enterprise Development LP)
 
 [//]: # (Permission is hereby granted, free of charge, to any person obtaining a)
 [//]: # (copy of this software and associated documentation files (the "Software"),)
@@ -20,19 +20,20 @@
 
 ## SAT Logging
 
-As of SAT version 2.2, some command output has been redirected from `stdout`
-to `stderr`. These messages are now logged at the `INFO` level, the default
-logging threshold has been changed from `WARNING` to `INFO`. Additionally,
-some `INFO`-level log messages has been changed to `DEBUG`-level.
+As of SAT version 2.2, some command output that was previously printed to `stdout`
+is now logged to `stderr`. These messages are logged at the `INFO` level. The
+default logging threshold was changed from `WARNING` to `INFO` to accomodate
+this logging change. Additionally, some messages previously logged at the `INFO`
+are now logged at the `DEBUG` level.
 
 These changes take effect automatically. However, if the default output threshold
 has been manually set in `~/.config/sat/sat.toml`, it should be changed to ensure
-that important output is seen in the terminal by administrators.
+that important output is shown in the terminal.
 
 ### Update Configuration
 
-In the following example, the log-level, `logging.stderr_level`, has been set to
-`WARNING`, which hides `INFO`-level logging.
+In the following example, the stderr log level, `logging.stderr_level`, is set to
+`WARNING`, which will exclude `INFO`-level logging from terminal output.
 
 ```screen
 ncn-m001:~ # grep -A 3 logging ~/.config/sat/sat.toml
@@ -41,7 +42,12 @@ ncn-m001:~ # grep -A 3 logging ~/.config/sat/sat.toml
 stderr_level = "WARNING"
 ```
 
-To enable the new default behavior, comment this line out or delete it.
+To enable the new default behavior, comment this line out, delete it, or set
+the value to "INFO".
+
+If `logging.stderr_level` is commented out, its value will not affect logging
+behavior. However, it may be helpful set its value to `INFO` as a reminder of
+the new default behavior.
 
 ### Affected Commands
 
