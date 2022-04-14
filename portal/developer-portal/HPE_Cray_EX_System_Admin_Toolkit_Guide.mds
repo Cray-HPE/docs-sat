@@ -1,4 +1,4 @@
-[//]: # ((C) Copyright 2021 Hewlett Packard Enterprise Development LP)
+[//]: # ((C) Copyright 2022 Hewlett Packard Enterprise Development LP)
 
 [//]: # (Permission is hereby granted, free of charge, to any person obtaining a)
 [//]: # (copy of this software and associated documentation files (the "Software"),)
@@ -49,6 +49,8 @@ _include install/Run_SAT_Setrev_to_Set_System_Information.md
 # SAT Post-Upgrade
 
 _include install/SAT_Post_Upgrade.md
+
+_include install/SAT_Logging_Configuration.md
 
 # SAT Uninstall and Downgrade
 
