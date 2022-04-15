@@ -85,7 +85,7 @@ required after upgrading SAT.
     | System description  | Test System   |
     | System install date | 2021-01-29    |
     | System name         | eniac         |
-    | System type         | Shasta        |
+    | System type         | EX-1C         |
     +---------------------+---------------+
     ################################################################################
     Product Revision Information

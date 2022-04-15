@@ -1,4 +1,4 @@
-[//]: # ((C) Copyright 2021 Hewlett Packard Enterprise Development LP)
+[//]: # ((C) Copyright 2021-2022 Hewlett Packard Enterprise Development LP)
 
 [//]: # (Permission is hereby granted, free of charge, to any person obtaining a)
 [//]: # (copy of this software and associated documentation files (the "Software"),)
@@ -25,7 +25,22 @@ Redfish. The messages are displayed based on severity.
 
 Grafana can be accessed via web browser at the following URL:
 
-- `https://sma-grafana.<system_name>.<system_domain>`
+- `https://sma-grafana.<site-domain>`
+
+The value of `site-domain` can be obtained as follows:
+
+```screen
+ncn-m001:~ # kubectl get secret site-init -n loftsman -o jsonpath='{.data.customizations\.yaml}' | \
+    base64 -d | grep "external:"
+```
+
+That command will produce the following output, for example:
+
+```screen
+    external: EXAMPLE_DOMAIN.com
+```
+
+This would result in the address for Grafana being `https://sma-grafana.EXAMPLE_DOMAIN.com`
 
 For additional details about how to access the Grafana Dashboards refer to _Access the Grafana Monitoring UI_ in the
 SMA product documentation.
