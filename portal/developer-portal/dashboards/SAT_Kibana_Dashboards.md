@@ -1,4 +1,4 @@
-[//]: # ((C) Copyright 2021 Hewlett Packard Enterprise Development LP)
+[//]: # ((C) Copyright 2021-2022 Hewlett Packard Enterprise Development LP)
 
 [//]: # (Permission is hereby granted, free of charge, to any person obtaining a)
 [//]: # (copy of this software and associated documentation files (the "Software"),)
@@ -27,7 +27,22 @@ this way breaks down the complexity of large data volumes into easily understood
 
 Kibana can be accessed via web browser at the following URL:
 
-- `https://sma-kibana.<system_name>.<system_domain>`
+- `https://sma-kibana.cmn.<site-domain>`
+
+The value of `site-domain` can be obtained as follows:
+
+```screen
+ncn-m001:~ # kubectl get secret site-init -n loftsman -o jsonpath='{.data.customizations\.yaml}' | \
+    base64 -d | grep "external:"
+```
+
+That command will produce the following output, for example:
+
+```screen
+    external: EXAMPLE_DOMAIN.com
+```
+
+This would result in the address for Kibana being `https://sma-kibana.cmn.EXAMPLE_DOMAIN.com`
 
 For additional details about how to access the Kibana Dashboards refer to _View Logs Via Kibana_ in the SMA product
 documentation.

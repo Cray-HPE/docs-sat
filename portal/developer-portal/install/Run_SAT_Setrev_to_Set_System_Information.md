@@ -1,4 +1,4 @@
-[//]: # ((C) Copyright 2021 Hewlett Packard Enterprise Development LP)
+[//]: # ((C) Copyright 2021-2022 Hewlett Packard Enterprise Development LP)
 
 [//]: # (Permission is hereby granted, free of charge, to any person obtaining a)
 [//]: # (copy of this software and associated documentation files (the "Software"),)
@@ -30,7 +30,21 @@ required after upgrading SAT.
 
 ### Procedure
 
-1. Run `sat setrev` to set System Revision Information. Follow the on-screen prompts.
+1. Run `sat setrev` to set System Revision Information. Follow the on-screen prompts to set
+   the following site-specific values:
+
+   - Serial number
+   - System name
+   - System type
+   - System description
+   - Product number
+   - Company name
+   - Site name
+   - Country code
+   - System install date
+
+    **TIP**: For "System type", a system with _any_ liquid-cooled components should be
+    considered a liquid-cooled system. I.e., "System type" is EX-1C.
 
     ```screen
     ncn-m001# sat setrev
@@ -71,7 +85,7 @@ required after upgrading SAT.
     | System description  | Test System   |
     | System install date | 2021-01-29    |
     | System name         | eniac         |
-    | System type         | Shasta        |
+    | System type         | EX-1C         |
     +---------------------+---------------+
     ################################################################################
     Product Revision Information
