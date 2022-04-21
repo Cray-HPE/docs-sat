@@ -1,4 +1,4 @@
-[//]: # ((C) Copyright 2021 Hewlett Packard Enterprise Development LP)
+[//]: # ((C) Copyright 2021-2022 Hewlett Packard Enterprise Development LP)
 
 [//]: # (Permission is hereby granted, free of charge, to any person obtaining a)
 [//]: # (copy of this software and associated documentation files (the "Software"),)
@@ -63,3 +63,17 @@ _include dashboards/SAT_Grafana_Dashboards.md
 # SAT Usage
 
 _include usage/SAT_Bootprep.md
+
+# SAT Release Notes
+
+_include release-notes/sat_2.2.md
+
+_include release-notes/sat_shasta_1.5.md
+
+_include release-notes/sat_shasta_1.4.1.md
+
+_include release-notes/sat_shasta_1.4.md
+
+_include release-notes/sat_shasta_1.3.2.md
+
+_include release-notes/sat_shasta_1.3.md
