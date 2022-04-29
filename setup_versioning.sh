@@ -5,7 +5,7 @@
 CHANGE_LOG=changelog$$
 REPO_PATH=$(git rev-parse --show-toplevel)
 COPY_RIGHT=$(cat "$(find "${REPO_PATH}" -name copyright.txt)")
-PRODUCT_VERSION=$(cat sat-version.txt)
+PRODUCT_VERSION=$(cat ${REPO_PATH}/sat-version.txt)
 date=`date '+%a %b %d %Y'`
 git_hash=`git rev-parse HEAD`
 if [[ -z "${BUILD_NUMBER}" ]]; then
