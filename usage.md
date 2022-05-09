@@ -1,4 +1,6 @@
-# SAT Bootprep
+# SAT Usage
+
+## SAT Bootprep
 
 SAT provides an automated solution for creating CFS configurations, building
 and configuring images in IMS, and creating BOS session templates based on a
@@ -12,7 +14,7 @@ documentation for `sat bootprep` can be viewed similarly to other SAT commands.
 ncn-m001# sat-man sat-bootprep
 ```
 
-## SAT Bootprep vs SAT Bootsys
+### SAT Bootprep vs SAT Bootsys
 
 `sat bootprep` is used to create CFS configurations, build and
 rename IMS images, and create BOS session templates which tie the
@@ -23,7 +25,7 @@ including (but not limited to) performing BOS operations (such as creating BOS
 sessions), powering on and off cabinets, and checking the state of the system
 prior to shutdown.
 
-## Editing a bootprep input file
+### Editing a bootprep input file
 
 The input file provided to `sat bootprep` is a YAML-formatted file containing
 information which CFS, IMS, and BOS use to create configurations, images, and
@@ -33,7 +35,7 @@ three main sections, one each for configurations, images, and session templates.
 These sections may be specified in any order, and any of the sections may be
 omitted if desired.
 
-### Creating CFS configurations
+#### Creating CFS configurations
 
 The `configurations` section begins with a `configurations:` key.
 
@@ -109,7 +111,7 @@ above might look something like the following:
 }
 ```
 
-### Creating IMS images
+#### Creating IMS images
 
 After specifying configurations, the user may add images to the input file
 which are to be built by IMS. To add an `images` section, the user should add
@@ -174,7 +176,7 @@ images:
   - Compute
 ```
 
-### Creating BOS session templates
+#### Creating BOS session templates
 
 BOS session templates are the final section of the input file, and are defined
 under the `session_templates` key.
@@ -234,7 +236,7 @@ session_templates:
         rootfs_provider_passthrough: dvs:api-gw-service-nmn.local:300:nmn0
 ```
 
-## Example bootprep input files
+### Example bootprep input files
 
 Putting together all of the previous input file sections, an example bootprep input
 file might look something like the following.
@@ -282,7 +284,7 @@ session_templates:
         - Compute
 ```
 
-### Creating a pre-populated example bootprep input file
+#### Creating a pre-populated example bootprep input file
 
 It is possible to create an example bootprep input file using values from the
 system's product catalog using the `sat bootprep generate-example` command.
@@ -305,7 +307,7 @@ INFO: Wrote example bootprep input file to ./example-bootprep-input.yaml.
 This file should be reviewed and edited to match the desired parameters of the
 configurations, images, and session templates.
 
-## Viewing built-in generated documentation
+### Viewing built-in generated documentation
 
 The contents of the YAML input files described above must conform to a schema
 which defines the structure of the data. The schema definition is written using
@@ -314,7 +316,7 @@ itself is written in YAML as well.) More information, including introductory
 materials and a formal specification of the JSON Schema metaschema, can be found
 [on the JSON Schema website](https://json-schema.org/specification.html).
 
-### Viewing the exact schema specification
+#### Viewing the exact schema specification
 
 To view the exact schema specification, run `sat bootprep view-schema`.
 
@@ -334,7 +336,7 @@ properties:
   ...
 ```
 
-### Generating user-friendly documentation
+#### Generating user-friendly documentation
 
 The raw schema definition can be difficult to understand without experience
 working with JSON Schema specifications. For this reason, a feature was included
