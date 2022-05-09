@@ -33,7 +33,7 @@ during the time range selected, if any. The interval setting is not used for tab
 
 Shows the Interval and Locations Options for the available telemetry.
 
-![](images/SAT_Grafana_Fabric_Vars.png)
+![](../img/SAT_Grafana_Fabric_Vars.png)
 
 The value of the **Interval** option sets the time resolution of the received telemetry. This works a bit like a
 histogram, with the available telemetry in an interval of time going into a "bucket" and averaging out to a single
@@ -51,7 +51,7 @@ or the trace on the chart.
 
 ## Grafana Fabric Congestion Dashboard
 
-![](images/Grafana_Fabric_Congestion.png)
+![](../img/Grafana_Fabric_Congestion.png)
 
 SAT Grafana Dashboards provide system administrators a way to view fabric telemetry data across all Rosetta switches in
 the system and assess the past and present health of the high-speed network. It also allows the ability to drill down
@@ -69,7 +69,7 @@ The port type of a link is reported as a port state "subtype" event when defined
 
 ## Grafana Fabric Errors Dashboard
 
-![](images/Grafana_HSN_Errors.png)
+![](../img/Grafana_HSN_Errors.png)
 
 This dashboard reports error counters in a tabular format in three panels.
 
@@ -81,7 +81,7 @@ the time range selected. However, the values are taken from telemetry within the
 
 ## Grafana Fabric Port State Dashboard
 
-![](images/Fabric_PortState_Locations_UI.png)
+![](../img/Fabric_PortState_Locations_UI.png)
 
 There is no **Interval** option because this parameter is not used to set a coarseness of the data. Only a single value
 is presented that displays the most recent value in the time range.
@@ -95,7 +95,7 @@ all port state events.
 
 ## Grafana Fabric RFC3635 Dashboard
 
-![](images/Grafana_rfc3635.png)
+![](../img/Grafana_rfc3635.png)
 
 For additional information on performance counters, refer to
 [Definitions of Managed Objects for the Ethernet-like Interface Types](https://tools.ietf.org/html/rfc3635),
