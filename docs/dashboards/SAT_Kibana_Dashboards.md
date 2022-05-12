@@ -1,4 +1,4 @@
-## SAT Kibana Dashboards
+# SAT Kibana Dashboards
 
 Kibana is an open source analytics and visualization platform designed to search, view, and interact with data stored
 in Elasticsearch indices. Kibana runs as a web service and has a browser-based interface. It offers visual output of
@@ -31,7 +31,7 @@ table.
 |sat-rasdaemon|rasdaemon errors|Errors from the `rasdaemon` service on nodes. The `rasdaemon` service is the Reliability, Availability, and Serviceability Daemon, and it is intended to collect all hardware error events reported by the linux kernel, including PCI and MCE errors. This may include certain HSN errors in the future.|sat-rasdaemon-error|
 |sat-rasdaemon|rasdaemon messages|All messages from the `rasdaemon` service on nodes.|sat-rasdaemon|
 
-### Disable Search Highlighting in Kibana Dashboard
+## Disable Search Highlighting in Kibana Dashboard
 
 By default, search highlighting is enabled. This procedure instructs how to disable search highlighting.
 
@@ -47,12 +47,12 @@ The Kibana Dashboard should be open on your system.
 
 5. Click **Save** to save changes
 
-### AER Kibana Dashboard
+## AER Kibana Dashboard
 
 The AER Dashboard displays errors that come from the PCI Express Advanced Error Reporting (AER) driver. These errors
 are split up into separate visualizations depending on whether they are fatal or corrected errors.
 
-#### View the AER Kibana Dashboard
+### View the AER Kibana Dashboard
 
 1. Go to the dashboard section.
 
@@ -65,14 +65,14 @@ are split up into separate visualizations depending on whether they are fatal or
    the left. If desired, results can be filtered by NID by clicking the icon showing a **+** inside a magnifying glass
    next to each NID.
 
-### ATOM Kibana Dashboard
+## ATOM Kibana Dashboard
 
 The ATOM (Application Task Orchestration and Management) Dashboard displays node failures that occur during health
 checks and application test failures. Some test failures are of *possible* interest even though a node is not marked
 **admindown** or otherwise fails. They are of *clear* interest if a node is marked **admindown**, and might provide
 clues if a node otherwise fails. They might also show application problems.
 
-#### View the ATOM Kibana Dashboard
+### View the ATOM Kibana Dashboard
 
 HPE Cray EX is installed on the system along with the System Admin Toolkit, which contains the ATOM Kibana Dashboard.
 
@@ -87,12 +87,12 @@ HPE Cray EX is installed on the system along with the System Admin Toolkit, whic
    in the panel(s) on the right, and view the counts of each message per NID in the panel(s) on the left. If desired,
    results can be filtered by NID by clicking the icon showing a **+** inside a magnifying glass next to each NID.
 
-### Heartbeat Kibana Dashboard
+## Heartbeat Kibana Dashboard
 
 The Heartbeat Dashboard displays heartbeat loss messages that are logged by the hbtd pods in the system. The hbtd pods
 are responsible for monitoring nodes in the system for heartbeat loss.
 
-#### View the Heartbeat Kibana Dashboard
+### View the Heartbeat Kibana Dashboard
 
 1. Go to the dashboard section.
 
@@ -103,7 +103,7 @@ are responsible for monitoring nodes in the system for heartbeat loss.
 4. View the heartbeat loss messages that are logged by the hbtd pods in the system. The hbtd pods are responsible for
    monitoring nodes in the system for heartbeat loss.View the matching log messages in the panel.
 
-### Kernel Kibana Dashboard
+## Kernel Kibana Dashboard
 
 The Kernel Dashboard displays compute node failures such as kernel assertions, kernel panics, and Lustre LBUG messages.
 The messages reveal if Lustre has experienced a fatal error on any compute nodes in the system. A CPU stall is a serious
@@ -111,7 +111,7 @@ problem that might result in a node failure. Out-of-memory conditions can be due
 may require expert analysis. They provide useful clues for some node failures and may reveal if an application is using
 too much memory.
 
-#### View the Kernel Kibana Dashboard
+### View the Kernel Kibana Dashboard
 
 1. Go to the dashboard section.
 
@@ -124,11 +124,11 @@ too much memory.
    If desired, results can be filtered by NID by clicking the icon showing a **+** inside a magnifying glass next to
    each NID.
 
-### MCE Kibana Dashboard
+## MCE Kibana Dashboard
 
 The MCE Dashboard displays CPU detected processor-level hardware errors.
 
-#### View the MCE Kibana Dashboard
+### View the MCE Kibana Dashboard
 
 1. Go to the dashboard section.
 
@@ -141,7 +141,7 @@ The MCE Dashboard displays CPU detected processor-level hardware errors.
    and view the counts of each message per NID in the panel(s) on the left. If desired, results can be filtered by NID
    by clicking the icon showing a **+** inside a magnifying glass next to each NID.
 
-### Rasdaemon Kibana Dashboard
+## Rasdaemon Kibana Dashboard
 
 The Rasdaemon Dashboard displays errors that come from the Reliability, Availability, and Serviceability (RAS) daemon
 service on nodes in the system. This service collects all hardware error events reported by the linux kernel, including
@@ -149,7 +149,7 @@ PCI and MCE errors. As a result there may be some duplication between the messag
 presented in the MCE and AER dashboards. This dashboard splits up the messages into two separate visualizations, one
 for only messages of severity "emerg" or "err" and another for all messages from `rasdaemon`.
 
-#### View the Rasdaemon Kibana Dashboard
+### View the Rasdaemon Kibana Dashboard
 
 1. Go to the dashboard section.
 
