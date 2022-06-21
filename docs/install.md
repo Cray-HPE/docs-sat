@@ -103,7 +103,7 @@ If performing a fresh install, execute the **SAT Setup** procedures:
 
 - [SAT Authentication](#sat-authentication)
 - [Generate SAT S3 Credentials](#generate-sat-s3-credentials)
-- [Run Sat Setrev to Set System Information](#run-sat-setrev-to-set-system-information)
+- [Set System Information](#set-system-information)
 
 If performing an upgrade, execute the **upgrade** procedures:
 
@@ -427,7 +427,7 @@ If performing a fresh install, execute the **SAT Setup** procedures:
 
 - [SAT Authentication](#sat-authentication)
 - [Generate SAT S3 Credentials](#generate-sat-s3-credentials)
-- [Run Sat Setrev to Set System Information](#run-sat-setrev-to-set-system-information)
+- [Set System Information](#set-system-information)
 
 If performing an upgrade, execute the **SAT Post-Upgrade** procedures:
 
@@ -550,7 +550,7 @@ S3 bucket, the System Administrator must generate the S3 access key and secret k
 This must be done on every Kubernetes master node where SAT commands are run.
 
 SAT uses S3 storage for several purposes, most importantly to store the site-specific information set with `sat setrev`
-(see: [Run Sat Setrev to Set System Information](#run-sat-setrev-to-set-system-information)).
+(see: [Set System Information](#set-system-information)).
 
 **NOTE:** This procedure is only required after initially installing SAT. It is not
 required after upgrading SAT.
@@ -626,20 +626,26 @@ required after upgrading SAT.
     copied from ncn-m001 to ncn-m002 and ncn-m003. Therefore, the list of hosts above is ncn-m002
     and ncn-m003.
 
-## Run sat setrev to Set System Information
+## Set System Information
 
-**NOTE:** This procedure is only required after initially installing SAT. It is not
-required after upgrading SAT.
+System revision information stores identifying data about a system.
 
 ### Prerequisites
 
 - S3 credentials have been generated. See [Generate SAT S3 Credentials](#generate-sat-s3-credentials).
 - SAT authentication has been set up. See [SAT Authentication](#sat-authentication).
 
+### Notes on the Procedure
+
+- As of SAT v2.2, this procedure is **optional**. For previous versions,
+it is only required after initially installing SAT. It is not required after
+upgrading SAT.
+
 ### Procedure
 
-1. Run `sat setrev` to set System Revision Information. Follow the on-screen prompts to set
-   the following site-specific values:
+1. Set System Revision Information.
+
+    Run `sat setrev` and follow the on-screen prompts to set the following site-specific values:
 
    - Serial number
    - System name
@@ -673,7 +679,11 @@ required after upgrading SAT.
     ...
     ```
 
-1. Run `sat showrev` to verify System Revision Information. The following tables contain example information.
+1. Verify System Revision Information.
+
+    Run `sat showrev` and verify the output shown in the "System Revision Information table."
+
+    The following example shows sample table output.
 
     ```screen
     ncn-m001# sat showrev
@@ -718,7 +728,7 @@ required after upgrading SAT.
     +-----------+----------------------+
     ```
 
-## Remove obsolete configuration file sections
+## Remove Obsolete Configuration File Sections
 
 ### Prerequisites
 

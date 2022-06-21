@@ -18,7 +18,7 @@
 
 - [SAT Authentication](install.md#sat-authentication)
 - [Generate SAT S3 Credentials](install.md#generate-sat-s3-credentials)
-- [Run sat setrev to Set System Information](install.md#run-sat-setrev-to-set-system-information)
+- [Set System Information](install.md#set-system-information)
 
 ### SAT Post-Upgrade
 
