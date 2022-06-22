@@ -105,10 +105,13 @@ If performing a fresh install, execute the **SAT Setup** procedures:
 - [Generate SAT S3 Credentials](#generate-sat-s3-credentials)
 - [Set System Information](#set-system-information)
 
-If performing an upgrade, execute the **upgrade** procedures:
+If performing an upgrade, execute the **SAT Post-Upgrade** procedures:
 
 - [Remove obsolete configuration file sections](#remove-obsolete-configuration-file-sections)
 - [SAT Logging](#sat-logging)
+- [Set System Information](#set-system-information)
+
+**NOTE:** *Set System Information* is **not required** after upgrading from SAT v2.1 or later.
 
 ## Perform NCN Personalization
 
@@ -433,6 +436,9 @@ If performing an upgrade, execute the **SAT Post-Upgrade** procedures:
 
 - [Remove obsolete configuration file sections](#remove-obsolete-configuration-file-sections)
 - [SAT Logging](#sat-logging)
+- [Set System Information](#set-system-information)
+
+**NOTE:** *Set System Information* is **not required** after upgrading from SAT v2.1 or later.
 
 ### Post-Installation Cleanup Procedure
 
@@ -628,7 +634,8 @@ required after upgrading SAT.
 
 ## Set System Information
 
-System revision information stores identifying data about a system.
+System revision information is data HPE service representatives use to identify
+the system in support cases.
 
 ### Prerequisites
 
@@ -637,9 +644,10 @@ System revision information stores identifying data about a system.
 
 ### Notes on the Procedure
 
-- As of SAT v2.2, this procedure is **optional**. For previous versions,
-it is only required after initially installing SAT. It is not required after
-upgrading SAT.
+- This procedure **is required** after a fresh install of SAT.
+- After an upgrade of SAT, this procedure is **not required** if SAT was upgraded
+  from v2.1 (Shasta v1.5) or later. It **is required** if SAT was upgraded from
+  v2.0 (Shasta v1.4) or earlier.
 
 ### Procedure
 
