@@ -645,7 +645,7 @@ upgrading SAT.
 
 1. Set System Revision Information.
 
-    Run `sat setrev` and follow the on-screen prompts to set the following site-specific values:
+    Run `sat setrev` and follow the prompts to set the following site-specific values:
 
    - Serial number
    - System name
