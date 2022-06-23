@@ -111,7 +111,7 @@ If performing an upgrade, execute the **SAT Post-Upgrade** procedures:
 - [SAT Logging](#sat-logging)
 - [Set System Information](#set-system-information)
 
-**NOTE:** *Set System Information* is **not required** after upgrading from SAT v2.1 or later.
+**NOTE:** The **Set System Information** procedure is **not required** after upgrading from SAT v2.1 or later.
 
 ## Perform NCN Personalization
 
@@ -438,7 +438,7 @@ If performing an upgrade, execute the **SAT Post-Upgrade** procedures:
 - [SAT Logging](#sat-logging)
 - [Set System Information](#set-system-information)
 
-**NOTE:** *Set System Information* is **not required** after upgrading from SAT v2.1 or later.
+**NOTE:** The **Set System Information** procedure is **not required** after upgrading from SAT v2.1 or later.
 
 ### Post-Installation Cleanup Procedure
 
@@ -515,7 +515,7 @@ and will use the token for that username if it has been obtained and saved by `s
 
 The following is the procedure to globally configure the username used by SAT and authenticate to the API gateway:
 
-1. Generate a default SAT configuration file, if one does not exist.
+1.  Generate a default SAT configuration file, if one does not exist.
 
     ```screen
     ncn-m001# sat init
@@ -529,13 +529,13 @@ The following is the procedure to globally configure the username used by SAT an
     Not generating configuration file.
     ```
 
-1. Edit `~/.config/sat/sat.toml` and set the username option in the `api_gateway` section of the config file. E.g.:
+1.  Edit `~/.config/sat/sat.toml` and set the username option in the `api_gateway` section of the config file. E.g.:
 
     ```screen
     username = "crayadmin"
     ```
 
-1. Run `sat auth`. Enter your password when prompted. E.g.:
+1.  Run `sat auth`. Enter your password when prompted. E.g.:
 
     ```screen
     ncn-m001# sat auth
@@ -543,7 +543,7 @@ The following is the procedure to globally configure the username used by SAT an
     Succeeded!
     ```
 
-1. Other `sat` commands are now authenticated to make requests to the API gateway. E.g.:
+1.  Other `sat` commands are now authenticated to make requests to the API gateway. E.g.:
 
     ```screen
     ncn-m001# sat status
@@ -581,7 +581,7 @@ required after upgrading SAT.
         /root/.config/sat/s3_secret_key
     ```
 
-1. Write the credentials to local files using `kubectl`.
+1.  Write the credentials to local files using `kubectl`.
 
     ```screen
     ncn-m001# kubectl get secret sat-s3-credentials -o json -o \
@@ -595,11 +595,11 @@ required after upgrading SAT.
         /root/.config/sat/s3_secret_key
     ```
 
-1. Verify the S3 endpoint specified in the SAT configuration file is correct.
+1.  Verify the S3 endpoint specified in the SAT configuration file is correct.
 
-    1. Get the SAT configuration file's endpoint value.
+    1.  Get the SAT configuration file's endpoint value.
 
-        **NOTE:** If the command's output is commented out, indicated by an initial #
+        **NOTE:** If the command's output is commented out, indicated by an initial `#`
         character, the SAT configuration will take the default value – `"https://rgw-vip.nmn"`.
 
         ```screen
@@ -607,7 +607,7 @@ required after upgrading SAT.
         # endpoint = "https://rgw-vip.nmn"
         ```
 
-    1. Get the `sat-s3-credentials` secret's endpoint value.
+    1.  Get the `sat-s3-credentials` secret's endpoint value.
 
         ```screen
         ncn-m001# kubectl get secret sat-s3-credentials -o json -o \
@@ -615,11 +615,11 @@ required after upgrading SAT.
         https://rgw-vip.nmn
         ```
 
-    1. Compare the two endpoint values.
+    1.  Compare the two endpoint values.
 
         If the values differ, change the SAT configuration file's endpoint value to match the secret's.
 
-1. Copy SAT configurations to each manager node on the system.
+1.  Copy SAT configurations to each manager node on the system.
 
     ```screen
     ncn-m001# for i in ncn-m002 ncn-m003; do echo $i; ssh ${i} \
@@ -632,10 +632,10 @@ required after upgrading SAT.
     copied from ncn-m001 to ncn-m002 and ncn-m003. Therefore, the list of hosts above is ncn-m002
     and ncn-m003.
 
-## Set System Information
+## Set System Revision Information
 
-System revision information is data HPE service representatives use to identify
-the system in support cases.
+HPE service representatives use system revision information data to identify
+systems in support cases.
 
 ### Prerequisites
 
@@ -651,19 +651,19 @@ the system in support cases.
 
 ### Procedure
 
-1. Set System Revision Information.
+1.  Set System Revision Information.
 
     Run `sat setrev` and follow the prompts to set the following site-specific values:
 
-   - Serial number
-   - System name
-   - System type
-   - System description
-   - Product number
-   - Company name
-   - Site name
-   - Country code
-   - System install date
+    - Serial number
+    - System name
+    - System type
+    - System description
+    - Product number
+    - Company name
+    - Site name
+    - Country code
+    - System install date
 
     **TIP**: For "System type", a system with _any_ liquid-cooled components should be
     considered a liquid-cooled system. I.e., "System type" is EX-1C.
@@ -687,7 +687,7 @@ the system in support cases.
     ...
     ```
 
-1. Verify System Revision Information.
+1.  Verify System Revision Information.
 
     Run `sat showrev` and verify the output shown in the "System Revision Information table."
 
@@ -824,7 +824,7 @@ sat swap
 
 ### Procedure
 
-1. Use `sat showrev` to list versions of SAT.
+1.  Use `sat showrev` to list versions of SAT.
 
     **NOTE**: It is not recommended to uninstall a version designated as "active".
     If the active version is uninstalled, then the activate procedure must be executed
@@ -843,7 +843,7 @@ sat swap
     +--------------+-----------------+--------+-------------------+-----------------------+
     ```
 
-1. Use `prodmgr` to uninstall a version of SAT.
+1.  Use `prodmgr` to uninstall a version of SAT.
 
     This command will do three things:
 
@@ -873,7 +873,7 @@ This procedure can be used to downgrade the active version of SAT.
 
 ### Procedure
 
-1. Use `sat showrev` to list versions of SAT.
+1.  Use `sat showrev` to list versions of SAT.
 
     ```screen
     ncn-m001# sat showrev --products --filter product_name=sat
@@ -888,7 +888,7 @@ This procedure can be used to downgrade the active version of SAT.
     +--------------+-----------------+--------+--------------------+-----------------------+
     ```
 
-1. Use `prodmgr` to activate a different version of SAT.
+1.  Use `prodmgr` to activate a different version of SAT.
 
     This command will do three things:
 
@@ -909,7 +909,7 @@ This procedure can be used to downgrade the active version of SAT.
     Updated CFS configurations: [ncn-personalization]
     ```
 
-1. Verify that the chosen version is marked as active.
+1.  Verify that the chosen version is marked as active.
 
     ```screen
     ncn-m001# sat showrev --products --filter product_name=sat
