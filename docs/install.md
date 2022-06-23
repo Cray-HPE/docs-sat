@@ -103,15 +103,15 @@ If performing a fresh install, execute the **SAT Setup** procedures:
 
 - [SAT Authentication](#sat-authentication)
 - [Generate SAT S3 Credentials](#generate-sat-s3-credentials)
-- [Set System Information](#set-system-information)
+- [Set System Revision Information](#set-system-revision-information)
 
 If performing an upgrade, execute the **SAT Post-Upgrade** procedures:
 
 - [Remove obsolete configuration file sections](#remove-obsolete-configuration-file-sections)
 - [SAT Logging](#sat-logging)
-- [Set System Information](#set-system-information)
+- [Set System Revision Information](#set-system-revision-information)
 
-**NOTE:** The **Set System Information** procedure is **not required** after upgrading from SAT v2.1 or later.
+**NOTE:** The **Set System Revision Information** procedure is **not required** after upgrading from SAT v2.1 or later.
 
 ## Perform NCN Personalization
 
@@ -430,15 +430,15 @@ If performing a fresh install, execute the **SAT Setup** procedures:
 
 - [SAT Authentication](#sat-authentication)
 - [Generate SAT S3 Credentials](#generate-sat-s3-credentials)
-- [Set System Information](#set-system-information)
+- [Set System Revision Information](#set-system-revision-information)
 
 If performing an upgrade, execute the **SAT Post-Upgrade** procedures:
 
 - [Remove obsolete configuration file sections](#remove-obsolete-configuration-file-sections)
 - [SAT Logging](#sat-logging)
-- [Set System Information](#set-system-information)
+- [Set System Revision Information](#set-system-revision-information)
 
-**NOTE:** The **Set System Information** procedure is **not required** after upgrading from SAT v2.1 or later.
+**NOTE:** The **Set System Revision Information** procedure is **not required** after upgrading from SAT v2.1 or later.
 
 ### Post-Installation Cleanup Procedure
 
@@ -556,7 +556,7 @@ S3 bucket, the System Administrator must generate the S3 access key and secret k
 This must be done on every Kubernetes master node where SAT commands are run.
 
 SAT uses S3 storage for several purposes, most importantly to store the site-specific information set with `sat setrev`
-(see: [Set System Information](#set-system-information)).
+(see: [Set System Revision Information](#set-system-revision-information)).
 
 **NOTE:** This procedure is only required after initially installing SAT. It is not
 required after upgrading SAT.
