@@ -2,7 +2,8 @@
 
 ## Install the System Admin Toolkit Product Stream
 
-Describes how to install the System Admin Toolkit (SAT) product stream.
+Describes how to install or upgrade the System Admin Toolkit (SAT) product
+stream.
 
 ### Prerequisites
 
@@ -14,7 +15,7 @@ Describes how to install the System Admin Toolkit (SAT) product stream.
 ### Notes on the Procedures
 
 - Ellipses (`...`) in shell output indicate omitted lines.
-- In the examples below, replace `2.2.x` with the version of the SAT product stream
+- In the examples below, replace `x.y.z` with the version of the SAT product stream
   being installed.
 - 'manager' and 'master' are used interchangeably in the steps below.
 - To upgrade SAT, execute the pre-installation, installation, and post-installation
@@ -23,9 +24,10 @@ Describes how to install the System Admin Toolkit (SAT) product stream.
 
 ### Pre-Installation Procedure
 
-1.  Start a typescript.
+1.  Start a typescript and set the shell prompt.
 
     The typescript will record the commands and the output from this installation.
+    The prompt is set to include the date and time.
 
     ```screen
     ncn-m001# script -af product-sat.$(date +%Y-%m-%d).txt
@@ -36,147 +38,33 @@ Describes how to install the System Admin Toolkit (SAT) product stream.
 
 1.  Copy the release distribution gzipped tar file to `ncn-m001`.
 
-1.  Unzip and extract the release distribution, `2.2.x`.
+1.  Unzip and extract the release distribution.
 
     ```screen
-    ncn-m001# tar -xvzf sat-2.2.x.tar.gz
+    ncn-m001# tar -xvzf sat-x.y.z.tar.gz
     ```
 
 1.  Change directory to the extracted release distribution directory.
 
     ```screen
-    ncn-m001# cd sat-2.2.x
+    ncn-m001# cd sat-x.y.z
     ```
 
 1.  Run the installer: **install.sh**.
 
     The script produces a lot of output. A successful install ends with "SAT
-    version 2.2.x has been installed".
+    version x.y.z has been installed", where "x.y.z" is the SAT product version.
 
     ```screen
     ncn-m001# ./install.sh
+    ====> Installing System Admin Toolkit version x.y.z
     ...
-    ====> Updating active CFS configurations
+    ====> Waiting 300 seconds for sat-config-import-x.y.z to complete
     ...
-    ====> SAT version 2.2.x has been installed.
+    ====> SAT version x.y.z has been installed.
     ```
 
-1.  **Upgrade only**: Record the names of the CFS configuration or
-    configurations modified by `install.sh`.
-
-    The `install.sh` script attempts to modify any CFS configurations that apply
-    to the master management NCNs. During an upgrade, `install.sh` will log
-    messages indicating the CFS configuration or configurations that were
-    modified. For example, if there are three master nodes all using the same
-    CFS configuration named "ncn-personalization", the output would look like
-    this:
-
-    ```screen
-    ====> Updating active CFS configurations
-    INFO: Querying CFS configurations for the following NCNs: x3000c0s1b0n0, x3000c0s3b0n0, x3000c0s5b0n0
-    INFO: Found configuration "ncn-personalization" for component x3000c0s1b0n0
-    INFO: Found configuration "ncn-personalization" for component x3000c0s3b0n0
-    INFO: Found configuration "ncn-personalization" for component x3000c0s5b0n0
-    INFO: Updating CFS configuration "ncn-personalization"
-    INFO: Updating existing layer with repo path /vcs/cray/sat-config-management.git and playbook sat-ncn.yml in configuration "ncn-personalization".
-    INFO: Key "name" in layer with repo path /vcs/cray/sat-config-management.git and playbook sat-ncn.yml updated from sat-ncn to sat-2.2.16
-    INFO: Successfully updated layers in configuration "ncn-personalization"
-    ```
-
-    Save the name of each CFS configuration updated by the installer. In the
-    previous example, a single configuration named "ncn-personalization" was
-    updated, so that name is saved to a temporary file.
-
-    ```screen
-    ncn-m001# echo ncn-personalization >> /tmp/sat-ncn-cfs-configurations.txt
-    ```
-
-    Repeat the previous command for each CFS configuration that was updated.
-
-1.  **Upgrade only**: Save the new name of the SAT CFS configuration layer.
-
-    In the example `install.sh` output above, the new layer name is
-    `sat-2.2.16`. Save this value to a file to be used later.
-
-    ```screen
-    ncn-m001# echo sat-2.2.16 > /tmp/sat-layer-name.txt
-    ```
-
-1.  **Fresh install only**: Save the CFS configuration layer for SAT to a file
-    for later use.
-
-    The `install.sh` script attempts to modify any CFS configurations that apply
-    to the master management NCNs. During a fresh install, no such CFS
-    configurations will be found, and it will instead log the SAT configuration
-    layer that must be added to the CFS configuration that will be created. Here
-    is an example of the output in that case:
-
-    ```screen
-    ====> Updating active CFS configurations
-    INFO: Querying CFS configurations for the following NCNs: x3000c0s1b0n0, x3000c0s3b0n0, x3000c0s5b0n0
-    WARNING: No CFS configurations found that apply to components with role Management and subrole Master.
-    INFO: The following sat layer should be used in the CFS configuration that will be applied to NCNs with role Management and subrole Master.
-    {
-        "name": "sat-2.2.15",
-        "commit": "9a74b8f5ba499af6fbcecfd2518a40e081312933",
-        "cloneUrl": "https://api-gw-service-nmn.local/vcs/cray/sat-config-management.git",
-        "playbook": "sat-ncn.yml"
-    }
-    ```
-
-    Save the JSON output to a file for later use. For example:
-
-    ```screen
-    ncn-m001# cat > /tmp/sat-layer.json <<EOF
-    > {
-    >     "name": "sat-2.2.15",
-    >     "commit": "9a74b8f5ba499af6fbcecfd2518a40e081312933",
-    >     "cloneUrl": "https://api-gw-service-nmn.local/vcs/cray/sat-config-management.git",
-    >     "playbook": "sat-ncn.yml"
-    > }
-    > EOF
-    ```
-
-    Do not copy the previous command verbatim. Use the JSON output from the
-    `install.sh` script.
-
-### Post-Installation Procedure
-
-1.  **Optional:** Remove the SAT release distribution tar file and extracted directory.
-
-    ```screen
-    ncn-m001# rm sat-2.2.x.tar.gz
-    ncn-m001# rm -rf sat-2.2.x/
-    ```
-
-1.  **Upgrade only**: Ensure that the environment variable `SAT_TAG` is not set
-    in the `~/.bashrc` file on any of the management NCNs.
-
-    **NOTE**: This step should only be required when updating from
-    Shasta 1.4.1 or Shasta 1.4.2.
-
-    The following example assumes three manager NCNs: `ncn-m001`, `ncn-m002`, and `ncn-m003`,
-    and shows output from a system in which no further action is needed.
-
-    ```screen
-    ncn-m001# pdsh -w ncn-m00[1-3] cat ~/.bashrc
-    ncn-m001: source <(kubectl completion bash)
-    ncn-m003: source <(kubectl completion bash)
-    ncn-m002: source <(kubectl completion bash)
-    ```
-
-    The following example shows that `SAT_TAG` is set in `~/.bashrc` on `ncn-m002`.
-    Remove that line from the `~/.bashrc` file on `ncn-m002`.
-
-    ```screen
-    ncn-m001# pdsh -w ncn-m00[1-3] cat ~/.bashrc
-    ncn-m001: source <(kubectl completion bash)
-    ncn-m002: source <(kubectl completion bash)
-    ncn-m002: export SAT_TAG=3.5.0
-    ncn-m003: source <(kubectl completion bash)
-    ```
-
-1.  Stop the typescript.
+1.  **Optional:** Stop the typescript.
 
     **NOTE**: This step can be skipped if you wish to use the same typescript
     for the remainder of the SAT install. See [Next Steps](#next-steps).
@@ -185,7 +73,7 @@ Describes how to install the System Admin Toolkit (SAT) product stream.
     ncn-m001# exit
     ```
 
-SAT version `2.2.x` is now installed/upgraded, meaning the SAT `2.2.x` release
+SAT version `x.y.z` is now installed/upgraded, meaning the SAT `x.y.z` release
 has been loaded into the system software repository.
 
 - SAT configuration content for this release has been uploaded to VCS.
@@ -203,10 +91,9 @@ to determine which step to execute next.
 If no other HPE Cray EX software products are being installed or upgraded at this time,
 proceed to the sections listed below.
 
-**NOTE:** The **NCN Personalization** procedure **is required when
-upgrading SAT**. The setup procedures in **SAT Setup**, however, are
-**not required when upgrading SAT**. They should have been executed
-during the first installation of SAT.
+**NOTE:** The **NCN Personalization** procedure **is required** both when
+installing and upgrading SAT. The setup procedures in **SAT Setup**, however,
+are are only required during the first installation of SAT.
 
 Execute the **NCN Personalization** procedure:
 
@@ -216,33 +103,29 @@ If performing a fresh install, execute the **SAT Setup** procedures:
 
 - [SAT Authentication](#sat-authentication)
 - [Generate SAT S3 Credentials](#generate-sat-s3-credentials)
-- [Run Sat Setrev to Set System Information](#run-sat-setrev-to-set-system-information)
+- [Set System Revision Information](#set-system-revision-information)
 
-If performing an upgrade, execute the **upgrade** procedures:
+If performing an upgrade, execute the **SAT Post-Upgrade** procedures:
 
 - [Remove obsolete configuration file sections](#remove-obsolete-configuration-file-sections)
 - [SAT Logging](#sat-logging)
+- [Set System Revision Information](#set-system-revision-information)
+
+**NOTE:** The **Set System Revision Information** procedure is **not required** after upgrading from SAT v2.1 or later.
 
 ## Perform NCN Personalization
 
-Describes how to perform NCN personalization using CFS. This personalization process
-will configure the System Admin Toolkit (SAT) product stream.
+To configure the installed version of SAT, a new CFS configuration layer must be added to the CFS configuration used on management NCNs. This procedure describes how to add that layer. It is required to complete SAT installation and configuration.
 
 ### Prerequisites
 
 - The [Install the System Admin Toolkit Product Stream](#install-the-system-admin-toolkit-product-stream)
   procedure has been successfully completed.
-- If upgrading, the names of the CFS configurations updated during installation
-  were saved to the file `/tmp/sat-ncn-cfs-configurations.txt`.
-- If upgrading, the name of the new SAT CFS configuration layer was saved to
-  the file `/tmp/sat-layer-name.txt`.
-- If performing a fresh install, the SAT CFS configuration layer was saved to
-  the file `/tmp/sat-layer.json`.
 
 ### Notes on the Procedure
 
 - Ellipses (`...`) in shell output indicate omitted lines.
-- In the examples below, replace `2.2.x` with the version of the SAT product stream
+- In the examples below, replace `x.y.z` with the version of the SAT product stream
   being installed.
 - 'manager' and 'master' are used interchangeably in the steps below.
 - If upgrading SAT, the existing configuration will likely include other Cray EX product
@@ -250,93 +133,221 @@ will configure the System Admin Toolkit (SAT) product stream.
   Software Getting Started Guide* provides guidance on how and when to update the
   entries for the other products.
 
-### Procedure
+### Pre-NCN-Personalization Procedure
 
-1.  Start a typescript if not already using one.
+1.  Start a typescript if not already using one, and set the shell prompt.
 
-    The typescript will capture the commands and the output from this installation procedure.
+    The typescript will record the commands and the output from this installation.
+    The prompt is set to include the date and time.
 
     ```screen
     ncn-m001# script -af product-sat.$(date +%Y-%m-%d).txt
     ncn-m001# export PS1='\u@\H \D{%Y-%m-%d} \t \w # '
     ```
 
-1.  **Fresh install only**: Add the SAT layer to the NCN personalization JSON file.
+### Procedure to Update CFS Configuration
 
-    If the SAT install script, `install.sh`, did not identify and modify the CFS
-    configurations that apply to each master management NCN, it will have printed
-    the SAT CFS configuration layer in JSON format. This layer must be added to
-    the JSON file being used to construct the CFS configuration. For example,
-    if the file being used is named `ncn-personalization.json`, and the SAT
-    layer was saved to the file `/tmp/sat-layer.json` as described in the
-    install instructions, the following `jq` command will append the SAT layer
-    and save the result in a new file named `ncn-personalization.json`.
+The SAT release distribution includes a script, `update-mgmt-ncn-cfs-config.sh`,
+that updates a CFS configuration to include the SAT layer required to
+install and configure SAT on the management NCNs.
+
+The script supports modifying a named CFS configuration in CFS, a CFS
+configuration defined in a JSON file, or the CFS configuration
+currently applied to particular components in CFS.
+
+The script also includes options for specifying:
+
+- how the modified CFS configuration should be saved
+- the git commit hash or branch specified in the SAT layer
+
+This procedure is split into three alternatives, which cover common use cases:
+
+- [Update Active CFS Configuration](#update-active-cfs-configuration)
+- [Update CFS Configuration in a JSON File](#update-cfs-configuration-in-a-json-file)
+- [Update Existing CFS Configuration by Name](#update-existing-cfs-configuration-by-name)
+
+If none of these alternatives fit your use case, see:
+
+- [Advanced Options for Updating CFS Configurations](#advanced-options-for-updating-cfs-configurations)
+
+#### Update Active CFS Configuration
+
+Use this alternative if there is already a CFS configuration assigned to the
+management NCNs and you would like to update it in place for the new version of
+SAT.
+
+1.  Run the script with the following options:
 
     ```screen
-    ncn-m001# jq -s '{layers: (.[0].layers + [.[1]])}' ncn-personalization.json \
-        /tmp/sat-layer.json > ncn-personalization.new.json
+    ncn-m001# ./update-mgmt-ncn-cfs-config.sh --base-query role=Management --save
     ```
 
-    For instructions on how to create a CFS configuration from the previous
-    file and how to apply it to the management NCNs, refer to "Perform NCN
-    Personalization" in the *HPE Cray System Management Documentation*. After
-    the CFS configuration has been created and applied, return to this
-    procedure.
+1.  Examine the output to ensure the CFS configuration was updated.
 
-1.  **Upgrade only**: Invoke each CFS configuration that was updated during the
-    upgrade.
+    For example, if there is a single CFS configuration that applies to NCNs, and if
+    that configuration does not have a layer yet for any version of SAT, the
+    output will look like this:
 
-    If the SAT install script, `install.sh`, identified CFS configurations that
-    apply to the master management NCNs and modified them in place, invoke each
-    CFS configuration that was created or updated during installation.
+    ```screen
+    ====> Updating CFS configuration(s)
+    INFO: Querying CFS configurations for the following NCNs: x3000c0s1b0n0, ..., x3000c0s9b0n0
+    INFO: Found configuration "ncn-personalization" for component x3000c0s1b0n0
+    ...
+    INFO: Found configuration "ncn-personalization" for component x3000c0s9b0n0
+    ...
+    INFO: No layer with repo path /vcs/cray/sat-config-management.git and playbook sat-ncn.yml found.
+    INFO: Adding a layer with repo path /vcs/cray/sat-config-management.git and playbook sat-ncn.yml to the end.
+    INFO: Successfully saved CFS configuration "ncn-personalization"
+    INFO: Successfully saved 1 changed CFS configurations.
+    ====> Completed CFS configuration(s)
+    ====> Cleaning up install dependencies
+    ```
 
-    This step will create a CFS session for each given configuration and install
-    SAT on the associated manager NCNs.
+    Alternatively, if the CFS configuration already contains a layer for
+    SAT that just needs to be updated, the output will look like this:
+
+    ```screen
+    ====> Updating CFS configuration(s)
+    INFO: Querying CFS configurations for the following NCNs: x3000c0s1b0n0, ..., x3000c0s9b0n0
+    INFO: Found configuration "ncn-personalization" for component x3000c0s1b0n0
+    ...
+    INFO: Found configuration "ncn-personalization" for component x3000c0s9b0n0
+    ...
+    INFO: Updating existing layer with repo path /vcs/cray/sat-config-management.git and playbook sat-ncn.yml
+    INFO: Property "commit" of layer with repo path /vcs/cray/sat-config-management.git and playbook sat-ncn.yml updated from 01ae28c92b9b4740e9e0e01ae01216c6c2d89a65 to bcbd6db0803cc4137c7558df9546b0faab303cbd
+    INFO: Property "name" of layer with repo path /vcs/cray/sat-config-management.git and playbook sat-ncn.yml updated from sat-2.2.16 to sat-sat-ncn-bcbd6db-20220608T170152
+    INFO: Successfully saved CFS configuration "ncn-personalization"
+    INFO: Successfully saved 1 changed CFS configurations.
+    ====> Completed CFS configuration(s)
+    ====> Cleaning up install dependencies
+    ```
+
+#### Update CFS Configuration in a JSON File
+
+Use this alternative if you are constructing a new CFS configuration for
+management NCNs in a JSON file.
+
+1.  Run the script with the following options, where `JSON_FILE` is an
+    environment variable set to the path of the JSON file to modify:
+
+    ```screen
+    ncn-m001# ./update-mgmt-ncn-cfs-config.sh --base-file $JSON_FILE --save
+    ```
+
+1.  Examine the output to ensure the JSON file was updated.
+
+    For example, if the configuration defined in the JSON file does not have a layer yet for any
+    version of SAT, the output will look like this:
+
+    ```
+    ====> Updating CFS configuration(s)
+    INFO: No layer with repo path /vcs/cray/sat-config-management.git and playbook sat-ncn.yml found.
+    INFO: Adding a layer with repo path /vcs/cray/sat-config-management.git and playbook sat-ncn.yml to the end.
+    INFO: Successfully saved 1 changed CFS configurations.
+    ====> Completed CFS configuration(s)
+    ====> Cleaning up install dependencies
+    ```
+
+#### Update Existing CFS Configuration by Name
+
+Use this alternative if you are updating a specific named CFS configuration.
+This may be the case if you are constructing a new CFS configuration during an
+install or upgrade of multiple products.
+
+1.  Run the script with the following options, where `CFS_CONFIG_NAME` is an
+    environment variable set to the name of the CFS configuration to update.
+
+    ```screen
+    ncn-m001# ./update-mgmt-ncn-cfs-config.sh --base-config $CFS_CONFIG_NAME --save
+    ```
+
+1.  Examine the output to ensure the CFS configuration was updated.
+
+    For example, if the CFS configuration does not have a layer yet for any version of SAT,
+    the output will look like this:
+
+    ```
+    ====> Updating CFS configuration(s)
+    INFO: No layer with repo path /vcs/cray/sat-config-management.git and playbook sat-ncn.yml found.
+    INFO: Adding a layer with repo path /vcs/cray/sat-config-management.git and playbook sat-ncn.yml to the end.
+    INFO: Successfully saved CFS configuration "CFS_CONFIG_NAME"
+    INFO: Successfully saved 1 changed CFS configurations.
+    ====> Completed CFS configuration(s)
+    ====> Cleaning up install dependencies
+    ```
+
+#### Advanced Options for Updating CFS Configurations
+
+If none of the alternatives described in the previous sections apply, view the
+full description of the options accepted by the `update-mgmt-ncn-cfs-config.sh`
+script by invoking it with the `--help` option.
+
+```screen
+ncn-m001# ./update-mgmt-ncn-cfs-config.sh --help
+```
+
+### Procedure to Apply CFS Configuration
+
+After the CFS configuration that applies to management NCNs has been updated as
+described in the [Procedure to Update CFS Configuration](#procedure-to-update-cfs-configuration),
+execute the following steps to ensure the modified CFS configuration is re-applied to the management NCNs.
+
+1.  Set an environment variable that refers to the name of the CFS configuration
+    to be applied to the management NCNs.
+
+    ```screen
+    ncn-m001# export CFS_CONFIG_NAME="ncn-personalization"
+    ```
+
+    Note: If the [Update Active CFS Configuration](#update-active-cfs-configuration)
+    section was followed above, the name of the updated CFS configuration will
+    have been logged in the following format. If multiple CFS configurations
+    were modified, any one of them can be used in this procedure.
+
+    ```screen
+    INFO: Successfully saved CFS configuration "ncn-personalization"
+    ```
+
+1.  Obtain the name of the CFS configuration layer for SAT and save it in an
+    environment variable:
+
+    ```screen
+    ncn-m001# export SAT_LAYER_NAME=$(cray cfs configurations describe $CFS_CONFIG_NAME --format json \
+        | jq -r '.layers | map(select(.cloneUrl | contains("sat-config-management.git")))[0].name')
+    ```
+
+1.  Create a CFS session that executes only the SAT layer of the given CFS
+    configuration.
 
     The `--configuration-limit` option limits the configuration session to run
     only the SAT layer of the configuration.
 
-    You should see a representation of the CFS session in the output.
-
     ```screen
-    ncn-m001# for cfs_configuration in $(cat /tmp/sat-ncn-cfs-configurations.txt);
-    do cray cfs sessions create --name "sat-session-${cfs_configuration}" --configuration-name \
-        "${cfs_configuration}" --configuration-limit $(cat /tmp/sat-layer-name.txt);
-    done
-
-    name="sat-session-ncn-personalization"
-
-    [ansible]
-    ...
+    ncn-m001# cray cfs sessions create --name "sat-session-${CFS_CONFIG_NAME}" --configuration-name \
+        "${CFS_CONFIG_NAME}" --configuration-limit "${SAT_LAYER_NAME}"
     ```
 
-1.  **Upgrade only**: Monitor the progress of each CFS session.
+1.  Monitor the progress of the CFS session.
 
-    This step assumes a single session named `sat-session-ncn-personalization` was created in the previous step.
-
-    First, list all containers associated with the CFS session:
+    Set an environment variable to name of the ansible container within the pod
+    for the CFS session:
 
     ```screen
-    ncn-m001# kubectl get pod -n services --selector=cfsession=sat-session-ncn-personalization \
-        -o json | jq '.items[0].spec.containers[] | .name'
-    "inventory"
-    "ansible-1"
-    "istio-proxy"
+    ncn-m001# export ANSIBLE_CONTAINER=$(kubectl get pod -n services \
+        --selector=cfsession=sat-session-${CFS_CONFIG_NAME} -o json \
+        -o json | jq -r '.items[0].spec.containers | map(select(.name | contains("ansible"))) | .[0].name')
     ```
 
-    Next, get the logs for the `ansible-1` container.
-
-    **NOTE:** the trailing digit might differ from "1". It is the zero-based
-    index of the `sat-ncn` layer within the configuration's layers.
+    Next, get the logs for the Ansible container.
 
     ```screen
-    ncn-m001# kubectl logs -c ansible-1 --tail 100 -f -n services \
-        --selector=cfsession=sat-session-ncn-personalization
+    ncn-m001# kubectl logs -c $ANSIBLE_CONTAINER --tail 100 -f -n services \
+        --selector=cfsession=sat-session-${CFS_CONFIG_NAME}
     ```
 
     Ansible plays, which are run by the CFS session, will install SAT on all the
-    manager NCNs on the system. Successful results for all of the manager NCN xnames
-    can be found at the end of the container log. For example:
+    master management NCNs on the system. A summary of results can be found at
+    the end of the log output. The following example shows a successful session.
 
     ```screen
     ...
@@ -345,8 +356,6 @@ will configure the System Admin Toolkit (SAT) product stream.
     x3000c0s3b0n0              : ok=3    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
     x3000c0s5b0n0              : ok=3    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
     ```
-
-    Execute this step for each unique CFS configuration.
 
     **NOTE:** Ensure that the PLAY RECAPs for each session show successes for all
     manager NCNs before proceeding.
@@ -387,11 +396,28 @@ will configure the System Admin Toolkit (SAT) product stream.
     ncn-m001# exit
     ```
 
-SAT version `2.2.x` is now configured:
+SAT version `x.y.z` is now installed and configured:
 
 - The SAT RPM package is installed on the associated NCNs.
 
+#### Note on Procedure to Apply CFS Configuration
+
+The previous procedure is not always necessary because the CFS Batcher service
+automatically detects configuration changes and will automatically create new
+sessions to apply configuration changes according to certain rules. See
+[Configuration Management with the CFS Batcher](https://github.com/Cray-HPE/docs-csm/blob/main/operations/configuration_management/Configuration_Management_with_the_CFS_Batcher.md)
+in the CSM documentation for more information about these rules.
+
+The main scenario in which the CFS batcher will not automatically re-apply the
+SAT layer is when the commit hash of the sat-config-management git repository
+has not changed between SAT versions. The previous procedure ensures the
+configuration is re-applied in all cases, and it is harmless if the batcher has
+already applied an updated configuration.
+
 ### Next Steps
+
+At this point, the release distribution files can be removed from the system as
+described in [Post-Installation Cleanup Procedure](#post-installation-cleanup-procedure).
 
 If other HPE Cray EX software products are being installed or upgraded in conjunction
 with SAT, refer to the [*HPE Cray EX System Software Getting Started Guide*](https://www.hpe.com/support/ex-gsg)
@@ -404,12 +430,24 @@ If performing a fresh install, execute the **SAT Setup** procedures:
 
 - [SAT Authentication](#sat-authentication)
 - [Generate SAT S3 Credentials](#generate-sat-s3-credentials)
-- [Run Sat Setrev to Set System Information](#run-sat-setrev-to-set-system-information)
+- [Set System Revision Information](#set-system-revision-information)
 
 If performing an upgrade, execute the **SAT Post-Upgrade** procedures:
 
 - [Remove obsolete configuration file sections](#remove-obsolete-configuration-file-sections)
 - [SAT Logging](#sat-logging)
+- [Set System Revision Information](#set-system-revision-information)
+
+**NOTE:** The **Set System Revision Information** procedure is **not required** after upgrading from SAT v2.1 or later.
+
+### Post-Installation Cleanup Procedure
+
+1.  **Optional:** Remove the SAT release distribution tar file and extracted directory.
+
+    ```screen
+    ncn-m001# rm sat-x.y.z.tar.gz
+    ncn-m001# rm -rf sat-x.y.z/
+    ```
 
 ## SAT Authentication
 
@@ -477,7 +515,7 @@ and will use the token for that username if it has been obtained and saved by `s
 
 The following is the procedure to globally configure the username used by SAT and authenticate to the API gateway:
 
-1. Generate a default SAT configuration file, if one does not exist.
+1.  Generate a default SAT configuration file, if one does not exist.
 
     ```screen
     ncn-m001# sat init
@@ -491,13 +529,13 @@ The following is the procedure to globally configure the username used by SAT an
     Not generating configuration file.
     ```
 
-1. Edit `~/.config/sat/sat.toml` and set the username option in the `api_gateway` section of the config file. E.g.:
+1.  Edit `~/.config/sat/sat.toml` and set the username option in the `api_gateway` section of the config file. E.g.:
 
     ```screen
     username = "crayadmin"
     ```
 
-1. Run `sat auth`. Enter your password when prompted. E.g.:
+1.  Run `sat auth`. Enter your password when prompted. E.g.:
 
     ```screen
     ncn-m001# sat auth
@@ -505,7 +543,7 @@ The following is the procedure to globally configure the username used by SAT an
     Succeeded!
     ```
 
-1. Other `sat` commands are now authenticated to make requests to the API gateway. E.g.:
+1.  Other `sat` commands are now authenticated to make requests to the API gateway. E.g.:
 
     ```screen
     ncn-m001# sat status
@@ -518,7 +556,7 @@ S3 bucket, the System Administrator must generate the S3 access key and secret k
 This must be done on every Kubernetes master node where SAT commands are run.
 
 SAT uses S3 storage for several purposes, most importantly to store the site-specific information set with `sat setrev`
-(see: [Run Sat Setrev to Set System Information](#run-sat-setrev-to-set-system-information)).
+(see: [Set System Revision Information](#set-system-revision-information)).
 
 **NOTE:** This procedure is only required after initially installing SAT. It is not
 required after upgrading SAT.
@@ -543,7 +581,7 @@ required after upgrading SAT.
         /root/.config/sat/s3_secret_key
     ```
 
-1. Write the credentials to local files using `kubectl`.
+1.  Write the credentials to local files using `kubectl`.
 
     ```screen
     ncn-m001# kubectl get secret sat-s3-credentials -o json -o \
@@ -557,11 +595,11 @@ required after upgrading SAT.
         /root/.config/sat/s3_secret_key
     ```
 
-1. Verify the S3 endpoint specified in the SAT configuration file is correct.
+1.  Verify the S3 endpoint specified in the SAT configuration file is correct.
 
-    1. Get the SAT configuration file's endpoint value.
+    1.  Get the SAT configuration file's endpoint value.
 
-        **NOTE:** If the command's output is commented out, indicated by an initial #
+        **NOTE:** If the command's output is commented out, indicated by an initial `#`
         character, the SAT configuration will take the default value – `"https://rgw-vip.nmn"`.
 
         ```screen
@@ -569,7 +607,7 @@ required after upgrading SAT.
         # endpoint = "https://rgw-vip.nmn"
         ```
 
-    1. Get the `sat-s3-credentials` secret's endpoint value.
+    1.  Get the `sat-s3-credentials` secret's endpoint value.
 
         ```screen
         ncn-m001# kubectl get secret sat-s3-credentials -o json -o \
@@ -577,11 +615,11 @@ required after upgrading SAT.
         https://rgw-vip.nmn
         ```
 
-    1. Compare the two endpoint values.
+    1.  Compare the two endpoint values.
 
         If the values differ, change the SAT configuration file's endpoint value to match the secret's.
 
-1. Copy SAT configurations to each manager node on the system.
+1.  Copy SAT configurations to each manager node on the system.
 
     ```screen
     ncn-m001# for i in ncn-m002 ncn-m003; do echo $i; ssh ${i} \
@@ -594,30 +632,38 @@ required after upgrading SAT.
     copied from ncn-m001 to ncn-m002 and ncn-m003. Therefore, the list of hosts above is ncn-m002
     and ncn-m003.
 
-## Run sat setrev to Set System Information
+## Set System Revision Information
 
-**NOTE:** This procedure is only required after initially installing SAT. It is not
-required after upgrading SAT.
+HPE service representatives use system revision information data to identify
+systems in support cases.
 
 ### Prerequisites
 
 - S3 credentials have been generated. See [Generate SAT S3 Credentials](#generate-sat-s3-credentials).
 - SAT authentication has been set up. See [SAT Authentication](#sat-authentication).
 
+### Notes on the Procedure
+
+- This procedure **is required** after a fresh install of SAT.
+- After an upgrade of SAT, this procedure is **not required** if SAT was upgraded
+  from v2.1 (Shasta v1.5) or later. It **is required** if SAT was upgraded from
+  v2.0 (Shasta v1.4) or earlier.
+
 ### Procedure
 
-1. Run `sat setrev` to set System Revision Information. Follow the on-screen prompts to set
-   the following site-specific values:
+1.  Set System Revision Information.
 
-   - Serial number
-   - System name
-   - System type
-   - System description
-   - Product number
-   - Company name
-   - Site name
-   - Country code
-   - System install date
+    Run `sat setrev` and follow the prompts to set the following site-specific values:
+
+    - Serial number
+    - System name
+    - System type
+    - System description
+    - Product number
+    - Company name
+    - Site name
+    - Country code
+    - System install date
 
     **TIP**: For "System type", a system with _any_ liquid-cooled components should be
     considered a liquid-cooled system. I.e., "System type" is EX-1C.
@@ -641,7 +687,11 @@ required after upgrading SAT.
     ...
     ```
 
-1. Run `sat showrev` to verify System Revision Information. The following tables contain example information.
+1.  Verify System Revision Information.
+
+    Run `sat showrev` and verify the output shown in the "System Revision Information table."
+
+    The following example shows sample table output.
 
     ```screen
     ncn-m001# sat showrev
@@ -686,7 +736,7 @@ required after upgrading SAT.
     +-----------+----------------------+
     ```
 
-## Remove obsolete configuration file sections
+## Remove Obsolete Configuration File Sections
 
 ### Prerequisites
 
@@ -774,7 +824,7 @@ sat swap
 
 ### Procedure
 
-1. Use `sat showrev` to list versions of SAT.
+1.  Use `sat showrev` to list versions of SAT.
 
     **NOTE**: It is not recommended to uninstall a version designated as "active".
     If the active version is uninstalled, then the activate procedure must be executed
@@ -793,7 +843,7 @@ sat swap
     +--------------+-----------------+--------+-------------------+-----------------------+
     ```
 
-1. Use `prodmgr` to uninstall a version of SAT.
+1.  Use `prodmgr` to uninstall a version of SAT.
 
     This command will do three things:
 
@@ -823,7 +873,7 @@ This procedure can be used to downgrade the active version of SAT.
 
 ### Procedure
 
-1. Use `sat showrev` to list versions of SAT.
+1.  Use `sat showrev` to list versions of SAT.
 
     ```screen
     ncn-m001# sat showrev --products --filter product_name=sat
@@ -838,7 +888,7 @@ This procedure can be used to downgrade the active version of SAT.
     +--------------+-----------------+--------+--------------------+-----------------------+
     ```
 
-1. Use `prodmgr` to activate a different version of SAT.
+1.  Use `prodmgr` to activate a different version of SAT.
 
     This command will do three things:
 
@@ -859,7 +909,7 @@ This procedure can be used to downgrade the active version of SAT.
     Updated CFS configurations: [ncn-personalization]
     ```
 
-1. Verify that the chosen version is marked as active.
+1.  Verify that the chosen version is marked as active.
 
     ```screen
     ncn-m001# sat showrev --products --filter product_name=sat
@@ -874,74 +924,15 @@ This procedure can be used to downgrade the active version of SAT.
     +--------------+-----------------+--------+--------------------+-----------------------+
     ```
 
-1. Run NCN Personalization.
+1.  Apply the modified CFS configuration to the management NCNs.
 
-    At this point, the command has modified Nexus package repositories to set a particular package repository
-    as active, but no packages on the NCNs have been changed. In order to complete the activation process,
-    NCN Personalization must be executed to change the `cray-sat-podman` package version on the manager NCNs.
+    At this point, Nexus package repositories have been modified to set a
+    particular package repository as active, but the SAT package may not have
+    been updated on management NCNs.
 
-    **NOTE**: Refer to the command output from step 2 for the names of *all* CFS configurations that were updated,
-    which may not necessarily be just `ncn-personalization`. If multiple configurations were updated in step 2, then
-    a `cray cfs sessions create` command should be run for each of them. This example assumes a single configuration
-    named `ncn-personalization` was updated. If multiple were updated, set `cfs_configurations` to a space-separated
-    list below.
+    To ensure that management NCNs have been updated to use the active SAT
+    version, follow the [Procedure to Apply CFS Configuration](#procedure-to-apply-cfs-configuration).
+    Refer to the output from the `prodmgr activate` command to find the name of
+    the modified CFS configuration. If more than one CFS configuration was
+    modified, use the first one.
 
-    ```screen
-    ncn-m001# cfs_configurations="ncn-personalization"
-    ncn-m001# for cfs_configuration in ${cfs_configurations}
-    do cray cfs sessions create --name "sat-session-${cfs_configuration}" --configuration-name \
-        "${cfs_configuration}" --configuration-limit sat-ncn;
-    done
-    ```
-
-1. Monitor the progress of each CFS session.
-
-    This step assumes a single session named `sat-session-ncn-personalization` was created in the previous step.
-
-    First, list all containers associated with the CFS session:
-
-    ```screen
-    ncn-m001# kubectl get pod -n services --selector=cfsession=sat-session-ncn-personalization \
-        -o json | jq '.items[0].spec.containers[] | .name'
-    "inventory"
-    "ansible-1"
-    "istio-proxy"
-    ```
-
-    Next, get the logs for the `ansible-1` container.
-
-    **NOTE:** the trailing digit might differ from "1". It is the zero-based
-    index of the `sat-ncn` layer within the configuration's layers.
-
-    ```screen
-    ncn-m001# kubectl logs -c ansible-1 --tail 100 -f -n services \
-        --selector=cfsession=sat-session-ncn-personalization
-    ```
-
-    Ansible plays, which are run by the CFS session, will install SAT on all the
-    manager NCNs on the system. Successful results for all of the manager NCN xnames
-    can be found at the end of the container log. For example:
-
-    ```screen
-    ...
-    PLAY RECAP *********************************************************************
-    x3000c0s1b0n0              : ok=3    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
-    x3000c0s3b0n0              : ok=3    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
-    x3000c0s5b0n0              : ok=3    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
-    ```
-
-    Execute this step for each unique CFS configuration.
-
-    **NOTE:** Ensure that the PLAY RECAPs for each session show successes for all
-    manager NCNs before proceeding.
-
-1. Verify the new version of the SAT CLI.
-
-    **NOTE:** This version number will differ from the version number of the SAT
-    release distribution. This is the semantic version of the SAT Python package,
-    which is different from the version number of the overall SAT release distribution.
-
-    ```screen
-    ncn-m001# sat --version
-    3.9.0
-    ```
