@@ -2,80 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/docs-sat/en-21/introduction/</loc>
-    <lastmod>2022-07-02T03:36:33+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-22"
-                href="/docs-sat/en-22/introduction/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-23"
-                href="/docs-sat/en-23/introduction/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-21"
-                href="/docs-sat/en-21/introduction/"
-                />
-  </url><url>
-    <loc>/docs-sat/en-21/dashboards/sat_grafana_dashboards/</loc>
-    <lastmod>2022-07-02T03:36:33+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-22"
-                href="/docs-sat/en-22/dashboards/sat_grafana_dashboards/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-23"
-                href="/docs-sat/en-23/dashboards/sat_grafana_dashboards/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-21"
-                href="/docs-sat/en-21/dashboards/sat_grafana_dashboards/"
-                />
-  </url><url>
-    <loc>/docs-sat/en-21/install/</loc>
-    <lastmod>2022-07-02T03:36:33+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-22"
-                href="/docs-sat/en-22/install/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-23"
-                href="/docs-sat/en-23/install/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-21"
-                href="/docs-sat/en-21/install/"
-                />
-  </url><url>
-    <loc>/docs-sat/en-21/dashboards/sat_kibana_dashboards/</loc>
-    <lastmod>2022-07-02T03:36:33+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-22"
-                href="/docs-sat/en-22/dashboards/sat_kibana_dashboards/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-23"
-                href="/docs-sat/en-23/dashboards/sat_kibana_dashboards/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-21"
-                href="/docs-sat/en-21/dashboards/sat_kibana_dashboards/"
-                />
-  </url><url>
     <loc>/docs-sat/en-21/release_notes/</loc>
-    <lastmod>2022-07-02T03:36:33+00:00</lastmod>
+    <lastmod>2022-07-03T03:31:42+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-22"
@@ -93,7 +21,7 @@
                 />
   </url><url>
     <loc>/docs-sat/en-21/</loc>
-    <lastmod>2022-07-02T03:36:32+00:00</lastmod>
+    <lastmod>2022-07-03T03:31:41+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-22"
@@ -110,8 +38,26 @@
                 href="/docs-sat/en-21/"
                 />
   </url><url>
+    <loc>/docs-sat/en-21/introduction/</loc>
+    <lastmod>2022-07-03T03:31:41+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-22"
+                href="/docs-sat/en-22/introduction/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-23"
+                href="/docs-sat/en-23/introduction/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-21"
+                href="/docs-sat/en-21/introduction/"
+                />
+  </url><url>
     <loc>/docs-sat/en-21/dashboards/</loc>
-    <lastmod>2022-07-02T03:36:32+00:00</lastmod>
+    <lastmod>2022-07-03T03:31:41+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-22"
@@ -126,6 +72,60 @@
                 rel="alternate"
                 hreflang="en-21"
                 href="/docs-sat/en-21/dashboards/"
+                />
+  </url><url>
+    <loc>/docs-sat/en-21/dashboards/sat_grafana_dashboards/</loc>
+    <lastmod>2022-07-03T03:31:41+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-22"
+                href="/docs-sat/en-22/dashboards/sat_grafana_dashboards/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-23"
+                href="/docs-sat/en-23/dashboards/sat_grafana_dashboards/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-21"
+                href="/docs-sat/en-21/dashboards/sat_grafana_dashboards/"
+                />
+  </url><url>
+    <loc>/docs-sat/en-21/install/</loc>
+    <lastmod>2022-07-03T03:31:41+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-22"
+                href="/docs-sat/en-22/install/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-23"
+                href="/docs-sat/en-23/install/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-21"
+                href="/docs-sat/en-21/install/"
+                />
+  </url><url>
+    <loc>/docs-sat/en-21/dashboards/sat_kibana_dashboards/</loc>
+    <lastmod>2022-07-03T03:31:41+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-22"
+                href="/docs-sat/en-22/dashboards/sat_kibana_dashboards/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-23"
+                href="/docs-sat/en-23/dashboards/sat_kibana_dashboards/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-21"
+                href="/docs-sat/en-21/dashboards/sat_kibana_dashboards/"
                 />
   </url><url>
     <loc>/docs-sat/en-21/categories/</loc>
