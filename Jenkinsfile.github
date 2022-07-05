@@ -1,0 +1,97 @@
+/*
+ * MIT License
+ *
+ * (C) Copyright 2022 Hewlett Packard Enterprise Development LP
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included
+ * in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ *
+ */
+
+@Library('csm-shared-library') _
+
+pipeline {
+    agent {
+        label 'metal-gcp-builder'
+    }
+
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '10'))
+        timestamps()
+    }
+
+    environment {
+        NAME = 'docs-sat'
+        IS_STABLE = getBuildIsStable(releaseBranchIsStable: true)
+        VERSION = sh(script: './version.sh', returnStdout: true).trim()
+        COMMIT_COUNT = sh(script: './commit_count.sh', returnStdout: true).trim()
+        BUILD_METADATA = getRpmRevision(isStable: env.IS_STABLE, buildRef: env.COMMIT_COUNT)
+    }
+
+    stages {
+
+        stage('Build RPM Package') {
+            agent {
+                docker {
+                    image 'artifactory.algol60.net/csm-docker/stable/csm-docker-sle:15.3'
+                    reuseNode true
+                }
+            }
+            steps {
+                sh 'make prepare'
+                sh 'make rpm_package_source'
+                sh 'make rpm_build_source'
+                sh 'make rpm_build'
+            }
+        }
+
+        stage('Publish') {
+            steps {
+                script{
+                    def artifactory_component = env.NAME
+                    if (env.IS_STABLE.toBoolean()) {
+                        /*
+                         * Create a -latest RPM file, e.g. if building
+                         * docs-sat-2.4.1-1.noarch.rpm, also create docs-sat-latest.noarch.rpm.
+                         * Only do this for stable builds in which we will publish to a MAJOR.MINOR-specific
+                         * subdirectory.
+                         */
+                        sh 'cp dist/rpmbuild/RPMS/noarch/docs-sat-*.noarch.rpm dist/rpmbuild/RPMS/noarch/docs-sat-latest.noarch.rpm'
+                        artifactory_component = "${env.NAME}/${env.VERSION}"
+                    }
+                    publishCsmRpms(
+                        artifactoryRepo: 'sat-rpms',
+                        os: 'sle-15sp3',
+                        component: artifactory_component,
+                        pattern: 'dist/rpmbuild/RPMS/noarch/*.rpm',
+                        arch: 'noarch',
+                        isStable: env.IS_STABLE
+                    )
+                    publishCsmRpms(
+                        artifactoryRepo: 'sat-rpms',
+                        os: 'sle-15sp3',
+                        component: artifactory_component,
+                        pattern: 'dist/rpmbuild/SRPMS/*.rpm',
+                        arch: 'src',
+                        isStable: env.IS_STABLE
+                    )
+                }
+            }
+        }
+    }
+}
