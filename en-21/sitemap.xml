@@ -3,12 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/docs-sat/en-21/release_notes/</loc>
-    <lastmod>2022-07-08T03:32:53+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-24"
-                href="/docs-sat/en-24/release_notes/"
-                />
+    <lastmod>2022-07-09T03:26:24+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-22"
@@ -21,35 +16,17 @@
                 />
     <xhtml:link
                 rel="alternate"
+                hreflang="en-24"
+                href="/docs-sat/en-24/release_notes/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="en-21"
                 href="/docs-sat/en-21/release_notes/"
                 />
   </url><url>
-    <loc>/docs-sat/en-21/</loc>
-    <lastmod>2022-07-08T03:32:52+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-22"
-                href="/docs-sat/en-22/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-24"
-                href="/docs-sat/en-24/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-23"
-                href="/docs-sat/en-23/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-21"
-                href="/docs-sat/en-21/"
-                />
-  </url><url>
     <loc>/docs-sat/en-21/introduction/</loc>
-    <lastmod>2022-07-08T03:32:52+00:00</lastmod>
+    <lastmod>2022-07-09T03:26:23+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-22"
@@ -72,7 +49,7 @@
                 />
   </url><url>
     <loc>/docs-sat/en-21/dashboards/</loc>
-    <lastmod>2022-07-08T03:32:52+00:00</lastmod>
+    <lastmod>2022-07-09T03:26:23+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-22"
@@ -95,7 +72,7 @@
                 />
   </url><url>
     <loc>/docs-sat/en-21/dashboards/sat_grafana_dashboards/</loc>
-    <lastmod>2022-07-08T03:32:52+00:00</lastmod>
+    <lastmod>2022-07-09T03:26:23+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-22"
@@ -118,12 +95,7 @@
                 />
   </url><url>
     <loc>/docs-sat/en-21/install/</loc>
-    <lastmod>2022-07-08T03:32:52+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-22"
-                href="/docs-sat/en-22/install/"
-                />
+    <lastmod>2022-07-09T03:26:23+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-23"
@@ -136,12 +108,17 @@
                 />
     <xhtml:link
                 rel="alternate"
+                hreflang="en-22"
+                href="/docs-sat/en-22/install/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="en-21"
                 href="/docs-sat/en-21/install/"
                 />
   </url><url>
     <loc>/docs-sat/en-21/dashboards/sat_kibana_dashboards/</loc>
-    <lastmod>2022-07-08T03:32:52+00:00</lastmod>
+    <lastmod>2022-07-09T03:26:23+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-22"
@@ -161,6 +138,29 @@
                 rel="alternate"
                 hreflang="en-21"
                 href="/docs-sat/en-21/dashboards/sat_kibana_dashboards/"
+                />
+  </url><url>
+    <loc>/docs-sat/en-21/</loc>
+    <lastmod>2022-07-09T03:26:22+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-22"
+                href="/docs-sat/en-22/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-23"
+                href="/docs-sat/en-23/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-24"
+                href="/docs-sat/en-24/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-21"
+                href="/docs-sat/en-21/"
                 />
   </url><url>
     <loc>/docs-sat/en-21/categories/</loc>
