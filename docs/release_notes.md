@@ -73,7 +73,7 @@ The following components were modified to be compatible with CSM 1.2.
 ### GPG Checking
 
 The `sat-ncn` ansible role provided by `sat-cfs-install` was modified to enable
-GPG checks on packages while leacing GPG checks disabled on repository metadata.
+GPG checks on packages while leaving GPG checks disabled on repository metadata.
 
 ### Security
 
