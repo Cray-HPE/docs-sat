@@ -68,7 +68,7 @@ The following components were modified to be compatible with CSM 1.2.
 
 - `sat-cfs-install` container image and Helm chart
 - `sat-install-utility` container image
-- `sat` installer
+- SAT product installer
 
 ### GPG Checking
 
