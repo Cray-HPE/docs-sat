@@ -2,7 +2,7 @@
 
 ## Summary of Changes in SAT 2.3
 
-This version of the SAT product includes:
+The 2.3.4 version of the SAT product includes:
 
 - Version 3.15.4 of the sat python package and CLI
 - Version 1.6.11 of the sat-podman wrapper script
