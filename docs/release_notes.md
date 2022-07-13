@@ -4,7 +4,7 @@
 
 This version of the SAT product includes:
 
-- Version 3.15.3 of the sat python package and CLI
+- Version 3.15.4 of the sat python package and CLI
 - Version 1.6.11 of the sat-podman wrapper script
 - Version 1.2.0 of the sat-cfs-install container image
 - Version 2.0.0 of the sat-cfs-install Helm chart
