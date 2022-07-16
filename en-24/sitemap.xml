@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/docs-sat/en-24/introduction/</loc>
-    <lastmod>2022-07-15T03:43:37+00:00</lastmod>
+    <lastmod>2022-07-16T03:30:24+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-21"
@@ -26,7 +26,7 @@
                 />
   </url><url>
     <loc>/docs-sat/en-24/install/</loc>
-    <lastmod>2022-07-15T03:43:37+00:00</lastmod>
+    <lastmod>2022-07-16T03:30:24+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-21"
@@ -49,7 +49,7 @@
                 />
   </url><url>
     <loc>/docs-sat/en-24/release_notes/</loc>
-    <lastmod>2022-07-15T03:43:37+00:00</lastmod>
+    <lastmod>2022-07-16T03:30:24+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-21"
@@ -72,7 +72,7 @@
                 />
   </url><url>
     <loc>/docs-sat/en-24/usage/</loc>
-    <lastmod>2022-07-15T03:43:37+00:00</lastmod>
+    <lastmod>2022-07-16T03:30:24+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-22"
@@ -90,7 +90,7 @@
                 />
   </url><url>
     <loc>/docs-sat/en-24/</loc>
-    <lastmod>2022-07-15T03:43:36+00:00</lastmod>
+    <lastmod>2022-07-16T03:30:23+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-21"
@@ -113,7 +113,7 @@
                 />
   </url><url>
     <loc>/docs-sat/en-24/dashboards/</loc>
-    <lastmod>2022-07-15T03:43:36+00:00</lastmod>
+    <lastmod>2022-07-16T03:30:23+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-21"
@@ -136,7 +136,7 @@
                 />
   </url><url>
     <loc>/docs-sat/en-24/dashboards/sat_grafana_dashboards/</loc>
-    <lastmod>2022-07-15T03:43:36+00:00</lastmod>
+    <lastmod>2022-07-16T03:30:23+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-21"
@@ -159,16 +159,16 @@
                 />
   </url><url>
     <loc>/docs-sat/en-24/dashboards/sat_kibana_dashboards/</loc>
-    <lastmod>2022-07-15T03:43:36+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-21"
-                href="/docs-sat/en-21/dashboards/sat_kibana_dashboards/"
-                />
+    <lastmod>2022-07-16T03:30:23+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-22"
                 href="/docs-sat/en-22/dashboards/sat_kibana_dashboards/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-21"
+                href="/docs-sat/en-21/dashboards/sat_kibana_dashboards/"
                 />
     <xhtml:link
                 rel="alternate"
