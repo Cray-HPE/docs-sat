@@ -41,7 +41,7 @@
 
 ## [SAT Release Notes](release_notes.md)
 
-- [Summary of changes in SAT 2.2](release_notes.md#summary-of-changes-in-sat-22)
+- [Summary of changes in SAT 2.3](release_notes.md#summary-of-changes-in-sat-23)
 - [Summary of SAT changes in Shasta v1.5](release_notes.md#summary-of-sat-changes-in-shasta-v15)
 - [Summary of SAT Changes in Shasta v1.4.1](release_notes.md#summary-of-sat-changes-in-shasta-v141)
 - [Summary of SAT Changes in Shasta v1.4](release_notes.md#summary-of-sat-changes-in-shasta-v14)
