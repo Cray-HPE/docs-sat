@@ -17,6 +17,66 @@ It also added the following new components:
 
 The following sections detail the changes in this release.
 
+### Known issues in SAT 2.2
+
+#### `sat` command unavailable in `sat bash` shell
+
+After launching a shell within the SAT container with `sat bash`, the `sat` command will not
+be found. For example:
+
+```screen
+(CONTAINER-ID) sat-container:~ # sat status
+bash: sat: command not found
+```
+
+This can be resolved temporarily in one of two ways. `/sat/venv/bin/` may be prepended to the
+`$PATH` environment variable:
+
+```screen
+(CONTAINER-ID) sat-container:~ # export PATH=/sat/venv/bin:$PATH
+(CONTAINER-ID) sat-container:~ # sat status
+```
+
+Or, the file `/sat/venv/bin/activate` may be sourced:
+
+```screen
+(CONTAINER-ID) sat-container:~ # source /sat/venv/bin/activate
+(CONTAINER-ID) sat-container:~ # sat status
+```
+
+#### Tab completion unavailable in `sat bash` shell
+
+After launching a shell within the SAT container with `sat bash`, tab completion for `sat`
+commands does not work.
+
+This can be resolved temporarily by sourcing the file `/etc/bash_completion.d/sat-completion.bash`:
+
+```screen
+source /etc/bash_completion.d/sat-completion.bash
+```
+
+#### OCI runtime permission error when running `sat` in root directory
+
+`sat` commands will not work if the current directory is `/`. For example:
+
+```screen
+ncn-m001:/ # sat --help
+Error: container_linux.go:380: starting container process caused: process_linux.go:545: container init caused: open /dev/console: operation not permitted: OCI runtime permission denied error
+```
+
+To resolve, run `sat` in another directory.
+
+#### Duplicate mount error when running `sat` in config directory
+
+`sat` commands will not work if the current directory is `~/.config/sat`. For example:
+
+```screen
+ncn-m001:~/.config/sat # sat --help
+Error: /root/.config/sat: duplicate mount destination
+```
+
+To resolve, run `sat` in another directory.
+
 ### New `sat` commands
 
 - `sat bootprep` automates the creation of CFS configurations, the build and
@@ -468,7 +528,7 @@ replacing a switch OR cable.
 The `sat swap switch` command is equivalent to `sat switch`. The `sat switch`
 command will be removed in a future release.
 
-### Addition of Stages to `sat bootsys` Command 
+### Addition of Stages to `sat bootsys` Command
 
 The `sat bootsys` command now has multiple stages for both the `boot` and
 `shutdown` actions. Please refer to the "System Power On Procedures" and "System
