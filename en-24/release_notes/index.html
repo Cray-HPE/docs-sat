@@ -12,22 +12,22 @@
     <title>SAT Release Notes :: System Admin Toolkit (SAT)</title>
 
     
-    <link href="/docs-sat/css/nucleus.css?1658979232" rel="stylesheet">
-    <link href="/docs-sat/css/fontawesome-all.min.css?1658979232" rel="stylesheet">
-    <link href="/docs-sat/css/hybrid.css?1658979232" rel="stylesheet">
-    <link href="/docs-sat/css/featherlight.min.css?1658979232" rel="stylesheet">
-    <link href="/docs-sat/css/perfect-scrollbar.min.css?1658979232" rel="stylesheet">
-    <link href="/docs-sat/css/auto-complete.css?1658979232" rel="stylesheet">
-    <link href="/docs-sat/css/atom-one-dark-reasonable.css?1658979232" rel="stylesheet">
-    <link href="/docs-sat/css/theme.css?1658979232" rel="stylesheet">
-    <link href="/docs-sat/css/tabs.css?1658979232" rel="stylesheet">
-    <link href="/docs-sat/css/hugo-theme.css?1658979232" rel="stylesheet">
+    <link href="/docs-sat/css/nucleus.css?1659066076" rel="stylesheet">
+    <link href="/docs-sat/css/fontawesome-all.min.css?1659066076" rel="stylesheet">
+    <link href="/docs-sat/css/hybrid.css?1659066076" rel="stylesheet">
+    <link href="/docs-sat/css/featherlight.min.css?1659066076" rel="stylesheet">
+    <link href="/docs-sat/css/perfect-scrollbar.min.css?1659066076" rel="stylesheet">
+    <link href="/docs-sat/css/auto-complete.css?1659066076" rel="stylesheet">
+    <link href="/docs-sat/css/atom-one-dark-reasonable.css?1659066076" rel="stylesheet">
+    <link href="/docs-sat/css/theme.css?1659066076" rel="stylesheet">
+    <link href="/docs-sat/css/tabs.css?1659066076" rel="stylesheet">
+    <link href="/docs-sat/css/hugo-theme.css?1659066076" rel="stylesheet">
     
-    <link href="/docs-sat/css/theme-blue.css?1658979232" rel="stylesheet">
+    <link href="/docs-sat/css/theme-blue.css?1659066076" rel="stylesheet">
     
     
 
-    <script src="/docs-sat/js/jquery-3.3.1.min.js?1658979232"></script>
+    <script src="/docs-sat/js/jquery-3.3.1.min.js?1659066076"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -149,14 +149,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/docs-sat/js/lunr.min.js?1658979232"></script>
-<script type="text/javascript" src="/docs-sat/js/auto-complete.js?1658979232"></script>
+<script type="text/javascript" src="/docs-sat/js/lunr.min.js?1659066076"></script>
+<script type="text/javascript" src="/docs-sat/js/auto-complete.js?1659066076"></script>
 <script type="text/javascript">
     
         var baseurl = "\/docs-sat\/\/en-24";
     
 </script>
-<script type="text/javascript" src="/docs-sat/js/search.js?1658979232"></script>
+<script type="text/javascript" src="/docs-sat/js/search.js?1659066076"></script>
 
     
   </div>
@@ -220,9 +220,9 @@
  
   
     
-      <li data-nav-id="/docs-sat/en-24/dashboards/sat_grafana_dashboards/" title="SAT Grafana Dashboards" class="dd-item ">
-        <a href="/docs-sat/en-24/dashboards/sat_grafana_dashboards/">
-        SAT Grafana Dashboards
+      <li data-nav-id="/docs-sat/en-24/dashboards/sat_kibana_dashboards/" title="SAT Kibana Dashboards" class="dd-item ">
+        <a href="/docs-sat/en-24/dashboards/sat_kibana_dashboards/">
+        SAT Kibana Dashboards
         
         </a>
     </li>
@@ -241,9 +241,9 @@
  
   
     
-      <li data-nav-id="/docs-sat/en-24/dashboards/sat_kibana_dashboards/" title="SAT Kibana Dashboards" class="dd-item ">
-        <a href="/docs-sat/en-24/dashboards/sat_kibana_dashboards/">
-        SAT Kibana Dashboards
+      <li data-nav-id="/docs-sat/en-24/dashboards/sat_grafana_dashboards/" title="SAT Grafana Dashboards" class="dd-item ">
+        <a href="/docs-sat/en-24/dashboards/sat_grafana_dashboards/">
+        SAT Grafana Dashboards
         
         </a>
     </li>
@@ -373,9 +373,22 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
+    <li><a href="#summary-of-changes-in-sat-23">Summary of Changes in SAT 2.3</a>
+      <ul>
+        <li><a href="#new-sat-commands">New <code>sat</code> Commands</a></li>
+        <li><a href="#current-working-directory-in-sat-container">Current Working Directory in SAT Container</a></li>
+        <li><a href="#changes-to-sat-bootsys">Changes to <code>sat bootsys</code></a></li>
+        <li><a href="#changes-to-sat-bootprep">Changes to <code>sat bootprep</code></a></li>
+        <li><a href="#changes-to-sat-status">Changes to <code>sat status</code></a></li>
+        <li><a href="#compatibility-with-csm-12">Compatibility with CSM 1.2</a></li>
+        <li><a href="#gpg-checking">GPG Checking</a></li>
+        <li><a href="#security">Security</a></li>
+        <li><a href="#bug-fixes">Bug Fixes</a></li>
+      </ul>
+    </li>
     <li><a href="#summary-of-changes-in-sat-22">Summary of changes in SAT 2.2</a>
       <ul>
-        <li><a href="#new-sat-commands">New <code>sat</code> commands</a></li>
+        <li><a href="#new-sat-commands-1">New <code>sat</code> commands</a></li>
         <li><a href="#additional-install-automation">Additional Install Automation</a></li>
         <li><a href="#changes-to-product-catalog-data-schema">Changes to Product Catalog Data Schema</a></li>
         <li><a href="#support-for-uninstall-and-activation-of-sat-versions">Support for Uninstall and Activation of SAT Versions</a></li>
@@ -392,7 +405,7 @@
         <li><a href="#sat-diag-limited-to-hsn-switches"><code>sat diag</code> Limited to HSN Switches</a></li>
         <li><a href="#sat-showrev-enhancements"><code>sat showrev</code> Enhancements</a></li>
         <li><a href="#cray-sat-container-image-size-reduction"><code>cray-sat</code> Container Image Size Reduction</a></li>
-        <li><a href="#bug-fixes">Bug Fixes</a></li>
+        <li><a href="#bug-fixes-1">Bug Fixes</a></li>
       </ul>
     </li>
     <li><a href="#summary-of-sat-changes-in-shasta-v15">Summary of SAT changes in Shasta v1.5</a>
@@ -408,7 +421,7 @@
     <li><a href="#summary-of-sat-changes-in-shasta-v141">Summary of SAT Changes in Shasta v1.4.1</a>
       <ul>
         <li><a href="#new-commands-to-translate-between-nids-and-xnames">New Commands to Translate Between NIDs and XNames</a></li>
-        <li><a href="#bug-fixes-1">Bug Fixes</a></li>
+        <li><a href="#bug-fixes-2">Bug Fixes</a></li>
       </ul>
     </li>
     <li><a href="#summary-of-sat-changes-in-shasta-v14">Summary of SAT Changes in Shasta v1.4</a>
@@ -457,6 +470,69 @@
 
 
 <h1 id="sat-release-notes">SAT Release Notes</h1>
+<h2 id="summary-of-changes-in-sat-23">Summary of Changes in SAT 2.3</h2>
+<p>The 2.3.4 version of the SAT product includes:</p>
+<ul>
+<li>Version 3.15.4 of the sat python package and CLI</li>
+<li>Version 1.6.11 of the sat-podman wrapper script</li>
+<li>Version 1.2.0 of the sat-cfs-install container image</li>
+<li>Version 2.0.0 of the sat-cfs-install Helm chart</li>
+<li>Version 1.5.0 of the sat-install-utility container image</li>
+<li>Version 2.0.3 of the cfs-config-util container image</li>
+</ul>
+<h3 id="new-sat-commands">New <code>sat</code> Commands</h3>
+<p>None.</p>
+<h3 id="current-working-directory-in-sat-container">Current Working Directory in SAT Container</h3>
+<p>When running <code>sat</code> commands, the current working directory is now mounted in the
+container as <code>/sat/share</code>, and the current working directory within the container
+is also <code>/sat/share</code>.</p>
+<p>Files in the current working directory must be specified using relative paths to
+that directory, because the current working directory is always mounted on <code>/sat/share</code>.
+Absolute paths should be avoided, and paths that are outside of <code>$HOME</code> or <code>$PWD</code>
+are never accessible to the container environment.</p>
+<p>The home directory is still mounted on the same path inside the container as it
+is on the host.</p>
+<h3 id="changes-to-sat-bootsys">Changes to <code>sat bootsys</code></h3>
+<p>The following options were added to <code>sat bootsys</code>.</p>
+<ul>
+<li><code>--bos-limit</code></li>
+<li><code>--recursive</code></li>
+</ul>
+<p>The <code>--bos-limit</code> option passes a given limit string to a BOS session. The <code>--recursive</code>
+option specifies a slot or other higher-level component in the limit string</p>
+<h3 id="changes-to-sat-bootprep">Changes to <code>sat bootprep</code></h3>
+<p>The <code>--delete-ims-jobs</code> option was added to <code>sat bootprep run</code>. It deletes IMS
+jobs after <code>sat bootprep</code> is run. Jobs are no longer deleted by default.</p>
+<h3 id="changes-to-sat-status">Changes to <code>sat status</code></h3>
+<p><code>sat status</code> now includes information about nodes' CFS configuration statuses, such
+as desired configuration, configuration status, and error count.</p>
+<p>The output of <code>sat status</code> now splits different component types into different report tables.</p>
+<p>The following options were added to <code>sat status</code>.</p>
+<ul>
+<li><code>--hsm-fields</code>, <code>--sls-fields</code>, <code>--cfs-fields</code></li>
+<li><code>--bos-template</code></li>
+</ul>
+<p>The <code>--hsm-fields</code>, <code>--sls-fields</code>, <code>--cfs-fields</code> options limit the output columns
+according to specified CSM services.</p>
+<p>The <code>--bos-template</code> option filters the status report according to the specified
+session template&rsquo;s boot sets.</p>
+<h3 id="compatibility-with-csm-12">Compatibility with CSM 1.2</h3>
+<p>The following components were modified to be compatible with CSM 1.2.</p>
+<ul>
+<li><code>sat-cfs-install</code> container image and Helm chart</li>
+<li><code>sat-install-utility</code> container image</li>
+<li>SAT product installer</li>
+</ul>
+<h3 id="gpg-checking">GPG Checking</h3>
+<p>The <code>sat-ncn</code> ansible role provided by <code>sat-cfs-install</code> was modified to enable
+GPG checks on packages while leaving GPG checks disabled on repository metadata.</p>
+<h3 id="security">Security</h3>
+<p>Updated urllib3 dependency to version 1.26.5 to mitigate CVE-2021-33503 and refreshed
+Python dependency versions.</p>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<p>Minor bug fixes were made in each of the repositories. For full change lists, see each
+repository’s CHANGELOG.md file.</p>
+<p>The known issue in which the <code>sat</code> command was not available by default in <code>sat bash</code> was fixed.</p>
 <h2 id="summary-of-changes-in-sat-22">Summary of changes in SAT 2.2</h2>
 <p>SAT 2.2.16 was released on February 25th, 2022.</p>
 <p>This version of the SAT product included:</p>
@@ -471,7 +547,7 @@
 <li>Version 2.0.2 of the <code>cfs-config-util</code> container image</li>
 </ul>
 <p>The following sections detail the changes in this release.</p>
-<h3 id="new-sat-commands">New <code>sat</code> commands</h3>
+<h3 id="new-sat-commands-1">New <code>sat</code> commands</h3>
 <ul>
 <li><code>sat bootprep</code> automates the creation of CFS configurations, the build and
 customization of IMS images, and the creation of BOS session templates. See
@@ -591,7 +667,7 @@ meaning that it will be used when installing the <code>cray-sat-podman</code> RP
 <p>The size of the <code>cray-sat</code> container image has been approximately cut in half by
 leveraging multi-stage builds. This also improved the repeatability of the unit
 tests by running them in the container.</p>
-<h3 id="bug-fixes">Bug Fixes</h3>
+<h3 id="bug-fixes-1">Bug Fixes</h3>
 <p>Minor bug fixes were made in <code>cray-sat</code> and in <code>cray-sat-podman</code>. For full change lists,
 see each repository&rsquo;s <code>CHANGELOG.md</code> file.</p>
 <h2 id="summary-of-sat-changes-in-shasta-v15">Summary of SAT changes in Shasta v1.5</h2>
@@ -688,7 +764,7 @@ vulnerability.</li>
 </ul>
 <p>These commands perform this translation by making requests to the Hardware
 State Manager (HSM) API.</p>
-<h3 id="bug-fixes-1">Bug Fixes</h3>
+<h3 id="bug-fixes-2">Bug Fixes</h3>
 <ul>
 <li>Fixed a problem in <code>sat swap</code> where creating the offline port policy failed.</li>
 <li>Changed <code>sat bootsys shutdown --stage bos-operations</code> to no longer forcefully
@@ -946,19 +1022,19 @@ of this document for more details on each of these commands.</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/docs-sat/js/clipboard.min.js?1658979232"></script>
-    <script src="/docs-sat/js/perfect-scrollbar.min.js?1658979232"></script>
-    <script src="/docs-sat/js/perfect-scrollbar.jquery.min.js?1658979232"></script>
-    <script src="/docs-sat/js/jquery.sticky.js?1658979232"></script>
-    <script src="/docs-sat/js/featherlight.min.js?1658979232"></script>
-    <script src="/docs-sat/js/highlight.pack.js?1658979232"></script>
+    <script src="/docs-sat/js/clipboard.min.js?1659066076"></script>
+    <script src="/docs-sat/js/perfect-scrollbar.min.js?1659066076"></script>
+    <script src="/docs-sat/js/perfect-scrollbar.jquery.min.js?1659066076"></script>
+    <script src="/docs-sat/js/jquery.sticky.js?1659066076"></script>
+    <script src="/docs-sat/js/featherlight.min.js?1659066076"></script>
+    <script src="/docs-sat/js/highlight.pack.js?1659066076"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/docs-sat/js/modernizr.custom-3.6.0.js?1658979232"></script>
-    <script src="/docs-sat/js/learn.js?1658979232"></script>
-    <script src="/docs-sat/js/hugo-learn.js?1658979232"></script>
+    <script src="/docs-sat/js/modernizr.custom-3.6.0.js?1659066076"></script>
+    <script src="/docs-sat/js/learn.js?1659066076"></script>
+    <script src="/docs-sat/js/hugo-learn.js?1659066076"></script>
     
         
-            <script src="/docs-sat/mermaid/mermaid.js?1658979232"></script>
+            <script src="/docs-sat/mermaid/mermaid.js?1659066076"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
