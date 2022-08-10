@@ -1,5 +1,92 @@
 # SAT Release Notes
 
+## Summary of Changes in SAT 2.3
+
+The 2.3.4 version of the SAT product includes:
+
+- Version 3.15.4 of the sat python package and CLI
+- Version 1.6.11 of the sat-podman wrapper script
+- Version 1.2.0 of the sat-cfs-install container image
+- Version 2.0.0 of the sat-cfs-install Helm chart
+- Version 1.5.0 of the sat-install-utility container image
+- Version 2.0.3 of the cfs-config-util container image
+
+### New `sat` Commands
+
+None.
+
+### Current Working Directory in SAT Container
+
+When running `sat` commands, the current working directory is now mounted in the
+container as `/sat/share`, and the current working directory within the container
+is also `/sat/share`.
+
+Files in the current working directory must be specified using relative paths to
+that directory, because the current working directory is always mounted on `/sat/share`.
+Absolute paths should be avoided, and paths that are outside of `$HOME` or `$PWD`
+are never accessible to the container environment.
+
+The home directory is still mounted on the same path inside the container as it
+is on the host.
+
+### Changes to `sat bootsys`
+
+The following options were added to `sat bootsys`.
+
+- `--bos-limit`
+- `--recursive`
+
+The `--bos-limit` option passes a given limit string to a BOS session. The `--recursive`
+option specifies a slot or other higher-level component in the limit string
+
+### Changes to `sat bootprep`
+
+The `--delete-ims-jobs` option was added to `sat bootprep run`. It deletes IMS
+jobs after `sat bootprep` is run. Jobs are no longer deleted by default.
+
+### Changes to `sat status`
+
+`sat status` now includes information about nodes' CFS configuration statuses, such
+as desired configuration, configuration status, and error count.
+
+The output of `sat status` now splits different component types into different report tables.
+
+The following options were added to `sat status`.
+
+- `--hsm-fields`, `--sls-fields`, `--cfs-fields`
+- `--bos-template`
+
+The `--hsm-fields`, `--sls-fields`, `--cfs-fields` options limit the output columns
+according to specified CSM services.
+
+The `--bos-template` option filters the status report according to the specified
+session template's boot sets.
+
+### Compatibility with CSM 1.2
+
+The following components were modified to be compatible with CSM 1.2.
+
+- `sat-cfs-install` container image and Helm chart
+- `sat-install-utility` container image
+- SAT product installer
+
+### GPG Checking
+
+The `sat-ncn` ansible role provided by `sat-cfs-install` was modified to enable
+GPG checks on packages while leaving GPG checks disabled on repository metadata.
+
+### Security
+
+Updated urllib3 dependency to version 1.26.5 to mitigate CVE-2021-33503 and refreshed
+Python dependency versions.
+
+### Bug Fixes
+
+Minor bug fixes were made in each of the repositories. For full change lists, see each
+repository’s CHANGELOG.md file.
+
+The [known issues listed under the SAT 2.2 release](#known-issues-in-sat-22) were fixed.
+
 ## Summary of changes in SAT 2.2
 
 SAT 2.2.16 was released on February 25th, 2022.
@@ -16,6 +103,66 @@ It also added the following new components:
 - Version 2.0.2 of the `cfs-config-util` container image
 
 The following sections detail the changes in this release.
+
+### Known issues in SAT 2.2
+
+#### `sat` command unavailable in `sat bash` shell
+
+After launching a shell within the SAT container with `sat bash`, the `sat` command will not
+be found. For example:
+
+```screen
+(CONTAINER-ID) sat-container:~ # sat status
+bash: sat: command not found
+```
+
+This can be resolved temporarily in one of two ways. `/sat/venv/bin/` may be prepended to the
+`$PATH` environment variable:
+
+```screen
+(CONTAINER-ID) sat-container:~ # export PATH=/sat/venv/bin:$PATH
+(CONTAINER-ID) sat-container:~ # sat status
+```
+
+Or, the file `/sat/venv/bin/activate` may be sourced:
+
+```screen
+(CONTAINER-ID) sat-container:~ # source /sat/venv/bin/activate
+(CONTAINER-ID) sat-container:~ # sat status
+```
+
+#### Tab completion unavailable in `sat bash` shell
+
+After launching a shell within the SAT container with `sat bash`, tab completion for `sat`
+commands does not work.
+
+This can be resolved temporarily by sourcing the file `/etc/bash_completion.d/sat-completion.bash`:
+
+```screen
+source /etc/bash_completion.d/sat-completion.bash
+```
+
+#### OCI runtime permission error when running `sat` in root directory
+
+`sat` commands will not work if the current directory is `/`. For example:
+
+```screen
+ncn-m001:/ # sat --help
+Error: container_linux.go:380: starting container process caused: process_linux.go:545: container init caused: open /dev/console: operation not permitted: OCI runtime permission denied error
+```
+
+To resolve, run `sat` in another directory.
+
+#### Duplicate mount error when running `sat` in config directory
+
+`sat` commands will not work if the current directory is `~/.config/sat`. For example:
+
+```screen
+ncn-m001:~/.config/sat # sat --help
+Error: /root/.config/sat: duplicate mount destination
+```
+
+To resolve, run `sat` in another directory.
 
 ### New `sat` commands
 
@@ -468,7 +615,7 @@ replacing a switch OR cable.
 The `sat swap switch` command is equivalent to `sat switch`. The `sat switch`
 command will be removed in a future release.
 
-### Addition of Stages to `sat bootsys` Command 
+### Addition of Stages to `sat bootsys` Command
 
 The `sat bootsys` command now has multiple stages for both the `boot` and
 `shutdown` actions. Please refer to the "System Power On Procedures" and "System
