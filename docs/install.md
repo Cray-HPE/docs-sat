@@ -179,7 +179,7 @@ SAT.
 1.  Run the script with the following options:
 
     ```screen
-    ncn-m001# ./update-mgmt-ncn-cfs-config.sh --base-query role=Management --save
+    ncn-m001# ./update-mgmt-ncn-cfs-config.sh --base-query role=Management,type=Node --save
     ```
 
 1.  Examine the output to ensure the CFS configuration was updated.
