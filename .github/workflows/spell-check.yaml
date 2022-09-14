@@ -45,4 +45,4 @@ jobs:
           FORCE_COLOR: "1"
       with:
         entrypoint: mdspell
-        args: ${{ steps.changed-files.outputs.all_changed_files }} -r -a -n
+        args: ${{ steps.changed-files.outputs.all_changed_files }} -r -a -n --en-us

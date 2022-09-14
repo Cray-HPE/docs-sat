@@ -89,15 +89,15 @@ MD012:
 # MD013/line-length - Line length
 MD013:
   # Number of characters
-  line_length: 255
+  line_length: 120
   # Number of characters for headings
-  heading_line_length: 255
+  heading_line_length: 120
   # Number of characters for code blocks
   code_block_line_length: 750
   # Include code blocks
   code_blocks: true
   # Include tables
-  tables: true
+  tables: false
   # Include headings
   headings: true
   # Include headings
@@ -108,7 +108,7 @@ MD013:
   stern: false
 
 # MD014/commands-show-output - Dollar signs used before commands without showing output
-MD014: true
+MD014: false
 
 # MD018/no-missing-space-atx - No space after hash on atx style heading
 MD018: true
@@ -135,9 +135,9 @@ MD023: true
 # MD024/no-duplicate-heading/no-duplicate-header - Multiple headings with the same content
 MD024:
   # Only check sibling headings
-  allow_different_nesting: false
+  allow_different_nesting: true
   # Only check sibling headings
-  siblings_only: false
+  siblings_only: true
 
 # MD025/single-title/single-h1 - Multiple top-level headings in the same document
 MD025:

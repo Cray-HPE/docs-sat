@@ -41,4 +41,4 @@ jobs:
 
     - uses: docker://ghcr.io/tcort/markdown-link-check:3.9.3
       with:
-        args: "--config .github/config/markdown_link.json ${{ steps.changed-files.outputs.all_changed_files }}"
+        args: "${{ steps.changed-files.outputs.all_changed_files }}"

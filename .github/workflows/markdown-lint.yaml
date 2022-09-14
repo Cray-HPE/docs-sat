@@ -43,8 +43,7 @@ jobs:
       with:
         args: "--config .github/config/markdown_style.yaml ${{ steps.changed-files.outputs.all_changed_files }}"
 
-    - name: Check for illegal ASCII quote characters
+    - name: Check for illegal double quotation mark Unicode characters
       id: illegal-ascii
       run: |
         .github/scripts/check_quotes.sh
-

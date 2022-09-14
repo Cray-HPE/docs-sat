@@ -26,8 +26,8 @@
 # https://github.com/Cray-HPE/docs-csm/blob/05236b40427b46fc837674967891d9d5e754ae73/runLint.sh
 function check_quotes {
     local error=0
-    printf "=============== Linting \” (https://www.compart.com/en/unicode/U+201C and U+201D) ... \n"
-    grep -n -R \” *.md && echo >&2 'Malformed quotes detected (bad: ” vs. good: ").' && error=1
+    printf "=============== Linting \“ and \” (https://www.compart.com/en/unicode/U+201C and U+201D) ... \n"
+    grep -n -RE '“|”' ./* --include "*.md" && echo >&2 'Malformed quotes detected (bad: ” vs. good: ").' && error=1
     if [ $error = 1 ]; then
         echo >&2 "Failed: ${FUNCNAME[0]}"
         return 1
