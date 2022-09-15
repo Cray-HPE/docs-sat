@@ -5,6 +5,7 @@
 - [About System Admin Toolkit (SAT)](introduction.md#about-system-admin-toolkit-sat)
 - [System Admin Toolkit Command Overview](introduction.md#system-admin-toolkit-command-overview)
 - [Command Prompt Conventions in SAT](introduction.md#command-prompt-conventions-in-sat)
+- [SAT in CSM](introduction.md#sat-in-csm)
 - [SAT Dependencies](introduction.md#sat-dependencies)
 
 ## [SAT Installation](install.md)
