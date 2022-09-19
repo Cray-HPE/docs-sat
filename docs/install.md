@@ -50,10 +50,10 @@ stream.
     ncn-m001# cd sat-x.y.z
     ```
 
-1.  Run the installer: **install.sh**.
+1.  Run the installer: `install.sh`.
 
     The script produces a lot of output. A successful install ends with "SAT
-    version x.y.z has been installed", where "x.y.z" is the SAT product version.
+    version `x.y.z` has been installed", where `x.y.z` is the SAT product version.
 
     ```screen
     ncn-m001# ./install.sh
@@ -111,7 +111,7 @@ If performing an upgrade, execute the **SAT Post-Upgrade** procedures:
 - [SAT Logging](#sat-logging)
 - [Set System Revision Information](#set-system-revision-information)
 
-**NOTE:** The **Set System Revision Information** procedure is **not required** after upgrading from SAT v2.1 or later.
+**NOTE:** The **Set System Revision Information** procedure is **not required** after upgrading from SAT 2.1 or later.
 
 ## Perform NCN Personalization
 
@@ -329,7 +329,7 @@ execute the following steps to ensure the modified CFS configuration is re-appli
 
 1.  Monitor the progress of the CFS session.
 
-    Set an environment variable to name of the ansible container within the pod
+    Set an environment variable to name of the Ansible container within the pod
     for the CFS session:
 
     ```screen
@@ -438,7 +438,7 @@ If performing an upgrade, execute the **SAT Post-Upgrade** procedures:
 - [SAT Logging](#sat-logging)
 - [Set System Revision Information](#set-system-revision-information)
 
-**NOTE:** The **Set System Revision Information** procedure is **not required** after upgrading from SAT v2.1 or later.
+**NOTE:** The **Set System Revision Information** procedure is **not required** after upgrading from SAT 2.1 or later.
 
 ### Post-Installation Cleanup Procedure
 
@@ -475,24 +475,24 @@ Below is a table describing SAT commands and the types of authentication they re
 |--------------|-----------------------------------|--------|-----------|
 |`sat auth`|Responsible for authenticating to the API gateway and storing a token.|`sat-auth`|Authenticate to the API gateway and save the token.|
 |`sat bmccreds`|Requires authentication to the API gateway.|`sat-bmccreds`|Set BMC passwords.|
-|`sat bootprep`|Requires authentication to the API gateway. Requires kubernetes configuration and authentication, which is done on ncn-m001 during the install.|`sat-bootprep`|Prepare to boot nodes with images and configurations.|
-|`sat bootsys`|Requires authentication to the API gateway. Requires kubernetes configuration and authentication, which is configured on `ncn-m001` during the install. Some stages require passwordless SSH to be configured to all other NCNs. Requires S3 to be configured for some stages.|`sat-bootsys`|Boot or shutdown the system, including compute nodes, application nodes, and non-compute nodes (NCNs) running the management software.|
+|`sat bootprep`|Requires authentication to the API gateway. Requires Kubernetes configuration and authentication, which is done on `ncn-m001` during the install.|`sat-bootprep`|Prepare to boot nodes with images and configurations.|
+|`sat bootsys`|Requires authentication to the API gateway. Requires Kubernetes configuration and authentication, which is configured on `ncn-m001` during the install. Some stages require passwordless SSH to be configured to all other NCNs. Requires S3 to be configured for some stages.|`sat-bootsys`|Boot or shutdown the system, including compute nodes, application nodes, and non-compute nodes (NCNs) running the management software.|
 |`sat diag`|Requires authentication to the API gateway.|`sat-diag`|Launch diagnostics on the HSN switches and generate a report.|
 |`sat firmware`|Requires authentication to the API gateway.|`sat-firmware`|Report firmware version.|
 |`sat hwhist`|Requires authentication to the API gateway.|`sat-hwhist`|Report hardware component history.|
 |`sat hwinv`|Requires authentication to the API gateway.|`sat-hwinv`|Give a listing of the hardware of the HPE Cray EX system.|
 |`sat hwmatch`|Requires authentication to the API gateway.|`sat-hwmatch`|Report hardware mismatches.|
 |`sat init`|None|`sat-init`|Create a default SAT configuration file.|
-|`sat k8s`|Requires kubernetes configuration and authentication, which is automatically configured on ncn-w001 during the install.|`sat-k8s`|Report on kubernetes replicasets that have co-located replicas \(i.e. replicas on the same node\).|
+|`sat k8s`|Requires Kubernetes configuration and authentication, which is automatically configured on `ncn-m001` during the install.|`sat-k8s`|Report on Kubernetes replica sets that have co-located \(on the same node\) replicas.|
 |`sat linkhealth`|||**This command has been deprecated.**|
-|`sat nid2xname`|Requires authentication to the API gateway.|`sat-nid2xname`|Translate node IDs to node xnames.|
+|`sat nid2xname`|Requires authentication to the API gateway.|`sat-nid2xname`|Translate node IDs to node XNames.|
 |`sat sensors`|Requires authentication to the API gateway.|`sat-sensors`|Report current sensor data.|
 |`sat setrev`|Requires S3 to be configured for site information such as system name, serial number, install date, and site name.|`sat-setrev`|Set HPE Cray EX system revision information.|
 |`sat showrev`|Requires API gateway authentication in order to query the Interconnect from HSM. Requires S3 to be configured for site information such as system name, serial number, install date, and site name.|`sat-showrev`|Print revision information for the HPE Cray EX system.|
 |`sat slscheck`|Requires authentication to the API gateway.|`sat-slscheck`|Perform a cross-check between SLS and HSM.|
 |`sat status`|Requires authentication to the API gateway.|`sat-status`|Report node status across the HPE Cray EX system.|
 |`sat swap`|Requires authentication to the API gateway.|`sat-swap`|Prepare HSN switch or cable for replacement and bring HSN switch or cable into service.|
-|`sat xname2nid`|Requires authentication to the API gateway.|`sat-xname2nid`|Translate node and node BMC xnames to node IDs.|
+|`sat xname2nid`|Requires authentication to the API gateway.|`sat-xname2nid`|Translate node and node BMC XNames to node IDs.|
 |`sat switch`|**This command has been deprecated.** It has been replaced by `sat swap`.|
 
 In order to authenticate to the API gateway, you must run the `sat auth` command. This command will prompt for a password
@@ -529,13 +529,14 @@ The following is the procedure to globally configure the username used by SAT an
     Not generating configuration file.
     ```
 
-1.  Edit `~/.config/sat/sat.toml` and set the username option in the `api_gateway` section of the config file. E.g.:
+1.  Edit `~/.config/sat/sat.toml` and set the username option in the `api_gateway` section of the config file. For
+    example:
 
     ```screen
     username = "crayadmin"
     ```
 
-1.  Run `sat auth`. Enter your password when prompted. E.g.:
+1.  Run `sat auth`. Enter your password when prompted. For example:
 
     ```screen
     ncn-m001# sat auth
@@ -543,7 +544,7 @@ The following is the procedure to globally configure the username used by SAT an
     Succeeded!
     ```
 
-1.  Other `sat` commands are now authenticated to make requests to the API gateway. E.g.:
+1.  Other `sat` commands are now authenticated to make requests to the API gateway. For example:
 
     ```screen
     ncn-m001# sat status
@@ -629,8 +630,8 @@ required after upgrading SAT.
 
     **NOTE**: Depending on how many manager nodes are on the system, the list of manager nodes may
     be different. This example assumes three manager nodes, where the configuration files must be
-    copied from ncn-m001 to ncn-m002 and ncn-m003. Therefore, the list of hosts above is ncn-m002
-    and ncn-m003.
+    copied from `ncn-m001` to `ncn-m002` and `ncn-m003`. Therefore, the list of hosts above is
+    `ncn-m002` and `ncn-m003`.
 
 ## Set System Revision Information
 
@@ -646,8 +647,8 @@ systems in support cases.
 
 - This procedure **is required** after a fresh install of SAT.
 - After an upgrade of SAT, this procedure is **not required** if SAT was upgraded
-  from v2.1 (Shasta v1.5) or later. It **is required** if SAT was upgraded from
-  v2.0 (Shasta v1.4) or earlier.
+  from 2.1 (Shasta v1.5) or later. It **is required** if SAT was upgraded from
+  2.0 (Shasta v1.4) or earlier.
 
 ### Procedure
 
@@ -666,7 +667,7 @@ systems in support cases.
     - System install date
 
     **TIP**: For "System type", a system with _any_ liquid-cooled components should be
-    considered a liquid-cooled system. I.e., "System type" is EX-1C.
+    considered a liquid-cooled system. In other words, "System type" is EX-1C.
 
     ```screen
     ncn-m001# sat setrev
@@ -769,7 +770,7 @@ Repeat this process for any configuration file sections for which there are "unk
 
 As of SAT version 2.2, some command output that was previously printed to `stdout`
 is now logged to `stderr`. These messages are logged at the `INFO` level. The
-default logging threshold was changed from `WARNING` to `INFO` to accomodate
+default logging threshold was changed from `WARNING` to `INFO` to accommodate
 this logging change. Additionally, some messages previously logged at the `INFO`
 are now logged at the `DEBUG` level.
 
@@ -779,7 +780,7 @@ that important output is shown in the terminal.
 
 ### Update Configuration
 
-In the following example, the stderr log level, `logging.stderr_level`, is set to
+In the following example, the `stderr` log level, `logging.stderr_level`, is set to
 `WARNING`, which will exclude `INFO`-level logging from terminal output.
 
 ```screen
@@ -987,11 +988,11 @@ steps needed to configure SAT to use externally-accessible API endpoints exposed
     ...
     ```
 
-1.  Optional: Add the `sat` virtualenv to the user's `PATH` environment variable.
+1.  Optional: Add the `sat` virtual environment to the user's `PATH` environment variable.
 
     If a shell other than `bash` is in use, replace `~/.bash_profile` with the appropriate profile path.
 
-    If the virtualenv is not added to the user's `PATH` environment variable, then
+    If the virtual environment is not added to the user's `PATH` environment variable, then
     `source ${SAT_VENV_PATH}/bin/activate` will need to be run before running any SAT commands.
 
     ```screen
