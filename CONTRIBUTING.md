@@ -14,14 +14,14 @@ Contributors must follow the guidelines below:
    [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/)
    for further helpful guidance.
 3. Organize commits into cohesive, functional units, such that each commit
-   fully implements an entire feature or bugfix, and the code works at each
-   point in the commit history. I.e., don't include multiple commits where
-   the first commit is a buggy implementation of a feature, and the following
-   commits fix bugs that exist in the first commit. It is okay to develop in
-   this way, but these commits must be squashed before opening the pull
-   request.
+   fully implements an entire feature or bug fix, and the code works at each
+   point in the commit history. In other words, don't include multiple commits
+   where the first commit is a buggy implementation of a feature, and the
+   following commits fix bugs that exist in the first commit. It is okay to
+   develop in this way, but these commits must be squashed before opening the
+   pull request.
 4. Address feedback received in the pull request as additional commits. Then
-   once approval is attained, squash bugfixes and feedback commits into the
+   once approval is attained, squash bug fixes and feedback commits into the
    original commit(s) as appropriate per guideline #2 above. The reason for the
    separate commits addressing feedback is that it provides an easy way for
    reviewers to see only what changed if desired.

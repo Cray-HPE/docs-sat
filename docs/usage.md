@@ -14,7 +14,7 @@ documentation for `sat bootprep` can be viewed similarly to other SAT commands.
 ncn-m001# sat-man sat-bootprep
 ```
 
-### SAT Bootprep vs SAT Bootsys
+### SAT bootprep vs SAT bootsys
 
 `sat bootprep` is used to create CFS configurations, build and
 rename IMS images, and create BOS session templates which tie the
@@ -54,9 +54,9 @@ repository URL directly, along with an associated branch or commit hash.
 When a configuration layer is specified in terms of a product name, the layer
 is created in CFS by looking up relevant configuration information (including
 the configuration repository and commit information) from the
-cray-product-catalog Kubernetes ConfigMap as necessary. A version may be
+`cray-product-catalog` Kubernetes ConfigMap as necessary. A version may be
 supplied, but if it is absent, the version is assumed to be the latest version
-found in the cray-product-catalog.
+found in the Cray Product Catalog.
 
 ```screen
 ---
@@ -128,10 +128,10 @@ Under the `images` key, the user may define one or more images to be created in
 a list. Each element of the list defines a separate IMS image to be built and/or
 configured. Images must contain a name, as well as an `ims` section containing a
 definition of the image to be built and/or configured. Images may be defined by
-an image recipe, or by a pre-built image. Recipes and pre-built images are
+an image recipe, or by a prebuilt image. Recipes and prebuilt images are
 referred to by their names or IDs in IMS. The `ims` section should also contain
 an `is_recipe` property, which indicates whether the name or ID refers to an
-image recipe or a pre-built image. Images may also optionally provide a text
+image recipe or a prebuilt image. Images may also optionally provide a text
 description of the image. This description is not stored or used by `sat
 bootprep` or any CSM services, but is useful for documenting images in the input
 file.
@@ -236,10 +236,10 @@ session_templates:
         rootfs_provider_passthrough: dvs:api-gw-service-nmn.local:300:nmn0
 ```
 
-### Example bootprep input files
+### Example `sat bootprep` input files
 
-Putting together all of the previous input file sections, an example bootprep input
-file might look something like the following.
+Putting together all of the previous input file sections, an example input file
+might look something like the following.
 
 ```screen
 ---
@@ -284,10 +284,10 @@ session_templates:
         - Compute
 ```
 
-#### Creating a pre-populated example bootprep input file
+#### Creating a pre-populated example `sat bootprep` input file
 
-It is possible to create an example bootprep input file using values from the
-system's product catalog using the `sat bootprep generate-example` command.
+It is possible to create an example input file using values from the system's
+product catalog using the `sat bootprep generate-example` command.
 
 ```screen
 ncn-m001# sat bootprep generate-example

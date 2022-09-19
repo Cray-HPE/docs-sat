@@ -1,6 +1,6 @@
 # System Admin Toolkit Offline Documentation
 
-The SAT documentation can be found online at the following url:
+The SAT documentation can be found online at the following URL:
 https://cray-hpe.github.io/docs-sat
 
 It is also available offline as markdown, which may be viewed with a markdown

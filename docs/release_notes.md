@@ -4,12 +4,12 @@
 
 The 2.3.4 version of the SAT product includes:
 
-- Version 3.15.4 of the sat python package and CLI
-- Version 1.6.11 of the sat-podman wrapper script
-- Version 1.2.0 of the sat-cfs-install container image
-- Version 2.0.0 of the sat-cfs-install Helm chart
-- Version 1.5.0 of the sat-install-utility container image
-- Version 2.0.3 of the cfs-config-util container image
+- Version 3.15.4 of the `sat` python package and CLI
+- Version 1.6.11 of the `sat-podman` wrapper script
+- Version 1.2.0 of the `sat-cfs-install` container image
+- Version 2.0.0 of the `sat-cfs-install` Helm chart
+- Version 1.5.0 of the `sat-install-utility` container image
+- Version 2.0.3 of the `cfs-config-util` container image
 
 ### New `sat` Commands
 
@@ -72,18 +72,18 @@ The following components were modified to be compatible with CSM 1.2.
 
 ### GPG Checking
 
-The `sat-ncn` ansible role provided by `sat-cfs-install` was modified to enable
+The `sat-ncn` Ansible role provided by `sat-cfs-install` was modified to enable
 GPG checks on packages while leaving GPG checks disabled on repository metadata.
 
 ### Security
 
-Updated urllib3 dependency to version 1.26.5 to mitigate CVE-2021-33503 and refreshed
+Updated `urllib3` dependency to version 1.26.5 to mitigate CVE-2021-33503 and refreshed
 Python dependency versions.
 
 ### Bug Fixes
 
 Minor bug fixes were made in each of the repositories. For full change lists, see each
-repository’s CHANGELOG.md file.
+repository’s `CHANGELOG.md` file.
 
 The [known issues listed under the SAT 2.2 release](#known-issues-in-sat-22) were fixed.
 
@@ -173,7 +173,7 @@ To resolve, run `sat` in another directory.
   Service (SLS) and the Hardware State Manager (HSM).
 - `sat bmccreds` provides a simple interface for interacting with the System
   Configuration Service (SCSD) to set BMC Redfish credentials.
-- `sat hwhist` displays hardware component history by xname (location) or by
+- `sat hwhist` displays hardware component history by XName (location) or by
   its Field-Replaceable Unit ID (FRUID). This command queries the Hardware
   State Manager (HSM) API to obtain this information. Since the `sat hwhist`
   command supports querying for the history of a component by its FRUID, the
@@ -184,9 +184,9 @@ To resolve, run `sat` in another directory.
 The following automation has been added to the install script, `install.sh`:
 
 - Wait for the completion of the `sat-config-import` Kubernetes job, which is
-  started when the sat-cfs-install Helm chart is deployed.
+  started when the `sat-cfs-install` Helm chart is deployed.
 - Automate the modification of the CFS configuration, which applies to master
-  management NCNs (e.g. "ncn-personalization").
+  management NCNs (for example, `ncn-personalization`).
 
 ### Changes to Product Catalog Data Schema
 
@@ -236,13 +236,13 @@ mostly related to filtering command output. The following are some highlights:
 
 ### Default Log Level Changed
 
-The default log level for stderr has been changed from "WARNING" to "INFO". For
+The default log level for `stderr` has been changed from "WARNING" to "INFO". For
 details, see [SAT Logging](install.md#sat-logging).
 
 ### More Granular Log Level Configuration Options
 
 With the command-line options `--loglevel-stderr` and `--loglevel-file`, the log level
-can now be configured separately for stderr and the log file.
+can now be configured separately for `stderr` and the log file.
 
 The existing `--loglevel` option is now an alias for the `--loglevel-stderr` option.
 
@@ -269,7 +269,7 @@ sat` on a master management NCN, has been improved to document the following:
 
 #### Fixes to Podman Wrapper Script Output Redirection
 
-Fixed issues with redirecting stdout and stderr, and piping output to commands,
+Fixed issues with redirecting `stdout` and `stderr`, and piping output to commands,
 such as `awk`, `less`, and `more`.
 
 ### Configurable HTTP Timeout
@@ -292,17 +292,17 @@ highlights:
 
 ### `sat xname2nid` Improvements
 
-`sat xname2nid` can now recursively expand slot, chassis, and cabinet xnames to
-a list of nids in those locations.
+`sat xname2nid` can now recursively expand slot, chassis, and cabinet XNames to
+a list of NIDs in those locations.
 
 A new `--format` option has been added to `sat xname2nid`. It sets the output format to
-either "range" (the default) or "nid". The "range" format displays nids in a
+either "range" (the default) or "NID". The "range" format displays NIDs in a
 compressed range format suitable for use with a workload manager like Slurm.
 
-### Usage of v2 HSM API
+### Usage of `v2` HSM API
 
-The commands which interact with HSM (e.g., `sat status` and `sat hwinv`) now
-use the v2 HSM API.
+The commands which interact with HSM (for example, `sat status` and `sat hwinv`) now
+use the `v2` HSM API.
 
 ### `sat diag` Limited to HSN Switches
 
@@ -352,7 +352,7 @@ product. The `cray-sat-podman` RPM is no longer installed in the management
 non-compute node (NCN) image. Instead, the `cray-sat-podman` RPM is installed on
 all master management NCNs via an Ansible playbook which is referenced by a
 layer of the CFS configuration that applies to management NCNs. This CFS
-configuration is typically named "ncn-personalization".
+configuration is typically named `ncn-personalization`.
 
 The SAT product now includes a Docker image and a Helm chart named
 `sat-cfs-install`. The SAT install script, `install.sh`, deploys the Helm chart
@@ -376,9 +376,9 @@ legacy options work as before, so it is backwards compatible. Additionally, new
 commands have been added.
 
 The `sat diag` command has been rewritten to use a new service called Fox, which
-is delivered with the CSM-diags product. The `sat diag` command now launches
+is delivered with the CSM-Diags product. The `sat diag` command now launches
 diagnostics using the Fox service, which launches the corresponding diagnostic
-executables on controllers using the Hardware Management Job and Task Daemon
+programs on controllers using the Hardware Management Job and Task Daemon
 (HMJTD) over Redfish. Essentially, Fox serves as a proxy for us to start
 diagnostics over Redfish.
 
@@ -475,7 +475,7 @@ The following sections detail the changes in this release.
 SAT is now packaged and released as an independent product. The product
 deliverable is called a "release distribution". The release distribution is a
 gzipped tar file containing an install script. This install script loads the
-cray/cray-sat container image into the Docker registry in Nexus and loads the
+`cray/cray-sat` container image into the Docker registry in Nexus and loads the
 `cray-sat-podman` RPM into a package repository in Nexus.
 
 In this release, the `cray-sat-podman` package is still installed in the master
@@ -485,8 +485,8 @@ Shasta v1.5.
 ### SAT Running in a Container Under Podman
 
 The `sat` command now runs in a container under Podman. The `sat` executable is
-now installed on all nodes in the Kubernetes management cluster (i.e., workers
-and masters). This executable is a wrapper script that starts a SAT container in
+now installed on all nodes in the Kubernetes management cluster (workers and
+masters). This executable is a wrapper script that starts a SAT container in
 Podman and invokes the `sat` Python CLI within that container. The admin can run
 individual `sat` commands directly on the master or worker NCNs as before, or
 they can run `sat` commands inside the SAT container after using `sat bash` to
@@ -515,9 +515,9 @@ command, one is generated automatically.
 Additional functionality has been added to `sat hwinv` including:
 
 - List node enclosure power supplies with the `--list-node-enclosure-power-supplies` option.
-- List node accelerators (e.g., GPUs) with the `--list-node-accels` option. The count of
-   node accelerators is also included for each node.
-- List node accelerator risers (e.g., Redstone modules) with the `--list-node-accel-risers`
+- List node accelerators (for example, GPUs) with the `--list-node-accels` option. The
+   count of node accelerators is also included for each node.
+- List node accelerator risers (for example, Redstone modules) with the `--list-node-accel-risers`
    option. The count of node accelerator risers is also included for each node.
 - List High-Speed Node Network Interface Cards (HSN NICs) with the `--list-node-hsn-nics`
    option. The count of HSN NICs is also included for each node.
