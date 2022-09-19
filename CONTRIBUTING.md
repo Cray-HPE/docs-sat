@@ -26,7 +26,7 @@ Contributors must follow the guidelines below:
    separate commits addressing feedback is that it provides an easy way for
    reviewers to see only what changed if desired.
 
-# Copying
+## Copying
 
 (C) Copyright 2022 Hewlett Packard Enterprise Development LP.
 

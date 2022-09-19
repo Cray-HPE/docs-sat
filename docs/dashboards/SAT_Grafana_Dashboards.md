@@ -22,11 +22,11 @@ That command will produce the following output, for example:
 
 This would result in the address for Grafana being `https://sma-grafana.cmn.EXAMPLE_DOMAIN.com`
 
-For additional details about how to access the Grafana Dashboards refer to _Access the Grafana Monitoring UI_ in the
+For additional details about how to access the Grafana Dashboards refer to *Access the Grafana Monitoring UI* in the
 SMA product documentation.
 
-For more information about the interpretation of metrics for the SAT Grafana Dashboards refer to _Fabric Telemetry
-Kafka Topics_ in the SMA product documentation.
+For more information about the interpretation of metrics for the SAT Grafana Dashboards refer to *Fabric Telemetry
+Kafka Topics* in the SMA product documentation.
 
 ## Navigate SAT Grafana Dashboards
 
@@ -48,7 +48,7 @@ during the time range selected, if any. The interval setting is not used for tab
 
 Shows the Interval and Locations Options for the available telemetry.
 
-![](../img/SAT_Grafana_Fabric_Vars.png)
+![Grafana Interval and Locations Options](../img/SAT_Grafana_Fabric_Vars.png)
 
 The value of the **Interval** option sets the time resolution of the received telemetry. This works a bit like a
 histogram, with the available telemetry in an interval of time going into a "bucket" and averaging out to a single
@@ -66,7 +66,7 @@ or the trace on the chart.
 
 ## Grafana Fabric Congestion Dashboard
 
-![](../img/Grafana_Fabric_Congestion.png)
+![Grafana Fabric Congestion Dashboard](../img/Grafana_Fabric_Congestion.png)
 
 SAT Grafana Dashboards provide system administrators a way to view fabric telemetry data across all Rosetta switches in
 the system and assess the past and present health of the high-speed network. It also allows the ability to drill down
@@ -84,7 +84,7 @@ The port type of a link is reported as a port state "subtype" event when defined
 
 ## Grafana Fabric Errors Dashboard
 
-![](../img/Grafana_HSN_Errors.png)
+![Grafana HSN Errors Dashboard](../img/Grafana_HSN_Errors.png)
 
 This dashboard reports error counters in a tabular format in three panels.
 
@@ -96,7 +96,7 @@ the time range selected. However, the values are taken from telemetry within the
 
 ## Grafana Fabric Port State Dashboard
 
-![](../img/Fabric_PortState_Locations_UI.png)
+![Grafana Fabric Port State Dashboard](../img/Fabric_PortState_Locations_UI.png)
 
 There is no **Interval** option because this parameter is not used to set a coarseness of the data. Only a single value
 is presented that displays the most recent value in the time range.
@@ -110,7 +110,7 @@ all port state events.
 
 ## Grafana Fabric RFC3635 Dashboard
 
-![](../img/Grafana_rfc3635.png)
+![Grafana Fabric RFC3635 Dashboard](../img/Grafana_rfc3635.png)
 
 For additional information on performance counters, refer to
 [Definitions of Managed Objects for the Ethernet-like Interface Types](https://tools.ietf.org/html/rfc3635),

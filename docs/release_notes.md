@@ -547,7 +547,7 @@ The output from `sat showrev` has also been changed in the following ways:
 - The `--docker` and `--packages` options were considered misleading and have
   been removed.
 - Information pertaining to only to the local host, where the command is run,
-  has been moved to the output of the `--local ` option.
+  has been moved to the output of the `--local` option.
 
 ### Removal of `sat cablecheck`
 
