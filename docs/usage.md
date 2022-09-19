@@ -341,7 +341,7 @@ properties:
 The raw schema definition can be difficult to understand without experience
 working with JSON Schema specifications. For this reason, a feature was included
 which can generate user-friendly HTML documentation for the input file schema
-which can be browsed with the user's preferred web browser. 
+which can be browsed with the user's preferred web browser.
 
 1. Create a documentation tarball using `sat bootprep`.
 
@@ -349,7 +349,7 @@ which can be browsed with the user's preferred web browser.
    ncn-m001# sat bootprep generate-docs
    INFO: Wrote input schema documentation to /root/bootprep-schema-docs.tar.gz
    ```
-   
+
    An alternate output directory can be specified with the `--output-dir`
    option. The generated tarball is always named `bootprep-schema-docs.tar.gz`.
 
