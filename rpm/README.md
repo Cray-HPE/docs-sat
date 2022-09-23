@@ -1,7 +1,7 @@
 # System Admin Toolkit Offline Documentation
 
-The SAT documentation can be found online at the following url:
-https://cray-hpe.github.io/docs-sat
+The SAT documentation can be found online at the following link:
+[SAT Documentation](https://cray-hpe.github.io/docs-sat).
 
 It is also available offline as markdown, which may be viewed with a markdown
 viewer or with a text editor. A table of contents can be found below.
@@ -21,7 +21,7 @@ and enhancements that were not available until after the software release.
    This RPM will only be installed if the SAT CFS configuration layer has been
    applied.
 
-   ```
+   ```bash
    rpm -q docs-sat
    ```
 
@@ -29,7 +29,7 @@ and enhancements that were not available until after the software release.
 
    For example, to download and upgrade to the latest SAT 2.4 documentation RPM:
 
-   ```
+   ```bash
    rpm -Uvh https://artifactory.algol60.net/artifactory/sat-rpms/hpe/stable/sle-15sp3/docs-sat/2.4/noarch/docs-sat-latest.noarch.rpm
    ```
 
@@ -37,7 +37,7 @@ and enhancements that were not available until after the software release.
    need to be externally downloaded and copied to the system. The following
    example copies it to `ncn-m001`.
 
-   ```
+   ```bash
    wget https://artifactory.algol60.net/artifactory/sat-rpms/hpe/stable/sle-15sp3/docs-sat/2.4/noarch/docs-sat-latest.noarch.rpm -O docs-sat-latest.noarch.rpm
    scp -p docs-sat-latest.noarch.rpm ncn-m001:/root
    ssh ncn-m001
