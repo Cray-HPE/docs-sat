@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>About SAT on System Admin Toolkit (SAT)</title>
+    <link>/docs-sat/en-26/about_sat/</link>
+    <description>Recent content in About SAT on System Admin Toolkit (SAT)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-26</language>
+    <lastBuildDate>Thu, 24 Oct 2024 03:36:02 +0000</lastBuildDate>
+    <atom:link href="/docs-sat/en-26/about_sat/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SAT Command Authentication</title>
+      <link>/docs-sat/en-26/about_sat/command_authentication/</link>
+      <pubDate>Thu, 24 Oct 2024 03:36:02 +0000</pubDate>
+      <guid>/docs-sat/en-26/about_sat/command_authentication/</guid>
+      <description>SAT Command Authentication Some SAT subcommands make requests to the HPE Cray EX services through the API gateway and thus require authentication to the API gateway in order to function. Other SAT subcommands use the Kubernetes API. Some sat commands require S3 to be configured. In order to use the SAT S3 bucket, the System Administrator must generate the S3 access key and secret keys and write them to a local file.</description>
+    </item>
+    <item>
+      <title>SAT Dependencies</title>
+      <link>/docs-sat/en-26/about_sat/dependencies/</link>
+      <pubDate>Thu, 24 Oct 2024 03:36:02 +0000</pubDate>
+      <guid>/docs-sat/en-26/about_sat/dependencies/</guid>
+      <description>SAT Dependencies Most sat subcommands depend on services or components from other products in the HPE Cray EX software stack. The following list shows these dependencies for each subcommand. Each service or component is listed under the product it belongs to.&#xA;sat auth CSM Keycloak sat bmccreds CSM System Configuration Service (SCSD) sat bootprep CSM Boot Orchestration Service (BOS) Configuration Framework Service (CFS) Image Management Service (IMS) Version Control Service (VCS) Kubernetes S3 sat bootsys CSM Boot Orchestration Service (BOS) Cray Advanced Platform Monitoring and Control (CAPMC) Ceph Etcd Firmware Action Service (FAS) Hardware State Manager (HSM) Kubernetes S3 HPE Cray Supercomputing User Services Software (USS) Node Memory Dump (NMD) sat diag CSM Hardware State Manager (HSM) CSM-Diags Fox sat firmware CSM Firmware Action Service (FAS) sat hwhist CSM Hardware State Manager (HSM) sat hwinv CSM Hardware State Manager (HSM) sat hwmatch CSM Hardware State Manager (HSM) sat init None</description>
+    </item>
+    <item>
+      <title>Introduction to SAT</title>
+      <link>/docs-sat/en-26/about_sat/introduction/</link>
+      <pubDate>Thu, 24 Oct 2024 03:36:02 +0000</pubDate>
+      <guid>/docs-sat/en-26/about_sat/introduction/</guid>
+      <description>Introduction to SAT About System Admin Toolkit (SAT) The System Admin Toolkit (SAT) is designed to assist administrators with common tasks, such as troubleshooting and querying information about the HPE Cray EX System and its components, system boot and shutdown, and replacing hardware components.&#xA;SAT offers a command line utility which uses subcommands. There are similarities between SAT commands and xt commands used on the Cray XC platform. For more information on SAT commands, see SAT Command Overview.</description>
+    </item>
+    <item>
+      <title>SAT in CSM</title>
+      <link>/docs-sat/en-26/about_sat/sat_in_csm/</link>
+      <pubDate>Thu, 24 Oct 2024 03:36:02 +0000</pubDate>
+      <guid>/docs-sat/en-26/about_sat/sat_in_csm/</guid>
+      <description>SAT in CSM In CSM 1.3 and newer, the sat command is automatically available on the Kubernetes control plane, but it is still possible to install SAT as a separate product stream. Any version of SAT installed as a separate product stream overrides the sat command available in CSM. Installing the SAT product stream allows additional supporting components to be added:&#xA;An entry for SAT in the cray-product-catalog Kubernetes ConfigMap is only created by installing the SAT product stream.</description>
+    </item>
+    <item>
+      <title>View SAT Documentation</title>
+      <link>/docs-sat/en-26/about_sat/view_sat_docs/</link>
+      <pubDate>Thu, 24 Oct 2024 03:36:02 +0000</pubDate>
+      <guid>/docs-sat/en-26/about_sat/view_sat_docs/</guid>
+      <description>View SAT Documentation View the System Admin Toolkit (SAT) documentation both online and offline by using the information in this section.&#xA;Online Documentation The SAT documentation can be found online in HTML form at the following link: SAT Documentation. The navigation pane on the left of the HTML page orders topics alphabetically. Navigate an individual topic&amp;rsquo;s headings by using the Headings icon at the top of the page, as shown in the following images.</description>
+    </item>
+  </channel>
+</rss>

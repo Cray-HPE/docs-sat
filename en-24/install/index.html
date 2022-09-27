@@ -1,0 +1,1836 @@
+<!DOCTYPE html>
+<html lang="en-24" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.123.0">
+    <meta name="description" content="">
+
+
+    <link rel="icon" href="/docs-sat/images/favicon.png" type="image/png">
+
+    <title>SAT Installation :: System Admin Toolkit (SAT)</title>
+
+    
+    <link href="/docs-sat/css/nucleus.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/fontawesome-all.min.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/hybrid.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/featherlight.min.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/perfect-scrollbar.min.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/auto-complete.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/atom-one-dark-reasonable.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/theme.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/tabs.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/hugo-theme.css?1729740967" rel="stylesheet">
+    
+    <link href="/docs-sat/css/theme-blue.css?1729740967" rel="stylesheet">
+    
+    
+
+    <script src="/docs-sat/js/jquery-3.3.1.min.js?1729740967"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/docs-sat/en-24/install/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href='/docs-sat/en-24'>
+  System Admin Toolkit
+</a>
+
+    </div>
+
+    
+    <section>
+      <ul>
+      
+        <li>
+          <div class="select-style padding">
+          v <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en-26" value="/docs-sat/en-26/install/">2.6</option>
+                    
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="en-25" value="/docs-sat/en-25/install/">2.5</option>
+                    
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="en-24" value="/docs-sat/en-24/install/" selected>2.4</option>
+                    
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="en-23" value="/docs-sat/en-23/install/">2.3</option>
+                    
+                  
+              
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="en-22" value="/docs-sat/en-22/install/">2.2</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="en-21" value="/docs-sat/en-21/install/">2.1</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </li>
+      
+
+      
+      </ul>
+    </section>
+  
+
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/docs-sat/js/lunr.min.js?1729740967"></script>
+<script type="text/javascript" src="/docs-sat/js/auto-complete.js?1729740967"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/docs-sat\/\/en-24";
+    
+</script>
+<script type="text/javascript" src="/docs-sat/js/search.js?1729740967"></script>
+
+    
+  </div>
+
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+      
+      
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-24/introduction/" title="Introduction to SAT" class="dd-item ">
+        <a href="/docs-sat/en-24/introduction/">
+        Introduction to SAT
+        
+        </a>
+    </li>
+     
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/docs-sat/en-24/dashboards/" title="SAT Dashboards" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs-sat/en-24/dashboards/">
+          SAT Dashboards
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-24/dashboards/sat_grafana_dashboards/" title="SAT Grafana Dashboards" class="dd-item ">
+        <a href="/docs-sat/en-24/dashboards/sat_grafana_dashboards/">
+        SAT Grafana Dashboards
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-24/dashboards/sat_kibana_dashboards/" title="SAT Kibana Dashboards" class="dd-item ">
+        <a href="/docs-sat/en-24/dashboards/sat_kibana_dashboards/">
+        SAT Kibana Dashboards
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-24/install/" title="SAT Installation" class="dd-item active">
+        <a href="/docs-sat/en-24/install/">
+        SAT Installation
+        
+        </a>
+    </li>
+     
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-24/release_notes/" title="SAT Release Notes" class="dd-item ">
+        <a href="/docs-sat/en-24/release_notes/">
+        SAT Release Notes
+        
+        </a>
+    </li>
+     
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-24/cne_install/" title="SAT Upgrade with CNE Installer" class="dd-item ">
+        <a href="/docs-sat/en-24/cne_install/">
+        SAT Upgrade with CNE Installer
+        
+        </a>
+    </li>
+     
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/docs-sat/en-24/usage/" title="SAT Usage" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs-sat/en-24/usage/">
+          SAT Usage
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-24/usage/change_bos_version/" title="Change the BOS Version" class="dd-item ">
+        <a href="/docs-sat/en-24/usage/change_bos_version/">
+        Change the BOS Version
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-24/usage/sat_bootprep/" title="SAT Bootprep" class="dd-item ">
+        <a href="/docs-sat/en-24/usage/sat_bootprep/">
+        SAT Bootprep
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+      
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/docs-sat/en-24/'>HPE Cray EX System Admin Toolkit (SAT) Guide</a> > SAT Installation
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#install-the-system-admin-toolkit-product-stream">Install the System Admin Toolkit Product Stream</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#notes-on-the-procedures">Notes on the Procedures</a></li>
+        <li><a href="#pre-installation-procedure">Pre-Installation Procedure</a></li>
+        <li><a href="#installation-procedure">Installation Procedure</a></li>
+        <li><a href="#next-steps">Next Steps</a></li>
+      </ul>
+    </li>
+    <li><a href="#configure-sat">Configure SAT</a>
+      <ul>
+        <li><a href="#sat-authentication">SAT Authentication</a></li>
+        <li><a href="#generate-sat-s3-credentials">Generate SAT S3 Credentials</a></li>
+        <li><a href="#set-system-revision-information">Set System Revision Information</a></li>
+      </ul>
+    </li>
+    <li><a href="#perform-ncn-personalization">Perform NCN Personalization</a>
+      <ul>
+        <li><a href="#prerequisites-4">Prerequisites</a></li>
+        <li><a href="#notes-on-the-procedure-1">Notes on the Procedure</a></li>
+        <li><a href="#pre-ncn-personalization-procedure">Pre-NCN-Personalization Procedure</a></li>
+        <li><a href="#procedure-to-update-cfs-configuration">Procedure to Update CFS Configuration</a></li>
+        <li><a href="#procedure-to-apply-cfs-configuration">Procedure to Apply CFS Configuration</a></li>
+        <li><a href="#next-steps-1">Next Steps</a></li>
+        <li><a href="#post-installation-cleanup-procedure">Post-Installation Cleanup Procedure</a></li>
+      </ul>
+    </li>
+    <li><a href="#sat-post-upgrade">SAT Post-Upgrade</a>
+      <ul>
+        <li><a href="#remove-obsolete-configuration-file-sections">Remove Obsolete Configuration File Sections</a></li>
+        <li><a href="#sat-logging">SAT Logging</a></li>
+      </ul>
+    </li>
+    <li><a href="#sat-uninstall-and-downgrade">SAT Uninstall and Downgrade</a>
+      <ul>
+        <li><a href="#uninstall-removing-a-version-of-sat">Uninstall: Removing a Version of SAT</a></li>
+        <li><a href="#activate-switching-between-versions">Activate: Switching Between Versions</a></li>
+      </ul>
+    </li>
+    <li><a href="#optional-installing-and-configuring-sat-on-an-external-system">Optional: Installing and Configuring SAT on an External System</a>
+      <ul>
+        <li><a href="#limitations">Limitations</a></li>
+        <li><a href="#prerequisites-8">Prerequisites</a></li>
+        <li><a href="#procedure-6">Procedure</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+            </h1>
+          
+
+        
+
+
+<h1 id="sat-installation">SAT Installation</h1>
+<h2 id="install-the-system-admin-toolkit-product-stream">Install the System Admin Toolkit Product Stream</h2>
+<p>Describes how to install or upgrade the System Admin Toolkit (SAT) product
+stream.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li>CSM is installed and verified.</li>
+<li>There must be at least 2 gigabytes of free space on the manager NCN on which the
+procedure is run.</li>
+</ul>
+<h3 id="notes-on-the-procedures">Notes on the Procedures</h3>
+<ul>
+<li>
+<p>Ellipses (<code>...</code>) in shell output indicate omitted lines.</p>
+</li>
+<li>
+<p>In the examples below, replace <code>x.y.z</code> with the version of the SAT product stream
+being installed.</p>
+</li>
+<li>
+<p>&lsquo;manager&rsquo; and &lsquo;master&rsquo; are used interchangeably in the steps below.</p>
+</li>
+<li>
+<p>To upgrade SAT, execute the pre-installation, installation, and post-installation
+procedures for a newer distribution. The newly installed version will become
+the default.</p>
+<p>In SAT 2.4, you can instead upgrade the product stream by using the
+Compute Node Environment (CNE) installer. It is recommended that you upgrade
+SAT with the CNE installer because the process is both automated and logged
+to help you save time. For more information, see
+<a href="/docs-sat/en-24/cne_install/">SAT Upgrade with CNE Installer</a>.</p>
+</li>
+</ul>
+<h3 id="pre-installation-procedure">Pre-Installation Procedure</h3>
+<ol>
+<li>
+<p>Start a typescript and set the shell prompt.</p>
+<p>The typescript will record the commands and the output from this installation.
+The prompt is set to include the date and time.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# script -af product-sat.$(date +%Y-%m-%d).txt
+ncn-m001# export PS1=&#39;\u@\H \D{%Y-%m-%d} \t \w # &#39;
+</code></pre></li>
+</ol>
+<h3 id="installation-procedure">Installation Procedure</h3>
+<ol>
+<li>
+<p>Copy the release distribution gzipped tar file to <code>ncn-m001</code>.</p>
+</li>
+<li>
+<p>Unzip and extract the release distribution.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# tar -xvzf sat-x.y.z.tar.gz
+</code></pre></li>
+<li>
+<p>Change directory to the extracted release distribution directory.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# cd sat-x.y.z
+</code></pre></li>
+<li>
+<p>Run the installer: <code>install.sh</code>.</p>
+<p>The script produces a lot of output. A successful install ends with &ldquo;SAT
+version <code>x.y.z</code> has been installed&rdquo;, where <code>x.y.z</code> is the SAT product version.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# ./install.sh
+====&gt; Installing System Admin Toolkit version x.y.z
+...
+====&gt; Waiting 300 seconds for sat-config-import-x.y.z to complete
+...
+====&gt; SAT version x.y.z has been installed.
+</code></pre></li>
+<li>
+<p><strong>Optional:</strong> Stop the typescript.</p>
+<p><strong>NOTE</strong>: This step can be skipped if you wish to use the same typescript
+for the remainder of the SAT install (see <a href="/docs-sat/en-24/#next-steps">Next Steps</a>).</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# exit
+</code></pre></li>
+</ol>
+<p>SAT version <code>x.y.z</code> is now installed/upgraded, meaning the SAT <code>x.y.z</code> release
+has been loaded into the system software repository.</p>
+<ul>
+<li>SAT configuration content for this release has been uploaded to VCS.</li>
+<li>SAT content for this release has been uploaded to the CSM product catalog.</li>
+<li>SAT content for this release has been uploaded to Nexus repositories.</li>
+<li>The <code>sat</code> command won&rsquo;t be available until the <a href="/docs-sat/en-24/#perform-ncn-personalization">NCN Personalization</a>
+procedure has been executed.</li>
+</ul>
+<h3 id="next-steps">Next Steps</h3>
+<p>If other HPE Cray EX software products are being installed or upgraded in conjunction
+with SAT, refer to the <a href="https://www.hpe.com/support/ex-S-8000"><em>HPE Cray EX System Software Getting Started Guide
+(S-8000)</em></a> to determine which step to
+execute next.</p>
+<p>If no other HPE Cray EX software products are being installed or upgraded at this time,
+proceed to the sections listed below.</p>
+<p><strong>NOTE:</strong> The procedures in <strong>Configure SAT</strong> are only required during the
+first installation of SAT. However, the <strong>NCN Personalization</strong> procedure
+<strong>is required</strong> both when installing and upgrading SAT.</p>
+<p>If performing a fresh install, execute the <strong>Configure SAT</strong> procedures:</p>
+<ul>
+<li><a href="/docs-sat/en-24/#sat-authentication">SAT Authentication</a></li>
+<li><a href="/docs-sat/en-24/#generate-sat-s3-credentials">Generate SAT S3 Credentials</a></li>
+<li><a href="/docs-sat/en-24/#set-system-revision-information">Set System Revision Information</a></li>
+</ul>
+<p>Execute the <strong>NCN Personalization</strong> procedure:</p>
+<ul>
+<li><a href="/docs-sat/en-24/#perform-ncn-personalization">Perform NCN Personalization</a></li>
+</ul>
+<p>If performing an upgrade, execute the <strong>SAT Post-Upgrade</strong> procedures:</p>
+<ul>
+<li><a href="/docs-sat/en-24/#remove-obsolete-configuration-file-sections">Remove obsolete configuration file sections</a></li>
+<li><a href="/docs-sat/en-24/#sat-logging">SAT Logging</a></li>
+<li><a href="/docs-sat/en-24/#set-system-revision-information">Set System Revision Information</a></li>
+</ul>
+<p><strong>NOTE:</strong> The <strong>Set System Revision Information</strong> procedure is <strong>not required</strong>
+after upgrading from SAT 2.1 or later.</p>
+<h2 id="configure-sat">Configure SAT</h2>
+<h3 id="sat-authentication">SAT Authentication</h3>
+<p>Initially, as part of the installation and configuration, SAT authentication is set up so SAT commands can be used in
+later steps of the install process. The admin account used to authenticate with <code>sat auth</code> must be enabled in
+Keycloak and must have its <em>assigned role</em> set to <em>admin</em>. For instructions on editing <em>Role Mappings</em> see
+<em>Create Internal User Accounts in the Keycloak Shasta Realm</em> in the CSM product documentation.
+For additional information on SAT authentication, see <em>System Security and Authentication</em> in the CSM
+documentation.</p>
+<p><strong>NOTE:</strong> This procedure is only required after initially installing SAT. It is not
+required after upgrading SAT.</p>
+<h4 id="description-of-sat-command-authentication-types">Description of SAT Command Authentication Types</h4>
+<p>Some SAT subcommands make requests to the Shasta services through the API gateway and thus require authentication to
+the API gateway in order to function. Other SAT subcommands use the Kubernetes API. Some <code>sat</code> commands require S3 to
+be configured (see: <a href="/docs-sat/en-24/#generate-sat-s3-credentials">Generate SAT S3 Credentials</a>). In order to use the SAT S3 bucket,
+the System Administrator must generate the S3 access key and secret keys and write them to a local file. This must be
+done on every Kubernetes manager node where SAT commands are run.</p>
+<p>Below is a table describing SAT commands and the types of authentication they require.</p>
+<table>
+<thead>
+<tr>
+<th>SAT Subcommand</th>
+<th>Authentication/Credentials Required</th>
+<th>Man Page</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sat auth</code></td>
+<td>Responsible for authenticating to the API gateway and storing a token.</td>
+<td><code>sat-auth</code></td>
+<td>Authenticate to the API gateway and save the token.</td>
+</tr>
+<tr>
+<td><code>sat bmccreds</code></td>
+<td>Requires authentication to the API gateway.</td>
+<td><code>sat-bmccreds</code></td>
+<td>Set BMC passwords.</td>
+</tr>
+<tr>
+<td><code>sat bootprep</code></td>
+<td>Requires authentication to the API gateway. Requires Kubernetes configuration and authentication, which is done on <code>ncn-m001</code> during the install.</td>
+<td><code>sat-bootprep</code></td>
+<td>Prepare to boot nodes with images and configurations.</td>
+</tr>
+<tr>
+<td><code>sat bootsys</code></td>
+<td>Requires authentication to the API gateway. Requires Kubernetes configuration and authentication, which is configured on <code>ncn-m001</code> during the install. Some stages require passwordless SSH to be configured to all other NCNs. Requires S3 to be configured for some stages.</td>
+<td><code>sat-bootsys</code></td>
+<td>Boot or shutdown the system, including compute nodes, application nodes, and non-compute nodes (NCNs) running the management software.</td>
+</tr>
+<tr>
+<td><code>sat diag</code></td>
+<td>Requires authentication to the API gateway.</td>
+<td><code>sat-diag</code></td>
+<td>Launch diagnostics on the HSN switches and generate a report.</td>
+</tr>
+<tr>
+<td><code>sat firmware</code></td>
+<td>Requires authentication to the API gateway.</td>
+<td><code>sat-firmware</code></td>
+<td>Report firmware version.</td>
+</tr>
+<tr>
+<td><code>sat hwhist</code></td>
+<td>Requires authentication to the API gateway.</td>
+<td><code>sat-hwhist</code></td>
+<td>Report hardware component history.</td>
+</tr>
+<tr>
+<td><code>sat hwinv</code></td>
+<td>Requires authentication to the API gateway.</td>
+<td><code>sat-hwinv</code></td>
+<td>Give a listing of the hardware of the HPE Cray EX system.</td>
+</tr>
+<tr>
+<td><code>sat hwmatch</code></td>
+<td>Requires authentication to the API gateway.</td>
+<td><code>sat-hwmatch</code></td>
+<td>Report hardware mismatches.</td>
+</tr>
+<tr>
+<td><code>sat init</code></td>
+<td>None</td>
+<td><code>sat-init</code></td>
+<td>Create a default SAT configuration file.</td>
+</tr>
+<tr>
+<td><code>sat k8s</code></td>
+<td>Requires Kubernetes configuration and authentication, which is automatically configured on <code>ncn-m001</code> during the install.</td>
+<td><code>sat-k8s</code></td>
+<td>Report on Kubernetes replica sets that have co-located (on the same node) replicas.</td>
+</tr>
+<tr>
+<td><code>sat linkhealth</code></td>
+<td></td>
+<td></td>
+<td><strong>This command has been deprecated.</strong></td>
+</tr>
+<tr>
+<td><code>sat nid2xname</code></td>
+<td>Requires authentication to the API gateway.</td>
+<td><code>sat-nid2xname</code></td>
+<td>Translate node IDs to node XNames.</td>
+</tr>
+<tr>
+<td><code>sat sensors</code></td>
+<td>Requires authentication to the API gateway.</td>
+<td><code>sat-sensors</code></td>
+<td>Report current sensor data.</td>
+</tr>
+<tr>
+<td><code>sat setrev</code></td>
+<td>Requires S3 to be configured for site information such as system name, serial number, install date, and site name.</td>
+<td><code>sat-setrev</code></td>
+<td>Set HPE Cray EX system revision information.</td>
+</tr>
+<tr>
+<td><code>sat showrev</code></td>
+<td>Requires API gateway authentication in order to query the Interconnect from HSM. Requires S3 to be configured for site information such as system name, serial number, install date, and site name.</td>
+<td><code>sat-showrev</code></td>
+<td>Print revision information for the HPE Cray EX system.</td>
+</tr>
+<tr>
+<td><code>sat slscheck</code></td>
+<td>Requires authentication to the API gateway.</td>
+<td><code>sat-slscheck</code></td>
+<td>Perform a cross-check between SLS and HSM.</td>
+</tr>
+<tr>
+<td><code>sat status</code></td>
+<td>Requires authentication to the API gateway.</td>
+<td><code>sat-status</code></td>
+<td>Report node status across the HPE Cray EX system.</td>
+</tr>
+<tr>
+<td><code>sat swap</code></td>
+<td>Requires authentication to the API gateway.</td>
+<td><code>sat-swap</code></td>
+<td>Prepare HSN switch or cable for replacement and bring HSN switch or cable into service.</td>
+</tr>
+<tr>
+<td><code>sat xname2nid</code></td>
+<td>Requires authentication to the API gateway.</td>
+<td><code>sat-xname2nid</code></td>
+<td>Translate node and node BMC XNames to node IDs.</td>
+</tr>
+<tr>
+<td><code>sat switch</code></td>
+<td><strong>This command has been deprecated.</strong> It has been replaced by <code>sat swap</code>.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>In order to authenticate to the API gateway, you must run the <code>sat auth</code> command. This command will prompt for a password
+on the command line. The username value is obtained from the following locations, in order of higher precedence to lower
+precedence:</p>
+<ul>
+<li>The <code>--username</code> global command-line option.</li>
+<li>The <code>username</code> option in the <code>api_gateway</code> section of the config file at <code>~/.config/sat/sat.toml</code>.</li>
+<li>The name of currently logged in user running the <code>sat</code> command.</li>
+</ul>
+<p>If credentials are entered correctly when prompted by <code>sat auth</code>, a token file will be obtained and saved to
+<code>~/.config/sat/tokens</code>. Subsequent sat commands will determine the username the same way as <code>sat auth</code> described above,
+and will use the token for that username if it has been obtained and saved by <code>sat auth</code>.</p>
+<h4 id="prerequisites-1">Prerequisites</h4>
+<ul>
+<li>The <code>sat</code> CLI has been installed following <a href="/docs-sat/en-24/#install-the-system-admin-toolkit-product-stream">Install The System Admin Toolkit Product Stream</a>.</li>
+</ul>
+<h4 id="procedure">Procedure</h4>
+<p>The following is the procedure to globally configure the username used by SAT and authenticate to the API gateway:</p>
+<ol>
+<li>
+<p>Generate a default SAT configuration file, if one does not exist.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# sat init
+Configuration file &#34;/root/.config/sat/sat.toml&#34; generated.
+</code></pre><p><strong>Note:</strong> If the config file already exists, it will print out an error:</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ERROR: Configuration file &#34;/root/.config/sat/sat.toml&#34; already exists.
+Not generating configuration file.
+</code></pre></li>
+<li>
+<p>Edit <code>~/.config/sat/sat.toml</code> and set the username option in the <code>api_gateway</code> section of the config file. For
+example:</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">username = &#34;crayadmin&#34;
+</code></pre></li>
+<li>
+<p>Run <code>sat auth</code>. Enter your password when prompted. For example:</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# sat auth
+Password for crayadmin:
+Succeeded!
+</code></pre></li>
+<li>
+<p>Other <code>sat</code> commands are now authenticated to make requests to the API gateway. For example:</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# sat status
+</code></pre></li>
+</ol>
+<h3 id="generate-sat-s3-credentials">Generate SAT S3 Credentials</h3>
+<p>Generate S3 credentials and write them to a local file so the SAT user can access S3 storage. In order to use the SAT
+S3 bucket, the System Administrator must generate the S3 access key and secret keys and write them to a local file.
+This must be done on every Kubernetes master node where SAT commands are run.</p>
+<p>SAT uses S3 storage for several purposes, most importantly to store the site-specific information set with <code>sat setrev</code>
+(see: <a href="/docs-sat/en-24/#set-system-revision-information">Set System Revision Information</a>).</p>
+<p><strong>NOTE:</strong> This procedure is only required after initially installing SAT. It is not
+required after upgrading SAT.</p>
+<h4 id="prerequisites-2">Prerequisites</h4>
+<ul>
+<li>The SAT CLI has been installed following <a href="/docs-sat/en-24/#install-the-system-admin-toolkit-product-stream">Install The System Admin Toolkit Product Stream</a></li>
+<li>The SAT configuration file has been created (See <a href="/docs-sat/en-24/#sat-authentication">SAT Authentication</a>).</li>
+<li>CSM has been installed and verified.</li>
+</ul>
+<h4 id="procedure-1">Procedure</h4>
+<ol>
+<li>
+<p>Ensure the files are readable only by <code>root</code>.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# touch /root/.config/sat/s3_access_key \
+    /root/.config/sat/s3_secret_key
+</code></pre><pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# chmod 600 /root/.config/sat/s3_access_key \
+    /root/.config/sat/s3_secret_key
+</code></pre></li>
+<li>
+<p>Write the credentials to local files using <code>kubectl</code>.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# kubectl get secret sat-s3-credentials -o json -o \
+    jsonpath=&#39;{.data.access_key}&#39; | base64 -d &gt; \
+    /root/.config/sat/s3_access_key
+</code></pre><pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# kubectl get secret sat-s3-credentials -o json -o \
+    jsonpath=&#39;{.data.secret_key}&#39; | base64 -d &gt; \
+    /root/.config/sat/s3_secret_key
+</code></pre></li>
+<li>
+<p>Verify the S3 endpoint specified in the SAT configuration file is correct.</p>
+<ol>
+<li>
+<p>Get the SAT configuration file&rsquo;s endpoint value.</p>
+<p><strong>NOTE:</strong> If the command&rsquo;s output is commented out, indicated by an initial <code>#</code>
+character, the SAT configuration will take the default value – <code>&quot;https://rgw-vip.nmn&quot;</code>.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# grep endpoint ~/.config/sat/sat.toml
+# endpoint = &#34;https://rgw-vip.nmn&#34;
+</code></pre></li>
+<li>
+<p>Get the <code>sat-s3-credentials</code> secret&rsquo;s endpoint value.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# kubectl get secret sat-s3-credentials -o json -o \
+    jsonpath=&#39;{.data.s3_endpoint}&#39; | base64 -d | xargs
+https://rgw-vip.nmn
+</code></pre></li>
+<li>
+<p>Compare the two endpoint values.</p>
+<p>If the values differ, change the SAT configuration file&rsquo;s endpoint value to match the secret&rsquo;s.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Copy SAT configurations to each manager node on the system.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# for i in ncn-m002 ncn-m003; do echo $i; ssh ${i} \
+    mkdir -p /root/.config/sat; \
+    scp -pr /root/.config/sat ${i}:/root/.config; done
+</code></pre><p><strong>NOTE</strong>: Depending on how many manager nodes are on the system, the list of manager nodes may
+be different. This example assumes three manager nodes, where the configuration files must be
+copied from <code>ncn-m001</code> to <code>ncn-m002</code> and <code>ncn-m003</code>. Therefore, the list of hosts above is
+<code>ncn-m002</code> and <code>ncn-m003</code>.</p>
+</li>
+</ol>
+<h3 id="set-system-revision-information">Set System Revision Information</h3>
+<p>HPE service representatives use system revision information data to identify
+systems in support cases.</p>
+<h4 id="prerequisites-3">Prerequisites</h4>
+<ul>
+<li>SAT authentication has been set up. See <a href="/docs-sat/en-24/#sat-authentication">SAT Authentication</a>.</li>
+<li>S3 credentials have been generated. See <a href="/docs-sat/en-24/#generate-sat-s3-credentials">Generate SAT S3 Credentials</a>.</li>
+</ul>
+<h4 id="notes-on-the-procedure">Notes on the Procedure</h4>
+<ul>
+<li>This procedure <strong>is required</strong> after a fresh install of SAT.</li>
+<li>After an upgrade of SAT, this procedure is <strong>not required</strong> if SAT was upgraded
+from 2.1 (Shasta v1.5) or later. It <strong>is required</strong> if SAT was upgraded from
+2.0 (Shasta v1.4) or earlier.</li>
+</ul>
+<h4 id="procedure-2">Procedure</h4>
+<ol>
+<li>
+<p>Set System Revision Information.</p>
+<p>Run <code>sat setrev</code> and follow the prompts to set the following site-specific values:</p>
+<ul>
+<li>Serial number</li>
+<li>System name</li>
+<li>System type</li>
+<li>System description</li>
+<li>Product number</li>
+<li>Company name</li>
+<li>Site name</li>
+<li>Country code</li>
+<li>System install date</li>
+</ul>
+<p><strong>TIP</strong>: For &ldquo;System type&rdquo;, a system with <em>any</em> liquid-cooled components should be
+considered a liquid-cooled system. In other words, &ldquo;System type&rdquo; is EX-1C.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# sat setrev
+--------------------------------------------------------------------------------
+Setting:        Serial number
+Purpose:        System identification. This will affect how snapshots are
+                identified in the HPE backend services.
+Description:    This is the top-level serial number which uniquely identifies
+                the system. It can be requested from an HPE representative.
+Valid values:   Alpha-numeric string, 4 - 20 characters.
+Type:           &lt;class &#39;str&#39;&gt;
+Default:        None
+Current value:  None
+--------------------------------------------------------------------------------
+Please do one of the following to set the value of the above setting:
+    - Input a new value
+    - Press CTRL-C to exit
+...
+</code></pre></li>
+<li>
+<p>Verify System Revision Information.</p>
+<p>Run <code>sat showrev</code> and verify the output shown in the &ldquo;System Revision Information table.&rdquo;</p>
+<p>The following example shows sample table output.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# sat showrev
+################################################################################
+System Revision Information
+################################################################################
++---------------------+---------------+
+| component           | data          |
++---------------------+---------------+
+| Company name        | HPE           |
+| Country code        | US            |
+| Interconnect        | Sling         |
+| Product number      | R4K98A        |
+| Serial number       | 12345         |
+| Site name           | HPE           |
+| Slurm version       | slurm 20.02.5 |
+| System description  | Test System   |
+| System install date | 2021-01-29    |
+| System name         | eniac         |
+| System type         | EX-1C         |
++---------------------+---------------+
+################################################################################
+Product Revision Information
+################################################################################
++--------------+-----------------+------------------------------+------------------------------+
+| product_name | product_version | images                       | image_recipes                |
++--------------+-----------------+------------------------------+------------------------------+
+| csm          | 0.8.14          | cray-shasta-csm-sles15sp1... | cray-shasta-csm-sles15sp1... |
+| sat          | 2.0.1           | -                            | -                            |
+| sdu          | 1.0.8           | -                            | -                            |
+| slingshot    | 0.8.0           | -                            | -                            |
+| sma          | 1.4.12          | -                            | -                            |
++--------------+-----------------+------------------------------+------------------------------+
+################################################################################
+Local Host Operating System
+################################################################################
++-----------+----------------------+
+| component | version              |
++-----------+----------------------+
+| Kernel    | 5.3.18-24.15-default |
+| SLES      | SLES 15-SP2          |
++-----------+----------------------+
+</code></pre></li>
+</ol>
+<h2 id="perform-ncn-personalization">Perform NCN Personalization</h2>
+<p>A new CFS configuration layer must be added to the CFS configuration used on
+management NCNs. It is required following SAT installation and configuration.
+This procedure describes how to add that layer.</p>
+<h3 id="prerequisites-4">Prerequisites</h3>
+<ul>
+<li>The <a href="/docs-sat/en-24/#install-the-system-admin-toolkit-product-stream">Install the System Admin Toolkit Product Stream</a>
+procedure has been successfully completed.</li>
+<li>If performing a fresh install, the <a href="/docs-sat/en-24/#configure-sat"><strong>Configure SAT</strong></a> procedures have been
+successfully completed.</li>
+</ul>
+<h3 id="notes-on-the-procedure-1">Notes on the Procedure</h3>
+<ul>
+<li>Ellipses (<code>...</code>) in shell output indicate omitted lines.</li>
+<li>In the examples below, replace <code>x.y.z</code> with the version of the SAT product stream
+being installed.</li>
+<li>&lsquo;manager&rsquo; and &lsquo;master&rsquo; are used interchangeably in the steps below.</li>
+<li>If upgrading SAT, the existing configuration will likely include other Cray EX product
+entries. Update the SAT entry as described in this procedure. The <a href="https://www.hpe.com/support/ex-S-8000"><em>HPE Cray EX System
+Software Getting Started Guide (S-8000)</em></a>
+provides guidance on how and when to update the entries for the other products.</li>
+</ul>
+<h3 id="pre-ncn-personalization-procedure">Pre-NCN-Personalization Procedure</h3>
+<ol>
+<li>
+<p>Start a typescript if not already using one, and set the shell prompt.</p>
+<p>The typescript will record the commands and the output from this installation.
+The prompt is set to include the date and time.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# script -af product-sat.$(date +%Y-%m-%d).txt
+ncn-m001# export PS1=&#39;\u@\H \D{%Y-%m-%d} \t \w # &#39;
+</code></pre></li>
+</ol>
+<h3 id="procedure-to-update-cfs-configuration">Procedure to Update CFS Configuration</h3>
+<p>The SAT release distribution includes a script, <code>update-mgmt-ncn-cfs-config.sh</code>,
+that updates a CFS configuration to include the SAT layer required to
+install and configure SAT on the management NCNs.</p>
+<p>The script supports modifying a named CFS configuration in CFS, a CFS
+configuration defined in a JSON file, or the CFS configuration
+currently applied to particular components in CFS.</p>
+<p>The script also includes options for specifying:</p>
+<ul>
+<li>how the modified CFS configuration should be saved.</li>
+<li>the git commit hash or branch specified in the SAT layer.</li>
+</ul>
+<p>This procedure is split into three alternatives, which cover common use cases:</p>
+<ul>
+<li><a href="/docs-sat/en-24/#update-active-cfs-configuration">Update Active CFS Configuration</a></li>
+<li><a href="/docs-sat/en-24/#update-cfs-configuration-in-a-json-file">Update CFS Configuration in a JSON File</a></li>
+<li><a href="/docs-sat/en-24/#update-existing-cfs-configuration-by-name">Update Existing CFS Configuration by Name</a></li>
+</ul>
+<p>If none of these alternatives fit your use case, see <a href="/docs-sat/en-24/#advanced-options-for-updating-cfs-configurations">Advanced Options for
+Updating CFS Configurations</a>.</p>
+<h4 id="update-active-cfs-configuration">Update Active CFS Configuration</h4>
+<p>Use this alternative if there is already a CFS configuration assigned to the
+management NCNs and you would like to update it in place for the new version of
+SAT.</p>
+<ol>
+<li>
+<p>Run the script with the following options:</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# ./update-mgmt-ncn-cfs-config.sh --base-query role=Management,type=Node --save
+</code></pre></li>
+<li>
+<p>Examine the output to ensure the CFS configuration was updated.</p>
+<p>For example, if there is a single CFS configuration that applies to NCNs, and if
+that configuration does not have a layer yet for any version of SAT, the
+output will look like this:</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">====&gt; Updating CFS configuration(s)
+INFO: Querying CFS configurations for the following NCNs: x3000c0s1b0n0, ..., x3000c0s9b0n0
+INFO: Found configuration &#34;ncn-personalization&#34; for component x3000c0s1b0n0
+...
+INFO: Found configuration &#34;ncn-personalization&#34; for component x3000c0s9b0n0
+...
+INFO: No layer with repo path /vcs/cray/sat-config-management.git and playbook sat-ncn.yml found.
+INFO: Adding a layer with repo path /vcs/cray/sat-config-management.git and playbook sat-ncn.yml to the end.
+INFO: Successfully saved CFS configuration &#34;ncn-personalization&#34;
+INFO: Successfully saved 1 changed CFS configurations.
+====&gt; Completed CFS configuration(s)
+====&gt; Cleaning up install dependencies
+</code></pre><p>Alternatively, if the CFS configuration already contains a layer for
+SAT that just needs to be updated, the output will look like this:</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">====&gt; Updating CFS configuration(s)
+INFO: Querying CFS configurations for the following NCNs: x3000c0s1b0n0, ..., x3000c0s9b0n0
+INFO: Found configuration &#34;ncn-personalization&#34; for component x3000c0s1b0n0
+...
+INFO: Found configuration &#34;ncn-personalization&#34; for component x3000c0s9b0n0
+...
+INFO: Updating existing layer with repo path /vcs/cray/sat-config-management.git and playbook sat-ncn.yml
+INFO: Property &#34;commit&#34; of layer with repo path /vcs/cray/sat-config-management.git and playbook sat-ncn.yml updated from 01ae28c92b9b4740e9e0e01ae01216c6c2d89a65 to bcbd6db0803cc4137c7558df9546b0faab303cbd
+INFO: Property &#34;name&#34; of layer with repo path /vcs/cray/sat-config-management.git and playbook sat-ncn.yml updated from sat-2.2.16 to sat-sat-ncn-bcbd6db-20220608T170152
+INFO: Successfully saved CFS configuration &#34;ncn-personalization&#34;
+INFO: Successfully saved 1 changed CFS configurations.
+====&gt; Completed CFS configuration(s)
+====&gt; Cleaning up install dependencies
+</code></pre></li>
+</ol>
+<h4 id="update-cfs-configuration-in-a-json-file">Update CFS Configuration in a JSON File</h4>
+<p>Use this alternative if you are constructing a new CFS configuration for
+management NCNs in a JSON file.</p>
+<ol>
+<li>
+<p>Run the script with the following options, where <code>JSON_FILE</code> is an
+environment variable set to the path of the JSON file to modify:</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# ./update-mgmt-ncn-cfs-config.sh --base-file $JSON_FILE --save
+</code></pre></li>
+<li>
+<p>Examine the output to ensure the JSON file was updated.</p>
+<p>For example, if the configuration defined in the JSON file does not have a layer yet for any
+version of SAT, the output will look like this:</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">====&gt; Updating CFS configuration(s)
+INFO: No layer with repo path /vcs/cray/sat-config-management.git and playbook sat-ncn.yml found.
+INFO: Adding a layer with repo path /vcs/cray/sat-config-management.git and playbook sat-ncn.yml to the end.
+INFO: Successfully saved 1 changed CFS configurations.
+====&gt; Completed CFS configuration(s)
+====&gt; Cleaning up install dependencies
+</code></pre></li>
+</ol>
+<h4 id="update-existing-cfs-configuration-by-name">Update Existing CFS Configuration by Name</h4>
+<p>Use this alternative if you are updating a specific named CFS configuration.
+This may be the case if you are constructing a new CFS configuration during an
+install or upgrade of multiple products.</p>
+<ol>
+<li>
+<p>Run the script with the following options, where <code>CFS_CONFIG_NAME</code> is an
+environment variable set to the name of the CFS configuration to update.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# ./update-mgmt-ncn-cfs-config.sh --base-config $CFS_CONFIG_NAME --save
+</code></pre></li>
+<li>
+<p>Examine the output to ensure the CFS configuration was updated.</p>
+<p>For example, if the CFS configuration does not have a layer yet for any version of SAT,
+the output will look like this:</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">====&gt; Updating CFS configuration(s)
+INFO: No layer with repo path /vcs/cray/sat-config-management.git and playbook sat-ncn.yml found.
+INFO: Adding a layer with repo path /vcs/cray/sat-config-management.git and playbook sat-ncn.yml to the end.
+INFO: Successfully saved CFS configuration &#34;CFS_CONFIG_NAME&#34;
+INFO: Successfully saved 1 changed CFS configurations.
+====&gt; Completed CFS configuration(s)
+====&gt; Cleaning up install dependencies
+</code></pre></li>
+</ol>
+<h4 id="advanced-options-for-updating-cfs-configurations">Advanced Options for Updating CFS Configurations</h4>
+<p>If none of the alternatives described in the previous sections apply, view the
+full description of the options accepted by the <code>update-mgmt-ncn-cfs-config.sh</code>
+script by invoking it with the <code>--help</code> option.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# ./update-mgmt-ncn-cfs-config.sh --help
+</code></pre><h3 id="procedure-to-apply-cfs-configuration">Procedure to Apply CFS Configuration</h3>
+<p>After the CFS configuration that applies to management NCNs has been updated as
+described in the <a href="/docs-sat/en-24/#procedure-to-update-cfs-configuration">Procedure to Update CFS Configuration</a>,
+execute the following steps to ensure the modified CFS configuration is re-applied to the management NCNs.</p>
+<ol>
+<li>
+<p>Set an environment variable that refers to the name of the CFS configuration
+to be applied to the management NCNs.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# export CFS_CONFIG_NAME=&#34;ncn-personalization&#34;
+</code></pre><p>Note: If the <a href="/docs-sat/en-24/#update-active-cfs-configuration">Update Active CFS Configuration</a>
+section was followed above, the name of the updated CFS configuration will
+have been logged in the following format. If multiple CFS configurations
+were modified, any one of them can be used in this procedure.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">INFO: Successfully saved CFS configuration &#34;ncn-personalization&#34;
+</code></pre></li>
+<li>
+<p>Obtain the name of the CFS configuration layer for SAT and save it in an
+environment variable:</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# export SAT_LAYER_NAME=$(cray cfs configurations describe $CFS_CONFIG_NAME --format json \
+    | jq -r &#39;.layers | map(select(.cloneUrl | contains(&#34;sat-config-management.git&#34;)))[0].name&#39;)
+</code></pre></li>
+<li>
+<p>Create a CFS session that executes only the SAT layer of the given CFS
+configuration.</p>
+<p>The <code>--configuration-limit</code> option limits the configuration session to run
+only the SAT layer of the configuration.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# cray cfs sessions create --name &#34;sat-session-${CFS_CONFIG_NAME}&#34; --configuration-name \
+    &#34;${CFS_CONFIG_NAME}&#34; --configuration-limit &#34;${SAT_LAYER_NAME}&#34;
+</code></pre></li>
+<li>
+<p>Monitor the progress of the CFS session.</p>
+<p>Set an environment variable to name of the Ansible container within the pod
+for the CFS session:</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# export ANSIBLE_CONTAINER=$(kubectl get pod -n services \
+    --selector=cfsession=sat-session-${CFS_CONFIG_NAME} -o json \
+    -o json | jq -r &#39;.items[0].spec.containers | map(select(.name | contains(&#34;ansible&#34;))) | .[0].name&#39;)
+</code></pre><p>Next, get the logs for the Ansible container.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# kubectl logs -c $ANSIBLE_CONTAINER --tail 100 -f -n services \
+    --selector=cfsession=sat-session-${CFS_CONFIG_NAME}
+</code></pre><p>Ansible plays, which are run by the CFS session, will install SAT on all the
+master management NCNs on the system. A summary of results can be found at
+the end of the log output. The following example shows a successful session.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">...
+PLAY RECAP *********************************************************************
+x3000c0s1b0n0              : ok=3    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+x3000c0s3b0n0              : ok=3    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+x3000c0s5b0n0              : ok=3    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+</code></pre><p><strong>NOTE:</strong> Ensure that the PLAY RECAPs for each session show successes for all
+manager NCNs before proceeding.</p>
+</li>
+<li>
+<p>Verify that SAT was successfully configured.</p>
+<p>If <code>sat</code> is configured, the <code>--version</code> command will indicate which version
+is installed. If <code>sat</code> is not properly configured, the command will fail.</p>
+<p><strong>NOTE:</strong> This version number will differ from the version number of the SAT
+release distribution. This is the semantic version of the <code>sat</code> Python package,
+which is different from the version number of the overall SAT release distribution.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# sat --version
+sat 3.7.0
+</code></pre><p><strong>NOTE</strong>: Upon first running <code>sat</code>, you may see additional output while the <code>sat</code>
+container image is downloaded. This will occur the first time <code>sat</code> is run on
+each manager NCN. For example, if you run <code>sat</code> for the first time on <code>ncn-m001</code>
+and then for the first time on <code>ncn-m002</code>, you will see this additional output
+both times.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">Trying to pull registry.local/cray/cray-sat:3.7.0-20210514024359_9fed037...
+Getting image source signatures
+Copying blob da64e8df3afc done
+Copying blob 0f36fd81d583 done
+Copying blob 12527cf455ba done
+...
+sat 3.7.0
+</code></pre></li>
+<li>
+<p>Stop the typescript.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# exit
+</code></pre></li>
+</ol>
+<p>SAT version <code>x.y.z</code> is now installed and configured:</p>
+<ul>
+<li>The SAT RPM package is installed on the associated NCNs.</li>
+</ul>
+<h4 id="note-on-procedure-to-apply-cfs-configuration">Note on Procedure to Apply CFS Configuration</h4>
+<p>The previous procedure is not always necessary because the CFS Batcher service
+automatically detects configuration changes and will automatically create new
+sessions to apply configuration changes according to certain rules. For more
+information on these rules, refer to <strong>Configuration Management with
+the CFS Batcher</strong> in the <a href="https://cray-hpe.github.io/docs-csm/"><em>Cray System Management Documentation</em></a>.</p>
+<p>The main scenario in which the CFS batcher will not automatically re-apply the
+SAT layer is when the commit hash of the sat-config-management git repository
+has not changed between SAT versions. The previous procedure ensures the
+configuration is re-applied in all cases, and it is harmless if the batcher has
+already applied an updated configuration.</p>
+<h3 id="next-steps-1">Next Steps</h3>
+<p>At this point, the release distribution files can be removed from the system as
+described in <a href="/docs-sat/en-24/#post-installation-cleanup-procedure">Post-Installation Cleanup Procedure</a>.</p>
+<p>If other HPE Cray EX software products are being installed or upgraded in conjunction
+with SAT, refer to the <a href="https://www.hpe.com/support/ex-S-8000"><em>HPE Cray EX System Software Getting Started Guide
+(S-8000)</em></a> to determine which step
+to execute next.</p>
+<p>If no other HPE Cray EX software products are being installed at this time,
+the installation process is complete. If no other HPE Cray EX software products
+are being upgraded at this time, proceed to the remaining <strong>SAT Post-Upgrade</strong>
+procedures:</p>
+<ul>
+<li><a href="/docs-sat/en-24/#remove-obsolete-configuration-file-sections">Remove obsolete configuration file sections</a></li>
+<li><a href="/docs-sat/en-24/#sat-logging">SAT Logging</a></li>
+<li><a href="/docs-sat/en-24/#set-system-revision-information">Set System Revision Information</a></li>
+</ul>
+<p><strong>NOTE:</strong> The <strong>Set System Revision Information</strong> procedure is <strong>not required</strong> after upgrading from SAT 2.1 or later.</p>
+<h3 id="post-installation-cleanup-procedure">Post-Installation Cleanup Procedure</h3>
+<ol>
+<li>
+<p><strong>Optional:</strong> Remove the SAT release distribution tar file and extracted directory.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# rm sat-x.y.z.tar.gz
+ncn-m001# rm -rf sat-x.y.z/
+</code></pre></li>
+</ol>
+<h2 id="sat-post-upgrade">SAT Post-Upgrade</h2>
+<h3 id="remove-obsolete-configuration-file-sections">Remove Obsolete Configuration File Sections</h3>
+<h4 id="prerequisites-5">Prerequisites</h4>
+<ul>
+<li>The <a href="/docs-sat/en-24/#install-the-system-admin-toolkit-product-stream">Install the System Admin Toolkit Product Stream</a>
+procedure has been successfully completed.</li>
+<li>The <a href="/docs-sat/en-24/#perform-ncn-personalization">Perform NCN Personalization</a> procedure has been successfully completed.</li>
+</ul>
+<h4 id="procedure-3">Procedure</h4>
+<p>After upgrading SAT, if using the configuration file from a previous version, there may be
+configuration file sections no longer used in the new version. For example, when upgrading
+from Shasta 1.4 to Shasta 1.5, the <code>[redfish]</code> configuration file section is no longer used.
+In that case, the following warning may appear upon running <code>sat</code> commands.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">WARNING: Ignoring unknown section &#39;redfish&#39; in config file.
+</code></pre><p>Remove the <code>[redfish]</code> section from <code>/root/.config/sat/sat.toml</code> to resolve the warning.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">[redfish]
+username = &#34;admin&#34;
+password = &#34;adminpass&#34;
+</code></pre><p>Repeat this process for any configuration file sections for which there are &ldquo;unknown section&rdquo; warnings.</p>
+<h3 id="sat-logging">SAT Logging</h3>
+<p>As of SAT version 2.2, some command output that was previously printed to <code>stdout</code>
+is now logged to <code>stderr</code>. These messages are logged at the <code>INFO</code> level. The
+default logging threshold was changed from <code>WARNING</code> to <code>INFO</code> to accommodate
+this logging change. Additionally, some messages previously logged at the <code>INFO</code>
+are now logged at the <code>DEBUG</code> level.</p>
+<p>These changes take effect automatically. However, if the default output threshold
+has been manually set in <code>~/.config/sat/sat.toml</code>, it should be changed to ensure
+that important output is shown in the terminal.</p>
+<h4 id="update-configuration">Update Configuration</h4>
+<p>In the following example, the <code>stderr</code> log level, <code>logging.stderr_level</code>, is set to
+<code>WARNING</code>, which will exclude <code>INFO</code>-level logging from terminal output.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001:~ # grep -A 3 logging ~/.config/sat/sat.toml
+[logging]
+...
+stderr_level = &#34;WARNING&#34;
+</code></pre><p>To enable the new default behavior, comment this line out, delete it, or set
+the value to &ldquo;INFO&rdquo;.</p>
+<p>If <code>logging.stderr_level</code> is commented out, its value will not affect logging
+behavior. However, it may be helpful set its value to <code>INFO</code> as a reminder of
+the new default behavior.</p>
+<h4 id="affected-commands">Affected Commands</h4>
+<p>The following commands trigger messages that have been changed from <code>stdout</code>
+print calls to <code>INFO</code>-level (or <code>WARNING</code>- or <code>ERROR</code>-level) log messages:</p>
+<ul>
+<li><code>sat bootsys --stage shutdown --stage session-checks</code></li>
+<li><code>sat sensors</code></li>
+</ul>
+<p>The following commands trigger messages that have been changed from <code>INFO</code>-level
+log messages to <code>DEBUG</code>-level log messages:</p>
+<ul>
+<li><code>sat nid2xname</code></li>
+<li><code>sat xname2nid</code></li>
+<li><code>sat swap</code></li>
+</ul>
+<h2 id="sat-uninstall-and-downgrade">SAT Uninstall and Downgrade</h2>
+<h3 id="uninstall-removing-a-version-of-sat">Uninstall: Removing a Version of SAT</h3>
+<p>This procedure can be used to uninstall a version of SAT.</p>
+<h4 id="prerequisites-6">Prerequisites</h4>
+<ul>
+<li>Only versions 2.2 or newer of SAT can be uninstalled with <code>prodmgr</code>.</li>
+<li>CSM version 1.2 or newer must be installed, so that the <code>prodmgr</code> command is available.</li>
+</ul>
+<h4 id="procedure-4">Procedure</h4>
+<ol>
+<li>
+<p>Use <code>sat showrev</code> to list versions of SAT.</p>
+<p><strong>NOTE</strong>: It is not recommended to uninstall a version designated as &ldquo;active&rdquo;.
+If the active version is uninstalled, then the activate procedure must be executed
+on a remaining version.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# sat showrev --products --filter product_name=sat
+###############################################################################
+Product Revision Information
+###############################################################################
++--------------+-----------------+--------+-------------------+-----------------------+
+| product_name | product_version | active | images            | image_recipes         |
++--------------+-----------------+--------+-------------------+-----------------------+
+| sat          | 2.3.3           | True   | -                 | -                     |
+| sat          | 2.2.10          | False  | -                 | -                     |
++--------------+-----------------+--------+-------------------+-----------------------+
+</code></pre></li>
+<li>
+<p>Use <code>prodmgr</code> to uninstall a version of SAT.</p>
+<p>This command will do three things:</p>
+<ul>
+<li>Remove all hosted-type package repositories associated with the given version of SAT. Group-type
+repositories are not removed.</li>
+<li>Remove all container images associated with the given version of SAT.</li>
+<li>Remove SAT from the <code>cray-product-catalog</code> Kubernetes ConfigMap, so that it will no longer show up
+in the output of <code>sat showrev</code>.</li>
+</ul>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# prodmgr uninstall sat 2.2.10
+Repository sat-2.2.10-sle-15sp2 has been removed.
+Removed Docker image cray/cray-sat:3.9.0
+Removed Docker image cray/sat-cfs-install:1.0.2
+Removed Docker image cray/sat-install-utility:1.4.0
+Deleted sat-2.2.10 from product catalog.
+</code></pre></li>
+</ol>
+<h3 id="activate-switching-between-versions">Activate: Switching Between Versions</h3>
+<p>This procedure can be used to downgrade the active version of SAT.</p>
+<h4 id="prerequisites-7">Prerequisites</h4>
+<ul>
+<li>Only versions 2.2 or newer of SAT can be activated. Older versions must be activated manually.</li>
+<li>CSM version 1.2 or newer must be installed, so that the <code>prodmgr</code> command is available.</li>
+</ul>
+<h4 id="procedure-5">Procedure</h4>
+<ol>
+<li>
+<p>Use <code>sat showrev</code> to list versions of SAT.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# sat showrev --products --filter product_name=sat
+###############################################################################
+Product Revision Information
+###############################################################################
++--------------+-----------------+--------+--------------------+-----------------------+
+| product_name | product_version | active | images             | image_recipes         |
++--------------+-----------------+--------+--------------------+-----------------------+
+| sat          | 2.3.3           | True   | -                  | -                     |
+| sat          | 2.2.10          | False  | -                  | -                     |
++--------------+-----------------+--------+--------------------+-----------------------+
+</code></pre></li>
+<li>
+<p>Use <code>prodmgr</code> to activate a different version of SAT.</p>
+<p>This command will do three things:</p>
+<ul>
+<li>For all hosted-type package repositories associated with this version of SAT, set them as the sole member
+of their corresponding group-type repository. For example, activating SAT version <code>2.2.10</code>
+sets the repository <code>sat-2.2.10-sle-15sp2</code> as the only member of the <code>sat-sle-15sp2</code> group.</li>
+<li>Set the version <code>2.2.10</code> as active within the product catalog, so that it appears active in the output of
+<code>sat showrev</code>.</li>
+<li>Ensure that the SAT CFS configuration content exists as a layer in all CFS configurations that are
+associated with NCNs with the role &ldquo;Management&rdquo; and subrole &ldquo;Master&rdquo; (for example, the CFS configuration
+<code>ncn-personalization</code>). Specifically, it will ensure that the layer refers to the version of SAT CFS
+configuration content associated with the version of SAT being activated.</li>
+</ul>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# prodmgr activate sat 2.2.10
+Repository sat-2.2.10-sle-15sp2 is now the default in sat-sle-15sp2.
+Set sat-2.2.10 as active in product catalog.
+Updated CFS configurations: [ncn-personalization]
+</code></pre></li>
+<li>
+<p>Verify that the chosen version is marked as active.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# sat showrev --products --filter product_name=sat
+###############################################################################
+Product Revision Information
+###############################################################################
++--------------+-----------------+--------+--------------------+-----------------------+
+| product_name | product_version | active | images             | image_recipes         |
++--------------+-----------------+--------+--------------------+-----------------------+
+| sat          | 2.3.3           | False  | -                  | -                     |
+| sat          | 2.2.10          | True   | -                  | -                     |
++--------------+-----------------+--------+--------------------+-----------------------+
+</code></pre></li>
+<li>
+<p>Apply the modified CFS configuration to the management NCNs.</p>
+<p>At this point, Nexus package repositories have been modified to set a
+particular package repository as active, but the SAT package may not have
+been updated on management NCNs.</p>
+<p>To ensure that management NCNs have been updated to use the active SAT
+version, follow the <a href="/docs-sat/en-24/#procedure-to-apply-cfs-configuration">Procedure to Apply CFS Configuration</a>.
+Refer to the output from the <code>prodmgr activate</code> command to find the name of
+the modified CFS configuration. If more than one CFS configuration was
+modified, use the first one.</p>
+</li>
+</ol>
+<h2 id="optional-installing-and-configuring-sat-on-an-external-system">Optional: Installing and Configuring SAT on an External System</h2>
+<p>SAT can optionally be installed and configured on an external system to interact with CSM over the CAN.</p>
+<h3 id="limitations">Limitations</h3>
+<p>Most SAT subcommands work by accessing APIs which are reachable via the CAN. However, certain SAT commands depend on
+host-based functionality on the management NCNs and will not work from an external system. This includes the following:</p>
+<ul>
+<li>The <code>platform-services</code> and <code>ncn-power</code> stages of <code>sat bootsys</code></li>
+<li>The local host information displayed by the <code>--local</code> option of <code>sat showrev</code></li>
+</ul>
+<p>Installing SAT on an external system is not an officially supported configuration. These instructions are provided
+&ldquo;as-is&rdquo; with the hope that they can useful for users who desire additional flexibility.</p>
+<p>Certain additional steps may need to be taken to install and configure SAT depending on the configuration of the
+external system in use. These additional steps may include provisioning virtual machines, installing packages, or
+configuring TLS certificates, and these steps are outside the scope of this documentation. This section covers only the
+steps needed to configure SAT to use externally-accessible API endpoints exposed by CSM.</p>
+<h3 id="prerequisites-8">Prerequisites</h3>
+<ul>
+<li>The external system must be on the Customer Access Network (CAN).</li>
+<li>Python 3.7 or newer is installed on the system.</li>
+<li><code>kubectl</code>, <code>openssh</code>, <code>git</code>, and <code>curl</code> are installed on the external system.</li>
+<li>The root CA certificates used when installing CSM have been added to the external system&rsquo;s trust store such that
+authenticated TLS connections can be made to the CSM REST API gateway. For more information, refer to <strong>Certificate
+Authority</strong> in the <a href="https://cray-hpe.github.io/docs-csm/"><em>Cray System Management Documentation</em></a>.</li>
+</ul>
+<h3 id="procedure-6">Procedure</h3>
+<ol>
+<li>
+<p>Create a Python virtual environment.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">$ SAT_VENV_PATH=&#34;$(pwd)/venv&#34;
+$ python3 -m venv ${SAT_VENV_PATH}
+$ . ${SAT_VENV_PATH}/bin/activate
+</code></pre></li>
+<li>
+<p>Clone the SAT source code.</p>
+<p><strong>Note:</strong> To use SAT version 3.19, this example clones the <code>release/3.19</code> branch of
+<code>Cray-HPE/sat</code>. However, for better clarity, these instructions include steps that apply only to
+versions newer than 3.19. Specifically, the instructions include references to the
+<code>csm-api-client</code> package, which was not a dependency of SAT in version 3.19.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">(venv) $ git clone --branch=release/3.19 https://github.com/Cray-HPE/sat.git
+</code></pre></li>
+<li>
+<p>Set up the SAT CSM Python dependencies to be installed from their source code.</p>
+<p>SAT CSM Python dependency packages are not currently distributed publicly as
+source packages or binary distributions. They must be installed from
+their source code hosted on GitHub. Also, to install the <code>cray-product-catalog</code>
+Python package, you must first clone it locally. Use the following steps to
+modify the SAT CSM Python dependencies so they can be installed from their source code.</p>
+<ol>
+<li>
+<p>Clone the source code for <code>cray-product-catalog</code>.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">(venv) $ git clone --branch v1.6.0 https://github.com/Cray-HPE/cray-product-catalog
+</code></pre></li>
+<li>
+<p>In the <code>cray-product-catalog</code> directory, create a file named <code>.version</code>
+that contains the version of <code>cray-product-catalog</code>.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">(venv) $ echo 1.6.0 &gt; cray-product-catalog/.version
+</code></pre></li>
+<li>
+<p>Open the &ldquo;locked&rdquo; requirements file in a text editor.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">(venv) $ vim sat/requirements.lock.txt
+</code></pre></li>
+<li>
+<p>Update the line containing <code>cray-product-catalog</code> so that it reflects the local path
+to <code>cray-product-catalog</code>.</p>
+<p>It should read as follows:</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">./cray-product-catalog
+</code></pre></li>
+<li>
+<p>For versions of SAT newer than 3.19, change the line containing <code>csm-api-client</code> to
+read as follows:</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">csm-api-client@git+https://github.com/Cray-HPE/python-csm-api-client@release/1.1
+</code></pre></li>
+<li>
+<p>(Optional) Confirm that <code>requirements.lock.txt</code> is modified as expected.</p>
+<p><strong>Note:</strong> For versions newer than 3.19, you will see both <code>cray-product-catalog</code> and <code>csm-api-client</code>.
+For version 3.19 and older, you will only see <code>cray-product-catalog</code>.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">(venv) $ grep -E &#39;cray-product-catalog|csm-api-client&#39; sat/requirements.lock.txt
+./cray-product-catalog
+csm-api-client@git+https://github.com/Cray-HPE/python-csm-api-client@release/1.1
+</code></pre></li>
+</ol>
+</li>
+<li>
+<p>Install the modified SAT dependencies.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">(venv) $ pip install -r sat/requirements.lock.txt
+...
+</code></pre></li>
+<li>
+<p>Install the SAT Python package.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">(venv) $ pip install ./sat
+...
+</code></pre></li>
+<li>
+<p>Optional: Add the <code>sat</code> virtual environment to the user&rsquo;s <code>PATH</code> environment variable.</p>
+<p>If a shell other than <code>bash</code> is in use, replace <code>~/.bash_profile</code> with the appropriate profile path.</p>
+<p>If the virtual environment is not added to the user&rsquo;s <code>PATH</code> environment variable, then
+<code>source ${SAT_VENV_PATH}/bin/activate</code> will need to be run before running any SAT commands.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">(venv) $ deactivate
+$ echo export PATH=\&#34;${SAT_VENV_PATH}/bin:${PATH}\&#34; &gt;&gt; ~/.bash_profile
+$ source ~/.bash_profile
+</code></pre></li>
+<li>
+<p>Copy the file <code>/etc/kubernetes/admin.conf</code> from <code>ncn-m001</code> to <code>~/.kube/config</code> on the external system.</p>
+<p>Note that this file contains credentials to authenticate against the Kubernetes API as the administrative user, so
+it should be treated as sensitive.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">$ mkdir -p ~/.kube
+$ scp ncn-m001:/etc/kubernetes/admin.conf ~/.kube/config
+admin.conf                                       100% 5566   3.0MB/s   00:00
+</code></pre></li>
+<li>
+<p>Add a new entry for the hostname <code>kubernetes</code> to the external system&rsquo;s <code>/etc/hosts</code> file.</p>
+<p>The <code>kubernetes</code> hostname should correspond to the CAN IP address on <code>ncn-m001</code>. On CSM 1.2, this can be determined
+by querying the IP address of the <code>bond0.cmn0</code> interface.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">$ ssh ncn-m001 ip addr show bond0.cmn0
+13: bond0.cmn0@bond0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default qlen 1000
+link/ether b8:59:9f:1d:d9:0e brd ff:ff:ff:ff:ff:ff
+inet 10.102.1.11/24 brd 10.102.1.255 scope global vlan007
+   valid_lft forever preferred_lft forever
+inet6 fe80::ba59:9fff:fe1d:d90e/64 scope link
+   valid_lft forever preferred_lft forever
+$ IP_ADDRESS=10.102.1.11
+</code></pre><p>On CSM versions prior to 1.2, the CAN IP can be determined by querying the IP address of the <code>vlan007</code> interface.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">$ ssh ncn-m001 ip addr show vlan007
+13: vlan007@bond0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default qlen 1000
+link/ether b8:59:9f:1d:d9:0e brd ff:ff:ff:ff:ff:ff
+inet 10.102.1.10/24 brd 10.102.1.255 scope global vlan007
+   valid_lft forever preferred_lft forever
+inet6 fe80::ba59:9fff:fe1d:d90e/64 scope link
+   valid_lft forever preferred_lft forever
+$ IP_ADDRESS=10.102.1.10
+</code></pre><p>Once the IP address is determined, add an entry to <code>/etc/hosts</code> mapping the IP address to the hostname <code>kubernetes</code>.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">$ echo &#34;${IP_ADDRESS} kubernetes&#34; | sudo tee -a /etc/hosts
+10.102.1.11 kubernetes
+</code></pre></li>
+<li>
+<p>Modify <code>~/.kube/config</code> to set the cluster server address.</p>
+<p>The value of the <code>server</code> key for the <code>kubernetes</code> cluster under the <code>clusters</code> section should be set to
+<code>https://kubernetes:6443</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#f92672">clusters</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">cluster</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">certificate-authority-data</span>: <span style="color:#ae81ff">REDACTED</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">server</span>: <span style="color:#ae81ff">https://kubernetes:6443</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">kubernetes</span>
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div></li>
+<li>
+<p>Confirm that <code>kubectl</code> can access the CSM Kubernetes cluster.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">$ kubectl get nodes
+NAME       STATUS   ROLES    AGE    VERSION
+ncn-m001   Ready    master   135d   v1.19.9
+ncn-m002   Ready    master   136d   v1.19.9
+ncn-m003   Ready    master   136d   v1.19.9
+ncn-w001   Ready    &lt;none&gt;   136d   v1.19.9
+ncn-w002   Ready    &lt;none&gt;   136d   v1.19.9
+ncn-w003   Ready    &lt;none&gt;   136d   v1.19.9
+</code></pre></li>
+<li>
+<p>Use <code>sat init</code> to create a configuration file for SAT.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">$ sat init
+INFO: Configuration file &#34;/home/user/.config/sat/sat.toml&#34; generated.
+</code></pre></li>
+<li>
+<p>Copy the platform CA certificates from the management NCN and configure the certificates for use with SAT.</p>
+<p>If a shell other than <code>bash</code> is in use, replace <code>~/.bash_profile</code> with the appropriate profile path.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">$ scp ncn-m001:/etc/pki/trust/anchors/platform-ca-certs.crt .
+$ echo export REQUESTS_CA_BUNDLE=\&#34;$(realpath platform-ca-certs.crt)\&#34; &gt;&gt; ~/.bash_profile
+$ source ~/.bash_profile
+</code></pre></li>
+<li>
+<p>Edit the SAT configuration file to set the API and S3 hostnames.</p>
+<p>Externally available API endpoints are given domain names in PowerDNS, so the endpoints in the configuration file
+should each be set to <code>subdomain.system-name.site-domain</code>, where <code>system-name</code> and <code>site-domain</code> are replaced with
+the values specified during <code>csi config init</code>, and <code>subdomain</code> is the DNS name for the externally available service.
+For more information, refer to <strong>Externally Exposed Services</strong> in the <a href="https://cray-hpe.github.io/docs-csm/"><em>Cray System Management Documentation</em></a>.</p>
+<p>The API gateway has the subdomain <code>api</code>, and S3 has the subdomain <code>s3</code>. The S3 endpoint runs on port 8080. The
+following options should be set in the SAT configuration file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[<span style="color:#a6e22e">api_gateway</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">host</span> = <span style="color:#e6db74">&#34;api.system-name.site-domain&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">s3</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">endpoint</span> = <span style="color:#e6db74">&#34;http://s3.system-name.site-domain:8080&#34;</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Edit the SAT configuration file to specify the Keycloak user which will be accessing the REST API.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[<span style="color:#a6e22e">api_gateway</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">username</span> = <span style="color:#e6db74">&#34;user&#34;</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Authenticate against the API gateway with <code>sat auth</code>.</p>
+<p>For more information, see <a href="/docs-sat/en-24/#sat-authentication">SAT Authentication</a>.</p>
+</li>
+<li>
+<p>Generate S3 credentials.</p>
+<p>For more information, see <a href="/docs-sat/en-24/#generate-sat-s3-credentials">Generate SAT S3 Credentials</a>.</p>
+</li>
+</ol>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/docs-sat/js/clipboard.min.js?1729740967"></script>
+    <script src="/docs-sat/js/perfect-scrollbar.min.js?1729740967"></script>
+    <script src="/docs-sat/js/perfect-scrollbar.jquery.min.js?1729740967"></script>
+    <script src="/docs-sat/js/jquery.sticky.js?1729740967"></script>
+    <script src="/docs-sat/js/featherlight.min.js?1729740967"></script>
+    <script src="/docs-sat/js/highlight.pack.js?1729740967"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/docs-sat/js/modernizr.custom-3.6.0.js?1729740967"></script>
+    <script src="/docs-sat/js/learn.js?1729740967"></script>
+    <script src="/docs-sat/js/hugo-learn.js?1729740967"></script>
+    
+        
+            <script src="/docs-sat/mermaid/mermaid.js?1729740967"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+

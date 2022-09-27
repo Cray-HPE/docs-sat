@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="en-26" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.123.0">
+    <meta name="description" content="">
+
+
+    <link rel="icon" href="/docs-sat/images/favicon.png" type="image/png">
+
+    <title>SAT Upgrade :: System Admin Toolkit (SAT)</title>
+
+    
+    <link href="/docs-sat/css/nucleus.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/fontawesome-all.min.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/hybrid.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/featherlight.min.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/perfect-scrollbar.min.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/auto-complete.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/atom-one-dark-reasonable.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/theme.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/tabs.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/hugo-theme.css?1729740967" rel="stylesheet">
+    
+    <link href="/docs-sat/css/theme-blue.css?1729740967" rel="stylesheet">
+    
+    
+
+    <script src="/docs-sat/js/jquery-3.3.1.min.js?1729740967"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/docs-sat/en-26/upgrade/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href='/docs-sat/en-26'>
+  System Admin Toolkit
+</a>
+
+    </div>
+
+    
+    <section>
+      <ul>
+      
+        <li>
+          <div class="select-style padding">
+          v <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en-26" value="/docs-sat/en-26/upgrade/" selected>2.6</option>
+                    
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="en-25" value="/docs-sat/en-25/upgrade/">2.5</option>
+                    
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </li>
+      
+
+      
+      </ul>
+    </section>
+  
+
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/docs-sat/js/lunr.min.js?1729740967"></script>
+<script type="text/javascript" src="/docs-sat/js/auto-complete.js?1729740967"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/docs-sat\/\/en-26";
+    
+</script>
+<script type="text/javascript" src="/docs-sat/js/search.js?1729740967"></script>
+
+    
+  </div>
+
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+      
+      
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/docs-sat/en-26/about_sat/" title="About SAT" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs-sat/en-26/about_sat/">
+          About SAT
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/about_sat/command_authentication/" title="SAT Command Authentication" class="dd-item ">
+        <a href="/docs-sat/en-26/about_sat/command_authentication/">
+        SAT Command Authentication
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/about_sat/dependencies/" title="SAT Dependencies" class="dd-item ">
+        <a href="/docs-sat/en-26/about_sat/dependencies/">
+        SAT Dependencies
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/about_sat/introduction/" title="Introduction to SAT" class="dd-item ">
+        <a href="/docs-sat/en-26/about_sat/introduction/">
+        Introduction to SAT
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/about_sat/sat_in_csm/" title="SAT in CSM" class="dd-item ">
+        <a href="/docs-sat/en-26/about_sat/sat_in_csm/">
+        SAT in CSM
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/about_sat/view_sat_docs/" title="View SAT Documentation" class="dd-item ">
+        <a href="/docs-sat/en-26/about_sat/view_sat_docs/">
+        View SAT Documentation
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/install/" title="SAT Installation" class="dd-item ">
+        <a href="/docs-sat/en-26/install/">
+        SAT Installation
+        
+        </a>
+    </li>
+     
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/external_system/" title="SAT on an External System" class="dd-item ">
+        <a href="/docs-sat/en-26/external_system/">
+        SAT on an External System
+        
+        </a>
+    </li>
+     
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/docs-sat/en-26/release_notes/" title="SAT Release Notes" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs-sat/en-26/release_notes/">
+          SAT Release Notes
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/release_notes/sat_2.2_release_notes/" title="Changes in SAT 2.2" class="dd-item ">
+        <a href="/docs-sat/en-26/release_notes/sat_2.2_release_notes/">
+        Changes in SAT 2.2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/release_notes/sat_2.3_release_notes/" title="Changes in SAT 2.3" class="dd-item ">
+        <a href="/docs-sat/en-26/release_notes/sat_2.3_release_notes/">
+        Changes in SAT 2.3
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/release_notes/sat_2.4_release_notes/" title="Changes in SAT 2.4" class="dd-item ">
+        <a href="/docs-sat/en-26/release_notes/sat_2.4_release_notes/">
+        Changes in SAT 2.4
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/release_notes/sat_2.5_release_notes/" title="Changes in SAT 2.5" class="dd-item ">
+        <a href="/docs-sat/en-26/release_notes/sat_2.5_release_notes/">
+        Changes in SAT 2.5
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/release_notes/sat_2.6_release_notes/" title="Changes in SAT 2.6" class="dd-item ">
+        <a href="/docs-sat/en-26/release_notes/sat_2.6_release_notes/">
+        Changes in SAT 2.6
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/release_notes/shasta_1.3.2_release_notes/" title="SAT Changes in Shasta v1.3.2" class="dd-item ">
+        <a href="/docs-sat/en-26/release_notes/shasta_1.3.2_release_notes/">
+        SAT Changes in Shasta v1.3.2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/release_notes/shasta_1.3_release_notes/" title="SAT Changes in Shasta v1.3" class="dd-item ">
+        <a href="/docs-sat/en-26/release_notes/shasta_1.3_release_notes/">
+        SAT Changes in Shasta v1.3
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/release_notes/shasta_1.4.1_release_notes/" title="SAT Changes in Shasta v1.4.1" class="dd-item ">
+        <a href="/docs-sat/en-26/release_notes/shasta_1.4.1_release_notes/">
+        SAT Changes in Shasta v1.4.1
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/release_notes/shasta_1.4_release_notes/" title="SAT Changes in Shasta v1.4" class="dd-item ">
+        <a href="/docs-sat/en-26/release_notes/shasta_1.4_release_notes/">
+        SAT Changes in Shasta v1.4
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/release_notes/shasta_1.5_release_notes/" title="SAT Changes in Shasta v1.5" class="dd-item ">
+        <a href="/docs-sat/en-26/release_notes/shasta_1.5_release_notes/">
+        SAT Changes in Shasta v1.5
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/uninstall_and_downgrade/" title="SAT Uninstall and Downgrade" class="dd-item ">
+        <a href="/docs-sat/en-26/uninstall_and_downgrade/">
+        SAT Uninstall and Downgrade
+        
+        </a>
+    </li>
+     
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/upgrade/" title="SAT Upgrade" class="dd-item active">
+        <a href="/docs-sat/en-26/upgrade/">
+        SAT Upgrade
+        
+        </a>
+    </li>
+     
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/docs-sat/en-26/usage/" title="SAT Usage" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs-sat/en-26/usage/">
+          SAT Usage
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/usage/change_bos_version/" title="Change the BOS Version" class="dd-item ">
+        <a href="/docs-sat/en-26/usage/change_bos_version/">
+        Change the BOS Version
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/usage/multi-tenancy/" title="Configure Multi-tenancy" class="dd-item ">
+        <a href="/docs-sat/en-26/usage/multi-tenancy/">
+        Configure Multi-tenancy
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/usage/sat_and_iuf/" title="SAT and IUF" class="dd-item ">
+        <a href="/docs-sat/en-26/usage/sat_and_iuf/">
+        SAT and IUF
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/usage/sat_bootprep/" title="SAT Bootprep" class="dd-item ">
+        <a href="/docs-sat/en-26/usage/sat_bootprep/">
+        SAT Bootprep
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+      
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/docs-sat/en-26/'>HPE Cray EX System Admin Toolkit (SAT) Guide</a> > SAT Upgrade
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#install-and-upgrade-framework">Install and Upgrade Framework</a></li>
+    <li><a href="#iuf-stage-details-for-sat">IUF Stage Details for SAT</a>
+      <ul>
+        <li><a href="#update-vcs-config">update-vcs-config</a></li>
+        <li><a href="#update-cfs-config">update-cfs-config</a></li>
+        <li><a href="#prepare-images">prepare-images</a></li>
+      </ul>
+    </li>
+    <li><a href="#post-upgrade-procedures">Post-Upgrade Procedures</a>
+      <ul>
+        <li><a href="#notes-on-the-procedures">Notes on the Procedures</a></li>
+        <li><a href="#remove-obsolete-configuration-file-sections">Remove Obsolete Configuration File Sections</a></li>
+        <li><a href="#update-sat-logging">Update SAT Logging</a></li>
+        <li><a href="#set-system-revision-information">Set System Revision Information</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+            </h1>
+          
+
+        
+
+
+<h1 id="sat-upgrade">SAT Upgrade</h1>
+<h2 id="install-and-upgrade-framework">Install and Upgrade Framework</h2>
+<p>The Install and Upgrade Framework (IUF) provides commands which install,
+upgrade, and deploy products on systems managed by CSM. IUF capabilities are
+described in detail in the <a href="https://cray-hpe.github.io/docs-csm/en-14/operations/iuf/iuf/">IUF
+section</a> of the
+<a href="https://cray-hpe.github.io/docs-csm/"><em>Cray System Management Documentation</em></a>.
+The initial install and upgrade workflows described in the
+<a href="https://www.hpe.com/support/ex-S-8052"><em>HPE Cray EX System Software Stack Installation and Upgrade Guide for CSM
+(S-8052)</em></a> detail when and how to use
+IUF with a new release of SAT or any other HPE Cray EX product.</p>
+<p>This document <strong>does not</strong> replicate install, upgrade, or deployment procedures
+detailed in the <a href="https://cray-hpe.github.io/docs-csm/"><em>Cray System Management
+Documentation</em></a>. This document provides
+details regarding software and configuration content specific to SAT which is
+needed when installing, upgrading, or deploying a SAT release. The <a href="https://cray-hpe.github.io/docs-csm/"><em>Cray
+System Management Documentation</em></a> will
+indicate when sections of this document should be referred to for detailed
+information.</p>
+<p>IUF will perform the following tasks for a release of SAT.</p>
+<ul>
+<li>IUF <code>deliver-product</code> stage:
+<ul>
+<li>Uploads SAT configuration content to VCS</li>
+<li>Uploads SAT information to the CSM product catalog</li>
+<li>Uploads SAT content to Nexus repositories</li>
+</ul>
+</li>
+<li>IUF <code>update-vcs-config</code> stage:
+<ul>
+<li>Updates the VCS integration branch with new SAT configuration content if a
+working branch is specified</li>
+</ul>
+</li>
+<li>IUF <code>update-cfs-config</code> stage:
+<ul>
+<li>Creates a new CFS configuration for management nodes with new SAT configuration content</li>
+</ul>
+</li>
+<li>IUF <code>prepare-images</code> stage:
+<ul>
+<li>Creates updated management NCN and managed node images with new SAT content</li>
+</ul>
+</li>
+<li>IUF <code>management-nodes-rollout</code> stage:
+<ul>
+<li>Boots management NCNs with an image containing new SAT content</li>
+</ul>
+</li>
+</ul>
+<p>IUF uses a variety of CSM and SAT tools when performing these tasks. The <a href="https://cray-hpe.github.io/docs-csm/en-14/operations/iuf/iuf/">IUF
+section</a> of the
+<a href="https://cray-hpe.github.io/docs-csm/"><em>Cray System Management Documentation</em></a>
+describes how to use these tools directly if it is desirable to use them
+instead of IUF.</p>
+<h2 id="iuf-stage-details-for-sat">IUF Stage Details for SAT</h2>
+<p>This section describes SAT details that an administrator must be aware of
+before running IUF stages. Entries are prefixed with <strong>Information</strong> if no
+administrative action is required or <strong>Action</strong> if an administrator needs
+to perform tasks outside of IUF.</p>
+<h3 id="update-vcs-config">update-vcs-config</h3>
+<p><strong>Information</strong>: This stage is only run if a VCS working branch is specified for
+SAT. By default, SAT does not create or specify a VCS working branch.</p>
+<h3 id="update-cfs-config">update-cfs-config</h3>
+<p><strong>Information</strong>: This stage only applies to the management configuration and
+not to the managed configuration.</p>
+<h3 id="prepare-images">prepare-images</h3>
+<p><strong>Information</strong>: This stage only applies to management images and not to
+managed images.</p>
+<h2 id="post-upgrade-procedures">Post-Upgrade Procedures</h2>
+<p>After upgrading SAT with IUF, it is recommended to complete the following
+procedures before using SAT:</p>
+<ul>
+<li><a href="/docs-sat/en-26/#remove-obsolete-configuration-file-sections">Remove Obsolete Configuration File Sections</a></li>
+<li><a href="/docs-sat/en-26/#update-sat-logging">Update SAT Logging</a></li>
+<li><a href="/docs-sat/en-26/#set-system-revision-information">Set System Revision Information</a></li>
+</ul>
+<h3 id="notes-on-the-procedures">Notes on the Procedures</h3>
+<ul>
+<li>Ellipses (<code>...</code>) in shell output indicate omitted lines.</li>
+<li>In the examples below, replace <code>x.y.z</code> with the version of the SAT product stream
+being upgraded.</li>
+<li>&lsquo;manager&rsquo; and &lsquo;master&rsquo; are used interchangeably in the steps below.</li>
+</ul>
+<h3 id="remove-obsolete-configuration-file-sections">Remove Obsolete Configuration File Sections</h3>
+<p>After upgrading SAT, if using the configuration file from a previous version, there may be
+configuration file sections no longer used in the new version. For example, when upgrading
+from Shasta 1.4 to Shasta 1.5, the <code>[redfish]</code> configuration file section is no longer used.</p>
+<p>(<code>ncn-m001#</code>) In that case, the following warning may appear upon running <code>sat</code> commands.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>WARNING: Ignoring unknown section &#39;redfish&#39; in config file.
+</span></span></code></pre></div><p>Remove the <code>[redfish]</code> section from <code>/root/.config/sat/sat.toml</code> to resolve the warning.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[<span style="color:#a6e22e">redfish</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">username</span> = <span style="color:#e6db74">&#34;admin&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">password</span> = <span style="color:#e6db74">&#34;adminpass&#34;</span>
+</span></span></code></pre></div><p>Repeat this process for any configuration file sections for which there are &ldquo;unknown section&rdquo; warnings.</p>
+<h3 id="update-sat-logging">Update SAT Logging</h3>
+<p>As of SAT version 2.2, some command output that was previously printed to <code>stdout</code>
+is now logged to <code>stderr</code>. These messages are logged at the <code>INFO</code> level. The
+default logging threshold was changed from <code>WARNING</code> to <code>INFO</code> to accommodate
+this logging change. Additionally, some messages previously logged at the <code>INFO</code>
+are now logged at the <code>DEBUG</code> level.</p>
+<p>These changes take effect automatically. However, if the default output threshold
+has been manually set in <code>~/.config/sat/sat.toml</code>, it should be changed to ensure
+that important output is shown in the terminal.</p>
+<h4 id="update-configuration">Update Configuration</h4>
+<p>(<code>ncn-m001#</code>) In the following example, the <code>stderr</code> log level, <code>logging.stderr_level</code>, is set to
+<code>WARNING</code>, which will exclude <code>INFO</code>-level logging from terminal output.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>grep -A <span style="color:#ae81ff">3</span> logging ~/.config/sat/sat.toml
+</span></span></code></pre></div><p>Example output:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>[logging]
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>stderr_level = &#34;WARNING&#34;
+</span></span></code></pre></div><p>To enable the new default behavior, comment this line out, delete it, or set
+the value to &ldquo;INFO&rdquo;.</p>
+<p>If <code>logging.stderr_level</code> is commented out, its value will not affect logging
+behavior. However, it may be helpful to set its value to <code>INFO</code> as a reminder of
+the new default behavior.</p>
+<h4 id="affected-commands">Affected Commands</h4>
+<p>The following commands trigger messages that have been changed from <code>stdout</code>
+print calls to <code>INFO</code>-level (or <code>WARNING</code>- or <code>ERROR</code>-level) log messages:</p>
+<ul>
+<li><code>sat bootsys --stage shutdown --stage session-checks</code></li>
+<li><code>sat sensors</code></li>
+</ul>
+<p>The following commands trigger messages that have been changed from <code>INFO</code>-level
+log messages to <code>DEBUG</code>-level log messages:</p>
+<ul>
+<li><code>sat nid2xname</code></li>
+<li><code>sat xname2nid</code></li>
+<li><code>sat swap</code></li>
+</ul>
+<h3 id="set-system-revision-information">Set System Revision Information</h3>
+<p>HPE service representatives use system revision information data to identify
+systems in support cases.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<ul>
+<li>SAT authentication has been set up during installation. See <a href="/docs-sat/en-26/install/#authenticate-sat-commands">Authenticate SAT Commands</a>.</li>
+<li>S3 credentials have been generated during installation. See <a href="/docs-sat/en-26/install/#generate-sat-s3-credentials">Generate SAT S3 Credentials</a>.</li>
+</ul>
+<h4 id="notes-on-the-procedure">Notes on the Procedure</h4>
+<p>This procedure is <strong>not required</strong> if SAT was upgraded from 2.1 (Shasta v1.5)
+or later. It <strong>is required</strong> if SAT was upgraded from 2.0 (Shasta v1.4) or
+earlier.</p>
+<h4 id="procedure">Procedure</h4>
+<ol>
+<li>
+<p>Set System Revision Information.</p>
+<p>(<code>ncn-m001#</code>) Run <code>sat setrev</code> and follow the prompts to set the following site-specific values:</p>
+<ul>
+<li>Serial number</li>
+<li>System name</li>
+<li>System type</li>
+<li>System description</li>
+<li>Product number</li>
+<li>Company name</li>
+<li>Site name</li>
+<li>Country code</li>
+<li>System install date</li>
+</ul>
+<p><strong>Tip</strong>: For &ldquo;System type&rdquo;, a system with <em>any</em> liquid-cooled components should be
+considered a liquid-cooled system. In other words, &ldquo;System type&rdquo; is EX-1C.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sat setrev
+</span></span></code></pre></div><p>Example output:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>--------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span>Setting:        Serial number
+</span></span><span style="display:flex;"><span>Purpose:        System identification. This will affect how snapshots are
+</span></span><span style="display:flex;"><span>                identified in the HPE backend services.
+</span></span><span style="display:flex;"><span>Description:    This is the top-level serial number which uniquely identifies
+</span></span><span style="display:flex;"><span>                the system. It can be requested from an HPE representative.
+</span></span><span style="display:flex;"><span>Valid values:   Alpha-numeric string, 4 - 20 characters.
+</span></span><span style="display:flex;"><span>Type:           &lt;class &#39;str&#39;&gt;
+</span></span><span style="display:flex;"><span>Default:        None
+</span></span><span style="display:flex;"><span>Current value:  None
+</span></span><span style="display:flex;"><span>--------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span>Please do one of the following to set the value of the above setting:
+</span></span><span style="display:flex;"><span>    - Input a new value
+</span></span><span style="display:flex;"><span>    - Press CTRL-C to exit
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div></li>
+<li>
+<p>Verify System Revision Information.</p>
+<p>(<code>ncn-m001#</code>) Run <code>sat showrev</code> and verify the output shown in the &ldquo;System Revision Information table.&rdquo;</p>
+<p>The following example shows sample table output.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sat showrev
+</span></span></code></pre></div><p>Example output:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>################################################################################
+</span></span><span style="display:flex;"><span>System Revision Information
+</span></span><span style="display:flex;"><span>################################################################################
+</span></span><span style="display:flex;"><span>+---------------------+---------------+
+</span></span><span style="display:flex;"><span>| component           | data          |
+</span></span><span style="display:flex;"><span>+---------------------+---------------+
+</span></span><span style="display:flex;"><span>| Company name        | HPE           |
+</span></span><span style="display:flex;"><span>| Country code        | US            |
+</span></span><span style="display:flex;"><span>| Interconnect        | Sling         |
+</span></span><span style="display:flex;"><span>| Product number      | R4K98A        |
+</span></span><span style="display:flex;"><span>| Serial number       | 12345         |
+</span></span><span style="display:flex;"><span>| Site name           | HPE           |
+</span></span><span style="display:flex;"><span>| Slurm version       | slurm 20.02.5 |
+</span></span><span style="display:flex;"><span>| System description  | Test System   |
+</span></span><span style="display:flex;"><span>| System install date | 2021-01-29    |
+</span></span><span style="display:flex;"><span>| System name         | eniac         |
+</span></span><span style="display:flex;"><span>| System type         | EX-1C         |
+</span></span><span style="display:flex;"><span>+---------------------+---------------+
+</span></span><span style="display:flex;"><span>################################################################################
+</span></span><span style="display:flex;"><span>Product Revision Information
+</span></span><span style="display:flex;"><span>################################################################################
+</span></span><span style="display:flex;"><span>+--------------+-----------------+------------------------------+------------------------------+
+</span></span><span style="display:flex;"><span>| product_name | product_version | images                       | image_recipes                |
+</span></span><span style="display:flex;"><span>+--------------+-----------------+------------------------------+------------------------------+
+</span></span><span style="display:flex;"><span>| csm          | 0.8.14          | cray-shasta-csm-sles15sp1... | cray-shasta-csm-sles15sp1... |
+</span></span><span style="display:flex;"><span>| sat          | 2.0.1           | -                            | -                            |
+</span></span><span style="display:flex;"><span>| sdu          | 1.0.8           | -                            | -                            |
+</span></span><span style="display:flex;"><span>| slingshot    | 0.8.0           | -                            | -                            |
+</span></span><span style="display:flex;"><span>| sma          | 1.4.12          | -                            | -                            |
+</span></span><span style="display:flex;"><span>+--------------+-----------------+------------------------------+------------------------------+
+</span></span><span style="display:flex;"><span>################################################################################
+</span></span><span style="display:flex;"><span>Local Host Operating System
+</span></span><span style="display:flex;"><span>################################################################################
+</span></span><span style="display:flex;"><span>+-----------+----------------------+
+</span></span><span style="display:flex;"><span>| component | version              |
+</span></span><span style="display:flex;"><span>+-----------+----------------------+
+</span></span><span style="display:flex;"><span>| Kernel    | 5.3.18-24.15-default |
+</span></span><span style="display:flex;"><span>| SLES      | SLES 15-SP2          |
+</span></span><span style="display:flex;"><span>+-----------+----------------------+
+</span></span></code></pre></div></li>
+</ol>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/docs-sat/js/clipboard.min.js?1729740967"></script>
+    <script src="/docs-sat/js/perfect-scrollbar.min.js?1729740967"></script>
+    <script src="/docs-sat/js/perfect-scrollbar.jquery.min.js?1729740967"></script>
+    <script src="/docs-sat/js/jquery.sticky.js?1729740967"></script>
+    <script src="/docs-sat/js/featherlight.min.js?1729740967"></script>
+    <script src="/docs-sat/js/highlight.pack.js?1729740967"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/docs-sat/js/modernizr.custom-3.6.0.js?1729740967"></script>
+    <script src="/docs-sat/js/learn.js?1729740967"></script>
+    <script src="/docs-sat/js/hugo-learn.js?1729740967"></script>
+    
+        
+            <script src="/docs-sat/mermaid/mermaid.js?1729740967"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+

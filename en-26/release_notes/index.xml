@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SAT Release Notes on System Admin Toolkit (SAT)</title>
+    <link>/docs-sat/en-26/release_notes/</link>
+    <description>Recent content in SAT Release Notes on System Admin Toolkit (SAT)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-26</language>
+    <lastBuildDate>Thu, 24 Oct 2024 03:36:03 +0000</lastBuildDate>
+    <atom:link href="/docs-sat/en-26/release_notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Changes in SAT 2.2</title>
+      <link>/docs-sat/en-26/release_notes/sat_2.2_release_notes/</link>
+      <pubDate>Thu, 24 Oct 2024 03:36:02 +0000</pubDate>
+      <guid>/docs-sat/en-26/release_notes/sat_2.2_release_notes/</guid>
+      <description>Changes in SAT 2.2 SAT 2.2.16 was released on February 25th, 2022.&#xA;This version of the SAT product included:&#xA;Version 3.14.0 of the sat python package and CLI Version 1.6.4 of the sat-podman wrapper script Version 1.0.4 of the sat-cfs-install container image and Helm chart It also added the following new components:&#xA;Version 1.4.3 of the sat-install-utility container image Version 2.0.2 of the cfs-config-util container image The following sections detail the changes in this release.</description>
+    </item>
+    <item>
+      <title>Changes in SAT 2.3</title>
+      <link>/docs-sat/en-26/release_notes/sat_2.3_release_notes/</link>
+      <pubDate>Thu, 24 Oct 2024 03:36:02 +0000</pubDate>
+      <guid>/docs-sat/en-26/release_notes/sat_2.3_release_notes/</guid>
+      <description>Changes in SAT 2.3 The 2.3.4 version of the SAT product includes:&#xA;Version 3.15.4 of the sat python package and CLI Version 1.6.11 of the sat-podman wrapper script Version 1.2.0 of the sat-cfs-install container image Version 2.0.0 of the sat-cfs-install Helm chart Version 1.5.0 of the sat-install-utility container image Version 2.0.3 of the cfs-config-util container image New sat Commands None.&#xA;Current Working Directory in SAT Container When running sat commands, the current working directory is now mounted in the container as /sat/share, and the current working directory within the container is also /sat/share.</description>
+    </item>
+    <item>
+      <title>Changes in SAT 2.4</title>
+      <link>/docs-sat/en-26/release_notes/sat_2.4_release_notes/</link>
+      <pubDate>Thu, 24 Oct 2024 03:36:02 +0000</pubDate>
+      <guid>/docs-sat/en-26/release_notes/sat_2.4_release_notes/</guid>
+      <description>Changes in SAT 2.4 The 2.4.13 version of the SAT product includes:&#xA;Version 3.19.3 of the sat python package and CLI. Version 2.0.0-1 of the sat-podman wrapper script. Version 1.5.5 of the sat-install-utility container image. Version 3.3.1 of the cfs-config-util container image. Because of installation refactoring efforts, the following two components are no longer delivered with SAT:&#xA;sat-cfs-install container image sat-cfs-install Helm chart Inclusion of SAT in CSM A version of the cray-sat container image is now included in CSM.</description>
+    </item>
+    <item>
+      <title>Changes in SAT 2.5</title>
+      <link>/docs-sat/en-26/release_notes/sat_2.5_release_notes/</link>
+      <pubDate>Thu, 24 Oct 2024 03:36:02 +0000</pubDate>
+      <guid>/docs-sat/en-26/release_notes/sat_2.5_release_notes/</guid>
+      <description>Changes in SAT 2.5 The 2.5.17 version of the SAT product includes:&#xA;Version 3.21.4 of the sat python package and CLI. Version 2.0.0-1 of the sat-podman wrapper script. Version 1.6.0 of the sat-install-utility container image. Version 3.3.1 of the cfs-config-util container image. New sat Commands sat jobstat allows access to application and job data through the command line. It provides a table summarizing information for all jobs on the system.</description>
+    </item>
+    <item>
+      <title>Changes in SAT 2.6</title>
+      <link>/docs-sat/en-26/release_notes/sat_2.6_release_notes/</link>
+      <pubDate>Thu, 24 Oct 2024 03:36:02 +0000</pubDate>
+      <guid>/docs-sat/en-26/release_notes/sat_2.6_release_notes/</guid>
+      <description>Changes in SAT 2.6 The 2.6.14 version of the SAT product includes:&#xA;Version 3.25.10 of the sat python package and CLI. Version 2.0.0-1 of the sat-podman wrapper script. Version 1.6.2 of the sat-install-utility container image. New sat Commands No new sat commands were added in SAT 2.6.&#xA;Changes to sat bootsys Functionality was added to the platform-services and cabinet-power stages of sat bootsys boot. This allows SAT to automatically recreate Kubernetes CronJobs that may have become stuck during shutdown, boot, or reboot.</description>
+    </item>
+    <item>
+      <title>SAT Changes in Shasta v1.3.2</title>
+      <link>/docs-sat/en-26/release_notes/shasta_1.3.2_release_notes/</link>
+      <pubDate>Thu, 24 Oct 2024 03:36:02 +0000</pubDate>
+      <guid>/docs-sat/en-26/release_notes/shasta_1.3.2_release_notes/</guid>
+      <description>SAT Changes in Shasta v1.3.2 Shasta v1.3.2 included version 2.4.0 of the sat python package and CLI.&#xA;The following sections detail the changes in this release.&#xA;sat swap Command for Switch and Cable Replacement The sat switch command which supported operations for replacing a switch has been deprecated and replaced with the sat swap command, which now supports replacing a switch OR cable.&#xA;The sat swap switch command is equivalent to sat switch.</description>
+    </item>
+    <item>
+      <title>SAT Changes in Shasta v1.3</title>
+      <link>/docs-sat/en-26/release_notes/shasta_1.3_release_notes/</link>
+      <pubDate>Thu, 24 Oct 2024 03:36:02 +0000</pubDate>
+      <guid>/docs-sat/en-26/release_notes/shasta_1.3_release_notes/</guid>
+      <description>SAT Changes in Shasta v1.3 Shasta v1.3 included version 2.2.3 of the sat python package and CLI.&#xA;This version of the sat CLI contained the following commands:&#xA;auth bootsys cablecheck diag firmware hwinv hwmatch k8s linkhealth sensors setrev showrev status swap switch For more information on each of these commands, see the SAT Command Overview and the table of commands in the SAT Command Authentication section of this document.</description>
+    </item>
+    <item>
+      <title>SAT Changes in Shasta v1.4.1</title>
+      <link>/docs-sat/en-26/release_notes/shasta_1.4.1_release_notes/</link>
+      <pubDate>Thu, 24 Oct 2024 03:36:02 +0000</pubDate>
+      <guid>/docs-sat/en-26/release_notes/shasta_1.4.1_release_notes/</guid>
+      <description>SAT Changes in Shasta v1.4.1 We released version 2.0.4 of the SAT product in Shasta v1.4.1.&#xA;This version of the SAT product included:&#xA;Version 3.5.0 of the sat python package and CLI. Version 1.4.3 of the sat-podman wrapper script. The following sections detail the changes in this release.&#xA;New Commands to Translate Between NIDs and XNames Two new commands were added to translate between NIDs and XNames:&#xA;sat nid2xname sat xname2nid These commands perform this translation by making requests to the Hardware State Manager (HSM) API.</description>
+    </item>
+    <item>
+      <title>SAT Changes in Shasta v1.4</title>
+      <link>/docs-sat/en-26/release_notes/shasta_1.4_release_notes/</link>
+      <pubDate>Thu, 24 Oct 2024 03:36:02 +0000</pubDate>
+      <guid>/docs-sat/en-26/release_notes/shasta_1.4_release_notes/</guid>
+      <description>SAT Changes in Shasta v1.4 In Shasta v1.4, SAT became an independent product, which meant we began to designate a version number for the entire SAT product. We released version 2.0.3 of the SAT product in Shasta v1.4.&#xA;This version of the SAT product included the following components:&#xA;Version 3.4.0 of the sat python package and CLI It also added the following new component:&#xA;Version 1.4.2 of the sat-podman wrapper script The following sections detail the changes in this release.</description>
+    </item>
+    <item>
+      <title>SAT Changes in Shasta v1.5</title>
+      <link>/docs-sat/en-26/release_notes/shasta_1.5_release_notes/</link>
+      <pubDate>Thu, 24 Oct 2024 03:36:03 +0000</pubDate>
+      <guid>/docs-sat/en-26/release_notes/shasta_1.5_release_notes/</guid>
+      <description>SAT Changes in Shasta v1.5 We released version 2.1.16 of the SAT product in Shasta v1.5.&#xA;This version of the SAT product included:&#xA;Version 3.7.4 of the sat python package and CLI Version 1.4.10 of the sat-podman wrapper script It also added the following new component:&#xA;Version 1.0.3 of the sat-cfs-install docker image and helm chart The following sections detail the changes in this release.&#xA;Install Changes to Separate Product from CSM This release further decouples the installation of the SAT product from the CSM product.</description>
+    </item>
+  </channel>
+</rss>

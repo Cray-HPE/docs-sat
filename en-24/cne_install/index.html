@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en-24" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.123.0">
+    <meta name="description" content="">
+
+
+    <link rel="icon" href="/docs-sat/images/favicon.png" type="image/png">
+
+    <title>SAT Upgrade with CNE Installer :: System Admin Toolkit (SAT)</title>
+
+    
+    <link href="/docs-sat/css/nucleus.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/fontawesome-all.min.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/hybrid.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/featherlight.min.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/perfect-scrollbar.min.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/auto-complete.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/atom-one-dark-reasonable.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/theme.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/tabs.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/hugo-theme.css?1729740967" rel="stylesheet">
+    
+    <link href="/docs-sat/css/theme-blue.css?1729740967" rel="stylesheet">
+    
+    
+
+    <script src="/docs-sat/js/jquery-3.3.1.min.js?1729740967"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/docs-sat/en-24/cne_install/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href='/docs-sat/en-24'>
+  System Admin Toolkit
+</a>
+
+    </div>
+
+    
+    <section>
+      <ul>
+      
+        <li>
+          <div class="select-style padding">
+          v <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="en-24" value="/docs-sat/en-24/cne_install/" selected>2.4</option>
+                    
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </li>
+      
+
+      
+      </ul>
+    </section>
+  
+
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/docs-sat/js/lunr.min.js?1729740967"></script>
+<script type="text/javascript" src="/docs-sat/js/auto-complete.js?1729740967"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/docs-sat\/\/en-24";
+    
+</script>
+<script type="text/javascript" src="/docs-sat/js/search.js?1729740967"></script>
+
+    
+  </div>
+
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+      
+      
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-24/introduction/" title="Introduction to SAT" class="dd-item ">
+        <a href="/docs-sat/en-24/introduction/">
+        Introduction to SAT
+        
+        </a>
+    </li>
+     
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/docs-sat/en-24/dashboards/" title="SAT Dashboards" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs-sat/en-24/dashboards/">
+          SAT Dashboards
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-24/dashboards/sat_grafana_dashboards/" title="SAT Grafana Dashboards" class="dd-item ">
+        <a href="/docs-sat/en-24/dashboards/sat_grafana_dashboards/">
+        SAT Grafana Dashboards
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-24/dashboards/sat_kibana_dashboards/" title="SAT Kibana Dashboards" class="dd-item ">
+        <a href="/docs-sat/en-24/dashboards/sat_kibana_dashboards/">
+        SAT Kibana Dashboards
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-24/install/" title="SAT Installation" class="dd-item ">
+        <a href="/docs-sat/en-24/install/">
+        SAT Installation
+        
+        </a>
+    </li>
+     
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-24/release_notes/" title="SAT Release Notes" class="dd-item ">
+        <a href="/docs-sat/en-24/release_notes/">
+        SAT Release Notes
+        
+        </a>
+    </li>
+     
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-24/cne_install/" title="SAT Upgrade with CNE Installer" class="dd-item active">
+        <a href="/docs-sat/en-24/cne_install/">
+        SAT Upgrade with CNE Installer
+        
+        </a>
+    </li>
+     
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/docs-sat/en-24/usage/" title="SAT Usage" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs-sat/en-24/usage/">
+          SAT Usage
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-24/usage/change_bos_version/" title="Change the BOS Version" class="dd-item ">
+        <a href="/docs-sat/en-24/usage/change_bos_version/">
+        Change the BOS Version
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-24/usage/sat_bootprep/" title="SAT Bootprep" class="dd-item ">
+        <a href="/docs-sat/en-24/usage/sat_bootprep/">
+        SAT Bootprep
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+      
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/docs-sat/en-24/'>HPE Cray EX System Admin Toolkit (SAT) Guide</a> > SAT Upgrade with CNE Installer
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#upgrade-the-system-admin-toolkit-product-stream">Upgrade the System Admin Toolkit Product Stream</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#notes-on-the-procedures">Notes on the Procedures</a></li>
+        <li><a href="#pre-upgrade-procedure">Pre-Upgrade Procedure</a></li>
+        <li><a href="#upgrade-procedure">Upgrade Procedure</a></li>
+        <li><a href="#next-steps">Next Steps</a></li>
+      </ul>
+    </li>
+    <li><a href="#post-upgrade-cleanup-procedure">Post-Upgrade Cleanup Procedure</a></li>
+    <li><a href="#remove-obsolete-configuration-file-sections">Remove Obsolete Configuration File Sections</a>
+      <ul>
+        <li><a href="#prerequisites-1">Prerequisites</a></li>
+        <li><a href="#procedure">Procedure</a></li>
+      </ul>
+    </li>
+    <li><a href="#sat-logging">SAT Logging</a>
+      <ul>
+        <li><a href="#update-configuration">Update Configuration</a></li>
+        <li><a href="#affected-commands">Affected Commands</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+            </h1>
+          
+
+        
+
+
+<h1 id="sat-upgrade-with-cne-installer">SAT Upgrade with CNE Installer</h1>
+<h2 id="upgrade-the-system-admin-toolkit-product-stream">Upgrade the System Admin Toolkit Product Stream</h2>
+<p>Describes how to upgrade the System Admin Toolkit (SAT) product
+stream by using the Compute Node Environment (CNE) installer (<code>cne-install</code>).
+The CNE installer can be used only for upgrades and not for fresh installations.
+For installation instructions, see <a href="/docs-sat/en-24/install/">Install the System Admin Toolkit Product
+Stream</a>.</p>
+<p>Upgrading SAT with <code>cne-install</code> is recommended because the process is both
+automated and logged to help you save time. The CNE installer can be used to
+upgrade SAT alone or with other supported products. For more information
+on <code>cne-install</code> and its options, refer to the <a href="https://www.hpe.com/support/ex-S-8000"><em>HPE Cray EX System Software
+Getting Started Guide (S-8000)</em></a>.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li>CSM is installed and verified.</li>
+<li>There must be at least 2 gigabytes of free space on the manager NCN on which
+the procedure is run.</li>
+</ul>
+<h3 id="notes-on-the-procedures">Notes on the Procedures</h3>
+<ul>
+<li>Ellipses (<code>...</code>) in shell output indicate omitted lines.</li>
+<li>In the examples below, replace <code>x.y.z</code> with the version of the SAT product stream
+being upgraded.</li>
+<li>&lsquo;manager&rsquo; and &lsquo;master&rsquo; are used interchangeably in the steps below.</li>
+</ul>
+<h3 id="pre-upgrade-procedure">Pre-Upgrade Procedure</h3>
+<ol>
+<li>
+<p>Start a typescript and set the shell prompt.</p>
+<p>The typescript will record the commands and the output from this upgrade.
+The prompt is set to include the date and time.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# script -af product-sat.$(date +%Y-%m-%d).txt
+ncn-m001# export PS1=&#39;\u@\H \D{%Y-%m-%d} \t \w # &#39;
+</code></pre></li>
+</ol>
+<h3 id="upgrade-procedure">Upgrade Procedure</h3>
+<ol>
+<li>
+<p>Copy the release distribution gzipped tar file to <code>ncn-m001</code>.</p>
+<p>The <code>cne-install</code> command installs all files in the media directory
+by default. If you are upgrading SAT alone, ensure only the SAT tarball is in
+the media directory.</p>
+</li>
+<li>
+<p>Run the CNE installer.</p>
+<ul>
+<li>
+<p>If you are upgrading SAT along with other supported products, run the
+following command.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# cne-install -m MEDIA_DIR install -B WORKING_BRANCH -bpc BOOTPREP_CONFIG_CN \
+    -bpn BOOTPREP_CONFIG_NCN
+</code></pre><p>The <code>cne-install</code> command will use the provided <code>BOOTPREP_CONFIG_CN</code> and
+<code>BOOTPREP_CONFIG_NCN</code> files for the run.</p>
+</li>
+<li>
+<p>If you are upgrading SAT alone, run the following commands.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# cne-install -m MEDIA_DIR install -B &#39;{{product_type}}-{{version_x_y_z}}&#39; \
+    -bpn BOOTPREP_CONFIG_NCN -e update_working_branches
+ncn-m001# cne-install -m MEDIA_DIR install -B &#39;{{product_type}}-{{version_x_y_z}}&#39; \
+    -bpn BOOTPREP_CONFIG_NCN -b sat_bootprep_ncn -e ncn_personalization
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p><strong>Optional:</strong> Stop the typescript.</p>
+<p><strong>NOTE</strong>: This step can be skipped if you wish to use the same typescript
+for the remainder of the SAT upgrade (see <a href="/docs-sat/en-24/#next-steps">Next Steps</a>).</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# exit
+</code></pre></li>
+</ol>
+<p>SAT version <code>x.y.z</code> is now upgraded, meaning the SAT <code>x.y.z</code> release
+has been loaded into the system software repository.</p>
+<ul>
+<li>SAT configuration content for this release has been uploaded to VCS.</li>
+<li>SAT content for this release has been uploaded to the CSM product catalog.</li>
+<li>SAT content for this release has been uploaded to Nexus repositories.</li>
+<li>The <code>sat</code> command is available.</li>
+</ul>
+<h3 id="next-steps">Next Steps</h3>
+<p>At this point, the release distribution files can be removed from the system as
+described in <a href="/docs-sat/en-24/#post-upgrade-cleanup-procedure">Post-Upgrade Cleanup Procedure</a>.</p>
+<p>If other HPE Cray EX software products are being upgraded in conjunction
+with SAT, refer to the <a href="https://www.hpe.com/support/ex-S-8000"><em>HPE Cray EX System Software Getting Started Guide
+(S-8000)</em></a> to determine which step
+to execute next.</p>
+<p>If no other HPE Cray EX software products are being upgraded at this time,
+execute the <strong>SAT Post-Upgrade</strong> procedures:</p>
+<ul>
+<li><a href="/docs-sat/en-24/#remove-obsolete-configuration-file-sections">Remove obsolete configuration file sections</a></li>
+<li><a href="/docs-sat/en-24/#sat-logging">SAT Logging</a></li>
+</ul>
+<h2 id="post-upgrade-cleanup-procedure">Post-Upgrade Cleanup Procedure</h2>
+<ol>
+<li>
+<p><strong>Optional:</strong> Remove the SAT release distribution tar file and extracted directory.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# rm sat-x.y.z.tar.gz
+ncn-m001# rm -rf sat-x.y.z/
+</code></pre></li>
+</ol>
+<h2 id="remove-obsolete-configuration-file-sections">Remove Obsolete Configuration File Sections</h2>
+<h3 id="prerequisites-1">Prerequisites</h3>
+<ul>
+<li>The <a href="/docs-sat/en-24/#upgrade-the-system-admin-toolkit-product-stream">Upgrade the System Admin Toolkit Product Stream</a>
+procedure has been successfully completed.</li>
+</ul>
+<h3 id="procedure">Procedure</h3>
+<p>After upgrading SAT, if using the configuration file from a previous version,
+there may be configuration file sections no longer used in the new version.
+For example, when upgrading from Shasta 1.4 to Shasta 1.5, the <code>[redfish]</code>
+configuration file section is no longer used. In that case, the following
+warning may appear upon running <code>sat</code> commands.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">WARNING: Ignoring unknown section &#39;redfish&#39; in config file.
+</code></pre><p>Remove the <code>[redfish]</code> section from <code>/root/.config/sat/sat.toml</code> to resolve
+the warning.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">[redfish]
+username = &#34;admin&#34;
+password = &#34;adminpass&#34;
+</code></pre><p>Repeat this process for any configuration file sections for which there are
+&ldquo;unknown section&rdquo; warnings.</p>
+<h2 id="sat-logging">SAT Logging</h2>
+<p>As of SAT version 2.2, some command output that was previously printed to <code>stdout</code>
+is now logged to <code>stderr</code>. These messages are logged at the <code>INFO</code> level. The
+default logging threshold was changed from <code>WARNING</code> to <code>INFO</code> to accommodate
+this logging change. Additionally, some messages previously logged at the <code>INFO</code>
+are now logged at the <code>DEBUG</code> level.</p>
+<p>These changes take effect automatically. However, if the default output threshold
+has been manually set in <code>~/.config/sat/sat.toml</code>, it should be changed to ensure
+that important output is shown in the terminal.</p>
+<h3 id="update-configuration">Update Configuration</h3>
+<p>In the following example, the <code>stderr</code> log level, <code>logging.stderr_level</code>, is set to
+<code>WARNING</code>, which will exclude <code>INFO</code>-level logging from terminal output.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001:~ # grep -A 3 logging ~/.config/sat/sat.toml
+[logging]
+...
+stderr_level = &#34;WARNING&#34;
+</code></pre><p>To enable the new default behavior, comment this line out, delete it, or set
+the value to &ldquo;INFO&rdquo;.</p>
+<p>If <code>logging.stderr_level</code> is commented out, its value will not affect logging
+behavior. However, it may be helpful set its value to <code>INFO</code> as a reminder of
+the new default behavior.</p>
+<h3 id="affected-commands">Affected Commands</h3>
+<p>The following commands trigger messages that have been changed from <code>stdout</code>
+print calls to <code>INFO</code>-level (or <code>WARNING</code>- or <code>ERROR</code>-level) log messages:</p>
+<ul>
+<li><code>sat bootsys --stage shutdown --stage session-checks</code></li>
+<li><code>sat sensors</code></li>
+</ul>
+<p>The following commands trigger messages that have been changed from <code>INFO</code>-level
+log messages to <code>DEBUG</code>-level log messages:</p>
+<ul>
+<li><code>sat nid2xname</code></li>
+<li><code>sat xname2nid</code></li>
+<li><code>sat swap</code></li>
+</ul>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/docs-sat/js/clipboard.min.js?1729740967"></script>
+    <script src="/docs-sat/js/perfect-scrollbar.min.js?1729740967"></script>
+    <script src="/docs-sat/js/perfect-scrollbar.jquery.min.js?1729740967"></script>
+    <script src="/docs-sat/js/jquery.sticky.js?1729740967"></script>
+    <script src="/docs-sat/js/featherlight.min.js?1729740967"></script>
+    <script src="/docs-sat/js/highlight.pack.js?1729740967"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/docs-sat/js/modernizr.custom-3.6.0.js?1729740967"></script>
+    <script src="/docs-sat/js/learn.js?1729740967"></script>
+    <script src="/docs-sat/js/hugo-learn.js?1729740967"></script>
+    
+        
+            <script src="/docs-sat/mermaid/mermaid.js?1729740967"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+

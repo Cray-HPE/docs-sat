@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en-21" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.123.0">
+    <meta name="description" content="">
+
+
+    <link rel="icon" href="/docs-sat/images/favicon.png" type="image/png">
+
+    <title>SAT Grafana Dashboards :: System Admin Toolkit (SAT)</title>
+
+    
+    <link href="/docs-sat/css/nucleus.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/fontawesome-all.min.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/hybrid.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/featherlight.min.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/perfect-scrollbar.min.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/auto-complete.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/atom-one-dark-reasonable.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/theme.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/tabs.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/hugo-theme.css?1729740967" rel="stylesheet">
+    
+    <link href="/docs-sat/css/theme-blue.css?1729740967" rel="stylesheet">
+    
+    
+
+    <script src="/docs-sat/js/jquery-3.3.1.min.js?1729740967"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/docs-sat/en-21/dashboards/sat_grafana_dashboards/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href='/docs-sat/en-21'>
+  System Admin Toolkit
+</a>
+
+    </div>
+
+    
+    <section>
+      <ul>
+      
+        <li>
+          <div class="select-style padding">
+          v <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="en-25" value="/docs-sat/en-25/dashboards/sat_grafana_dashboards/">2.5</option>
+                    
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="en-24" value="/docs-sat/en-24/dashboards/sat_grafana_dashboards/">2.4</option>
+                    
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="en-23" value="/docs-sat/en-23/dashboards/sat_grafana_dashboards/">2.3</option>
+                    
+                  
+              
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="en-22" value="/docs-sat/en-22/dashboards/sat_grafana_dashboards/">2.2</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="en-21" value="/docs-sat/en-21/dashboards/sat_grafana_dashboards/" selected>2.1</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </li>
+      
+
+      
+      </ul>
+    </section>
+  
+
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/docs-sat/js/lunr.min.js?1729740967"></script>
+<script type="text/javascript" src="/docs-sat/js/auto-complete.js?1729740967"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/docs-sat\/\/en-21";
+    
+</script>
+<script type="text/javascript" src="/docs-sat/js/search.js?1729740967"></script>
+
+    
+  </div>
+
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+      
+      
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-21/introduction/" title="Introduction to SAT" class="dd-item ">
+        <a href="/docs-sat/en-21/introduction/">
+        Introduction to SAT
+        
+        </a>
+    </li>
+     
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/docs-sat/en-21/dashboards/" title="SAT Dashboards" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/docs-sat/en-21/dashboards/">
+          SAT Dashboards
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-21/dashboards/sat_grafana_dashboards/" title="SAT Grafana Dashboards" class="dd-item active">
+        <a href="/docs-sat/en-21/dashboards/sat_grafana_dashboards/">
+        SAT Grafana Dashboards
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-21/dashboards/sat_kibana_dashboards/" title="SAT Kibana Dashboards" class="dd-item ">
+        <a href="/docs-sat/en-21/dashboards/sat_kibana_dashboards/">
+        SAT Kibana Dashboards
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-21/install/" title="SAT Installation" class="dd-item ">
+        <a href="/docs-sat/en-21/install/">
+        SAT Installation
+        
+        </a>
+    </li>
+     
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-21/release_notes/" title="SAT Release Notes" class="dd-item ">
+        <a href="/docs-sat/en-21/release_notes/">
+        SAT Release Notes
+        
+        </a>
+    </li>
+     
+  
+ 
+
+      
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/docs-sat/en-21/'>HPE Cray EX System Admin Toolkit (SAT) Guide</a> > <a href='/docs-sat/en-21/dashboards/'>SAT Dashboards</a> > SAT Grafana Dashboards
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#navigate-sat-grafana-dashboards">Navigate SAT Grafana Dashboards</a></li>
+    <li><a href="#sat-grafana-interval-and-locations-options">SAT Grafana Interval and Locations Options</a></li>
+    <li><a href="#grafana-fabric-congestion-dashboard">Grafana Fabric Congestion Dashboard</a></li>
+    <li><a href="#grafana-fabric-errors-dashboard">Grafana Fabric Errors Dashboard</a></li>
+    <li><a href="#grafana-fabric-port-state-dashboard">Grafana Fabric Port State Dashboard</a></li>
+    <li><a href="#grafana-fabric-rfc3635-dashboard">Grafana Fabric RFC3635 Dashboard</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+            </h1>
+          
+
+        
+
+
+<h1 id="sat-grafana-dashboards">SAT Grafana Dashboards</h1>
+<p>The SAT Grafana Dashboards display messages that are generated by the HSN (High Speed Network) and reported through
+Redfish. The messages are displayed based on severity.</p>
+<p>Grafana can be accessed via web browser at the following URL:</p>
+<ul>
+<li><code>https://sma-grafana.&lt;system_name&gt;.&lt;system_domain&gt;</code></li>
+</ul>
+<p>For additional details about how to access the Grafana Dashboards refer to <em>Access the Grafana Monitoring UI</em> in the
+SMA product documentation.</p>
+<p>For more information about the interpretation of metrics for the SAT Grafana Dashboards refer to <em>Fabric Telemetry
+Kafka Topics</em> in the SMA product documentation.</p>
+<h2 id="navigate-sat-grafana-dashboards">Navigate SAT Grafana Dashboards</h2>
+<p>There are four Fabric Telemetry dashboards used in SAT that report on the HSN. Two contain chart panels and two display
+telemetry in a tabular format.</p>
+<table>
+<thead>
+<tr>
+<th>Dashboard Name</th>
+<th>Display Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fabric Congestion</td>
+<td>Chart Panels</td>
+</tr>
+<tr>
+<td>Fabric RFC3635</td>
+<td>Chart Panels</td>
+</tr>
+<tr>
+<td>Fabric Errors</td>
+<td>Tabular Format</td>
+</tr>
+<tr>
+<td>Fabric Port State</td>
+<td>Tabular Format</td>
+</tr>
+</tbody>
+</table>
+<p>The tabular format presents a single point of telemetry for a given location and metric, either because the telemetry
+is not numerical or that it changes infrequently. The value shown is the most recently reported value for that location
+during the time range selected, if any. The interval setting is not used for tabular dashboards.</p>
+<h2 id="sat-grafana-interval-and-locations-options">SAT Grafana Interval and Locations Options</h2>
+<p>Shows the Interval and Locations Options for the available telemetry.</p>
+<p><img src="../../img/SAT_Grafana_Fabric_Vars.png"></p>
+<p>The value of the <strong>Interval</strong> option sets the time resolution of the received telemetry. This works a bit like a
+histogram, with the available telemetry in an interval of time going into a &ldquo;bucket&rdquo; and averaging out to a single
+point on the chart or table. The special value <em>auto</em> will choose an interval based on the time range selected.</p>
+<p>For additional information, refer to <a href="https://grafana.com/docs/grafana/latest/reference/templating/#interval-variables">Grafana Templates and Variables</a>.</p>
+<p>The <strong>Locations</strong> option allows restriction of the telemetry shown by locations, either individual links or all links
+in a switch. The selection presented updates dynamically according to time range, except for the errors dashboard,
+which always has entries for all links and switches, although the errors shown are restricted to the selected time
+range.</p>
+<p>The chart panels for the RFC3635 and Congestion dashboards allow selection of a single location from the chart&rsquo;s legend
+or the trace on the chart.</p>
+<h2 id="grafana-fabric-congestion-dashboard">Grafana Fabric Congestion Dashboard</h2>
+<p><img src="../../img/Grafana_Fabric_Congestion.png"></p>
+<p>SAT Grafana Dashboards provide system administrators a way to view fabric telemetry data across all Rosetta switches in
+the system and assess the past and present health of the high-speed network. It also allows the ability to drill down
+to view data for specific ports on specific switches.</p>
+<p>This dashboard contains the variable, <strong>Port Type</strong> not found in the other dashboards. The possible values are <em>edge</em>,
+<em>local</em>, and <em>global</em> and correspond to the link&rsquo;s relationship to the network topology. The locations presented in the
+panels are restricted to the values (any combination, defaults to &ldquo;all&rdquo;) selected.</p>
+<p>The metric values for links of a given port type are similar in value to each other but very distinct from the values of
+other types. If the values for different port types are all plotted together, the values for links with lower values are
+indistinguishable from zero when plotted.</p>
+<p>The port type of a link is reported as a port state &ldquo;subtype&rdquo; event when defined at port initialization.</p>
+<h2 id="grafana-fabric-errors-dashboard">Grafana Fabric Errors Dashboard</h2>
+<p><img src="../../img/Grafana_HSN_Errors.png"></p>
+<p>This dashboard reports error counters in a tabular format in three panels.</p>
+<p>There is no <strong>Interval</strong> option because this parameter is not used to set a coarseness of the data. Only a single value
+is presented that displays the most recent value in the time range.</p>
+<p>Unlike other dashboards, the locations presented are all locations in the system rather than having telemetry within
+the time range selected. However, the values are taken from telemetry within the time range.</p>
+<h2 id="grafana-fabric-port-state-dashboard">Grafana Fabric Port State Dashboard</h2>
+<p><img src="../../img/Fabric_PortState_Locations_UI.png"></p>
+<p>There is no <strong>Interval</strong> option because this parameter is not used to set a coarseness of the data. Only a single value
+is presented that displays the most recent value in the time range.</p>
+<p>The Fabric Port State telemetry is distinct because it typically is not numeric. It also updates infrequently, so a
+long time range may be necessary to obtain any values. Port State is refreshed daily, so a time range of 24 hours
+results in all states for all links in the system being shown.</p>
+<p>The three columns named, <em>group</em>, <em>switch</em>, and <em>port</em> are not port state events, but extra information included with
+all port state events.</p>
+<h2 id="grafana-fabric-rfc3635-dashboard">Grafana Fabric RFC3635 Dashboard</h2>
+<p><img src="../../img/Grafana_rfc3635.png"></p>
+<p>For additional information on performance counters, refer to
+<a href="https://tools.ietf.org/html/rfc3635">Definitions of Managed Objects for the Ethernet-like Interface Types</a>,
+an Internet standards document.</p>
+<p>Because these metrics are counters that only increase over time, the values plotted are the change in the counter&rsquo;s
+value over the interval setting.</p>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/docs-sat/js/clipboard.min.js?1729740967"></script>
+    <script src="/docs-sat/js/perfect-scrollbar.min.js?1729740967"></script>
+    <script src="/docs-sat/js/perfect-scrollbar.jquery.min.js?1729740967"></script>
+    <script src="/docs-sat/js/jquery.sticky.js?1729740967"></script>
+    <script src="/docs-sat/js/featherlight.min.js?1729740967"></script>
+    <script src="/docs-sat/js/highlight.pack.js?1729740967"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/docs-sat/js/modernizr.custom-3.6.0.js?1729740967"></script>
+    <script src="/docs-sat/js/learn.js?1729740967"></script>
+    <script src="/docs-sat/js/hugo-learn.js?1729740967"></script>
+    
+        
+            <script src="/docs-sat/mermaid/mermaid.js?1729740967"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+

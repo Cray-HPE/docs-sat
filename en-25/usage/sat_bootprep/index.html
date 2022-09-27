@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html lang="en-25" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.123.0">
+    <meta name="description" content="">
+
+
+    <link rel="icon" href="/docs-sat/images/favicon.png" type="image/png">
+
+    <title>SAT Bootprep :: System Admin Toolkit (SAT)</title>
+
+    
+    <link href="/docs-sat/css/nucleus.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/fontawesome-all.min.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/hybrid.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/featherlight.min.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/perfect-scrollbar.min.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/auto-complete.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/atom-one-dark-reasonable.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/theme.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/tabs.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/hugo-theme.css?1729740967" rel="stylesheet">
+    
+    <link href="/docs-sat/css/theme-blue.css?1729740967" rel="stylesheet">
+    
+    
+
+    <script src="/docs-sat/js/jquery-3.3.1.min.js?1729740967"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/docs-sat/en-25/usage/sat_bootprep/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href='/docs-sat/en-25'>
+  System Admin Toolkit
+</a>
+
+    </div>
+
+    
+    <section>
+      <ul>
+      
+        <li>
+          <div class="select-style padding">
+          v <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en-26" value="/docs-sat/en-26/usage/sat_bootprep/">2.6</option>
+                    
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="en-25" value="/docs-sat/en-25/usage/sat_bootprep/" selected>2.5</option>
+                    
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="en-24" value="/docs-sat/en-24/usage/sat_bootprep/">2.4</option>
+                    
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </li>
+      
+
+      
+      </ul>
+    </section>
+  
+
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/docs-sat/js/lunr.min.js?1729740967"></script>
+<script type="text/javascript" src="/docs-sat/js/auto-complete.js?1729740967"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/docs-sat\/\/en-25";
+    
+</script>
+<script type="text/javascript" src="/docs-sat/js/search.js?1729740967"></script>
+
+    
+  </div>
+
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+      
+      
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/introduction/" title="Introduction to SAT" class="dd-item ">
+        <a href="/docs-sat/en-25/introduction/">
+        Introduction to SAT
+        
+        </a>
+    </li>
+     
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/docs-sat/en-25/dashboards/" title="SAT Dashboards" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs-sat/en-25/dashboards/">
+          SAT Dashboards
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/dashboards/sat_grafana_dashboards/" title="SAT Grafana Dashboards" class="dd-item ">
+        <a href="/docs-sat/en-25/dashboards/sat_grafana_dashboards/">
+        SAT Grafana Dashboards
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/dashboards/sat_kibana_dashboards/" title="SAT Kibana Dashboards" class="dd-item ">
+        <a href="/docs-sat/en-25/dashboards/sat_kibana_dashboards/">
+        SAT Kibana Dashboards
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/install/" title="SAT Installation" class="dd-item ">
+        <a href="/docs-sat/en-25/install/">
+        SAT Installation
+        
+        </a>
+    </li>
+     
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/external_system/" title="SAT on an External System" class="dd-item ">
+        <a href="/docs-sat/en-25/external_system/">
+        SAT on an External System
+        
+        </a>
+    </li>
+     
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/docs-sat/en-25/release_notes/" title="SAT Release Notes" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs-sat/en-25/release_notes/">
+          SAT Release Notes
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/release_notes/sat_2.2_release_notes/" title="Changes in SAT 2.2" class="dd-item ">
+        <a href="/docs-sat/en-25/release_notes/sat_2.2_release_notes/">
+        Changes in SAT 2.2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/release_notes/sat_2.3_release_notes/" title="Changes in SAT 2.3" class="dd-item ">
+        <a href="/docs-sat/en-25/release_notes/sat_2.3_release_notes/">
+        Changes in SAT 2.3
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/release_notes/sat_2.4_release_notes/" title="Changes in SAT 2.4" class="dd-item ">
+        <a href="/docs-sat/en-25/release_notes/sat_2.4_release_notes/">
+        Changes in SAT 2.4
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/release_notes/sat_2.5_release_notes/" title="Changes in SAT 2.5" class="dd-item ">
+        <a href="/docs-sat/en-25/release_notes/sat_2.5_release_notes/">
+        Changes in SAT 2.5
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/release_notes/shasta_1.3.2_release_notes/" title="SAT Changes in Shasta v1.3.2" class="dd-item ">
+        <a href="/docs-sat/en-25/release_notes/shasta_1.3.2_release_notes/">
+        SAT Changes in Shasta v1.3.2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/release_notes/shasta_1.3_release_notes/" title="SAT Changes in Shasta v1.3" class="dd-item ">
+        <a href="/docs-sat/en-25/release_notes/shasta_1.3_release_notes/">
+        SAT Changes in Shasta v1.3
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/release_notes/shasta_1.4.1_release_notes/" title="SAT Changes in Shasta v1.4.1" class="dd-item ">
+        <a href="/docs-sat/en-25/release_notes/shasta_1.4.1_release_notes/">
+        SAT Changes in Shasta v1.4.1
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/release_notes/shasta_1.4_release_notes/" title="SAT Changes in Shasta v1.4" class="dd-item ">
+        <a href="/docs-sat/en-25/release_notes/shasta_1.4_release_notes/">
+        SAT Changes in Shasta v1.4
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/release_notes/shasta_1.5_release_notes/" title="SAT Changes in Shasta v1.5" class="dd-item ">
+        <a href="/docs-sat/en-25/release_notes/shasta_1.5_release_notes/">
+        SAT Changes in Shasta v1.5
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/uninstall_and_downgrade/" title="SAT Uninstall and Downgrade" class="dd-item ">
+        <a href="/docs-sat/en-25/uninstall_and_downgrade/">
+        SAT Uninstall and Downgrade
+        
+        </a>
+    </li>
+     
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/upgrade/" title="SAT Upgrade" class="dd-item ">
+        <a href="/docs-sat/en-25/upgrade/">
+        SAT Upgrade
+        
+        </a>
+    </li>
+     
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/docs-sat/en-25/usage/" title="SAT Usage" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/docs-sat/en-25/usage/">
+          SAT Usage
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/usage/change_bos_version/" title="Change the BOS Version" class="dd-item ">
+        <a href="/docs-sat/en-25/usage/change_bos_version/">
+        Change the BOS Version
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/usage/sat_and_iuf/" title="SAT and IUF" class="dd-item ">
+        <a href="/docs-sat/en-25/usage/sat_and_iuf/">
+        SAT and IUF
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/usage/sat_bootprep/" title="SAT Bootprep" class="dd-item active">
+        <a href="/docs-sat/en-25/usage/sat_bootprep/">
+        SAT Bootprep
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+      
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/docs-sat/en-25/'>HPE Cray EX System Admin Toolkit (SAT) Guide</a> > <a href='/docs-sat/en-25/usage/'>SAT Usage</a> > SAT Bootprep
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#sat-bootprep-vs-sat-bootsys">SAT Bootprep vs SAT Bootsys</a></li>
+    <li><a href="#edit-a-bootprep-input-file">Edit a Bootprep Input File</a>
+      <ul>
+        <li><a href="#provide-a-schema-version">Provide a Schema Version</a></li>
+        <li><a href="#define-cfs-configurations">Define CFS Configurations</a></li>
+        <li><a href="#define-ims-images">Define IMS Images</a></li>
+        <li><a href="#define-bos-session-templates">Define BOS Session Templates</a></li>
+        <li><a href="#hpc-csm-software-recipe-variable-substitutions">HPC CSM Software Recipe Variable Substitutions</a></li>
+        <li><a href="#dynamic-variable-substitutions">Dynamic Variable Substitutions</a></li>
+      </ul>
+    </li>
+    <li><a href="#example-bootprep-input-files">Example Bootprep Input Files</a>
+      <ul>
+        <li><a href="#example-bootprep-input-file">Example Bootprep Input File</a></li>
+        <li><a href="#access-default-bootprep-input-files">Access Default Bootprep Input Files</a></li>
+        <li><a href="#generate-an-example-bootprep-input-file">Generate an Example Bootprep Input File</a></li>
+      </ul>
+    </li>
+    <li><a href="#summary-of-sat-bootprep-results">Summary of SAT Bootprep Results</a></li>
+    <li><a href="#view-sat-bootprep-schema">View SAT Bootprep Schema</a>
+      <ul>
+        <li><a href="#view-the-exact-schema-specification">View the Exact Schema Specification</a></li>
+        <li><a href="#generate-user-friendly-documentation">Generate User-Friendly Documentation</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+            </h1>
+          
+
+        
+
+
+<h1 id="sat-bootprep">SAT Bootprep</h1>
+<p>SAT provides an automated solution for creating CFS configurations, building
+and configuring images in IMS, and creating BOS session templates. The
+solution is based on a given input file that defines how those configurations,
+images, and session templates should be created. This automated process centers
+around the <code>sat bootprep</code> command. Man page documentation for <code>sat bootprep</code>
+can be viewed similar to other SAT commands.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# sat-man sat-bootprep
+</code></pre><p>The <code>sat bootprep</code> command helps the Install and Upgrade Framework (IUF)
+install, upgrade, and deploy products on systems managed by CSM. Outside of IUF,
+it is uncommon to use <code>sat bootprep</code>. For more information on this relationship,
+see <a href="/docs-sat/en-25/usage/sat_and_iuf/">SAT and IUF</a>. For more information on IUF, see the
+<a href="https://cray-hpe.github.io/docs-csm/en-14/operations/iuf/iuf/">IUF section</a> of
+the <a href="https://cray-hpe.github.io/docs-csm/"><em>Cray System Management Documentation</em></a>.</p>
+<h2 id="sat-bootprep-vs-sat-bootsys">SAT Bootprep vs SAT Bootsys</h2>
+<p><code>sat bootprep</code> is used to create CFS configurations, build and
+rename IMS images, and create BOS session templates which tie the
+configurations and images together during a BOS session.</p>
+<p><code>sat bootsys</code> automates several portions of the boot and shutdown processes,
+including (but not limited to) performing BOS operations (such as creating BOS
+sessions), powering on and off cabinets, and checking the state of the system
+prior to shutdown.</p>
+<h2 id="edit-a-bootprep-input-file">Edit a Bootprep Input File</h2>
+<p>The input file provided to <code>sat bootprep</code> is a YAML-formatted file containing
+information which CFS, IMS, and BOS use to create configurations, images, and
+BOS session templates respectively. Writing and modifying these input files is
+the main task associated with using <code>sat bootprep</code>. An input file is composed of
+three main sections, one each for configurations, images, and session templates.
+These sections may be specified in any order, and any of the sections may be
+omitted if desired.</p>
+<h3 id="provide-a-schema-version">Provide a Schema Version</h3>
+<p>The <code>sat bootprep</code> input file is validated against a versioned schema
+definition. The input file should specify the version of the schema with which
+it is compatible under a <code>schema_version</code> key. For example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#f92672">schema_version</span>: <span style="color:#ae81ff">1.0.2</span>
+</span></span></code></pre></div><p>The current <code>sat bootprep</code> input file schema version can be viewed with the
+following command:</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# sat bootprep view-schema | grep &#39;^version:&#39;
+version: &#39;1.0.2&#39;
+</code></pre><p>The <code>sat bootprep run</code> command validates the schema version specified
+in the input file. The command also makes sure that the schema version
+of the input file is compatible with the schema version understood by the
+current version of <code>sat bootprep</code>. For more information on schema version
+validation, refer to the <code>schema_version</code> property description in the bootprep
+input file schema. For more information on viewing the bootprep input file
+schema in either raw form or user-friendly HTML form, see <a href="/docs-sat/en-25/#view-sat-bootprep-schema">View SAT Bootprep
+Schema</a>.</p>
+<p>The default HPC CSM Software Recipe bootprep input files provided by the
+<code>hpc-csm-software-recipe</code> release distribution already contain the correct
+schema version.</p>
+<h3 id="define-cfs-configurations">Define CFS Configurations</h3>
+<p>The CFS configurations are defined under a <code>configurations</code> key. Under this
+key, you can list one or more configurations to create. For each
+configuration, give a name in addition to the list of layers that
+comprise the configuration.</p>
+<p>Each layer can be defined by a product name and optionally a version number,
+commit hash, or branch in the product&rsquo;s configuration repository. If this
+method is used, the layer is created in CFS by looking up relevant configuration
+information (including the configuration repository and commit information) from
+the cray-product-catalog Kubernetes ConfigMap as necessary. A version may be
+supplied. However, if it is absent, the version is assumed to be the latest
+version found in the <code>cray-product-catalog</code>.</p>
+<p>Alternatively, a configuration layer can be defined by explicitly referencing
+the desired configuration repository. You must then specify the intended version
+of the Ansible playbooks by providing a branch name or commit hash with <code>branch</code>
+or <code>commit</code>.</p>
+<p>The following example shows a CFS configuration with two layers. The first
+layer is defined in terms of a product name and version, and the second layer
+is defined in terms of a Git clone URL and branch:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#f92672">configurations</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">example-configuration</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">layers</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">example-product</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">playbook</span>: <span style="color:#ae81ff">example.yml</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">product</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">name</span>: <span style="color:#ae81ff">example</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">version</span>: <span style="color:#ae81ff">1.2.3</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">another-example-product</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">playbook</span>: <span style="color:#ae81ff">another-example.yml</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">git</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">url</span>: <span style="color:#e6db74">&#34;https://vcs.local/vcs/another-example-config-management.git&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">branch</span>: <span style="color:#ae81ff">main</span>
+</span></span></code></pre></div><p>When <code>sat bootprep</code> is run against an input file, a CFS configuration is created
+corresponding to each configuration in the <code>configurations</code> section. For
+example, the configuration created from an input file with the layers listed
+above might look something like the following:</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">{
+    &#34;lastUpdated&#34;: &#34;2022-02-07T21:47:49Z&#34;,
+    &#34;layers&#34;: [
+        {
+            &#34;cloneUrl&#34;: &#34;https://vcs.local/vcs/example-config-management.git&#34;,
+            &#34;commit&#34;: &#34;&lt;commit hash&gt;&#34;,
+            &#34;name&#34;: &#34;example product&#34;,
+            &#34;playbook&#34;: &#34;example.yml&#34;
+        },
+        {
+            &#34;cloneUrl&#34;: &#34;https://vcs.local/vcs/another-example-config-management.git&#34;,
+            &#34;commit&#34;: &#34;&lt;commit hash&gt;&#34;,
+            &#34;name&#34;: &#34;another example product&#34;,
+            &#34;playbook&#34;: &#34;another-example.yml&#34;
+        }
+    ],
+    &#34;name&#34;: &#34;example-configuration&#34;
+}
+</code></pre><h3 id="define-ims-images">Define IMS Images</h3>
+<p>The IMS images are defined under an <code>images</code> key. Under the <code>images</code> key, the
+user may define one or more images to be created in a list. Each element of the
+list defines a separate IMS image to be built and/or configured. Images must
+contain a <code>name</code> key and a <code>base</code> key.</p>
+<p>The <code>name</code> key defines the name of the resulting IMS image. The <code>base</code> key
+defines the base image to be configured or the base recipe to be built and
+optionally configured. One of the following keys must be present under the
+<code>base</code> key:</p>
+<ul>
+<li>Use an <code>ims</code> key to specify an existing image or recipe in IMS.</li>
+<li>Use a <code>product</code> key to specify an image or recipe provided by a particular
+version of a product. If a product provides more than one image or recipe,
+a filter string prefix must be specified to select one.</li>
+<li>Use an <code>image_ref</code> key to specify another image from the input file
+using its <code>ref_name</code>.</li>
+</ul>
+<p>Images may also contain the following keys:</p>
+<ul>
+<li>Use a <code>configuration</code> key to specify a CFS configuration with which to
+customize the built image. If a configuration is specified, then configuration
+groups must also be specified using the <code>configuration_group_names</code> key.</li>
+<li>Use a <code>ref_name</code> key to specify a unique name that can refer to this image
+within the input file in other images or in session templates. The <code>ref_name</code>
+key allows references to images from the input file that have dynamically
+generated names as described in
+<a href="/docs-sat/en-25/#dynamic-variable-substitutions">Dynamic Variable Substitutions</a>.</li>
+<li>Use a <code>description</code> key to describe the image in the bootprep input file.
+Note that this key is not currently used.</li>
+</ul>
+<p>Here is an example of an image using an existing IMS recipe as its base. This
+example builds an IMS image from that recipe. It then configures it with
+a CFS configuration named <code>example-compute-config</code>. The <code>example-compute-config</code>
+CFS configuration can be defined under the <code>configurations</code> key in the same
+input file, or it can be an existing CFS configuration. Running <code>sat bootprep</code>
+against this input file results in an image named <code>example-compute-image</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">images</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">example-compute-image</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: &gt;<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    An example compute node image built from an existing IMS recipe.</span>    
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">base</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ims</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">name</span>: <span style="color:#ae81ff">example-compute-image-recipe</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">type</span>: <span style="color:#ae81ff">recipe</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">configuration</span>: <span style="color:#ae81ff">example-compute-config</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">configuration_group_names</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">Compute</span>
+</span></span></code></pre></div><p>Here is an example showing the definition of two images. The first image is
+built from a recipe provided by the <code>cos</code> product. The second image uses the
+first image as a base and configures it with a configuration named
+<code>example-compute-config</code>. The value of the first image&rsquo;s <code>ref_name</code> key is used
+in the second image&rsquo;s <code>base.image_ref</code> key to specify it as a dependency.
+Running <code>sat bootprep</code> against this input file results in two images, the
+first named <code>example-cos-image</code> and the second named <code>example-compute-image</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">images</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">example-cos-image</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ref_name</span>: <span style="color:#ae81ff">example-cos-image</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: &gt;<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    An example image built from a recipe provided by the COS product.</span>    
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">base</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">product</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">name</span>: <span style="color:#ae81ff">cos</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">version</span>: <span style="color:#ae81ff">2.3.101</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">type</span>: <span style="color:#ae81ff">recipe</span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">example-compute-image</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: &gt;<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    An example image built from a recipe provided by the COS product.</span>    
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">base</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image_ref</span>: <span style="color:#ae81ff">example-cos-image</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">configuration</span>: <span style="color:#ae81ff">example-compute-config</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">configuration_group_names</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">Compute</span>
+</span></span></code></pre></div><p>Here is an example of three IMS images built from the Kubernetes image and the
+Ceph storage image provided by the <code>csm</code> product. This example uses a filter
+string prefix to select from the multiple images provided by the CSM product.
+The first two IMS images in the example find any image from the specified <code>csm</code>
+product version whose name starts with <code>secure-kubernetes</code>. The third image in
+the example finds any <code>csm</code> image whose name starts with <code>secure-storage-ceph</code>.
+All three images are then configured with a configuration named
+<code>example-management-config</code>. Running <code>sat bootprep</code> against this input file
+results in three IMS images named <code>worker-example-csm-image</code>,
+<code>master-example-csm-image</code>, and <code>storage-example-csm-image</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">images</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">worker-example-csm-image</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">base</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">product</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">name</span>: <span style="color:#ae81ff">csm</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">version</span>: <span style="color:#ae81ff">1.4.1</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">type</span>: <span style="color:#ae81ff">image</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">filter</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">prefix</span>: <span style="color:#ae81ff">secure-kubernetes</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">configuration</span>: <span style="color:#ae81ff">example-management-config</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">configuration_group_names</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">Management_Worker</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">master-example-csm-image</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">base</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">product</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">name</span>: <span style="color:#ae81ff">csm</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">version</span>: <span style="color:#ae81ff">1.4.1</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">type</span>: <span style="color:#ae81ff">image</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">filter</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">prefix</span>: <span style="color:#ae81ff">secure-kubernetes</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">configuration</span>: <span style="color:#ae81ff">example-management-config</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">configuration_group_names</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">Management_Master</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">storage-example-csm-image</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">base</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">product</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">name</span>: <span style="color:#ae81ff">csm</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">version</span>: <span style="color:#ae81ff">1.4.1</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">type</span>: <span style="color:#ae81ff">image</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">filter</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">prefix</span>: <span style="color:#ae81ff">secure-storage-ceph</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">configuration</span>: <span style="color:#ae81ff">example-management-config</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">configuration_group_names</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">Management_Storage</span>
+</span></span></code></pre></div><h3 id="define-bos-session-templates">Define BOS Session Templates</h3>
+<p>The BOS session templates are defined under the <code>session_templates</code> key. Each
+session template must provide values for the <code>name</code>, <code>image</code>, <code>configuration</code>,
+and <code>bos_parameters</code> keys. The <code>name</code> key defines the name of the resulting BOS
+session template.  The <code>image</code> key defines the image to use in the BOS session
+template. One of the following keys must be present under the <code>image</code> key:</p>
+<ul>
+<li>Use an <code>ims</code> key to specify an existing image or recipe in IMS.</li>
+<li>Use an <code>image_ref</code> key to specify another image from the input file
+using its <code>ref_name</code>.</li>
+</ul>
+<p>The <code>configuration</code> key defines the CFS configuration specified
+in the BOS session template.</p>
+<p>The <code>bos_parameters</code> key defines parameters that are passed through directly to
+the BOS session template. The <code>bos_parameters</code> key should contain a <code>boot_sets</code>
+key, and each boot set in the session template should be specified under
+<code>boot_sets</code>. Each boot set can contain the following keys, all of
+which are optional:</p>
+<ul>
+<li>Use a <code>kernel_parameters</code> key to specify the parameters passed to the kernel on the command line.</li>
+<li>Use a <code>network</code> key to specify the network over which the nodes boot.</li>
+<li>Use a <code>node_list</code> key to specify the nodes to add to the boot set.</li>
+<li>Use a <code>node_roles_groups</code> key to specify the HSM roles to add to the boot set.</li>
+<li>Use a <code>node_groups</code> key to specify the HSM groups to add to the boot set.</li>
+<li>Use a <code>rootfs_provider</code> key to specify the root file system provider.</li>
+<li>Use a <code>rootfs_provider_passthrough</code> key to specify the parameters to add to the <code>rootfs=</code>
+kernel parameter.</li>
+</ul>
+<p>As mentioned above, the parameters under <code>bos_parameters</code> are passed through
+directly to BOS. For more information on the properties of a BOS boot set,
+refer to <strong>BOS Session Templates</strong> in the <a href="https://cray-hpe.github.io/docs-csm/"><em>Cray
+System Management Documentation</em></a>.</p>
+<p>Here is an example of a BOS session template that refers to an existing IMS
+image by name:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">session_templates</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">example-session-template</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">image</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ims</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">name</span>: <span style="color:#ae81ff">example-image</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">configuration</span>: <span style="color:#ae81ff">example-configuration</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">bos_parameters</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">boot_sets</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">example_boot_set</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">kernel_parameters</span>: <span style="color:#ae81ff">ip=dhcp quiet</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">node_roles_groups</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#ae81ff">Compute</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">rootfs_provider</span>: <span style="color:#ae81ff">cpss3</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">rootfs_provider_passthrough</span>: <span style="color:#ae81ff">dvs:api-gw-service-nmn.local:300:nmn0</span>
+</span></span></code></pre></div><p>Here is an example of a BOS session template that refers to an image from the
+input file by its <code>ref_name</code>. This requires that an image defined in the input
+file specifies <code>example-image</code> as the value of its <code>ref_name</code> key.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">session_templates</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">example-session-template</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">image</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image_ref</span>: <span style="color:#ae81ff">example-image</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">configuration</span>: <span style="color:#ae81ff">example-configuration</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">bos_parameters</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">boot_sets</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">example_boot_set</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">kernel_parameters</span>: <span style="color:#ae81ff">ip=dhcp quiet</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">node_roles_groups</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#ae81ff">Compute</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">rootfs_provider</span>: <span style="color:#ae81ff">cpss3</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">rootfs_provider_passthrough</span>: <span style="color:#ae81ff">dvs:api-gw-service-nmn.local:300:nmn0</span>
+</span></span></code></pre></div><h3 id="hpc-csm-software-recipe-variable-substitutions">HPC CSM Software Recipe Variable Substitutions</h3>
+<p>The <code>sat bootprep</code> command takes any variables you provide and substitutes them
+into the input file. Variables are sourced from the command line, any variable
+files directly provided, and the HPC CSM Software Recipe files used, in that
+order. When you provide values through a variable file, <code>sat bootprep</code>
+substitutes the values with Jinja2 template syntax. The HPC CSM Software Recipe
+provides default variables in a <code>product_vars.yaml</code> variable file. This file
+defines information about each HPC software product included in the recipe.</p>
+<p>You will primarily substitute variables into the default HPC CSM Software Recipe
+bootprep input files through IUF. However, variable files can also be given to
+<code>sat bootprep</code> directly from IUF&rsquo;s use of the recipe. If you do use variables
+directly with <code>sat bootprep</code>, you might encounter some limitations. For more
+information on SAT variable limitations, see <a href="/docs-sat/en-25/usage/sat_and_iuf/">SAT and IUF</a>.
+For more information on IUF and variable substitutions, see the
+<a href="https://cray-hpe.github.io/docs-csm/en-14/operations/iuf/iuf/">IUF section</a> of
+the <a href="https://cray-hpe.github.io/docs-csm/"><em>Cray System Management Documentation</em></a>.</p>
+<h4 id="select-an-hpc-csm-software-recipe-version">Select an HPC CSM Software Recipe Version</h4>
+<p>You can view a listing of the default HPC CSM Software Recipe variables and
+their values by running <code>sat bootprep list-vars</code>. For more information on
+options that can be used with the <code>list-vars</code> subcommand, refer to the man page
+for the <code>sat bootprep</code> subcommand.</p>
+<p>By default, the <code>sat bootprep</code> command uses the variables from the latest
+installed version of the HPC CSM Software Recipe. However, you can override
+this with the <code>--recipe-version</code> command line argument to <code>sat bootprep run</code>.</p>
+<p>For example, to explicitly select the <code>22.11.0</code> version of the HPC CSM Software
+Recipe default variables, specify <code>--recipe-version 22.11.0</code>:</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# sat bootprep run --recipe-version 22.11.0 compute-and-uan-bootprep.yaml
+</code></pre><h4 id="values-supporting-jinja2-template-rendering">Values Supporting Jinja2 Template Rendering</h4>
+<p>The entire <code>sat bootprep</code> input file is not rendered by the Jinja2 template
+engine. Jinja2 template rendering of the input file is performed individually
+for each supported value. The values of the following keys in the bootprep
+input file support rendering as a Jinja2 template and thus support variables:</p>
+<ul>
+<li>The <code>name</code> key of each configuration under the <code>configurations</code> key.</li>
+<li>The following keys of each layer under the <code>layers</code> key in a
+configuration:
+<ul>
+<li><code>name</code></li>
+<li><code>playbook</code></li>
+<li><code>git.branch</code></li>
+<li><code>product.version</code></li>
+<li><code>product.branch</code></li>
+</ul>
+</li>
+<li>The following keys of each image under the <code>images</code> key:
+<ul>
+<li><code>name</code></li>
+<li><code>base.product.version</code></li>
+<li><code>configuration</code></li>
+</ul>
+</li>
+<li>The following keys of each session template under the
+<code>session_templates</code> key:
+<ul>
+<li><code>name</code></li>
+<li><code>configuration</code></li>
+</ul>
+</li>
+</ul>
+<p>You can use Jinja2 built-in filters in values of any of the keys listed above.
+In addition, Python string methods can be called on the string variables.</p>
+<h4 id="hyphens-in-hpc-csm-software-recipe-variables">Hyphens in HPC CSM Software Recipe Variables</h4>
+<p>Variable names with hyphens are not allowed in Jinja2 expressions because they
+are parsed as an arithmetic expression instead of a single variable. To support
+product names with hyphens, <code>sat bootprep</code> converts hyphens to underscores in
+all top-level keys of the default HPC CSM Software Recipe variables. It also
+converts any variables sourced from the command line or any variable files
+you provide directly. When referring to a variable with hyphens in the bootprep
+input file, keep this in mind. For example, to refer to the product version
+variable for <code>slingshot-host-software</code> in the bootprep input file, write
+<code>&quot;{{slingshot_host_software.version}}&quot;</code>.</p>
+<h4 id="hpc-csm-software-recipe-variable-substitution-example">HPC CSM Software Recipe Variable Substitution Example</h4>
+<p>The following example bootprep input file shows how a variable of a COS version
+can be used in an input file that creates a CFS configuration for computes.
+Only one layer is shown for brevity.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#f92672">configurations</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;{{default.note}}compute-{{recipe.version}}{{default.suffix}}&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">layers</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">cos-compute-{{cos.working_branch}}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">playbook</span>: <span style="color:#ae81ff">cos-compute.yml</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">product</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">name</span>: <span style="color:#ae81ff">cos</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;{{cos.version}}&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">branch</span>: <span style="color:#e6db74">&#34;{{cos.working_branch}}&#34;</span>
+</span></span></code></pre></div><p><strong>Note:</strong> When the value of a key in the bootprep input file is a Jinja2
+expression, it must be quoted to pass YAML syntax checking.</p>
+<p>Jinja2 expressions can also use filters and Python&rsquo;s built-in string methods to
+manipulate the variable values. For example, suppose only the major and minor
+components of a COS version are to be used in the branch name for the COS
+layer of the CFS configuration. You can use the <code>split</code> string method to
+achieve this as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#f92672">configurations</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;{{default.note}}compute-{{recipe.version}}{{default.suffix}}&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">layers</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">cos-compute-{{cos.working_branch}}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">playbook</span>: <span style="color:#ae81ff">cos-compute.yml</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">product</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">name</span>: <span style="color:#ae81ff">cos</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;{{cos.version}}&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">branch</span>: <span style="color:#ae81ff">integration-{{cos.version.split(&#39;.&#39;)[0]}}-{{cos.version.split(&#39;.&#39;)[1]}}</span>
+</span></span></code></pre></div><h3 id="dynamic-variable-substitutions">Dynamic Variable Substitutions</h3>
+<p>Additional variables are available besides the default variables provided by
+the HPC CSM Software Recipe. (For more information, see <a href="/docs-sat/en-25/#hpc-csm-software-recipe-variable-substitutions">HPC CSM Software
+Recipe Variable Substitutions</a>.)
+These additional variables are dynamic because their values are determined
+at run-time based on the context in which they appear. Available dynamic
+variables include the following:</p>
+<ul>
+<li>
+<p>The variable <code>base.name</code> can be used in the <code>name</code> of an image under the
+<code>images</code> key. The value of this variable is the name of the IMS image or
+recipe used as the base of this image.</p>
+</li>
+<li>
+<p>The variable <code>image.name</code> can be used in the <code>name</code> of a session template
+under the <code>session_templates</code> key. The value of this variable is the name of
+the IMS image used in this session template.</p>
+<p><strong>Note:</strong> The name of a session template is restricted to 45 characters. Keep
+this in mind when using <code>image.name</code> in the name of a session template.</p>
+</li>
+</ul>
+<p>These variables reduce the need to duplicate values throughout the <code>sat bootprep</code> input file and make the following use cases possible:</p>
+<ul>
+<li>You want to build an image from a recipe provided by a product and use the
+name of the recipe in the name of the resulting image.</li>
+<li>You want to use the name of the image in the name of a session template, and
+the image is generated as described in the previous use case.</li>
+</ul>
+<h2 id="example-bootprep-input-files">Example Bootprep Input Files</h2>
+<p>This section provides an example bootprep input file. It also gives
+instructions for obtaining the default bootprep input files delivered
+with a release of the HPC CSM Software Recipe.</p>
+<h3 id="example-bootprep-input-file">Example Bootprep Input File</h3>
+<p>The following bootprep input file provides an example of using most of the
+features described in previous sections. It is not intended to be a complete
+bootprep file for the entire CSM product.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#f92672">configurations</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;{{default.note}}compute-{{recipe.version}}{{default.suffix}}&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">layers</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">cos-compute-{{cos.working_branch}}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">playbook</span>: <span style="color:#ae81ff">cos-compute.yml</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">product</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">name</span>: <span style="color:#ae81ff">cos</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;{{cos.version}}&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">branch</span>: <span style="color:#e6db74">&#34;{{cos.working_branch}}&#34;</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">cpe-pe_deploy-{{cpe.working_branch}}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">playbook</span>: <span style="color:#ae81ff">pe_deploy.yml</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">product</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">name</span>: <span style="color:#ae81ff">cpe</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;{{cpe.version}}&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">branch</span>: <span style="color:#e6db74">&#34;{{cpe.working_branch}}&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">images</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;{{default.note}}{{base.name}}{{default.suffix}}&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ref_name</span>: <span style="color:#ae81ff">base_cos_image</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">base</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">product</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">name</span>: <span style="color:#ae81ff">cos</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">type</span>: <span style="color:#ae81ff">recipe</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;{{cos.version}}&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;compute-{{base.name}}&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ref_name</span>: <span style="color:#ae81ff">compute_image</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">base</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image_ref</span>: <span style="color:#ae81ff">base_cos_image</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">configuration</span>: <span style="color:#e6db74">&#34;{{default.note}}compute-{{recipe.version}}{{default.suffix}}&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">configuration_group_names</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">Compute</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">session_templates</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;{{default.note}}compute-{{recipe.version}}{{default.suffix}}&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">image</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image_ref</span>: <span style="color:#ae81ff">compute_image</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">configuration</span>: <span style="color:#e6db74">&#34;{{default.note}}compute-{{recipe.version}}{{default.suffix}}&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">bos_parameters</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">boot_sets</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">compute</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">kernel_parameters</span>: <span style="color:#ae81ff">ip=dhcp quiet spire_join_token=${SPIRE_JOIN_TOKEN}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">node_roles_groups</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#ae81ff">Compute</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">rootfs_provider_passthrough</span>: <span style="color:#e6db74">&#34;dvs:api-gw-service-nmn.local:300:hsn0,nmn0:0&#34;</span>
+</span></span></code></pre></div><h3 id="access-default-bootprep-input-files">Access Default Bootprep Input Files</h3>
+<p>Default bootprep input files are delivered by the HPC CSM Software Recipe
+product. You can access these files by cloning the <code>hpc-csm-software-recipe</code>
+repository, as described in the <strong>Accessing <code>sat bootprep</code> files</strong> process of
+the <a href="https://cray-hpe.github.io/docs-csm/"><em>Cray System Management
+Documentation</em></a>. Find the
+default input files in the <code>bootprep</code> directory of the cloned repository:</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# ls bootprep/
+</code></pre><h3 id="generate-an-example-bootprep-input-file">Generate an Example Bootprep Input File</h3>
+<p>The <code>sat bootprep generate-example</code> command was not updated for
+recent bootprep schema changes. It is recommended that you instead use the
+default bootprep input files described in <a href="/docs-sat/en-25/#access-default-bootprep-input-files">Access Default Bootprep Input
+Files</a>. The <code>sat bootprep generate-example</code> command will be updated in a future release of SAT.</p>
+<h2 id="summary-of-sat-bootprep-results">Summary of SAT Bootprep Results</h2>
+<p>The <code>sat bootprep run</code> command uses information from the bootprep input file to
+create CFS configurations, IMS images, and BOS session templates. For easy
+reference, the command also includes output summarizing the final creation
+results. The following example shows a sample table output.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# sat bootprep run
+...
+################################################################################
+CFS configurations
+################################################################################
++------------------+
+| name             |
++------------------+
+| example-config-1 |
+| example-config-2 |
++------------------+
+################################################################################
+IMS images
+################################################################################
++---------------+--------------------------------------+--------------------------------------+----------------+----------------------------+
+| name          | preconfigured_image_id               | final_image_id                       | configuration  | configuration_group_names  |
++---------------+--------------------------------------+--------------------------------------+----------------+----------------------------+
+| example-image | c1bcaf00-109d-470f-b665-e7b37dedb62f | a22fb912-22be-449b-a51b-081af2d7aff6 | example-config | Compute                    |
++---------------+--------------------------------------+--------------------------------------+----------------+----------------------------+
+################################################################################
+BOS session templates
+################################################################################
++------------------+----------------+
+| name             | configuration  |
++------------------+----------------+
+| example-template | example-config |
++------------------+----------------+
+</code></pre><h2 id="view-sat-bootprep-schema">View SAT Bootprep Schema</h2>
+<p>The contents of the YAML input files used by <code>sat bootprep</code> must conform to a
+schema which defines the structure of the data. The schema definition is written
+using the JSON Schema format. (Although the format is named &ldquo;JSON Schema&rdquo;, the
+schema itself is written in YAML as well.) More information, including introductory
+materials and a formal specification of the JSON Schema metaschema, can be found
+<a href="https://json-schema.org/specification.html">on the JSON Schema website</a>.</p>
+<h3 id="view-the-exact-schema-specification">View the Exact Schema Specification</h3>
+<p>To view the exact schema specification, run <code>sat bootprep view-schema</code>.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# sat bootprep view-schema
+---
+$schema: &#34;https://json-schema.org/draft/2020-12/schema&#34;
+...
+title: Bootprep Input File
+description: &gt;
+  A description of the set of CFS configurations to create, the set of IMS
+  images to create and optionally customize with the defined CFS configurations,
+  and the set of BOS session templates to create that reference the defined
+  images and configurations.
+type: object
+additionalProperties: false
+properties:
+  ...
+</code></pre><h3 id="generate-user-friendly-documentation">Generate User-Friendly Documentation</h3>
+<p>The raw schema definition can be difficult to understand without experience
+working with JSON Schema specifications. For this reason, a feature is included
+with <code>sat bootprep</code> that generates user-friendly HTML documentation for the input
+file schema. This HTML documentation can be browsed with your preferred web
+browser.</p>
+<ol>
+<li>
+<p>Create a documentation tarball using <code>sat bootprep</code>.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# sat bootprep generate-docs
+INFO: Wrote input schema documentation to /root/bootprep-schema-docs.tar.gz
+</code></pre><p>An alternate output directory can be specified with the <code>--output-dir</code>
+option. The generated tarball is always named <code>bootprep-schema-docs.tar.gz</code>.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# sat bootprep generate-docs --output-dir /tmp
+INFO: Wrote input schema documentation to /tmp/bootprep-schema-docs.tar.gz
+</code></pre></li>
+<li>
+<p>From another machine, copy the tarball to a local directory.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">another-machine$ scp root@ncn-m001:bootprep-schema-docs.tar.gz .
+</code></pre></li>
+<li>
+<p>Extract the contents of the tarball and open the contained <code>index.html</code>.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">another-machine$ tar xzvf bootprep-schema-docs.tar.gz
+x bootprep-schema-docs/
+x bootprep-schema-docs/index.html
+x bootprep-schema-docs/schema_doc.css
+x bootprep-schema-docs/schema_doc.min.js
+another-machine$ open bootprep-schema-docs/index.html
+</code></pre></li>
+</ol>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/docs-sat/js/clipboard.min.js?1729740967"></script>
+    <script src="/docs-sat/js/perfect-scrollbar.min.js?1729740967"></script>
+    <script src="/docs-sat/js/perfect-scrollbar.jquery.min.js?1729740967"></script>
+    <script src="/docs-sat/js/jquery.sticky.js?1729740967"></script>
+    <script src="/docs-sat/js/featherlight.min.js?1729740967"></script>
+    <script src="/docs-sat/js/highlight.pack.js?1729740967"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/docs-sat/js/modernizr.custom-3.6.0.js?1729740967"></script>
+    <script src="/docs-sat/js/learn.js?1729740967"></script>
+    <script src="/docs-sat/js/hugo-learn.js?1729740967"></script>
+    
+        
+            <script src="/docs-sat/mermaid/mermaid.js?1729740967"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+

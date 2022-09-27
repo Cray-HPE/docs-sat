@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="en-26" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.123.0">
+    <meta name="description" content="">
+
+
+    <link rel="icon" href="/docs-sat/images/favicon.png" type="image/png">
+
+    <title>Changes in SAT 2.2 :: System Admin Toolkit (SAT)</title>
+
+    
+    <link href="/docs-sat/css/nucleus.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/fontawesome-all.min.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/hybrid.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/featherlight.min.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/perfect-scrollbar.min.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/auto-complete.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/atom-one-dark-reasonable.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/theme.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/tabs.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/hugo-theme.css?1729740967" rel="stylesheet">
+    
+    <link href="/docs-sat/css/theme-blue.css?1729740967" rel="stylesheet">
+    
+    
+
+    <script src="/docs-sat/js/jquery-3.3.1.min.js?1729740967"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/docs-sat/en-26/release_notes/sat_2.2_release_notes/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href='/docs-sat/en-26'>
+  System Admin Toolkit
+</a>
+
+    </div>
+
+    
+    <section>
+      <ul>
+      
+        <li>
+          <div class="select-style padding">
+          v <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en-26" value="/docs-sat/en-26/release_notes/sat_2.2_release_notes/" selected>2.6</option>
+                    
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="en-25" value="/docs-sat/en-25/release_notes/sat_2.2_release_notes/">2.5</option>
+                    
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </li>
+      
+
+      
+      </ul>
+    </section>
+  
+
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/docs-sat/js/lunr.min.js?1729740967"></script>
+<script type="text/javascript" src="/docs-sat/js/auto-complete.js?1729740967"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/docs-sat\/\/en-26";
+    
+</script>
+<script type="text/javascript" src="/docs-sat/js/search.js?1729740967"></script>
+
+    
+  </div>
+
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+      
+      
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/docs-sat/en-26/about_sat/" title="About SAT" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs-sat/en-26/about_sat/">
+          About SAT
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/about_sat/command_authentication/" title="SAT Command Authentication" class="dd-item ">
+        <a href="/docs-sat/en-26/about_sat/command_authentication/">
+        SAT Command Authentication
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/about_sat/dependencies/" title="SAT Dependencies" class="dd-item ">
+        <a href="/docs-sat/en-26/about_sat/dependencies/">
+        SAT Dependencies
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/about_sat/introduction/" title="Introduction to SAT" class="dd-item ">
+        <a href="/docs-sat/en-26/about_sat/introduction/">
+        Introduction to SAT
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/about_sat/sat_in_csm/" title="SAT in CSM" class="dd-item ">
+        <a href="/docs-sat/en-26/about_sat/sat_in_csm/">
+        SAT in CSM
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/about_sat/view_sat_docs/" title="View SAT Documentation" class="dd-item ">
+        <a href="/docs-sat/en-26/about_sat/view_sat_docs/">
+        View SAT Documentation
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/install/" title="SAT Installation" class="dd-item ">
+        <a href="/docs-sat/en-26/install/">
+        SAT Installation
+        
+        </a>
+    </li>
+     
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/external_system/" title="SAT on an External System" class="dd-item ">
+        <a href="/docs-sat/en-26/external_system/">
+        SAT on an External System
+        
+        </a>
+    </li>
+     
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/docs-sat/en-26/release_notes/" title="SAT Release Notes" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/docs-sat/en-26/release_notes/">
+          SAT Release Notes
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/release_notes/sat_2.2_release_notes/" title="Changes in SAT 2.2" class="dd-item active">
+        <a href="/docs-sat/en-26/release_notes/sat_2.2_release_notes/">
+        Changes in SAT 2.2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/release_notes/sat_2.3_release_notes/" title="Changes in SAT 2.3" class="dd-item ">
+        <a href="/docs-sat/en-26/release_notes/sat_2.3_release_notes/">
+        Changes in SAT 2.3
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/release_notes/sat_2.4_release_notes/" title="Changes in SAT 2.4" class="dd-item ">
+        <a href="/docs-sat/en-26/release_notes/sat_2.4_release_notes/">
+        Changes in SAT 2.4
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/release_notes/sat_2.5_release_notes/" title="Changes in SAT 2.5" class="dd-item ">
+        <a href="/docs-sat/en-26/release_notes/sat_2.5_release_notes/">
+        Changes in SAT 2.5
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/release_notes/sat_2.6_release_notes/" title="Changes in SAT 2.6" class="dd-item ">
+        <a href="/docs-sat/en-26/release_notes/sat_2.6_release_notes/">
+        Changes in SAT 2.6
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/release_notes/shasta_1.3.2_release_notes/" title="SAT Changes in Shasta v1.3.2" class="dd-item ">
+        <a href="/docs-sat/en-26/release_notes/shasta_1.3.2_release_notes/">
+        SAT Changes in Shasta v1.3.2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/release_notes/shasta_1.3_release_notes/" title="SAT Changes in Shasta v1.3" class="dd-item ">
+        <a href="/docs-sat/en-26/release_notes/shasta_1.3_release_notes/">
+        SAT Changes in Shasta v1.3
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/release_notes/shasta_1.4.1_release_notes/" title="SAT Changes in Shasta v1.4.1" class="dd-item ">
+        <a href="/docs-sat/en-26/release_notes/shasta_1.4.1_release_notes/">
+        SAT Changes in Shasta v1.4.1
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/release_notes/shasta_1.4_release_notes/" title="SAT Changes in Shasta v1.4" class="dd-item ">
+        <a href="/docs-sat/en-26/release_notes/shasta_1.4_release_notes/">
+        SAT Changes in Shasta v1.4
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/release_notes/shasta_1.5_release_notes/" title="SAT Changes in Shasta v1.5" class="dd-item ">
+        <a href="/docs-sat/en-26/release_notes/shasta_1.5_release_notes/">
+        SAT Changes in Shasta v1.5
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/uninstall_and_downgrade/" title="SAT Uninstall and Downgrade" class="dd-item ">
+        <a href="/docs-sat/en-26/uninstall_and_downgrade/">
+        SAT Uninstall and Downgrade
+        
+        </a>
+    </li>
+     
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/upgrade/" title="SAT Upgrade" class="dd-item ">
+        <a href="/docs-sat/en-26/upgrade/">
+        SAT Upgrade
+        
+        </a>
+    </li>
+     
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/docs-sat/en-26/usage/" title="SAT Usage" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs-sat/en-26/usage/">
+          SAT Usage
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/usage/change_bos_version/" title="Change the BOS Version" class="dd-item ">
+        <a href="/docs-sat/en-26/usage/change_bos_version/">
+        Change the BOS Version
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/usage/multi-tenancy/" title="Configure Multi-tenancy" class="dd-item ">
+        <a href="/docs-sat/en-26/usage/multi-tenancy/">
+        Configure Multi-tenancy
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/usage/sat_and_iuf/" title="SAT and IUF" class="dd-item ">
+        <a href="/docs-sat/en-26/usage/sat_and_iuf/">
+        SAT and IUF
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/usage/sat_bootprep/" title="SAT Bootprep" class="dd-item ">
+        <a href="/docs-sat/en-26/usage/sat_bootprep/">
+        SAT Bootprep
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+      
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/docs-sat/en-26/'>HPE Cray EX System Admin Toolkit (SAT) Guide</a> > <a href='/docs-sat/en-26/release_notes/'>SAT Release Notes</a> > Changes in SAT 2.2
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#known-issues-in-sat-22">Known Issues in SAT 2.2</a>
+      <ul>
+        <li><a href="#sat-command-unavailable-in-sat-bash-shell"><code>sat</code> Command Unavailable in <code>sat bash</code> Shell</a></li>
+        <li><a href="#tab-completion-unavailable-in-sat-bash-shell">Tab Completion Unavailable in <code>sat bash</code> Shell</a></li>
+        <li><a href="#oci-runtime-permission-error-when-running-sat-in-root-directory">OCI Runtime Permission Error when Running <code>sat</code> in Root Directory</a></li>
+        <li><a href="#duplicate-mount-error-when-running-sat-in-configuration-directory">Duplicate Mount Error when Running <code>sat</code> in Configuration Directory</a></li>
+      </ul>
+    </li>
+    <li><a href="#new-sat-commands">New <code>sat</code> Commands</a></li>
+    <li><a href="#additional-install-automation">Additional Install Automation</a></li>
+    <li><a href="#changes-to-product-catalog-data-schema">Changes to Product Catalog Data Schema</a></li>
+    <li><a href="#support-for-uninstall-and-downgrade-of-sat-versions">Support for Uninstall and Downgrade of SAT Versions</a></li>
+    <li><a href="#improvements-to-sat-status">Improvements to <code>sat status</code></a></li>
+    <li><a href="#added-support-for-json-output">Added Support for JSON Output</a></li>
+    <li><a href="#usability-improvements">Usability Improvements</a></li>
+    <li><a href="#default-log-level-changed">Default Log Level Changed</a></li>
+    <li><a href="#more-granular-log-level-configuration-options">More Granular Log Level Configuration Options</a></li>
+    <li><a href="#podman-wrapper-script-improvements">Podman Wrapper Script Improvements</a>
+      <ul>
+        <li><a href="#mounting-of-home-and-current-directories-in-cray-sat-container">Mounting of $HOME and Current Directories in <code>cray-sat</code> Container</a></li>
+        <li><a href="#podman-wrapper-script-documentation-improvements">Podman Wrapper Script Documentation Improvements</a></li>
+        <li><a href="#fixes-to-podman-wrapper-script-output-redirection">Fixes to Podman Wrapper Script Output Redirection</a></li>
+      </ul>
+    </li>
+    <li><a href="#configurable-http-timeout">Configurable HTTP Timeout</a></li>
+    <li><a href="#sat-bootsys-improvements"><code>sat bootsys</code> Improvements</a></li>
+    <li><a href="#sat-xname2nid-improvements"><code>sat xname2nid</code> Improvements</a></li>
+    <li><a href="#usage-of-v2-hsm-api">Usage of <code>v2</code> HSM API</a></li>
+    <li><a href="#sat-diag-limited-to-hsn-switches"><code>sat diag</code> Limited to HSN Switches</a></li>
+    <li><a href="#sat-showrev-enhancements"><code>sat showrev</code> Enhancements</a></li>
+    <li><a href="#cray-sat-container-image-size-reduction"><code>cray-sat</code> Container Image Size Reduction</a></li>
+    <li><a href="#bug-fixes">Bug Fixes</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+            </h1>
+          
+
+        
+
+
+<h1 id="changes-in-sat-22">Changes in SAT 2.2</h1>
+<p>SAT 2.2.16 was released on February 25th, 2022.</p>
+<p>This version of the SAT product included:</p>
+<ul>
+<li>Version 3.14.0 of the <code>sat</code> python package and CLI</li>
+<li>Version 1.6.4 of the <code>sat-podman</code> wrapper script</li>
+<li>Version 1.0.4 of the <code>sat-cfs-install</code> container image and Helm chart</li>
+</ul>
+<p>It also added the following new components:</p>
+<ul>
+<li>Version 1.4.3 of the <code>sat-install-utility</code> container image</li>
+<li>Version 2.0.2 of the <code>cfs-config-util</code> container image</li>
+</ul>
+<p>The following sections detail the changes in this release.</p>
+<h2 id="known-issues-in-sat-22">Known Issues in SAT 2.2</h2>
+<h3 id="sat-command-unavailable-in-sat-bash-shell"><code>sat</code> Command Unavailable in <code>sat bash</code> Shell</h3>
+<p>After launching a shell within the SAT container with <code>sat bash</code>, the <code>sat</code>
+command will not be found.</p>
+<p>(<code>(CONTAINER_ID) sat-container#</code>) Here is an example output after running <code>sat status</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>bash: sat: command not found
+</span></span></code></pre></div><p>(<code>(CONTAINER_ID) sat-container#</code>) This can be resolved temporarily in one of two ways. <code>/sat/venv/bin/</code> may be
+prepended to the <code>$PATH</code> environment variable:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export PATH<span style="color:#f92672">=</span>/sat/venv/bin:$PATH
+</span></span><span style="display:flex;"><span>sat status
+</span></span></code></pre></div><p>(<code>(CONTAINER_ID) sat-container#</code>) Another option is to source the file <code>/sat/venv/bin/activate</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>source /sat/venv/bin/activate
+</span></span><span style="display:flex;"><span>sat status
+</span></span></code></pre></div><h3 id="tab-completion-unavailable-in-sat-bash-shell">Tab Completion Unavailable in <code>sat bash</code> Shell</h3>
+<p>After launching a shell within the SAT container with <code>sat bash</code>, tab completion
+for <code>sat</code> commands does not work.</p>
+<p>(<code>(CONTAINER_ID) sat-container#</code>) This can be resolved temporarily by sourcing the file
+<code>/etc/bash_completion.d/sat-completion.bash</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>source /etc/bash_completion.d/sat-completion.bash
+</span></span></code></pre></div><h3 id="oci-runtime-permission-error-when-running-sat-in-root-directory">OCI Runtime Permission Error when Running <code>sat</code> in Root Directory</h3>
+<p><code>sat</code> commands will not work if the current directory is <code>/</code>.</p>
+<p>(<code>ncn-m001#</code>) Here is an example output after running <code>sat --help</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Error: container_linux.go:380: starting container process caused: process_linux.go:545: container init caused: open /dev/console: operation not permitted: OCI runtime permission denied error
+</span></span></code></pre></div><p>To resolve, run <code>sat</code> in another directory.</p>
+<h3 id="duplicate-mount-error-when-running-sat-in-configuration-directory">Duplicate Mount Error when Running <code>sat</code> in Configuration Directory</h3>
+<p><code>sat</code> commands will not work if the current directory is <code>~/.config/sat</code>.</p>
+<p>(<code>ncn-m001#</code>) Here is an example output after running <code>sat --help</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Error: /root/.config/sat: duplicate mount destination
+</span></span></code></pre></div><p>To resolve, run <code>sat</code> in another directory.</p>
+<h2 id="new-sat-commands">New <code>sat</code> Commands</h2>
+<ul>
+<li><code>sat bootprep</code> automates the creation of CFS configurations, the build and
+customization of IMS images, and the creation of BOS session templates. For
+more information, see <a href="/docs-sat/en-26/usage/sat_bootprep/">SAT Bootprep</a>.</li>
+<li><code>sat slscheck</code> performs a check for consistency between the System Layout
+Service (SLS) and the Hardware State Manager (HSM).</li>
+<li><code>sat bmccreds</code> provides a simple interface for interacting with the System
+Configuration Service (SCSD) to set BMC Redfish credentials.</li>
+<li><code>sat hwhist</code> displays hardware component history by XName (location) or by
+its Field-Replaceable Unit ID (FRUID). This command queries the Hardware
+State Manager (HSM) API to obtain this information. Since the <code>sat hwhist</code>
+command supports querying for the history of a component by its FRUID, the
+FRUID of components has been added to the output of <code>sat hwinv</code>.</li>
+</ul>
+<h2 id="additional-install-automation">Additional Install Automation</h2>
+<p>The following automation has been added to the install script, <code>install.sh</code>:</p>
+<ul>
+<li>Wait for the completion of the <code>sat-config-import</code> Kubernetes job, which is
+started when the <code>sat-cfs-install</code> Helm chart is deployed.</li>
+<li>Automate the modification of the CFS configuration, which applies to master
+management NCNs (for example, <code>ncn-personalization</code>).</li>
+</ul>
+<h2 id="changes-to-product-catalog-data-schema">Changes to Product Catalog Data Schema</h2>
+<p>The SAT product uploads additional information to the <code>cray-product-catalog</code>
+Kubernetes ConfigMap detailing the components it provides, including container
+(Docker) images, Helm charts, RPMs, and package repositories.</p>
+<p>This information is used to support uninstall and downgrade of SAT product
+versions moving forward.</p>
+<h2 id="support-for-uninstall-and-downgrade-of-sat-versions">Support for Uninstall and Downgrade of SAT Versions</h2>
+<p>Beginning with the 2.2 release, SAT now provides partial support for the
+uninstall and downgrade of the SAT product stream.</p>
+<p>For more information, see
+<a href="/docs-sat/en-26/uninstall_and_downgrade/#uninstall-remove-a-version-of-sat">Uninstall: Remove a Version of SAT</a> and
+<a href="/docs-sat/en-26/uninstall_and_downgrade/#downgrade-switch-between-sat-versions">Downgrade: Switch Between SAT Versions</a>.</p>
+<h2 id="improvements-to-sat-status">Improvements to <code>sat status</code></h2>
+<p>A <code>Subrole</code> column has been added to the output of <code>sat status</code>. This allows
+easy differentiation between master, worker, and storage nodes in the
+management role, for example.</p>
+<p>Hostname information from SLS has been added to <code>sat status</code> output.</p>
+<h2 id="added-support-for-json-output">Added Support for JSON Output</h2>
+<p>Support for JSON-formatted output has been added to commands which currently
+support the <code>--format</code> option, such as <code>hwinv</code>, <code>status</code>, and <code>showrev</code>.</p>
+<h2 id="usability-improvements">Usability Improvements</h2>
+<p>Many usability improvements have been made to multiple <code>sat</code> commands,
+mostly related to filtering command output. The following are some highlights:</p>
+<ul>
+<li>Added <code>--fields</code> option to display only specific fields for subcommands which
+display tabular reports.</li>
+<li>Added ability to filter on exact matches of a field name.</li>
+<li>Improved handling of multiple matches of a field name in <code>--filter</code> queries
+so that the first match is used, similar to <code>--sort-by</code>.</li>
+<li>Added support for <code>--filter</code>, <code>--fields</code>, and <code>--reverse</code> for summaries
+displayed by <code>sat hwinv</code>.</li>
+<li>Added borders to summary tables generated by <code>sat hwinv</code>.</li>
+<li>Improved documentation in the man pages.</li>
+</ul>
+<h2 id="default-log-level-changed">Default Log Level Changed</h2>
+<p>The default log level for <code>stderr</code> has been changed from &ldquo;WARNING&rdquo; to &ldquo;INFO&rdquo;. For
+more information, see <a href="/docs-sat/en-26/upgrade/#update-sat-logging">Update SAT Logging</a>.</p>
+<h2 id="more-granular-log-level-configuration-options">More Granular Log Level Configuration Options</h2>
+<p>With the command-line options <code>--loglevel-stderr</code> and <code>--loglevel-file</code>, the log
+level can now be configured separately for <code>stderr</code> and the log file.</p>
+<p>The existing <code>--loglevel</code> option is now an alias for the <code>--loglevel-stderr</code>
+option.</p>
+<h2 id="podman-wrapper-script-improvements">Podman Wrapper Script Improvements</h2>
+<p>The Podman wrapper script is the script installed at <code>/usr/bin/sat</code> on the
+master management NCNs by the <code>cray-sat-podman</code> RPM that runs the <code>cray-sat</code>
+container in <code>podman</code>. The following subsections detail improvements that were
+made to the wrapper script in this release.</p>
+<h3 id="mounting-of-home-and-current-directories-in-cray-sat-container">Mounting of $HOME and Current Directories in <code>cray-sat</code> Container</h3>
+<p>The Podman wrapper script that launches the <code>cray-sat</code> container with <code>podman</code>
+has been modified to mount the user&rsquo;s current directory and home directory into
+the <code>cray-sat</code> container to provide access to local files in the container.</p>
+<h3 id="podman-wrapper-script-documentation-improvements">Podman Wrapper Script Documentation Improvements</h3>
+<p>The man page for the Podman wrapper script, which is accessed by typing <code>man sat</code> on a master management NCN, has been improved to document the following:</p>
+<ul>
+<li>Environment variables that affect execution of the wrapper script</li>
+<li>Host files and directories mounted in the container</li>
+</ul>
+<h3 id="fixes-to-podman-wrapper-script-output-redirection">Fixes to Podman Wrapper Script Output Redirection</h3>
+<p>Fixed issues with redirecting <code>stdout</code> and <code>stderr</code>, and piping output to
+commands, such as <code>awk</code>, <code>less</code>, and <code>more</code>.</p>
+<h2 id="configurable-http-timeout">Configurable HTTP Timeout</h2>
+<p>A new <code>sat</code> option has been added to configure the HTTP timeout length for
+requests to the API gateway. For more information, refer to <code>sat-man sat</code>.</p>
+<h2 id="sat-bootsys-improvements"><code>sat bootsys</code> Improvements</h2>
+<p>Many improvements and fixes have been made to <code>sat bootsys</code>. The following are
+some highlights:</p>
+<ul>
+<li>Added the <code>--excluded-ncns</code> option, which can be used to omit NCNs
+from the <code>platform-services</code> and <code>ncn-power</code> stages in case they are
+inaccessible.</li>
+<li>Disruptive shutdown stages in <code>sat bootsys shutdown</code> now prompt the user to
+continue before proceeding. A new option, <code>--disruptive</code>, will bypass this.</li>
+<li>Improvements to Ceph service health checks and restart during the
+<code>platform-services</code> stage of <code>sat bootsys boot</code>.</li>
+</ul>
+<h2 id="sat-xname2nid-improvements"><code>sat xname2nid</code> Improvements</h2>
+<p><code>sat xname2nid</code> can now recursively expand slot, chassis, and cabinet XNames to
+a list of NIDs in those locations.</p>
+<p>A new <code>--format</code> option has been added to <code>sat xname2nid</code>. It sets the output
+format to either &ldquo;range&rdquo; (the default) or &ldquo;NID&rdquo;. The &ldquo;range&rdquo; format displays NIDs
+in a compressed range format suitable for use with a workload manager like Slurm.</p>
+<h2 id="usage-of-v2-hsm-api">Usage of <code>v2</code> HSM API</h2>
+<p>The commands which interact with HSM (for example, <code>sat status</code> and <code>sat hwinv</code>)
+now use the <code>v2</code> HSM API.</p>
+<h2 id="sat-diag-limited-to-hsn-switches"><code>sat diag</code> Limited to HSN Switches</h2>
+<p><code>sat diag</code> will now only operate against HSN switches by default. These are the
+only controllers that support running diagnostics with HMJTD.</p>
+<h2 id="sat-showrev-enhancements"><code>sat showrev</code> Enhancements</h2>
+<p>A column has been added to the output of <code>sat showrev</code> that indicates whether a
+product version is &ldquo;active&rdquo;. The definition of &ldquo;active&rdquo; varies across products,
+and not all products may set an &ldquo;active&rdquo; version.</p>
+<p>For SAT, the active version is the one with its hosted-type package repository
+in Nexus set as the member of the group-type package repository in Nexus,
+meaning that it will be used when installing the <code>cray-sat-podman</code> RPM.</p>
+<h2 id="cray-sat-container-image-size-reduction"><code>cray-sat</code> Container Image Size Reduction</h2>
+<p>The size of the <code>cray-sat</code> container image has been approximately cut in half by
+leveraging multi-stage builds. This also improved the repeatability of the unit
+tests by running them in the container.</p>
+<h2 id="bug-fixes">Bug Fixes</h2>
+<p>Minor bug fixes were made in <code>cray-sat</code> and in <code>cray-sat-podman</code>. For full
+change lists, refer to each repository&rsquo;s <code>CHANGELOG.md</code> file.</p>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/docs-sat/js/clipboard.min.js?1729740967"></script>
+    <script src="/docs-sat/js/perfect-scrollbar.min.js?1729740967"></script>
+    <script src="/docs-sat/js/perfect-scrollbar.jquery.min.js?1729740967"></script>
+    <script src="/docs-sat/js/jquery.sticky.js?1729740967"></script>
+    <script src="/docs-sat/js/featherlight.min.js?1729740967"></script>
+    <script src="/docs-sat/js/highlight.pack.js?1729740967"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/docs-sat/js/modernizr.custom-3.6.0.js?1729740967"></script>
+    <script src="/docs-sat/js/learn.js?1729740967"></script>
+    <script src="/docs-sat/js/hugo-learn.js?1729740967"></script>
+    
+        
+            <script src="/docs-sat/mermaid/mermaid.js?1729740967"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+

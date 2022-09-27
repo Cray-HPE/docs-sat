@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="en-25" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.123.0">
+    <meta name="description" content="">
+
+
+    <link rel="icon" href="/docs-sat/images/favicon.png" type="image/png">
+
+    <title>SAT on an External System :: System Admin Toolkit (SAT)</title>
+
+    
+    <link href="/docs-sat/css/nucleus.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/fontawesome-all.min.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/hybrid.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/featherlight.min.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/perfect-scrollbar.min.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/auto-complete.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/atom-one-dark-reasonable.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/theme.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/tabs.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/hugo-theme.css?1729740967" rel="stylesheet">
+    
+    <link href="/docs-sat/css/theme-blue.css?1729740967" rel="stylesheet">
+    
+    
+
+    <script src="/docs-sat/js/jquery-3.3.1.min.js?1729740967"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/docs-sat/en-25/external_system/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href='/docs-sat/en-25'>
+  System Admin Toolkit
+</a>
+
+    </div>
+
+    
+    <section>
+      <ul>
+      
+        <li>
+          <div class="select-style padding">
+          v <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en-26" value="/docs-sat/en-26/external_system/">2.6</option>
+                    
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="en-25" value="/docs-sat/en-25/external_system/" selected>2.5</option>
+                    
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </li>
+      
+
+      
+      </ul>
+    </section>
+  
+
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/docs-sat/js/lunr.min.js?1729740967"></script>
+<script type="text/javascript" src="/docs-sat/js/auto-complete.js?1729740967"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/docs-sat\/\/en-25";
+    
+</script>
+<script type="text/javascript" src="/docs-sat/js/search.js?1729740967"></script>
+
+    
+  </div>
+
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+      
+      
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/introduction/" title="Introduction to SAT" class="dd-item ">
+        <a href="/docs-sat/en-25/introduction/">
+        Introduction to SAT
+        
+        </a>
+    </li>
+     
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/docs-sat/en-25/dashboards/" title="SAT Dashboards" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs-sat/en-25/dashboards/">
+          SAT Dashboards
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/dashboards/sat_grafana_dashboards/" title="SAT Grafana Dashboards" class="dd-item ">
+        <a href="/docs-sat/en-25/dashboards/sat_grafana_dashboards/">
+        SAT Grafana Dashboards
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/dashboards/sat_kibana_dashboards/" title="SAT Kibana Dashboards" class="dd-item ">
+        <a href="/docs-sat/en-25/dashboards/sat_kibana_dashboards/">
+        SAT Kibana Dashboards
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/install/" title="SAT Installation" class="dd-item ">
+        <a href="/docs-sat/en-25/install/">
+        SAT Installation
+        
+        </a>
+    </li>
+     
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/external_system/" title="SAT on an External System" class="dd-item active">
+        <a href="/docs-sat/en-25/external_system/">
+        SAT on an External System
+        
+        </a>
+    </li>
+     
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/docs-sat/en-25/release_notes/" title="SAT Release Notes" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs-sat/en-25/release_notes/">
+          SAT Release Notes
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/release_notes/sat_2.2_release_notes/" title="Changes in SAT 2.2" class="dd-item ">
+        <a href="/docs-sat/en-25/release_notes/sat_2.2_release_notes/">
+        Changes in SAT 2.2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/release_notes/sat_2.3_release_notes/" title="Changes in SAT 2.3" class="dd-item ">
+        <a href="/docs-sat/en-25/release_notes/sat_2.3_release_notes/">
+        Changes in SAT 2.3
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/release_notes/sat_2.4_release_notes/" title="Changes in SAT 2.4" class="dd-item ">
+        <a href="/docs-sat/en-25/release_notes/sat_2.4_release_notes/">
+        Changes in SAT 2.4
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/release_notes/sat_2.5_release_notes/" title="Changes in SAT 2.5" class="dd-item ">
+        <a href="/docs-sat/en-25/release_notes/sat_2.5_release_notes/">
+        Changes in SAT 2.5
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/release_notes/shasta_1.3.2_release_notes/" title="SAT Changes in Shasta v1.3.2" class="dd-item ">
+        <a href="/docs-sat/en-25/release_notes/shasta_1.3.2_release_notes/">
+        SAT Changes in Shasta v1.3.2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/release_notes/shasta_1.3_release_notes/" title="SAT Changes in Shasta v1.3" class="dd-item ">
+        <a href="/docs-sat/en-25/release_notes/shasta_1.3_release_notes/">
+        SAT Changes in Shasta v1.3
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/release_notes/shasta_1.4.1_release_notes/" title="SAT Changes in Shasta v1.4.1" class="dd-item ">
+        <a href="/docs-sat/en-25/release_notes/shasta_1.4.1_release_notes/">
+        SAT Changes in Shasta v1.4.1
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/release_notes/shasta_1.4_release_notes/" title="SAT Changes in Shasta v1.4" class="dd-item ">
+        <a href="/docs-sat/en-25/release_notes/shasta_1.4_release_notes/">
+        SAT Changes in Shasta v1.4
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/release_notes/shasta_1.5_release_notes/" title="SAT Changes in Shasta v1.5" class="dd-item ">
+        <a href="/docs-sat/en-25/release_notes/shasta_1.5_release_notes/">
+        SAT Changes in Shasta v1.5
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/uninstall_and_downgrade/" title="SAT Uninstall and Downgrade" class="dd-item ">
+        <a href="/docs-sat/en-25/uninstall_and_downgrade/">
+        SAT Uninstall and Downgrade
+        
+        </a>
+    </li>
+     
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/upgrade/" title="SAT Upgrade" class="dd-item ">
+        <a href="/docs-sat/en-25/upgrade/">
+        SAT Upgrade
+        
+        </a>
+    </li>
+     
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/docs-sat/en-25/usage/" title="SAT Usage" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs-sat/en-25/usage/">
+          SAT Usage
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/usage/change_bos_version/" title="Change the BOS Version" class="dd-item ">
+        <a href="/docs-sat/en-25/usage/change_bos_version/">
+        Change the BOS Version
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/usage/sat_and_iuf/" title="SAT and IUF" class="dd-item ">
+        <a href="/docs-sat/en-25/usage/sat_and_iuf/">
+        SAT and IUF
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/usage/sat_bootprep/" title="SAT Bootprep" class="dd-item ">
+        <a href="/docs-sat/en-25/usage/sat_bootprep/">
+        SAT Bootprep
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+      
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/docs-sat/en-25/'>HPE Cray EX System Admin Toolkit (SAT) Guide</a> > SAT on an External System
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#limitations">Limitations</a></li>
+    <li><a href="#install-and-configure-sat">Install and Configure SAT</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#procedure">Procedure</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+            </h1>
+          
+
+        
+
+
+<h1 id="sat-on-an-external-system">SAT on an External System</h1>
+<p>SAT can optionally be installed and configured on an external system to interact
+with CSM over the CAN.</p>
+<h2 id="limitations">Limitations</h2>
+<p>Most SAT subcommands work by accessing APIs which are reachable via the CAN.
+However, certain SAT commands depend on host-based functionality on the
+management NCNs and will not work from an external system. This includes the
+following:</p>
+<ul>
+<li>The <code>platform-services</code> and <code>ncn-power</code> stages of <code>sat bootsys</code></li>
+<li>The local host information displayed by the <code>--local</code> option of <code>sat showrev</code></li>
+</ul>
+<p>Installing SAT on an external system is not an officially supported configuration.
+These instructions are provided &ldquo;as-is&rdquo; with the hope that they can useful for
+users who desire additional flexibility.</p>
+<p>Certain additional steps may need to be taken to install and configure SAT
+depending on the configuration of the external system in use. These additional
+steps may include provisioning virtual machines, installing packages, or
+configuring TLS certificates, and these steps are outside the scope of this
+documentation. This section covers only the steps needed to configure SAT to
+use externally-accessible API endpoints exposed by CSM.</p>
+<h2 id="install-and-configure-sat">Install and Configure SAT</h2>
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li>The external system must be on the Customer Access Network (CAN).</li>
+<li>Python 3.7 or newer is installed on the system.</li>
+<li><code>kubectl</code>, <code>openssh</code>, <code>git</code>, and <code>curl</code> are installed on the external system.</li>
+<li>The root CA certificates used when installing CSM have been added to the
+external system&rsquo;s trust store such that authenticated TLS connections can be
+made to the CSM REST API gateway. For more information, refer to <strong>Certificate
+Authority</strong> in the <a href="https://cray-hpe.github.io/docs-csm/"><em>Cray System Management Documentation</em></a>.</li>
+</ul>
+<h3 id="procedure">Procedure</h3>
+<ol>
+<li>
+<p>Create a Python virtual environment.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">$ SAT_VENV_PATH=&#34;$(pwd)/venv&#34;
+$ python3 -m venv ${SAT_VENV_PATH}
+$ . ${SAT_VENV_PATH}/bin/activate
+</code></pre></li>
+<li>
+<p>Clone the SAT source code.</p>
+<p>To use SAT version 3.21, this example clones the <code>release/3.21</code> branch of
+<code>Cray-HPE/sat</code>.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">(venv) $ git clone --branch=release/3.21 https://github.com/Cray-HPE/sat.git
+</code></pre></li>
+<li>
+<p>Set up the SAT CSM Python dependencies to be installed from their source code.</p>
+<p>SAT CSM Python dependency packages are not currently distributed publicly as
+source packages or binary distributions. They must be installed from
+their source code hosted on GitHub. Also, to install the <code>cray-product-catalog</code>
+Python package, you must first clone it locally. Use the following steps to
+modify the SAT CSM Python dependencies so they can be installed from their source
+code.</p>
+<ol>
+<li>
+<p>Clone the source code for <code>cray-product-catalog</code>.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">(venv) $ git clone --branch v1.6.0 https://github.com/Cray-HPE/cray-product-catalog
+</code></pre></li>
+<li>
+<p>In the <code>cray-product-catalog</code> directory, create a file named <code>.version</code>
+that contains the version of <code>cray-product-catalog</code>.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">(venv) $ echo 1.6.0 &gt; cray-product-catalog/.version
+</code></pre></li>
+<li>
+<p>Open the &ldquo;locked&rdquo; requirements file in a text editor.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">(venv) $ vim sat/requirements.lock.txt
+</code></pre></li>
+<li>
+<p>Update the line containing <code>cray-product-catalog</code> so that it reflects the
+local path to <code>cray-product-catalog</code>.</p>
+<p>It should read as follows.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">./cray-product-catalog
+</code></pre></li>
+<li>
+<p>For versions of SAT newer than 3.19, change the line containing <code>csm-api-client</code>
+to read as follows.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">csm-api-client@git+https://github.com/Cray-HPE/python-csm-api-client@release/1.1
+</code></pre></li>
+<li>
+<p>(Optional) Confirm that <code>requirements.lock.txt</code> is modified as expected.</p>
+<p><strong>Note:</strong> For versions newer than 3.19, you will see both <code>cray-product-catalog</code>
+and <code>csm-api-client</code>. For version 3.19 and older, you will only see
+<code>cray-product-catalog</code>.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">(venv) $ grep -E &#39;cray-product-catalog|csm-api-client&#39; sat/requirements.lock.txt
+./cray-product-catalog
+csm-api-client@git+https://github.com/Cray-HPE/python-csm-api-client@release/1.1
+</code></pre></li>
+</ol>
+</li>
+<li>
+<p>Install the modified SAT dependencies.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">(venv) $ pip install -r sat/requirements.lock.txt
+...
+</code></pre></li>
+<li>
+<p>Install the SAT Python package.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">(venv) $ pip install ./sat
+...
+</code></pre></li>
+<li>
+<p>(Optional) Add the <code>sat</code> virtual environment to the user&rsquo;s <code>PATH</code> environment
+variable.</p>
+<p>If a shell other than <code>bash</code> is in use, replace <code>~/.bash_profile</code> with the
+appropriate profile path.</p>
+<p>If the virtual environment is not added to the user&rsquo;s <code>PATH</code> environment
+variable, then <code>source ${SAT_VENV_PATH}/bin/activate</code> will need to be run before
+running any SAT commands.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">(venv) $ deactivate
+$ echo export PATH=\&#34;${SAT_VENV_PATH}/bin:${PATH}\&#34; &gt;&gt; ~/.bash_profile
+$ source ~/.bash_profile
+</code></pre></li>
+<li>
+<p>Copy the file <code>/etc/kubernetes/admin.conf</code> from <code>ncn-m001</code> to <code>~/.kube/config</code>
+on the external system.</p>
+<p>Note that this file contains credentials to authenticate against the Kubernetes
+API as the administrative user, so it should be treated as sensitive.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">$ mkdir -p ~/.kube
+$ scp ncn-m001:/etc/kubernetes/admin.conf ~/.kube/config
+admin.conf                                       100% 5566   3.0MB/s   00:00
+</code></pre></li>
+<li>
+<p>Add a new entry for the hostname <code>kubernetes</code> to the external system&rsquo;s
+<code>/etc/hosts</code> file.</p>
+<p>The <code>kubernetes</code> hostname should correspond to the CAN IP address on <code>ncn-m001</code>.
+On CSM 1.2, this can be determined by querying the IP address of the <code>bond0.cmn0</code>
+interface.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">$ ssh ncn-m001 ip addr show bond0.cmn0
+13: bond0.cmn0@bond0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default qlen 1000
+link/ether b8:59:9f:1d:d9:0e brd ff:ff:ff:ff:ff:ff
+inet 10.102.1.11/24 brd 10.102.1.255 scope global vlan007
+   valid_lft forever preferred_lft forever
+inet6 fe80::ba59:9fff:fe1d:d90e/64 scope link
+   valid_lft forever preferred_lft forever
+$ IP_ADDRESS=10.102.1.11
+</code></pre><p>On CSM versions prior to 1.2, the CAN IP can be determined by querying the
+IP address of the <code>vlan007</code> interface.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">$ ssh ncn-m001 ip addr show vlan007
+13: vlan007@bond0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default qlen 1000
+link/ether b8:59:9f:1d:d9:0e brd ff:ff:ff:ff:ff:ff
+inet 10.102.1.10/24 brd 10.102.1.255 scope global vlan007
+   valid_lft forever preferred_lft forever
+inet6 fe80::ba59:9fff:fe1d:d90e/64 scope link
+   valid_lft forever preferred_lft forever
+$ IP_ADDRESS=10.102.1.10
+</code></pre><p>Once the IP address is determined, add an entry to <code>/etc/hosts</code> mapping the
+IP address to the hostname <code>kubernetes</code>.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">$ echo &#34;${IP_ADDRESS} kubernetes&#34; | sudo tee -a /etc/hosts
+10.102.1.11 kubernetes
+</code></pre></li>
+<li>
+<p>Modify <code>~/.kube/config</code> to set the cluster server address.</p>
+<p>The value of the <code>server</code> key for the <code>kubernetes</code> cluster under the <code>clusters</code>
+section should be set to <code>https://kubernetes:6443</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#f92672">clusters</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">cluster</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">certificate-authority-data</span>: <span style="color:#ae81ff">REDACTED</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">server</span>: <span style="color:#ae81ff">https://kubernetes:6443</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">kubernetes</span>
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div></li>
+<li>
+<p>Confirm that <code>kubectl</code> can access the CSM Kubernetes cluster.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">$ kubectl get nodes
+NAME       STATUS   ROLES    AGE    VERSION
+ncn-m001   Ready    master   135d   v1.19.9
+ncn-m002   Ready    master   136d   v1.19.9
+ncn-m003   Ready    master   136d   v1.19.9
+ncn-w001   Ready    &lt;none&gt;   136d   v1.19.9
+ncn-w002   Ready    &lt;none&gt;   136d   v1.19.9
+ncn-w003   Ready    &lt;none&gt;   136d   v1.19.9
+</code></pre></li>
+<li>
+<p>Use <code>sat init</code> to create a configuration file for SAT.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">$ sat init
+INFO: Configuration file &#34;/home/user/.config/sat/sat.toml&#34; generated.
+</code></pre></li>
+<li>
+<p>Copy the platform CA certificates from the management NCN and configure the
+certificates for use with SAT.</p>
+<p>If a shell other than <code>bash</code> is in use, replace <code>~/.bash_profile</code> with the
+appropriate profile path.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">$ scp ncn-m001:/etc/pki/trust/anchors/platform-ca-certs.crt .
+$ echo export REQUESTS_CA_BUNDLE=\&#34;$(realpath platform-ca-certs.crt)\&#34; &gt;&gt; ~/.bash_profile
+$ source ~/.bash_profile
+</code></pre></li>
+<li>
+<p>Edit the SAT configuration file to set the API and S3 hostnames.</p>
+<p>Externally available API endpoints are given domain names in PowerDNS, so the
+endpoints in the configuration file should each be set to
+<code>subdomain.system-name.site-domain</code>, where <code>system-name</code> and <code>site-domain</code> are
+replaced with the values specified during <code>csi config init</code>, and <code>subdomain</code>
+is the DNS name for the externally available service. For more information,
+refer to <strong>Externally Exposed Services</strong> in the <a href="https://cray-hpe.github.io/docs-csm/"><em>Cray System Management
+Documentation</em></a>.</p>
+<p>The API gateway has the subdomain <code>api</code>, and S3 has the subdomain <code>s3</code>. The
+S3 endpoint runs on port 8080. The following options should be set in the
+SAT configuration file.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[<span style="color:#a6e22e">api_gateway</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">host</span> = <span style="color:#e6db74">&#34;api.system-name.site-domain&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">s3</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">endpoint</span> = <span style="color:#e6db74">&#34;http://s3.system-name.site-domain:8080&#34;</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Edit the SAT configuration file to specify the Keycloak user which will be
+accessing the REST API.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[<span style="color:#a6e22e">api_gateway</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">username</span> = <span style="color:#e6db74">&#34;user&#34;</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Run <code>sat auth</code>. Enter your password when prompted.</p>
+<p>The admin account used to authenticate with <code>sat auth</code> must be enabled in
+Keycloak and must have its <em>assigned role</em> set to <em>admin</em>. For more
+information on editing <em>Role Mappings</em>, see <em>Create Internal User Accounts
+in the Keycloak Shasta Realm</em> in the
+<a href="https://cray-hpe.github.io/docs-csm/"><em>Cray System Management Documentation</em></a>.
+For more information on authentication types and authentication credentials,
+see <a href="/docs-sat/en-25/introduction/#sat-command-authentication">SAT Command Authentication</a>.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">$ sat auth
+Password for user:
+Succeeded!
+</code></pre></li>
+<li>
+<p>Ensure the files are readable only by the current user.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">$ touch ~/.config/sat/s3_access_key \
+    ~/.config/sat/s3_secret_key
+</code></pre><pre tabindex="0"><code class="language-screen" data-lang="screen">$ chmod 600 ~/.config/sat/s3_access_key \
+    ~/.config/sat/s3_secret_key
+</code></pre></li>
+<li>
+<p>Write the credentials to local files using <code>kubectl</code>.</p>
+<p>Generate S3 credentials and write them to a local file so the SAT user can
+access S3 storage. In order to use the SAT S3 bucket, the user must generate
+the S3 access key and secret keys and write them to a local file. SAT uses
+S3 storage for several purposes, most importantly to store the site-specific
+information set with <code>sat setrev</code>.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">$ kubectl get secret sat-s3-credentials -o json -o \
+    jsonpath=&#39;{.data.access_key}&#39; | base64 -d &gt; \
+    ~/.config/sat/s3_access_key
+</code></pre><pre tabindex="0"><code class="language-screen" data-lang="screen">$ kubectl get secret sat-s3-credentials -o json -o \
+    jsonpath=&#39;{.data.secret_key}&#39; | base64 -d &gt; \
+    ~/.config/sat/s3_secret_key
+</code></pre></li>
+</ol>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/docs-sat/js/clipboard.min.js?1729740967"></script>
+    <script src="/docs-sat/js/perfect-scrollbar.min.js?1729740967"></script>
+    <script src="/docs-sat/js/perfect-scrollbar.jquery.min.js?1729740967"></script>
+    <script src="/docs-sat/js/jquery.sticky.js?1729740967"></script>
+    <script src="/docs-sat/js/featherlight.min.js?1729740967"></script>
+    <script src="/docs-sat/js/highlight.pack.js?1729740967"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/docs-sat/js/modernizr.custom-3.6.0.js?1729740967"></script>
+    <script src="/docs-sat/js/learn.js?1729740967"></script>
+    <script src="/docs-sat/js/hugo-learn.js?1729740967"></script>
+    
+        
+            <script src="/docs-sat/mermaid/mermaid.js?1729740967"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+

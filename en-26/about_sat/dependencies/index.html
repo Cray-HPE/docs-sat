@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="en-26" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.123.0">
+    <meta name="description" content="">
+
+
+    <link rel="icon" href="/docs-sat/images/favicon.png" type="image/png">
+
+    <title>SAT Dependencies :: System Admin Toolkit (SAT)</title>
+
+    
+    <link href="/docs-sat/css/nucleus.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/fontawesome-all.min.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/hybrid.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/featherlight.min.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/perfect-scrollbar.min.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/auto-complete.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/atom-one-dark-reasonable.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/theme.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/tabs.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/hugo-theme.css?1729740967" rel="stylesheet">
+    
+    <link href="/docs-sat/css/theme-blue.css?1729740967" rel="stylesheet">
+    
+    
+
+    <script src="/docs-sat/js/jquery-3.3.1.min.js?1729740967"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/docs-sat/en-26/about_sat/dependencies/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href='/docs-sat/en-26'>
+  System Admin Toolkit
+</a>
+
+    </div>
+
+    
+    <section>
+      <ul>
+      
+        <li>
+          <div class="select-style padding">
+          v <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en-26" value="/docs-sat/en-26/about_sat/dependencies/" selected>2.6</option>
+                    
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </li>
+      
+
+      
+      </ul>
+    </section>
+  
+
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/docs-sat/js/lunr.min.js?1729740967"></script>
+<script type="text/javascript" src="/docs-sat/js/auto-complete.js?1729740967"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/docs-sat\/\/en-26";
+    
+</script>
+<script type="text/javascript" src="/docs-sat/js/search.js?1729740967"></script>
+
+    
+  </div>
+
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+      
+      
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/docs-sat/en-26/about_sat/" title="About SAT" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/docs-sat/en-26/about_sat/">
+          About SAT
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/about_sat/command_authentication/" title="SAT Command Authentication" class="dd-item ">
+        <a href="/docs-sat/en-26/about_sat/command_authentication/">
+        SAT Command Authentication
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/about_sat/dependencies/" title="SAT Dependencies" class="dd-item active">
+        <a href="/docs-sat/en-26/about_sat/dependencies/">
+        SAT Dependencies
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/about_sat/introduction/" title="Introduction to SAT" class="dd-item ">
+        <a href="/docs-sat/en-26/about_sat/introduction/">
+        Introduction to SAT
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/about_sat/sat_in_csm/" title="SAT in CSM" class="dd-item ">
+        <a href="/docs-sat/en-26/about_sat/sat_in_csm/">
+        SAT in CSM
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/about_sat/view_sat_docs/" title="View SAT Documentation" class="dd-item ">
+        <a href="/docs-sat/en-26/about_sat/view_sat_docs/">
+        View SAT Documentation
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/install/" title="SAT Installation" class="dd-item ">
+        <a href="/docs-sat/en-26/install/">
+        SAT Installation
+        
+        </a>
+    </li>
+     
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/external_system/" title="SAT on an External System" class="dd-item ">
+        <a href="/docs-sat/en-26/external_system/">
+        SAT on an External System
+        
+        </a>
+    </li>
+     
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/docs-sat/en-26/release_notes/" title="SAT Release Notes" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs-sat/en-26/release_notes/">
+          SAT Release Notes
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/release_notes/sat_2.2_release_notes/" title="Changes in SAT 2.2" class="dd-item ">
+        <a href="/docs-sat/en-26/release_notes/sat_2.2_release_notes/">
+        Changes in SAT 2.2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/release_notes/sat_2.3_release_notes/" title="Changes in SAT 2.3" class="dd-item ">
+        <a href="/docs-sat/en-26/release_notes/sat_2.3_release_notes/">
+        Changes in SAT 2.3
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/release_notes/sat_2.4_release_notes/" title="Changes in SAT 2.4" class="dd-item ">
+        <a href="/docs-sat/en-26/release_notes/sat_2.4_release_notes/">
+        Changes in SAT 2.4
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/release_notes/sat_2.5_release_notes/" title="Changes in SAT 2.5" class="dd-item ">
+        <a href="/docs-sat/en-26/release_notes/sat_2.5_release_notes/">
+        Changes in SAT 2.5
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/release_notes/sat_2.6_release_notes/" title="Changes in SAT 2.6" class="dd-item ">
+        <a href="/docs-sat/en-26/release_notes/sat_2.6_release_notes/">
+        Changes in SAT 2.6
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/release_notes/shasta_1.3.2_release_notes/" title="SAT Changes in Shasta v1.3.2" class="dd-item ">
+        <a href="/docs-sat/en-26/release_notes/shasta_1.3.2_release_notes/">
+        SAT Changes in Shasta v1.3.2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/release_notes/shasta_1.3_release_notes/" title="SAT Changes in Shasta v1.3" class="dd-item ">
+        <a href="/docs-sat/en-26/release_notes/shasta_1.3_release_notes/">
+        SAT Changes in Shasta v1.3
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/release_notes/shasta_1.4.1_release_notes/" title="SAT Changes in Shasta v1.4.1" class="dd-item ">
+        <a href="/docs-sat/en-26/release_notes/shasta_1.4.1_release_notes/">
+        SAT Changes in Shasta v1.4.1
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/release_notes/shasta_1.4_release_notes/" title="SAT Changes in Shasta v1.4" class="dd-item ">
+        <a href="/docs-sat/en-26/release_notes/shasta_1.4_release_notes/">
+        SAT Changes in Shasta v1.4
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/release_notes/shasta_1.5_release_notes/" title="SAT Changes in Shasta v1.5" class="dd-item ">
+        <a href="/docs-sat/en-26/release_notes/shasta_1.5_release_notes/">
+        SAT Changes in Shasta v1.5
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/uninstall_and_downgrade/" title="SAT Uninstall and Downgrade" class="dd-item ">
+        <a href="/docs-sat/en-26/uninstall_and_downgrade/">
+        SAT Uninstall and Downgrade
+        
+        </a>
+    </li>
+     
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/upgrade/" title="SAT Upgrade" class="dd-item ">
+        <a href="/docs-sat/en-26/upgrade/">
+        SAT Upgrade
+        
+        </a>
+    </li>
+     
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/docs-sat/en-26/usage/" title="SAT Usage" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs-sat/en-26/usage/">
+          SAT Usage
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/usage/change_bos_version/" title="Change the BOS Version" class="dd-item ">
+        <a href="/docs-sat/en-26/usage/change_bos_version/">
+        Change the BOS Version
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/usage/multi-tenancy/" title="Configure Multi-tenancy" class="dd-item ">
+        <a href="/docs-sat/en-26/usage/multi-tenancy/">
+        Configure Multi-tenancy
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/usage/sat_and_iuf/" title="SAT and IUF" class="dd-item ">
+        <a href="/docs-sat/en-26/usage/sat_and_iuf/">
+        SAT and IUF
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-26/usage/sat_bootprep/" title="SAT Bootprep" class="dd-item ">
+        <a href="/docs-sat/en-26/usage/sat_bootprep/">
+        SAT Bootprep
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+      
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/docs-sat/en-26/'>HPE Cray EX System Admin Toolkit (SAT) Guide</a> > <a href='/docs-sat/en-26/about_sat/'>About SAT</a> > SAT Dependencies
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#sat-auth"><code>sat auth</code></a>
+      <ul>
+        <li><a href="#csm">CSM</a></li>
+      </ul>
+    </li>
+    <li><a href="#sat-bmccreds"><code>sat bmccreds</code></a>
+      <ul>
+        <li><a href="#csm-1">CSM</a></li>
+      </ul>
+    </li>
+    <li><a href="#sat-bootprep"><code>sat bootprep</code></a>
+      <ul>
+        <li><a href="#csm-2">CSM</a></li>
+      </ul>
+    </li>
+    <li><a href="#sat-bootsys"><code>sat bootsys</code></a>
+      <ul>
+        <li><a href="#csm-3">CSM</a></li>
+        <li><a href="#hpe-cray-supercomputing-user-services-software-uss">HPE Cray Supercomputing User Services Software (USS)</a></li>
+      </ul>
+    </li>
+    <li><a href="#sat-diag"><code>sat diag</code></a>
+      <ul>
+        <li><a href="#csm-4">CSM</a></li>
+        <li><a href="#csm-diags">CSM-Diags</a></li>
+      </ul>
+    </li>
+    <li><a href="#sat-firmware"><code>sat firmware</code></a>
+      <ul>
+        <li><a href="#csm-5">CSM</a></li>
+      </ul>
+    </li>
+    <li><a href="#sat-hwhist"><code>sat hwhist</code></a>
+      <ul>
+        <li><a href="#csm-6">CSM</a></li>
+      </ul>
+    </li>
+    <li><a href="#sat-hwinv"><code>sat hwinv</code></a>
+      <ul>
+        <li><a href="#csm-7">CSM</a></li>
+      </ul>
+    </li>
+    <li><a href="#sat-hwmatch"><code>sat hwmatch</code></a>
+      <ul>
+        <li><a href="#csm-8">CSM</a></li>
+      </ul>
+    </li>
+    <li><a href="#sat-init"><code>sat init</code></a></li>
+    <li><a href="#sat-jobstat"><code>sat jobstat</code></a>
+      <ul>
+        <li><a href="#pbs">PBS</a></li>
+      </ul>
+    </li>
+    <li><a href="#sat-k8s"><code>sat k8s</code></a>
+      <ul>
+        <li><a href="#csm-9">CSM</a></li>
+      </ul>
+    </li>
+    <li><a href="#sat-nid2xname"><code>sat nid2xname</code></a>
+      <ul>
+        <li><a href="#csm-10">CSM</a></li>
+      </ul>
+    </li>
+    <li><a href="#sat-sensors"><code>sat sensors</code></a>
+      <ul>
+        <li><a href="#csm-11">CSM</a></li>
+        <li><a href="#sma">SMA</a></li>
+      </ul>
+    </li>
+    <li><a href="#sat-setrev"><code>sat setrev</code></a>
+      <ul>
+        <li><a href="#csm-12">CSM</a></li>
+      </ul>
+    </li>
+    <li><a href="#sat-showrev"><code>sat showrev</code></a>
+      <ul>
+        <li><a href="#csm-13">CSM</a></li>
+      </ul>
+    </li>
+    <li><a href="#sat-slscheck"><code>sat slscheck</code></a>
+      <ul>
+        <li><a href="#csm-14">CSM</a></li>
+      </ul>
+    </li>
+    <li><a href="#sat-status"><code>sat status</code></a>
+      <ul>
+        <li><a href="#csm-15">CSM</a></li>
+      </ul>
+    </li>
+    <li><a href="#sat-swap"><code>sat swap</code></a>
+      <ul>
+        <li><a href="#slingshot">Slingshot</a></li>
+      </ul>
+    </li>
+    <li><a href="#sat-switch"><code>sat switch</code></a></li>
+    <li><a href="#sat-xname2nid"><code>sat xname2nid</code></a>
+      <ul>
+        <li><a href="#csm-16">CSM</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+            </h1>
+          
+
+        
+
+
+<h1 id="sat-dependencies">SAT Dependencies</h1>
+<p>Most <code>sat</code> subcommands depend on services or components from other products in the
+HPE Cray EX software stack. The following list shows these dependencies for each
+subcommand. Each service or component is listed under the product it belongs to.</p>
+<h2 id="sat-auth"><code>sat auth</code></h2>
+<h3 id="csm">CSM</h3>
+<ul>
+<li>Keycloak</li>
+</ul>
+<h2 id="sat-bmccreds"><code>sat bmccreds</code></h2>
+<h3 id="csm-1">CSM</h3>
+<ul>
+<li>System Configuration Service (SCSD)</li>
+</ul>
+<h2 id="sat-bootprep"><code>sat bootprep</code></h2>
+<h3 id="csm-2">CSM</h3>
+<ul>
+<li>Boot Orchestration Service (BOS)</li>
+<li>Configuration Framework Service (CFS)</li>
+<li>Image Management Service (IMS)</li>
+<li>Version Control Service (VCS)</li>
+<li>Kubernetes</li>
+<li>S3</li>
+</ul>
+<h2 id="sat-bootsys"><code>sat bootsys</code></h2>
+<h3 id="csm-3">CSM</h3>
+<ul>
+<li>Boot Orchestration Service (BOS)</li>
+<li>Cray Advanced Platform Monitoring and Control (CAPMC)</li>
+<li>Ceph</li>
+<li>Etcd</li>
+<li>Firmware Action Service (FAS)</li>
+<li>Hardware State Manager (HSM)</li>
+<li>Kubernetes</li>
+<li>S3</li>
+</ul>
+<h3 id="hpe-cray-supercomputing-user-services-software-uss">HPE Cray Supercomputing User Services Software (USS)</h3>
+<ul>
+<li>Node Memory Dump (NMD)</li>
+</ul>
+<h2 id="sat-diag"><code>sat diag</code></h2>
+<h3 id="csm-4">CSM</h3>
+<ul>
+<li>Hardware State Manager (HSM)</li>
+</ul>
+<h3 id="csm-diags">CSM-Diags</h3>
+<ul>
+<li>Fox</li>
+</ul>
+<h2 id="sat-firmware"><code>sat firmware</code></h2>
+<h3 id="csm-5">CSM</h3>
+<ul>
+<li>Firmware Action Service (FAS)</li>
+</ul>
+<h2 id="sat-hwhist"><code>sat hwhist</code></h2>
+<h3 id="csm-6">CSM</h3>
+<ul>
+<li>Hardware State Manager (HSM)</li>
+</ul>
+<h2 id="sat-hwinv"><code>sat hwinv</code></h2>
+<h3 id="csm-7">CSM</h3>
+<ul>
+<li>Hardware State Manager (HSM)</li>
+</ul>
+<h2 id="sat-hwmatch"><code>sat hwmatch</code></h2>
+<h3 id="csm-8">CSM</h3>
+<ul>
+<li>Hardware State Manager (HSM)</li>
+</ul>
+<h2 id="sat-init"><code>sat init</code></h2>
+<p>None</p>
+<h2 id="sat-jobstat"><code>sat jobstat</code></h2>
+<h3 id="pbs">PBS</h3>
+<ul>
+<li>HPE State Checker</li>
+</ul>
+<h2 id="sat-k8s"><code>sat k8s</code></h2>
+<h3 id="csm-9">CSM</h3>
+<ul>
+<li>Kubernetes</li>
+</ul>
+<h2 id="sat-nid2xname"><code>sat nid2xname</code></h2>
+<h3 id="csm-10">CSM</h3>
+<ul>
+<li>Hardware State Manager (HSM)</li>
+</ul>
+<h2 id="sat-sensors"><code>sat sensors</code></h2>
+<h3 id="csm-11">CSM</h3>
+<ul>
+<li>Hardware State Manager (HSM)</li>
+<li>HM Collector</li>
+</ul>
+<h3 id="sma">SMA</h3>
+<ul>
+<li>Telemetry API</li>
+</ul>
+<h2 id="sat-setrev"><code>sat setrev</code></h2>
+<h3 id="csm-12">CSM</h3>
+<ul>
+<li>S3</li>
+</ul>
+<h2 id="sat-showrev"><code>sat showrev</code></h2>
+<h3 id="csm-13">CSM</h3>
+<ul>
+<li>Hardware State Manager (HSM)</li>
+<li>Kubernetes</li>
+<li>S3</li>
+</ul>
+<h2 id="sat-slscheck"><code>sat slscheck</code></h2>
+<h3 id="csm-14">CSM</h3>
+<ul>
+<li>Hardware State Manager (HSM)</li>
+<li>System Layout Service (SLS)</li>
+</ul>
+<h2 id="sat-status"><code>sat status</code></h2>
+<h3 id="csm-15">CSM</h3>
+<ul>
+<li>Boot Orchestration Service (BOS)</li>
+<li>Configuration Framework Service (CFS)</li>
+<li>Hardware State Manager (HSM)</li>
+<li>Image Management Service (IMS)</li>
+<li>System Layout Service (SLS)</li>
+</ul>
+<h2 id="sat-swap"><code>sat swap</code></h2>
+<h3 id="slingshot">Slingshot</h3>
+<ul>
+<li>Fabric Manager</li>
+</ul>
+<h2 id="sat-switch"><code>sat switch</code></h2>
+<p><em>Deprecated</em>: See <code>sat swap</code></p>
+<h2 id="sat-xname2nid"><code>sat xname2nid</code></h2>
+<h3 id="csm-16">CSM</h3>
+<ul>
+<li>Hardware State Manager (HSM)</li>
+</ul>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/docs-sat/js/clipboard.min.js?1729740967"></script>
+    <script src="/docs-sat/js/perfect-scrollbar.min.js?1729740967"></script>
+    <script src="/docs-sat/js/perfect-scrollbar.jquery.min.js?1729740967"></script>
+    <script src="/docs-sat/js/jquery.sticky.js?1729740967"></script>
+    <script src="/docs-sat/js/featherlight.min.js?1729740967"></script>
+    <script src="/docs-sat/js/highlight.pack.js?1729740967"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/docs-sat/js/modernizr.custom-3.6.0.js?1729740967"></script>
+    <script src="/docs-sat/js/learn.js?1729740967"></script>
+    <script src="/docs-sat/js/hugo-learn.js?1729740967"></script>
+    
+        
+            <script src="/docs-sat/mermaid/mermaid.js?1729740967"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+

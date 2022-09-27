@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en-25" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.123.0">
+    <meta name="description" content="">
+
+
+    <link rel="icon" href="/docs-sat/images/favicon.png" type="image/png">
+
+    <title>SAT Uninstall and Downgrade :: System Admin Toolkit (SAT)</title>
+
+    
+    <link href="/docs-sat/css/nucleus.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/fontawesome-all.min.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/hybrid.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/featherlight.min.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/perfect-scrollbar.min.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/auto-complete.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/atom-one-dark-reasonable.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/theme.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/tabs.css?1729740967" rel="stylesheet">
+    <link href="/docs-sat/css/hugo-theme.css?1729740967" rel="stylesheet">
+    
+    <link href="/docs-sat/css/theme-blue.css?1729740967" rel="stylesheet">
+    
+    
+
+    <script src="/docs-sat/js/jquery-3.3.1.min.js?1729740967"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/docs-sat/en-25/uninstall_and_downgrade/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href='/docs-sat/en-25'>
+  System Admin Toolkit
+</a>
+
+    </div>
+
+    
+    <section>
+      <ul>
+      
+        <li>
+          <div class="select-style padding">
+          v <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en-26" value="/docs-sat/en-26/uninstall_and_downgrade/">2.6</option>
+                    
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="en-25" value="/docs-sat/en-25/uninstall_and_downgrade/" selected>2.5</option>
+                    
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </li>
+      
+
+      
+      </ul>
+    </section>
+  
+
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/docs-sat/js/lunr.min.js?1729740967"></script>
+<script type="text/javascript" src="/docs-sat/js/auto-complete.js?1729740967"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/docs-sat\/\/en-25";
+    
+</script>
+<script type="text/javascript" src="/docs-sat/js/search.js?1729740967"></script>
+
+    
+  </div>
+
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+      
+      
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/introduction/" title="Introduction to SAT" class="dd-item ">
+        <a href="/docs-sat/en-25/introduction/">
+        Introduction to SAT
+        
+        </a>
+    </li>
+     
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/docs-sat/en-25/dashboards/" title="SAT Dashboards" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs-sat/en-25/dashboards/">
+          SAT Dashboards
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/dashboards/sat_grafana_dashboards/" title="SAT Grafana Dashboards" class="dd-item ">
+        <a href="/docs-sat/en-25/dashboards/sat_grafana_dashboards/">
+        SAT Grafana Dashboards
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/dashboards/sat_kibana_dashboards/" title="SAT Kibana Dashboards" class="dd-item ">
+        <a href="/docs-sat/en-25/dashboards/sat_kibana_dashboards/">
+        SAT Kibana Dashboards
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/install/" title="SAT Installation" class="dd-item ">
+        <a href="/docs-sat/en-25/install/">
+        SAT Installation
+        
+        </a>
+    </li>
+     
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/external_system/" title="SAT on an External System" class="dd-item ">
+        <a href="/docs-sat/en-25/external_system/">
+        SAT on an External System
+        
+        </a>
+    </li>
+     
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/docs-sat/en-25/release_notes/" title="SAT Release Notes" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs-sat/en-25/release_notes/">
+          SAT Release Notes
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/release_notes/sat_2.2_release_notes/" title="Changes in SAT 2.2" class="dd-item ">
+        <a href="/docs-sat/en-25/release_notes/sat_2.2_release_notes/">
+        Changes in SAT 2.2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/release_notes/sat_2.3_release_notes/" title="Changes in SAT 2.3" class="dd-item ">
+        <a href="/docs-sat/en-25/release_notes/sat_2.3_release_notes/">
+        Changes in SAT 2.3
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/release_notes/sat_2.4_release_notes/" title="Changes in SAT 2.4" class="dd-item ">
+        <a href="/docs-sat/en-25/release_notes/sat_2.4_release_notes/">
+        Changes in SAT 2.4
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/release_notes/sat_2.5_release_notes/" title="Changes in SAT 2.5" class="dd-item ">
+        <a href="/docs-sat/en-25/release_notes/sat_2.5_release_notes/">
+        Changes in SAT 2.5
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/release_notes/shasta_1.3.2_release_notes/" title="SAT Changes in Shasta v1.3.2" class="dd-item ">
+        <a href="/docs-sat/en-25/release_notes/shasta_1.3.2_release_notes/">
+        SAT Changes in Shasta v1.3.2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/release_notes/shasta_1.3_release_notes/" title="SAT Changes in Shasta v1.3" class="dd-item ">
+        <a href="/docs-sat/en-25/release_notes/shasta_1.3_release_notes/">
+        SAT Changes in Shasta v1.3
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/release_notes/shasta_1.4.1_release_notes/" title="SAT Changes in Shasta v1.4.1" class="dd-item ">
+        <a href="/docs-sat/en-25/release_notes/shasta_1.4.1_release_notes/">
+        SAT Changes in Shasta v1.4.1
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/release_notes/shasta_1.4_release_notes/" title="SAT Changes in Shasta v1.4" class="dd-item ">
+        <a href="/docs-sat/en-25/release_notes/shasta_1.4_release_notes/">
+        SAT Changes in Shasta v1.4
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/release_notes/shasta_1.5_release_notes/" title="SAT Changes in Shasta v1.5" class="dd-item ">
+        <a href="/docs-sat/en-25/release_notes/shasta_1.5_release_notes/">
+        SAT Changes in Shasta v1.5
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/uninstall_and_downgrade/" title="SAT Uninstall and Downgrade" class="dd-item active">
+        <a href="/docs-sat/en-25/uninstall_and_downgrade/">
+        SAT Uninstall and Downgrade
+        
+        </a>
+    </li>
+     
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/upgrade/" title="SAT Upgrade" class="dd-item ">
+        <a href="/docs-sat/en-25/upgrade/">
+        SAT Upgrade
+        
+        </a>
+    </li>
+     
+  
+ 
+
+      
+      
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/docs-sat/en-25/usage/" title="SAT Usage" class="dd-item
+        
+        
+        
+        ">
+      <a href="/docs-sat/en-25/usage/">
+          SAT Usage
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/usage/change_bos_version/" title="Change the BOS Version" class="dd-item ">
+        <a href="/docs-sat/en-25/usage/change_bos_version/">
+        Change the BOS Version
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/usage/sat_and_iuf/" title="SAT and IUF" class="dd-item ">
+        <a href="/docs-sat/en-25/usage/sat_and_iuf/">
+        SAT and IUF
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/docs-sat/en-25/usage/sat_bootprep/" title="SAT Bootprep" class="dd-item ">
+        <a href="/docs-sat/en-25/usage/sat_bootprep/">
+        SAT Bootprep
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+      
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/docs-sat/en-25/'>HPE Cray EX System Admin Toolkit (SAT) Guide</a> > SAT Uninstall and Downgrade
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#uninstall-remove-a-version-of-sat">Uninstall: Remove a Version of SAT</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#procedure">Procedure</a></li>
+      </ul>
+    </li>
+    <li><a href="#downgrade-switch-between-sat-versions">Downgrade: Switch Between SAT Versions</a>
+      <ul>
+        <li><a href="#prerequisites-1">Prerequisites</a></li>
+        <li><a href="#procedure-1">Procedure</a></li>
+        <li><a href="#procedure-to-apply-cfs-configuration">Procedure to Apply CFS Configuration</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+            </h1>
+          
+
+        
+
+
+<h1 id="sat-uninstall-and-downgrade">SAT Uninstall and Downgrade</h1>
+<h2 id="uninstall-remove-a-version-of-sat">Uninstall: Remove a Version of SAT</h2>
+<p>This procedure can be used to uninstall a version of SAT.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li>Only versions 2.2 or newer of SAT can be uninstalled with <code>prodmgr</code>.</li>
+<li>CSM version 1.2 or newer must be installed, so that the <code>prodmgr</code> command is available.</li>
+</ul>
+<h3 id="procedure">Procedure</h3>
+<ol>
+<li>
+<p>Use <code>sat showrev</code> to list versions of SAT.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# sat showrev --products --filter product_name=sat
+###############################################################################
+Product Revision Information
+###############################################################################
++--------------+-----------------+-------------------+-----------------------+
+| product_name | product_version | images            | image_recipes         |
++--------------+-----------------+-------------------+-----------------------+
+| sat          | 2.3.3           | -                 | -                     |
+| sat          | 2.2.10          | -                 | -                     |
++--------------+-----------------+-------------------+-----------------------+
+</code></pre></li>
+<li>
+<p>Use <code>prodmgr</code> to uninstall a version of SAT.</p>
+<p>This command will do three things:</p>
+<ul>
+<li>Remove all hosted-type package repositories associated with the given version of SAT. Group-type
+repositories are not removed.</li>
+<li>Remove all container images associated with the given version of SAT.</li>
+<li>Remove SAT from the <code>cray-product-catalog</code> Kubernetes ConfigMap, so that it will no longer show up
+in the output of <code>sat showrev</code>.</li>
+</ul>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# prodmgr uninstall sat 2.2.10
+Repository sat-2.2.10-sle-15sp2 has been removed.
+Removed Docker image cray/cray-sat:3.9.0
+Removed Docker image cray/sat-cfs-install:1.0.2
+Removed Docker image cray/sat-install-utility:1.4.0
+Deleted sat-2.2.10 from product catalog.
+</code></pre></li>
+</ol>
+<h2 id="downgrade-switch-between-sat-versions">Downgrade: Switch Between SAT Versions</h2>
+<p>This procedure can be used to downgrade the active version of SAT.</p>
+<h3 id="prerequisites-1">Prerequisites</h3>
+<ul>
+<li>Only versions 2.2 or newer of SAT can be switched. Older versions must be switched manually.</li>
+<li>CSM version 1.2 or newer must be installed, so that the <code>prodmgr</code> command is available.</li>
+</ul>
+<h3 id="procedure-1">Procedure</h3>
+<ol>
+<li>
+<p>Use <code>sat showrev</code> to list versions of SAT.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# sat showrev --products --filter product_name=sat
+###############################################################################
+Product Revision Information
+###############################################################################
++--------------+-----------------+--------------------+-----------------------+
+| product_name | product_version | images             | image_recipes         |
++--------------+-----------------+--------------------+-----------------------+
+| sat          | 2.3.3           | -                  | -                     |
+| sat          | 2.2.10          | -                  | -                     |
++--------------+-----------------+--------------------+-----------------------+
+</code></pre></li>
+<li>
+<p>Use <code>prodmgr</code> to switch to a different version of SAT.</p>
+<p>This command will do two things:</p>
+<ul>
+<li>For all hosted-type package repositories associated with this version of SAT, set them as the sole member
+of their corresponding group-type repository. For example, switching to SAT version <code>2.2.10</code>
+sets the repository <code>sat-2.2.10-sle-15sp2</code> as the only member of the <code>sat-sle-15sp2</code> group.</li>
+<li>Ensure that the SAT CFS configuration content exists as a layer in all CFS configurations that are
+associated with NCNs with the role &ldquo;Management&rdquo; and subrole &ldquo;Master&rdquo; (for example, the CFS configuration
+<code>management-23.5.0</code>). Specifically, it will ensure that the layer refers to the version of SAT CFS
+configuration content associated with the version of SAT to which you are switching.</li>
+</ul>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# prodmgr activate sat 2.5.15
+Repository sat-2.5.15-sle-15sp4 is now the default in sat-sle-15sp4.
+Updated CFS configurations: [management-23.5.0]
+</code></pre></li>
+<li>
+<p>Apply the modified CFS configuration to the management NCNs.</p>
+<p>At this point, Nexus package repositories have been modified to set a
+particular package repository as active, but the SAT package may not have
+been updated on management NCNs.</p>
+<p>To ensure that management NCNs have been updated to use the active SAT
+version, follow the <a href="/docs-sat/en-25/#procedure-to-apply-cfs-configuration">Procedure to Apply CFS Configuration</a>.</p>
+</li>
+</ol>
+<h3 id="procedure-to-apply-cfs-configuration">Procedure to Apply CFS Configuration</h3>
+<ol>
+<li>
+<p>Set an environment variable that refers to the name of the CFS configuration
+to be applied to the management NCNs.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# export CFS_CONFIG_NAME=&#34;management-23.5.0&#34;
+</code></pre><p><strong>Note:</strong> Refer to the output from the <code>prodmgr activate</code> command to find
+the name of the modified CFS configuration. If more than one CFS configuration
+was modified, use the first one.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">INFO: Successfully saved CFS configuration &#34;management-23.5.0&#34;
+</code></pre></li>
+<li>
+<p>Obtain the name of the CFS configuration layer for SAT and save it in an
+environment variable:</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# export SAT_LAYER_NAME=$(cray cfs configurations describe $CFS_CONFIG_NAME --format json \
+    | jq -r &#39;.layers | map(select(.cloneUrl | contains(&#34;sat-config-management.git&#34;)))[0].name&#39;)
+</code></pre></li>
+<li>
+<p>Create a CFS session that executes only the SAT layer of the given CFS
+configuration.</p>
+<p>The <code>--configuration-limit</code> option limits the configuration session to run
+only the SAT layer of the configuration.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# cray cfs sessions create --name &#34;sat-session-${CFS_CONFIG_NAME}&#34; --configuration-name \
+    &#34;${CFS_CONFIG_NAME}&#34; --configuration-limit &#34;${SAT_LAYER_NAME}&#34;
+</code></pre></li>
+<li>
+<p>Monitor the progress of the CFS session.</p>
+<p>Set an environment variable to name of the Ansible container within the pod
+for the CFS session:</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# export ANSIBLE_CONTAINER=$(kubectl get pod -n services \
+    --selector=cfsession=sat-session-${CFS_CONFIG_NAME} -o json \
+    -o json | jq -r &#39;.items[0].spec.containers | map(select(.name | contains(&#34;ansible&#34;))) | .[0].name&#39;)
+</code></pre><p>Next, get the logs for the Ansible container.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# kubectl logs -c $ANSIBLE_CONTAINER --tail 100 -f -n services \
+    --selector=cfsession=sat-session-${CFS_CONFIG_NAME}
+</code></pre><p>Ansible plays, which are run by the CFS session, will install SAT on all the
+master management NCNs on the system. A summary of results can be found at
+the end of the log output. The following example shows a successful session.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">...
+PLAY RECAP *********************************************************************
+x3000c0s1b0n0              : ok=3    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+x3000c0s3b0n0              : ok=3    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+x3000c0s5b0n0              : ok=3    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+</code></pre><p><strong>Note:</strong> Ensure that the PLAY RECAPs for each session show successes for all
+manager NCNs before proceeding.</p>
+</li>
+<li>
+<p>Verify that SAT was successfully configured.</p>
+<p>If <code>sat</code> is configured, the <code>--version</code> command will indicate which version
+is installed. If <code>sat</code> is not properly configured, the command will fail.</p>
+<p><strong>Note:</strong> This version number will differ from the version number of the SAT
+release distribution. This is the semantic version of the <code>sat</code> Python package,
+which is different from the version number of the overall SAT release distribution.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# sat --version
+sat 3.7.0
+</code></pre><p><strong>Note:</strong> Upon first running <code>sat</code>, you may see additional output while the <code>sat</code>
+container image is downloaded. This will occur the first time <code>sat</code> is run on
+each manager NCN. For example, if you run <code>sat</code> for the first time on <code>ncn-m001</code>
+and then for the first time on <code>ncn-m002</code>, you will see this additional output
+both times.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">Trying to pull registry.local/cray/cray-sat:3.7.0-20210514024359_9fed037...
+Getting image source signatures
+Copying blob da64e8df3afc done
+Copying blob 0f36fd81d583 done
+Copying blob 12527cf455ba done
+...
+sat 3.7.0
+</code></pre></li>
+<li>
+<p>Stop the typescript.</p>
+<pre tabindex="0"><code class="language-screen" data-lang="screen">ncn-m001# exit
+</code></pre></li>
+</ol>
+<p>SAT version <code>x.y.z</code> is now installed and configured:</p>
+<ul>
+<li>The SAT RPM package is installed on the associated NCNs.</li>
+</ul>
+<h4 id="note-on-procedure-to-apply-cfs-configuration">Note on Procedure to Apply CFS Configuration</h4>
+<p>The previous procedure is not always necessary because the CFS Batcher service
+automatically detects configuration changes and will automatically create new
+sessions to apply configuration changes according to certain rules. For more
+information on these rules, refer to <strong>Configuration Management with
+the CFS Batcher</strong> in the <a href="https://cray-hpe.github.io/docs-csm/"><em>Cray System Management Documentation</em></a>.</p>
+<p>The main scenario in which the CFS batcher will not automatically re-apply the
+SAT layer is when the commit hash of the sat-config-management git repository
+has not changed between SAT versions. The previous procedure ensures the
+configuration is re-applied in all cases, and it is harmless if the batcher has
+already applied an updated configuration.</p>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/docs-sat/js/clipboard.min.js?1729740967"></script>
+    <script src="/docs-sat/js/perfect-scrollbar.min.js?1729740967"></script>
+    <script src="/docs-sat/js/perfect-scrollbar.jquery.min.js?1729740967"></script>
+    <script src="/docs-sat/js/jquery.sticky.js?1729740967"></script>
+    <script src="/docs-sat/js/featherlight.min.js?1729740967"></script>
+    <script src="/docs-sat/js/highlight.pack.js?1729740967"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/docs-sat/js/modernizr.custom-3.6.0.js?1729740967"></script>
+    <script src="/docs-sat/js/learn.js?1729740967"></script>
+    <script src="/docs-sat/js/hugo-learn.js?1729740967"></script>
+    
+        
+            <script src="/docs-sat/mermaid/mermaid.js?1729740967"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+
