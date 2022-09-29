@@ -178,16 +178,12 @@ the new default behavior.
 The following commands trigger messages that have been changed from `stdout`
 print calls to `INFO`-level (or `WARNING`- or `ERROR`-level) log messages:
 
-```screen
-sat bootsys --stage shutdown --stage session-checks
-sat sensors
-```
+- `sat bootsys --stage shutdown --stage session-checks`
+- `sat sensors`
 
 The following commands trigger messages that have been changed from `INFO`-level
 log messages to `DEBUG`-level log messages:
 
-```screen
-sat nid2xname
-sat xname2nid
-sat swap
-```
+- `sat nid2xname`
+- `sat xname2nid`
+- `sat swap`
