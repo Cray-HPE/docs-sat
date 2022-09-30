@@ -5,6 +5,7 @@
 - [About System Admin Toolkit (SAT)](introduction.md#about-system-admin-toolkit-sat)
 - [System Admin Toolkit Command Overview](introduction.md#system-admin-toolkit-command-overview)
 - [Command Prompt Conventions in SAT](introduction.md#command-prompt-conventions-in-sat)
+- [SAT in CSM](introduction.md#sat-in-csm)
 - [SAT Dependencies](introduction.md#sat-dependencies)
 
 ## [SAT Installation](install.md)
@@ -35,9 +36,12 @@
 - [SAT Kibana Dashboards](dashboards/SAT_Kibana_Dashboards.md)
 - [SAT Grafana Dashboards](dashboards/SAT_Grafana_Dashboards.md)
 
-## [SAT Usage](usage.md)
+## [SAT Bootprep](sat_bootprep.md)
 
-- [SAT Bootprep](usage.md#sat-bootprep)
+- [SAT Bootprep vs SAT Bootsys](sat_bootprep.md#sat-bootprep-vs-sat-bootsys)
+- [Editing a Bootprep Input File](sat_bootprep.md#editing-a-bootprep-input-file)
+- [Example Bootprep Input Files](sat_bootprep.md#example-bootprep-input-files)
+- [Viewing Built-in Generated Documentation](sat_bootprep.md#viewing-built-in-generated-documentation)
 
 ## [SAT Release Notes](release_notes.md)
 
