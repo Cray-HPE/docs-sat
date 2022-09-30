@@ -168,7 +168,7 @@ To resolve, run `sat` in another directory.
 
 - `sat bootprep` automates the creation of CFS configurations, the build and
   customization of IMS images, and the creation of BOS session templates. See
-  [SAT Bootprep](usage.md#sat-bootprep) for details.
+  [SAT Bootprep](sat_bootprep.md) for details.
 - `sat slscheck` performs a check for consistency between the System Layout
   Service (SLS) and the Hardware State Manager (HSM).
 - `sat bmccreds` provides a simple interface for interacting with the System
