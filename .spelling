@@ -25,6 +25,7 @@
 #
 # Proper nouns
 Ansible
+Artifactory
 Ceph
 ConfigMap
 Elasticsearch
@@ -72,6 +73,7 @@ subcommands
 subdomain
 sublicense
 subrole
+traceback
 uncomment
 versioned
 # The spell checker complains about legacy Shasta version numbers (vX.Y) when
@@ -97,3 +99,5 @@ JSON-formatted
 YAML-formatted
 # CVE IDs
 CVE-2021-33503
+CVE-2022-24302
+CVE-2022-36087
