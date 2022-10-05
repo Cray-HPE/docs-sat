@@ -20,6 +20,7 @@ stream.
 - To upgrade SAT, execute the pre-installation, installation, and post-installation
 procedures for a newer distribution. The newly installed version will become
 the default.
+
     In SAT 2.4 and newer, you can instead upgrade the product stream by using the
     Compute Node Environment (CNE) installer. It is recommended that you upgrade
     SAT with the CNE installer because the process is both automated and logged
