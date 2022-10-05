@@ -52,22 +52,22 @@ being upgraded.
      - If you are upgrading SAT along with other supported products, run the
 following command.
 
-     ```screen
-     ncn-m001# cne-install -m MEDIA_DIR install -B WORKING_BRANCH -bpc BOOTPREP_CONFIG_CN \
-         -bpn BOOTPREP_CONFIG_NCN
-     ```
+       ```screen
+       ncn-m001# cne-install -m MEDIA_DIR install -B WORKING_BRANCH -bpc BOOTPREP_CONFIG_CN \
+           -bpn BOOTPREP_CONFIG_NCN
+       ```
 
-     The `cne-install` command will use the provided `BOOTPREP_CONFIG_CN` and
-     `BOOTPREP_CONFIG_NCN` files for the run.
+       The `cne-install` command will use the provided `BOOTPREP_CONFIG_CN` and
+       `BOOTPREP_CONFIG_NCN` files for the run.
 
      - If you are upgrading SAT alone, run the following commands.
 
-     ```screen
-     ncn-m001# cne-install -m MEDIA_DIR install -B '{{product_type}}-{{version_x_y_z}}' /
-         -bpn BOOTPREP_CONFIG_NCN -e update_working_branches
-     ncn-m001# cne-install -m MEDIA_DIR install -B '{{product_type}}-{{version_x_y_z}}' /
-         -bpn BOOTPREP_CONFIG_NCN -b sat_bootprep_ncn -e ncn_personalization
-     ```
+       ```screen
+       ncn-m001# cne-install -m MEDIA_DIR install -B '{{product_type}}-{{version_x_y_z}}' \
+           -bpn BOOTPREP_CONFIG_NCN -e update_working_branches
+       ncn-m001# cne-install -m MEDIA_DIR install -B '{{product_type}}-{{version_x_y_z}}' \
+           -bpn BOOTPREP_CONFIG_NCN -b sat_bootprep_ncn -e ncn_personalization
+       ```
 
 1. **Optional:** Stop the typescript.
 
