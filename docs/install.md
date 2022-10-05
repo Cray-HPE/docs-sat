@@ -18,8 +18,8 @@ stream.
   being installed.
 - 'manager' and 'master' are used interchangeably in the steps below.
 - To upgrade SAT, execute the pre-installation, installation, and post-installation
-procedures for a newer distribution. The newly installed version will become
-the default.
+  procedures for a newer distribution. The newly installed version will become
+  the default.
 
     In SAT 2.4 and newer, you can instead upgrade the product stream by using the
     Compute Node Environment (CNE) installer. It is recommended that you upgrade
@@ -116,7 +116,8 @@ If performing an upgrade, execute the **SAT Post-Upgrade** procedures:
 - [SAT Logging](#sat-logging)
 - [Set System Revision Information](#set-system-revision-information)
 
-**NOTE:** The **Set System Revision Information** procedure is **not required** after upgrading from SAT 2.1 or later.
+**NOTE:** The **Set System Revision Information** procedure is **not required**
+after upgrading from SAT 2.1 or later.
 
 ## Perform NCN Personalization
 

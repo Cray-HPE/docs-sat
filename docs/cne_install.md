@@ -18,13 +18,13 @@ for detailed information about `cne-install` and its options.
 
 - CSM is installed and verified.
 - There must be at least 2 gigabytes of free space on the manager NCN on which
-the procedure is run.
+  the procedure is run.
 
 ### Notes on the Procedures
 
 - Ellipses (`...`) in shell output indicate omitted lines.
 - In the examples below, replace `x.y.z` with the version of the SAT product stream
-being upgraded.
+  being upgraded.
 - 'manager' and 'master' are used interchangeably in the steps below.
 
 ### Pre-Upgrade Procedure
@@ -50,7 +50,7 @@ being upgraded.
 1. Run the CNE installer.
 
      - If you are upgrading SAT along with other supported products, run the
-following command.
+       following command.
 
        ```screen
        ncn-m001# cne-install -m MEDIA_DIR install -B WORKING_BRANCH -bpc BOOTPREP_CONFIG_CN \
@@ -116,7 +116,7 @@ execute the **SAT Post-Upgrade** procedures:
 ### Prerequisites
 
 - The [Upgrade the System Admin Toolkit Product Stream](#upgrade-the-system-admin-toolkit-product-stream)
-procedure has been successfully completed.
+  procedure has been successfully completed.
 
 ### Procedure
 
