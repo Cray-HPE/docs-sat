@@ -43,6 +43,7 @@ Slurm
 EX-1C
 CSM-Diags
 Loftsman
+S-8000
 S-8001
 XName
 XNames
@@ -63,6 +64,7 @@ passwordless
 pre-installation
 pre-ncn-personalization
 pre-populated
+pre-upgrade
 prepended
 runtime
 subcommand

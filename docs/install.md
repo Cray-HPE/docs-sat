@@ -24,7 +24,7 @@ the default.
     Compute Node Environment (CNE) installer. It is recommended that you upgrade
     SAT with the CNE installer because the process is both automated and logged
     to help you save time. See [SAT Upgrade with CNE
-    Installer](cne-install.md#cne-installer) for more information.
+    Installer](cne-install.md) for more information.
 
 ### Pre-Installation Procedure
 

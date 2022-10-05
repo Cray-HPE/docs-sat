@@ -4,15 +4,14 @@
 
 Describes how to upgrade the System Admin Toolkit (SAT) product
 stream by using the Compute Node Environment (CNE) installer (`cne-install`).
-
-The CNE installer can only upgrade the SAT product stream for this release. See
-[Install the System Admin Toolkit Product Stream](install.md) for installation
-instructions.
+The CNE installer can be used only for upgrades and not for fresh installations.
+See [Install the System Admin Toolkit Product Stream](install.md) for
+installation instructions.
 
 Upgrading SAT with `cne-install` is recommended because the process is both
 automated and logged to help you save time. The CNE installer can be used to
 upgrade SAT alone or with other supported products. Refer to the [*HPE Cray EX
-System Software Getting Started Guide (S-8000)*](https://www.hpe.com/support/ex-S-8000)
+System Software Getting Started Guide (S-8000)*](<https://www.hpe.com/support/ex-S-8000>)
 for detailed information about `cne-install` and its options.
 
 ### Prerequisites
@@ -44,10 +43,7 @@ being upgraded.
 
 1. Copy the release distribution gzipped tar file to `ncn-m001`.
 
-   Whether you are upgrading SAT alone or with other supported products, copy
-   the file in the same media directory as all other supported products.
-
-   **NOTE:** The `cne-install` command installs all files in the media directory
+   The `cne-install` command installs all files in the media directory
    by default. If you are upgrading SAT alone, ensure only the SAT tarball is in
    the media directory.
 
@@ -57,17 +53,21 @@ being upgraded.
 following command.
 
      ```screen
-     ncn-m001# cne-install -m MEDIA_DIR install -B WORKING_BRANCH -bpc BOOTPREP_CONFIG_CN -bpn
-BOOTPREP_CONFIG_NCN
+     ncn-m001# cne-install -m MEDIA_DIR install -B WORKING_BRANCH -bpc BOOTPREP_CONFIG_CN \
+         -bpn BOOTPREP_CONFIG_NCN
      ```
 
      The `cne-install` command will use the provided `BOOTPREP_CONFIG_CN` and
      `BOOTPREP_CONFIG_NCN` files for the run.
 
-     - If you are upgrading SAT alone, refer to "Appendix A" of the [*HPE Cray EX System
-Software Getting Started Guide (S-8000)*](https://www.hpe.com/support/ex-S-8000).
-Review the detailed information available here to determine which stages to
-run and options to choose for `cne-install`.
+     - If you are upgrading SAT alone, run the following commands.
+
+     ```screen
+     ncn-m001# cne-install -m MEDIA_DIR install -B '{{product_type}}-{{version_x_y_z}}' /
+         -bpn BOOTPREP_CONFIG_NCN -e update_working_branches
+     ncn-m001# cne-install -m MEDIA_DIR install -B '{{product_type}}-{{version_x_y_z}}' /
+         -bpn BOOTPREP_CONFIG_NCN -b sat_bootprep_ncn -e ncn_personalization
+     ```
 
 1. **Optional:** Stop the typescript.
 
@@ -93,7 +93,7 @@ described in [Post-Upgrade Cleanup Procedure](#post-upgrade-cleanup-procedure).
 
 If other HPE Cray EX software products are being upgraded in conjunction
 with SAT, refer to the [*HPE Cray EX System Software Getting Started Guide
-(S-8000)*](https://www.hpe.com/support/ex-S-8000) to determine which step
+(S-8000)*](<https://www.hpe.com/support/ex-S-8000>) to determine which step
 to execute next.
 
 If no other HPE Cray EX software products are being upgraded at this time,
