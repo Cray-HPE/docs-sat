@@ -16,10 +16,10 @@ config file.
    # api_version = "v1"
    ```
 
-   In this example, SAT is using the default BOS version `"v1"`.
+   In this example, SAT is using BOS version `"v1"`.
 
-2. Uncomment the line specifying the `api_version`, and set it to the version
-   desired (for example, `"v2"`).
+2. Change the line specifying the `api_version` to the BOS version desired (for
+   example, `"v2"`).
 
    ```screen
    [bos]

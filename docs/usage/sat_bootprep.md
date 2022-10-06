@@ -505,6 +505,7 @@ configurations:
       name: cpe
       version: "{{cpe.version}}"
       branch: integration-{{cpe.version}}
+
 images:
 - name: "{{base.name}}"
   ref_name: base_cos_image
@@ -513,6 +514,7 @@ images:
       name: cos
       type: recipe
       version: "{{cos.version}}"
+
 - name: compute-{{base.name}}
   ref_name: compute_image
   base:
@@ -520,6 +522,7 @@ images:
   configuration: compute-{{recipe.version}}
   configuration_group_names:
   - Compute
+
 session_templates:
 - name: compute-{{recipe.version}}
   image:

@@ -1,4 +1,4 @@
 # SAT Usage
 
-- [SAT Bootprep](sat-bootprep.md)
-- [Change the BOS Version](change-bos-version.md)
+- [SAT Bootprep](sat_bootprep.md)
+- [Change the BOS Version](change_bos_version.md)

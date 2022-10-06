@@ -45,8 +45,8 @@
 
 ## [SAT Usage](usage/README.md)
 
-- [SAT Bootprep](usage/sat-bootprep.md)
-- [Change the BOS Version](usage/change-bos-version.md)
+- [SAT Bootprep](usage/sat_bootprep.md)
+- [Change the BOS Version](usage/change_bos_version.md)
 
 ## [SAT Release Notes](release_notes.md)
 
