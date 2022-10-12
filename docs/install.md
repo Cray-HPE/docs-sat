@@ -8,7 +8,6 @@ stream.
 ### Prerequisites
 
 - CSM is installed and verified.
-- cray-product-catalog is running.
 - There must be at least 2 gigabytes of free space on the manager NCN on which the
   procedure is run.
 
@@ -21,6 +20,12 @@ stream.
 - To upgrade SAT, execute the pre-installation, installation, and post-installation
   procedures for a newer distribution. The newly installed version will become
   the default.
+
+    In SAT 2.4 and newer, you can instead upgrade the product stream by using the
+    Compute Node Environment (CNE) installer. It is recommended that you upgrade
+    SAT with the CNE installer because the process is both automated and logged
+    to help you save time. See [SAT Upgrade with CNE Installer](cne_install.md)
+    for more information.
 
 ### Pre-Installation Procedure
 
@@ -111,7 +116,8 @@ If performing an upgrade, execute the **SAT Post-Upgrade** procedures:
 - [SAT Logging](#sat-logging)
 - [Set System Revision Information](#set-system-revision-information)
 
-**NOTE:** The **Set System Revision Information** procedure is **not required** after upgrading from SAT 2.1 or later.
+**NOTE:** The **Set System Revision Information** procedure is **not required**
+after upgrading from SAT 2.1 or later.
 
 ## Perform NCN Personalization
 

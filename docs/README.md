@@ -31,6 +31,13 @@
 - [Uninstall: Removing a Version of SAT](install.md#uninstall-removing-a-version-of-sat)
 - [Activate: Switching Between Versions](install.md#activate-switching-between-versions)
 
+## [SAT Upgrade with CNE Installer](cne_install.md)
+
+- [Upgrade the System Admin Toolkit Product Stream](cne_install.md#upgrade-the-system-admin-toolkit-product-stream)
+- [Post-Upgrade Cleanup Procedure](cne_install.md#post-upgrade-cleanup-procedure)
+- [Remove Obsolete Configuration File Sections](cne_install.md#remove-obsolete-configuration-file-sections)
+- [SAT Logging](cne_install.md#sat-logging)
+
 ## [SAT Dashboards](dashboards/README.md)
 
 - [SAT Kibana Dashboards](dashboards/SAT_Kibana_Dashboards.md)
