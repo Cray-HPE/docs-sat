@@ -337,79 +337,11 @@ In addition, Python string methods can be called on the string variables.
 
 #### Viewing HPC CSM Software Recipe Variables
 
-HPC CSM Software Recipe variables are available, and you can use them in the values
-of the keys listed above. View these variables by cloning the `hpc-csm-software-recipe`
-repository from VCS and accessing the `product_vars.yaml` file on the branch that
-corresponds to the targeted version of the HPC CSM Software Recipe.
-
-1. Set up a shell script to access the password for the `crayvcs` user:
-
-   ```screen
-   ncn-m001# cat > vcs-creds-helper.sh <<EOF
-   #!/bin/bash
-   kubectl get secret -n services vcs-user-credentials -o jsonpath={.data.vcs_password} | base64 -d
-   EOF
-   ```
-
-1. Ensure `vcs-creds-helper.sh` is executable:
-
-   ```screen
-   ncn-m001# chmod u+x vcs-creds-helper.sh
-   ```
-
-1. Set the `GIT_ASKPASS` environment variable to the path to the
-   `vcs-creds-helper.sh` script:
-
-   ```screen
-   ncn-m001# export GIT_ASKPASS="$PWD/vcs-creds-helper.sh"
-   ```
-
-1. Clone the `hpc-csm-software-recipe` repository:
-
-   ```screen
-   ncn-m001# git clone https://crayvcs@api-gw-service-nmn.local/vcs/cray/hpc-csm-software-recipe.git
-   ```
-
-1. Change the directory to the `hpc-csm-software-recipe` repository:
-
-   ```screen
-   ncn-m001# cd hpc-csm-software-recipe
-   ```
-
-1. View the versions of the HPC CSM Software Recipe on the system:
-
-   ```screen
-   ncn-m001# git branch -r
-   ```
-
-1. Check out the branch of the `hpc-csm-software-recipe` repository that corresponds to
-   the targeted HPC CSM Software Recipe version. For example, for recipe version
-   22.11.0:
-
-   ```screen
-   ncn-m001# git checkout cray/hpc-csm-software-recipe/22.11.0
-   ```
-
-1. View the contents of the file `product_vars.yaml` in the clone of the
-   repository:
-
-   ```screen
-   ncn-m001# cat product_vars.yaml
-   ```
-
-The variables defined in the `product_vars.yaml` file can be used in the values
-that support Jinja2 templates. A variable is specified by a dot-separated path,
-with each component of the path representing a key in the YAML file. For
-example, a version of the COS product appears as follows in the
-`product_vars.yaml` file:
-
-```yaml
-cos:
-  version: 2.4.76
-```
-
-This COS version can be used by specifying `cos.version` within a value in the
-input file.
+HPC CSM Software Recipe variables are available, and you can use them in the
+values of the keys listed above. A listing of the available variables and their
+values can be viewed by running `sat bootprep list-vars`. For more information
+on options that may be used with the `list-vars` subcommand, see the man page
+for the `sat bootprep` subcommand.
 
 #### HPC CSM Software Recipe Variable Substitution Example
 
@@ -541,11 +473,10 @@ session_templates:
 
 Default bootprep input files are delivered by the HPC CSM Software Recipe
 product. You can access these files by cloning the `hpc-csm-software-recipe`
-repository.
-
-To do this, follow steps 1-7 of the procedure in [Viewing HPC CSM Software Recipe
-Variables](#viewing-hpc-csm-software-recipe-variables). Then, access the files in the
-`bootprep` directory of that repository:
+repository, as described in the **Accessing `sat bootprep` files** process of
+the [*Cray System Management
+Documentation*](https://cray-hpe.github.io/docs-csm/). Find the
+default input files in the `bootprep` directory of the cloned repository:
 
 ```screen
 ncn-m001# ls bootprep/
