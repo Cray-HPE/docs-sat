@@ -43,12 +43,10 @@
 - [SAT Kibana Dashboards](dashboards/SAT_Kibana_Dashboards.md)
 - [SAT Grafana Dashboards](dashboards/SAT_Grafana_Dashboards.md)
 
-## [SAT Bootprep](sat_bootprep.md)
+## [SAT Usage](usage/README.md)
 
-- [SAT Bootprep vs SAT Bootsys](sat_bootprep.md#sat-bootprep-vs-sat-bootsys)
-- [Editing a Bootprep Input File](sat_bootprep.md#editing-a-bootprep-input-file)
-- [Example Bootprep Input Files](sat_bootprep.md#example-bootprep-input-files)
-- [Viewing Built-in Generated Documentation](sat_bootprep.md#viewing-built-in-generated-documentation)
+- [SAT Bootprep](usage/sat_bootprep.md)
+- [Change the BOS Version](usage/change_bos_version.md)
 
 ## [SAT Release Notes](release_notes.md)
 
