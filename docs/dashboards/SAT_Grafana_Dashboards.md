@@ -22,11 +22,11 @@ That command will produce the following output, for example:
 
 This would result in the address for Grafana being `https://sma-grafana.cmn.EXAMPLE_DOMAIN.com`
 
-For additional details about how to access the Grafana Dashboards refer to *Access the Grafana Monitoring UI* in the
+For more information on accessing the Grafana Dashboards, refer to **Access the Grafana Monitoring UI** in the
 SMA product documentation.
 
-For more information about the interpretation of metrics for the SAT Grafana Dashboards refer to *Fabric Telemetry
-Kafka Topics* in the SMA product documentation.
+For more information on the interpretation of metrics for the SAT Grafana Dashboards, refer to "Fabric Telemetry
+Kafka Topics" in the SMA product documentation.
 
 ## Navigate SAT Grafana Dashboards
 
@@ -54,7 +54,7 @@ The value of the **Interval** option sets the time resolution of the received te
 histogram, with the available telemetry in an interval of time going into a "bucket" and averaging out to a single
 point on the chart or table. The special value *auto* will choose an interval based on the time range selected.
 
-For additional information, refer to [Grafana Templates and Variables](https://grafana.com/docs/grafana/latest/reference/templating/#interval-variables).
+For more information, refer to [Grafana Templates and Variables](https://grafana.com/docs/grafana/latest/reference/templating/#interval-variables).
 
 The **Locations** option allows restriction of the telemetry shown by locations, either individual links or all links
 in a switch. The selection presented updates dynamically according to time range, except for the errors dashboard,
@@ -112,7 +112,7 @@ all port state events.
 
 ![Grafana Fabric RFC3635 Dashboard](../img/Grafana_rfc3635.png)
 
-For additional information on performance counters, refer to
+For more information on performance counters, refer to
 [Definitions of Managed Objects for the Ethernet-like Interface Types](https://tools.ietf.org/html/rfc3635),
 an Internet standards document.
 
