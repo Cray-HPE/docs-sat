@@ -56,7 +56,7 @@ The `sat bootprep run` command validates the schema version specified
 in the input file. The command also makes sure that the schema version
 of the input file is compatible with the schema version understood by the
 current version of `sat bootprep`. For more information on schema version
-validation, see the `schema_version` property description in the bootprep
+validation, refer to the `schema_version` property description in the bootprep
 input file schema. For more information on viewing the bootprep input file
 schema in either raw form or user-friendly HTML form, see [Viewing the Exact
 Schema Specification](#viewing-the-exact-schema-specification) or
@@ -246,7 +246,7 @@ which are optional:
 
 As mentioned above, the parameters under `bos_parameters` are passed through
 directly to BOS. For more information on the properties of a BOS boot set,
-refer to the section **BOS Session Templates** in the [*Cray
+refer to **BOS Session Templates** in the [*Cray
 System Management Documentation*](https://cray-hpe.github.io/docs-csm/).
 
 Here is an example of a BOS session template that refers to an existing IMS
@@ -340,7 +340,7 @@ In addition, Python string methods can be called on the string variables.
 HPC CSM Software Recipe variables are available, and you can use them in the
 values of the keys listed above. A listing of the available variables and their
 values can be viewed by running `sat bootprep list-vars`. For more information
-on options that may be used with the `list-vars` subcommand, see the man page
+on options that may be used with the `list-vars` subcommand, refer to the man page
 for the `sat bootprep` subcommand.
 
 #### HPC CSM Software Recipe Variable Substitution Example
@@ -387,9 +387,9 @@ configurations:
 ### Dynamic Variable Substitutions
 
 Additional variables are available besides the product version variables
-provided by the HPC CSM Software Recipe. (See [HPC CSM Software Recipe Variable
-Substitutions](#hpc-csm-software-recipe-variable-substitutions) for more
-information.) These additional variables are dynamic because their values are
+provided by the HPC CSM Software Recipe. (For more information, see [HPC
+CSM Software Recipe Variable Substitutions](#hpc-csm-software-recipe-variable-substitutions).)
+These additional variables are dynamic because their values are
 determined at run-time based on the context in which they appear. Available
 dynamic variables include the following:
 

@@ -26,9 +26,10 @@ are reported through Redfish.
 - [Grafana Fabric Port State Dashboard](dashboards/SAT_Grafana_Dashboards.md#grafana-fabric-port-state-dashboard)
 - [Grafana Fabric RFC3635 Dashboard](dashboards/SAT_Grafana_Dashboards.md#grafana-fabric-rfc3635-dashboard)
 
-In CSM 1.3 and newer, the `sat` command is automatically available on all the Kubernetes NCNs. See
-[SAT in CSM](#sat-in-csm) for more information. Older versions of CSM do not have the `sat` command automatically
-available, and SAT must be installed as a separate product.
+In CSM 1.3 and newer, the `sat` command is automatically available on all the
+Kubernetes NCNs. For more information, see [SAT in CSM](#sat-in-csm). Older
+versions of CSM do not have the `sat` command automatically available, and SAT
+must be installed as a separate product.
 
 ## System Admin Toolkit Command Overview
 
