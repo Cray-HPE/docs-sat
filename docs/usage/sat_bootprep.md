@@ -482,16 +482,33 @@ default input files in the `bootprep` directory of the cloned repository:
 ncn-m001# ls bootprep/
 ```
 
-### Editing Default Bootprep Input File Branches
+### Generating an Example Bootprep Input File
 
-For products requiring site-specific changes on a working branch of VCS, the default
-bootprep input files refer to a particular branch of that product's configuration
-management repository. This makes assumptions about the names of the VCS branches
-and it is important to ensure that the bootprep input files are consistent with
-these branches.
+The `sat bootprep generate-example` command was not updated for
+recent bootprep schema changes. It is recommended that you instead use the
+default bootprep input files described in [Accessing Default Bootprep Input
+Files](#accessing-default-bootprep-input-files). The `sat bootprep
+generate-example` command will be updated in a future release of SAT.
 
-For example, in the default `management-bootprep.yaml` bootprep input file,
-the COS product's CFS configuration layer is defined as follows.
+## Editing HPC CSM Software Recipe Defaults
+
+You might need to edit the default bootprep input files delivered by the HPC
+CSM Software Recipe for your system. Here are some examples of how to edit
+the files.
+
+### Editing Default Branch Names
+
+Before running `sat bootprep`, HPE recommends reading the bootprep input files
+and paying specific attention to the `branch` parameters. Some HPE Cray EX
+products require system-specific changes on a working branch of VCS. For these
+products, the default bootprep input files assume certain naming conventions for
+the VCS branches. The files refer to a particular branch of a product's
+configuration management repository.
+
+Thus, it is important to confirm that the bootprep input files delivered by the
+HPC CSM Software Recipe match the actual system branch names. For example, the
+COS product's CFS configuration layer is defined as follows in the default
+`management-bootprep.yaml` bootprep input file.
 
 ```yaml
 - name: cos-ncn-integration-{{cos.version}}
@@ -502,18 +519,18 @@ the COS product's CFS configuration layer is defined as follows.
     branch: integration-{{cos.version}}
 ```
 
-This is making the assumption that site-specific Ansible configuration changes
+The default file is assuming that system-specific Ansible configuration changes
 for the COS product in VCS are stored in a branch named
-`integration-{{cos.version}}`, that is if the version being installed were COS
-2.4.99, then `sat bootprep` will be looking for a branch named `integration-2.4.99`
-from which to create CFS configuration layers.
+`integration-{{cos.version}}`. If the version being installed is COS 2.4.99,
+`sat bootprep` looks for a branch named `integration-2.4.99` from which to
+create CFS configuration layers.
 
-It is still possible to create VCS working branches that are not these default
-names. A simple example of this is using `cne-install` to update working VCS
-branches. If using `cne-install` to update working VCS branches, (namely in
-the `update_working_branches` stage), you will have created or updated the
-branches specified by the `-B WORKING_BRANCH` command-line option. For
-example, consider the following `cne-install` command.
+You can create VCS working branches that are not the default bootprep input file
+branch names. A simple example of this is using `cne-install` to update working
+VCS branches. If you use `cne-install` to update working VCS branches, (namely in
+the `update_working_branches` stage), you create or update the branches specified
+by the `-B WORKING_BRANCH` command line option. For example, consider the
+following `cne-install` command.
 
 ```screen
 ncn-m001# ./cne-install install \
@@ -522,11 +539,13 @@ ncn-m001# ./cne-install install \
     -e update_working_branches
 ```
 
-Products that were installed with this `cne-install` invocation would be using
-the working branch `integration` for site-specific changes to VCS.
-The branch specified by the `-B` option must match the branch specified in the
-bootprep input file. For example, to use the branch "integration" for COS rather
-than `integration-{{cos.version}}`, edit the bootprep input file so it reads:
+Products installed with this `cne-install` example use the working branch
+`integration` for system-specific changes to VCS. The branch specified by the
+`-B` option must match the branch specified in the bootprep input file.
+
+In another example, to use the branch `integration` for COS instead of
+`integration-{{cos.version}}`, edit the bootprep input file so it reads as
+follows.
 
 ```yaml
 - name: cos-ncn-integration-{{cos.version}}
@@ -537,23 +556,21 @@ than `integration-{{cos.version}}`, edit the bootprep input file so it reads:
     branch: integration
 ```
 
-Prior to running `sat bootprep` HPE recommends to read the input file and to pay
-special attention to the `branch` parameters.
+### Editing Default Management CFS Configuration Names
 
-### Editing Default Bootprep Management CFS Configuration Names
-
-The default bootprep input file for management CFS configurations,
-`management-bootprep.yaml`, creates configurations whose names are specified
-in the input file. For example, in the bootprep input files that are included
-in the ``22.11`` recipe, these configurations are named:
+The default bootprep input file for management CFS configurations
+(`management-bootprep.yaml`) creates configurations that have names specified
+within the input file. For example, in the bootprep input files included in the
+``22.11`` HPC CSM Software Recipe, the following configurations are named:
 
 - `ncn-personalization`
 - `ncn-image-customization`
 
-These default names may be suitable, but it is possible to name them something
-else as well. `sat bootprep` will create whatever configurations are specified
-in the input file. For example, to create a NCN node personalization
-configuration named `ncn-personalization-test`, edit the file as follows.
+These default management CFS configuration names might be acceptable for your
+system. However, it is possible to create other names. `sat bootprep` creates
+whatever configurations are specified in the input file. For example, to
+create a NCN node personalization configuration named
+`ncn-personalization-test`, edit the file as follows.
 
 ```yaml
 configurations:
@@ -562,8 +579,8 @@ configurations:
   ...
 ```
 
-In the case of management configurations, use `sat status` to identify the
-current "Desired Config" for each of the management nodes.
+For management configurations, use `sat status` to identify the current
+desired configuration for each of the management nodes.
 
 ```screen
 ncn-m001# sat status --fields xname,role,subrole,desiredconfig --filter role=management
@@ -584,44 +601,51 @@ ncn-m001# sat status --fields xname,role,subrole,desiredconfig --filter role=man
 +----------------+------------+---------+---------------------+
 ```
 
-To overwrite that configuration using `sat bootprep`, ensure the bootprep input
-file is specifying to create a configuration named `ncn-personalization`. To
-create a different configuration, ensure the bootprep input file is *not*
-specifying to create a configuration named `ncn-personalization`.
+To overwrite the desired configuration using `sat bootprep`, ensure the bootprep
+input file specifies to create a configuration with the same name
+(`ncn-personalization` in the example above). To create a different configuration,
+ensure the bootprep input file specifies to create a configuration with a
+different name than the desired configuration. In the example above, you should
+not specify creating a configuration named `ncn-personalization` to avoid
+overwriting the desired configuration.
 
-### Upgrading a Single Product and Overriding its Version
+### Upgrading a Single Product and Overriding its Default Version
 
-When working with a given software recipe, it may be necessary to upgrade a
-single product past the version given in the software recipe, but use the other
-product versions contained in that recipe.
+When working with a given HPC CSM Software Recipe, it might be necessary to
+upgrade a single HPE Cray EX product past the default version given in the
+recipe. However, you might still want to use the other default product versions
+contained in that recipe. To do this, first upgrade the single product. For
+more information, refer to the upgrade instructions in that product's
+documentation.
 
-To upgrade the product, refer to the product's specific upgrade instructions.
+After the product is upgraded, you must override its default version in subsequent
+runs of `sat bootprep`. The following process explains how to do this. In this
+example, all the default product versions from the `22.11` software recipe are
+used except for COS. The COS default product version is overridden to version
+`2.4.199` instead, and the CFS configurations in `management-bootprep.yaml` are
+created.
 
-Once the product has been upgraded, you will need to override its version in
-subsequent runs of `sat bootprep`.
+1. Ensure you have a local copy of the default bootprep input files.
 
-This example details how to use all the product versions from the `22.11`
-software recipe, except override the COS product to version `2.4.199`, and
-shows the creation of CFS configurations in `management-bootprep.yaml`.
+   For more information, see [Accessing Default Bootprep Input
+   Files](#accessing-default-bootprep-input-files).
 
-1. Ensure you have a local copy of the default bootprep input files
-   (see: [Accessing Default Bootprep Input Files](#accessing-default-bootprep-input-files)).
+1. Navigate to the directory containing the `product_vars.yaml` file.
 
-1. Start by navigating to the directory containing the `product_vars.yaml` file.
-   This example shows the recipe distribution being located in `/mnt/admin/`.
+   The following example shows the recipe distribution located in `/mnt/admin/`.
 
    ```screen
    ncn-m001# pwd
    /mnt/admin/hpc-csm-software-recipe-22.11.0/vcs
    ```
 
-1. Edit `product_vars.yaml`
+1. Edit the `product_vars.yaml` file to change the default product version.
 
    ```screen
    ncn-m001# vim product_vars.yaml
    ```
 
-1. Check the edited version of `product_vars.yaml`.
+1. Confirm the new product version in the edited `product_vars.yaml` file.
 
    ```screen
    ncn-m001# grep -A1 cos: `product_vars.yaml`:
@@ -629,27 +653,20 @@ shows the creation of CFS configurations in `management-bootprep.yaml`.
      version: 2.4.199
    ```
 
-1. When running `sat bootprep`, use the `--vars-file` to override the version.
+1. Use the `--vars-file` option when running `sat bootprep` to override the
+   default product version.
 
-   **Note:** This command must be run from the directory containing `product_vars.yaml`,
-   and `product_vars.yaml` *must* be specified using `--vars-file`, it is not sufficient
-   to just edit the file.
-
-   **Note:** This example is specific to creating the configurations defined in
-   `management-bootprep.yaml`. Review what configurations, images and/or session templates
-   you intend to create by viewing the input file.
+   You must run this command from the directory containing the `product_vars.yaml`
+   file. The `product_vars.yaml` file must also be specified when using the
+   `--vars-file` option. It is not sufficient to just edit the file.
 
    ```screen
    ncn-m001# sat bootprep run --vars-file product_vars.yaml bootprep/management-bootprep.yaml
    ```
 
-### Generating an Example Bootprep Input File
-
-**Note:** The `sat bootprep generate-example` command was not updated for
-recent bootprep schema changes. It is recommended that you instead use the
-default bootprep input files described in [Accessing Default Bootprep Input
-Files](#accessing-default-bootprep-input-files). The `sat bootprep
-generate-example` command will be updated in a future release of SAT.
+   **Note:** This example is specific to creating the configurations defined in
+   `management-bootprep.yaml`. Review what configurations, images, or session templates
+   you intend to create by viewing the input file.
 
 ## Viewing Built-in Generated Documentation
 
