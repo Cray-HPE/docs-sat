@@ -10,26 +10,28 @@
 
 ## [SAT Installation](install.md)
 
-### Install SAT
+### [Install the System Admin Toolkit Product Stream](install.md#install-the-system-admin-toolkit-product-stream)
 
-- [Install the System Admin Toolkit Product Stream](install.md#install-the-system-admin-toolkit-product-stream)
-- [Perform NCN Personalization](install.md#perform-ncn-personalization)
-
-### SAT Setup
+### [Configure SAT](install.md#configure-sat)
 
 - [SAT Authentication](install.md#sat-authentication)
 - [Generate SAT S3 Credentials](install.md#generate-sat-s3-credentials)
 - [Set System Revision Information](install.md#set-system-revision-information)
 
-### SAT Post-Upgrade
+### [Perform NCN Personalization](install.md#perform-ncn-personalization)
+
+### [SAT Post-Upgrade](install.md#sat-post-upgrade)
 
 - [Remove Obsolete Configuration File Sections](install.md#remove-obsolete-configuration-file-sections)
 - [SAT Logging](install.md#sat-logging)
+- [Set System Revision Information](install.md#set-system-revision-information)
 
-### SAT Uninstall and Downgrade
+### [SAT Uninstall and Downgrade](install.md#sat-uninstall-and-downgrade)
 
 - [Uninstall: Removing a Version of SAT](install.md#uninstall-removing-a-version-of-sat)
 - [Activate: Switching Between Versions](install.md#activate-switching-between-versions)
+
+### [Optional: Installing and Configuring SAT on an External System](install.md#optional-installing-and-configuring-sat-on-an-external-system)
 
 ## [SAT Upgrade with CNE Installer](cne_install.md)
 
