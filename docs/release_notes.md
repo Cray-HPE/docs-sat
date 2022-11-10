@@ -251,8 +251,8 @@ Python dependency versions.
 
 ### Bug Fixes
 
-Minor bug fixes were made in each of the repositories. For full change lists, see each
-repository’s `CHANGELOG.md` file.
+Minor bug fixes were made in each of the repositories. For full change lists,
+refer to each repository’s `CHANGELOG.md` file.
 
 The [known issues listed under the SAT 2.2 release](#known-issues-in-sat-22) were fixed.
 
@@ -336,8 +336,8 @@ To resolve, run `sat` in another directory.
 ### New `sat` Commands
 
 - `sat bootprep` automates the creation of CFS configurations, the build and
-  customization of IMS images, and the creation of BOS session templates. See
-  [SAT Bootprep](usage/sat_bootprep.md) for details.
+  customization of IMS images, and the creation of BOS session templates. For
+  more information, see [SAT Bootprep](usage/sat_bootprep.md).
 - `sat slscheck` performs a check for consistency between the System Layout
   Service (SLS) and the Hardware State Manager (HSM).
 - `sat bmccreds` provides a simple interface for interacting with the System
@@ -371,9 +371,9 @@ versions moving forward.
 Beginning with the 2.2 release, SAT now provides partial support for the
 uninstall and activation of the SAT product stream.
 
-See [Uninstall: Removing a Version of SAT](install.md#uninstall-removing-a-version-of-sat)
-and [Activate: Switching Between Versions](install.md#activate-switching-between-versions)
-for details.
+For more information, see [Uninstall: Removing a Version of
+SAT](install.md#uninstall-removing-a-version-of-sat) and [Activate: Switching
+Between Versions](install.md#activate-switching-between-versions).
 
 ### Improvements to `sat status`
 
@@ -406,7 +406,7 @@ mostly related to filtering command output. The following are some highlights:
 ### Default Log Level Changed
 
 The default log level for `stderr` has been changed from "WARNING" to "INFO". For
-details, see [SAT Logging](install.md#sat-logging).
+more information, see [SAT Logging](install.md#sat-logging).
 
 ### More Granular Log Level Configuration Options
 
@@ -444,7 +444,7 @@ such as `awk`, `less`, and `more`.
 ### Configurable HTTP Timeout
 
 A new `sat` option has been added to configure the HTTP timeout length for
-requests to the API gateway. See `sat-man sat` for details.
+requests to the API gateway. For more information, refer to `sat-man sat`.
 
 ### `sat bootsys` Improvements
 
@@ -497,7 +497,7 @@ tests by running them in the container.
 ### Bug Fixes
 
 Minor bug fixes were made in `cray-sat` and in `cray-sat-podman`. For full change lists,
-see each repository's `CHANGELOG.md` file.
+refer to each repository's `CHANGELOG.md` file.
 
 ## Summary of SAT Changes in Shasta v1.5
 
@@ -556,7 +556,7 @@ replaced by functionality from the Slingshot Topology Tool (STT) in the
 fabric manager pod.
 
 The Redfish username and password command line options and config file options
-have been removed. For further instructions, see [Remove Obsolete Configuration
+have been removed. For more information, see [Remove Obsolete Configuration
 File Sections](install.md#remove-obsolete-configuration-file-sections).
 
 ### Additional Fields in `sat setrev` and `sat showrev`
@@ -701,8 +701,8 @@ information, including system name, site name, serial number, install date, and
 system type. Since the information is stored in S3, it will now be consistent
 regardless of the node on which `sat` is executed.
 
-As a result of this change, S3 credentials must be configured for SAT. For detailed
-instructions, see [Generate SAT S3 Credentials](install.md#generate-sat-s3-credentials).
+As a result of this change, S3 credentials must be configured for SAT. For more
+information, see [Generate SAT S3 Credentials](install.md#generate-sat-s3-credentials).
 
 ### Product Version Information Shown by `sat showrev`
 
@@ -788,7 +788,7 @@ command will be removed in a future release.
 
 The `sat bootsys` command now has multiple stages for both the `boot` and
 `shutdown` actions. Please refer to the "System Power On Procedures" and "System
-Power Off Procedures" sections of the Cray Shasta Administration Guide (S-8001)
+Power Off Procedures" sections of the *Cray Shasta Administration Guide (S-8001)*
 for more details on using this command in the context of a full system power off
 and power on.
 
@@ -814,6 +814,7 @@ This version of the `sat` CLI contained the following commands:
 - `swap`
 - `switch`
 
-See the [System Admin Toolkit Command Overview](introduction.md#system-admin-toolkit-command-overview)
-and the table of commands in the [SAT Authentication](install.md#sat-authentication) section
-of this document for more details on each of these commands.
+For more information on each of these commands, see the [System Admin Toolkit Command
+Overview](introduction.md#system-admin-toolkit-command-overview) and the table
+of commands in the [SAT Authentication](install.md#sat-authentication) section
+of this document.

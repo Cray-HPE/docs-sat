@@ -2,7 +2,7 @@
 
 By default, SAT uses Boot Orchestration Service (BOS) version one. You can
 select the BOS version to use for individual commands with the `--bos-version`
-option. For more information on this option, see the man page for a specific
+option. For more information on this option, refer to the man page for a specific
 command.
 
 You can also configure the BOS version to use in the SAT config file. Do this
