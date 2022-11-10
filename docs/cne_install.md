@@ -5,14 +5,14 @@
 Describes how to upgrade the System Admin Toolkit (SAT) product
 stream by using the Compute Node Environment (CNE) installer (`cne-install`).
 The CNE installer can be used only for upgrades and not for fresh installations.
-See [Install the System Admin Toolkit Product Stream](install.md) for
-installation instructions.
+For installation instructions, see [Install the System Admin Toolkit Product
+Stream](install.md).
 
 Upgrading SAT with `cne-install` is recommended because the process is both
 automated and logged to help you save time. The CNE installer can be used to
-upgrade SAT alone or with other supported products. Refer to the [*HPE Cray EX
-System Software Getting Started Guide (S-8000)*](<https://www.hpe.com/support/ex-S-8000>)
-for detailed information about `cne-install` and its options.
+upgrade SAT alone or with other supported products. For more information
+on `cne-install` and its options, refer to the [*HPE Cray EX System Software
+Getting Started Guide (S-8000)*](<https://www.hpe.com/support/ex-S-8000>).
 
 ### Prerequisites
 
@@ -72,7 +72,7 @@ for detailed information about `cne-install` and its options.
 1. **Optional:** Stop the typescript.
 
    **NOTE**: This step can be skipped if you wish to use the same typescript
-   for the remainder of the SAT upgrade. See [Next Steps](#next-steps).
+   for the remainder of the SAT upgrade (see [Next Steps](#next-steps)).
 
    ```screen
    ncn-m001# exit
