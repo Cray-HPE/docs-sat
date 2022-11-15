@@ -605,9 +605,8 @@ To overwrite the desired configuration using `sat bootprep`, ensure the bootprep
 input file specifies to create a configuration with the same name
 (`ncn-personalization` in the example above). To create a different configuration,
 ensure the bootprep input file specifies to create a configuration with a
-different name than the desired configuration. In the example above, you should
-not specify creating a configuration named `ncn-personalization` to avoid
-overwriting the desired configuration.
+different name than the desired configuration (different than `ncn-personalization`
+in the example above).
 
 ### Upgrading a Single Product and Overriding its Default Version
 
@@ -629,15 +628,6 @@ created.
 
    For more information, see [Accessing Default Bootprep Input
    Files](#accessing-default-bootprep-input-files).
-
-1. Navigate to the directory containing the `product_vars.yaml` file.
-
-   The following example shows the recipe distribution located in `/mnt/admin/`.
-
-   ```screen
-   ncn-m001# pwd
-   /mnt/admin/hpc-csm-software-recipe-22.11.0/vcs
-   ```
 
 1. Edit the `product_vars.yaml` file to change the default product version.
 
