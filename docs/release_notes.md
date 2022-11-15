@@ -141,7 +141,7 @@ changes should not impact the functionality of the SAT product in any way.
 - The `paramiko` Python package version was updated from 2.9.2 to 2.10.1 to
   mitigate CVE-2022-24302.
 - The `oauthlib` Python package version was updated from 3.2.0 to 3.2.1 to
-mitigate CVE-2022-36087.
+  mitigate CVE-2022-36087.
 
 #### Restricted Permissions on SAT Config Files and Directories
 
