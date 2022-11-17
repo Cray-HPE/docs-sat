@@ -491,13 +491,13 @@ SAT.
    ```screen
    ====> Updating CFS configuration(s)
    INFO: Querying CFS configurations for the following NCNs: x3000c0s1b0n0, ..., x3000c0s9b0n0
-   INFO: Found configuration "ncn-personalization" for component x3000c0s1b0n0
+   INFO: Found configuration "management-23.03" for component x3000c0s1b0n0
    ...
-   INFO: Found configuration "ncn-personalization" for component x3000c0s9b0n0
+   INFO: Found configuration "management-23.03" for component x3000c0s9b0n0
    ...
    INFO: No layer with repo path /vcs/cray/sat-config-management.git and playbook sat-ncn.yml found.
    INFO: Adding a layer with repo path /vcs/cray/sat-config-management.git and playbook sat-ncn.yml to the end.
-   INFO: Successfully saved CFS configuration "ncn-personalization"
+   INFO: Successfully saved CFS configuration "management-23.03"
    INFO: Successfully saved 1 changed CFS configurations.
    ====> Completed CFS configuration(s)
    ====> Cleaning up install dependencies
@@ -509,14 +509,14 @@ SAT.
    ```screen
    ====> Updating CFS configuration(s)
    INFO: Querying CFS configurations for the following NCNs: x3000c0s1b0n0, ..., x3000c0s9b0n0
-   INFO: Found configuration "ncn-personalization" for component x3000c0s1b0n0
+   INFO: Found configuration "management-23.03" for component x3000c0s1b0n0
    ...
-   INFO: Found configuration "ncn-personalization" for component x3000c0s9b0n0
+   INFO: Found configuration "management-23.03" for component x3000c0s9b0n0
    ...
    INFO: Updating existing layer with repo path /vcs/cray/sat-config-management.git and playbook sat-ncn.yml
    INFO: Property "commit" of layer with repo path /vcs/cray/sat-config-management.git and playbook sat-ncn.yml updated from 01ae28c92b9b4740e9e0e01ae01216c6c2d89a65 to bcbd6db0803cc4137c7558df9546b0faab303cbd
    INFO: Property "name" of layer with repo path /vcs/cray/sat-config-management.git and playbook sat-ncn.yml updated from sat-2.2.16 to sat-sat-ncn-bcbd6db-20220608T170152
-   INFO: Successfully saved CFS configuration "ncn-personalization"
+   INFO: Successfully saved CFS configuration "management-23.03"
    INFO: Successfully saved 1 changed CFS configurations.
    ====> Completed CFS configuration(s)
    ====> Cleaning up install dependencies
@@ -596,7 +596,7 @@ execute the following steps to ensure the modified CFS configuration is re-appli
    to be applied to the management NCNs.
 
    ```screen
-   ncn-m001# export CFS_CONFIG_NAME="ncn-personalization"
+   ncn-m001# export CFS_CONFIG_NAME="management-23.03"
    ```
 
    Note: If the [Update Active CFS Configuration](#update-active-cfs-configuration)
@@ -605,7 +605,7 @@ execute the following steps to ensure the modified CFS configuration is re-appli
    were modified, any one of them can be used in this procedure.
 
    ```screen
-   INFO: Successfully saved CFS configuration "ncn-personalization"
+   INFO: Successfully saved CFS configuration "management-23.03"
    ```
 
 1. Obtain the name of the CFS configuration layer for SAT and save it in an
@@ -909,14 +909,14 @@ This procedure can be used to downgrade the active version of SAT.
      `sat showrev`.
    - Ensure that the SAT CFS configuration content exists as a layer in all CFS configurations that are
      associated with NCNs with the role "Management" and subrole "Master" (for example, the CFS configuration
-     `ncn-personalization`). Specifically, it will ensure that the layer refers to the version of SAT CFS
+     `management-23.03`). Specifically, it will ensure that the layer refers to the version of SAT CFS
      configuration content associated with the version of SAT being activated.
 
    ```screen
    ncn-m001# prodmgr activate sat 2.2.10
    Repository sat-2.2.10-sle-15sp2 is now the default in sat-sle-15sp2.
    Set sat-2.2.10 as active in product catalog.
-   Updated CFS configurations: [ncn-personalization]
+   Updated CFS configurations: [management-23.03]
    ```
 
 1. Verify that the chosen version is marked as active.
