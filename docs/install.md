@@ -985,13 +985,81 @@ steps needed to configure SAT to use externally-accessible API endpoints exposed
    $ . ${SAT_VENV_PATH}/bin/activate
    ```
 
-1. Install the SAT Python package in the virtual environment.
+1. Clone the SAT source code.
+
+   **Note:** To use SAT version 3.19, this example clones the `release/3.19` branch of
+   `Cray-HPE/sat`. However, for better clarity, these instructions include steps that apply only to
+   versions newer than 3.19. Specifically, the instructions include references to the
+   `csm-api-client` package, which was not a dependency of SAT in version 3.19.
 
    ```screen
-   (venv) $ export PIP_EXTRA_INDEX_URL="https://artifactory.algol60.net/artifactory/csm-python-modules/simple"
-   (venv) $ git clone --branch=release/3.17 https://github.com/Cray-HPE/sat.git
+   (venv) $ git clone --branch=release/3.19 https://github.com/Cray-HPE/sat.git
+   ```
+
+1. Set up the SAT CSM Python dependencies to be installed from their source code.
+
+   SAT CSM Python dependency packages are not currently distributed publicly as
+   source packages or binary distributions. They must be installed from
+   their source code hosted on GitHub. Also, to install the `cray-product-catalog`
+   Python package, you must first clone it locally. Use the following steps to
+   modify the SAT CSM Python dependencies so they can be installed from their source code.
+
+   1. Clone the source code for `cray-product-catalog`.
+
+      ```screen
+      (venv) $ git clone --branch v1.6.0 https://github.com/Cray-HPE/cray-product-catalog
+      ```
+
+   1. In the `cray-product-catalog` directory, create a file named `.version`
+      that contains the version of `cray-product-catalog`.
+
+      ```screen
+      (venv) $ echo 1.6.0 > cray-product-catalog/.version
+      ```
+
+   1. Open the "locked" requirements file in a text editor.
+
+      ```screen
+      (venv) $ vim sat/requirements.lock.txt
+      ```
+
+   1. Update the line containing `cray-product-catalog` so that it reflects the local path
+      to `cray-product-catalog`.
+
+      It should read as follows:
+
+      ```screen
+      ./cray-product-catalog
+      ```
+
+   1. For versions of SAT newer than 3.19, change the line containing `csm-api-client` to
+      read as follows:
+
+      ```screen
+      csm-api-client@git+https://github.com/Cray-HPE/python-csm-api-client@release/1.1
+      ```
+
+   1. (Optional) Confirm that `requirements.lock.txt` is modified as expected.
+
+      **Note:** For versions newer than 3.19, you will see both `cray-product-catalog` and `csm-api-client`.
+      For version 3.19 and older, you will only see `cray-product-catalog`.
+
+      ```screen
+      (venv) $ grep -E 'cray-product-catalog|csm-api-client' sat/requirements.lock.txt
+      ./cray-product-catalog
+      csm-api-client@git+https://github.com/Cray-HPE/python-csm-api-client@release/1.1
+      ```
+
+1. Install the modified SAT dependencies.
+
+   ```screen
    (venv) $ pip install -r sat/requirements.lock.txt
    ...
+   ```
+
+1. Install the SAT Python package.
+
+   ```screen
    (venv) $ pip install ./sat
    ...
    ```
