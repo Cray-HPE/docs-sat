@@ -558,23 +558,21 @@ follows.
 
 ### Editing Default Management CFS Configuration Names
 
-The default bootprep input file for management CFS configurations
-(`management-bootprep.yaml`) creates configurations that have names specified
-within the input file. For example, in the bootprep input files included in the
-``22.11`` HPC CSM Software Recipe, the following configurations are named:
+The default bootprep input file for management NCNs (`management-bootprep.yaml`)
+uses the value `management-{{recipe.version}}` as the name of the CFS
+configuration. This uses a Jinja2 template to include the HPC CSM Software
+Recipe version in the name of the CFS configuration. For example, when `sat
+bootprep` is run against this file in HPC CSM Software Recipe version `23.03`, a
+configuration named `management-23.03` is created.
 
-- `ncn-personalization`
-- `ncn-image-customization`
-
-These default management CFS configuration names might be acceptable for your
-system. However, it is possible to create other names. `sat bootprep` creates
-whatever configurations are specified in the input file. For example, to
-create a NCN node personalization configuration named
-`ncn-personalization-test`, edit the file as follows.
+This default management CFS configuration name might be acceptable for your
+system. However, it is possible to use a different names. `sat bootprep` creates
+whatever configurations are specified in the input file. For example, to create
+a CFS configuration named `management-test`, edit the file as follows:
 
 ```yaml
 configurations:
-- name: ncn-personalization-test
+- name: management-test
   layers:
   ...
 ```
@@ -584,28 +582,28 @@ desired configuration for each of the management nodes.
 
 ```screen
 ncn-m001# sat status --fields xname,role,subrole,desiredconfig --filter role=management
-+----------------+------------+---------+---------------------+
-| xname          | Role       | SubRole | Desired Config      |
-+----------------+------------+---------+---------------------+
-| x3000c0s1b0n0  | Management | Master  | ncn-personalization |
-| x3000c0s3b0n0  | Management | Master  | ncn-personalization |
-| x3000c0s5b0n0  | Management | Master  | ncn-personalization |
-| x3000c0s7b0n0  | Management | Worker  | ncn-personalization |
-| x3000c0s9b0n0  | Management | Worker  | ncn-personalization |
-| x3000c0s11b0n0 | Management | Worker  | ncn-personalization |
-| x3000c0s13b0n0 | Management | Worker  | ncn-personalization |
-| x3000c0s17b0n0 | Management | Storage | ncn-personalization |
-| x3000c0s19b0n0 | Management | Storage | ncn-personalization |
-| x3000c0s21b0n0 | Management | Storage | ncn-personalization |
-| x3000c0s25b0n0 | Management | Worker  | ncn-personalization |
-+----------------+------------+---------+---------------------+
++----------------+------------+---------+------------------+
+| xname          | Role       | SubRole | Desired Config   |
++----------------+------------+---------+------------------+
+| x3000c0s1b0n0  | Management | Master  | management-23.03 |
+| x3000c0s3b0n0  | Management | Master  | management-23.03 |
+| x3000c0s5b0n0  | Management | Master  | management-23.03 |
+| x3000c0s7b0n0  | Management | Worker  | management-23.03 |
+| x3000c0s9b0n0  | Management | Worker  | management-23.03 |
+| x3000c0s11b0n0 | Management | Worker  | management-23.03 |
+| x3000c0s13b0n0 | Management | Worker  | management-23.03 |
+| x3000c0s17b0n0 | Management | Storage | management-23.03 |
+| x3000c0s19b0n0 | Management | Storage | management-23.03 |
+| x3000c0s21b0n0 | Management | Storage | management-23.03 |
+| x3000c0s25b0n0 | Management | Worker  | management-23.03 |
++----------------+------------+---------+------------------+
 ```
 
 To overwrite the desired configuration using `sat bootprep`, ensure the bootprep
 input file specifies to create a configuration with the same name
-(`ncn-personalization` in the example above). To create a different configuration,
+(`management-23.03` in the example above). To create a different configuration,
 ensure the bootprep input file specifies to create a configuration with a
-different name than the desired configuration (different than `ncn-personalization`
+different name than the desired configuration (different than `management-23.03`
 in the example above).
 
 ### Upgrading a Single Product and Overriding its Default Version
