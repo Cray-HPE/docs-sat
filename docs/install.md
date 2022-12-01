@@ -156,6 +156,7 @@ Below is a table describing SAT commands and the types of authentication they re
 |`sat hwinv`|Requires authentication to the API gateway.|`sat-hwinv`|Give a listing of the hardware of the HPE Cray EX system.|
 |`sat hwmatch`|Requires authentication to the API gateway.|`sat-hwmatch`|Report hardware mismatches.|
 |`sat init`|None|`sat-init`|Create a default SAT configuration file.|
+|`sat jobstat`|Requires authentication to the API gateway.|`sat-jobstat`|Check the status of jobs and applications.|
 |`sat k8s`|Requires Kubernetes configuration and authentication, which is automatically configured on `ncn-m001` during the install.|`sat-k8s`|Report on Kubernetes replica sets that have co-located \(on the same node\) replicas.|
 |`sat linkhealth`|||**This command has been deprecated.**|
 |`sat nid2xname`|Requires authentication to the API gateway.|`sat-nid2xname`|Translate node IDs to node XNames.|

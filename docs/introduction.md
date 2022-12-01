@@ -261,6 +261,12 @@ for each subcommand. Each service or component is listed under the product it be
 
 None
 
+### `sat jobstat`
+
+#### PBS
+
+- HPE State Checker
+
 ### `sat k8s`
 
 #### CSM
