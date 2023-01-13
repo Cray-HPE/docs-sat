@@ -24,7 +24,7 @@ That command will produce the following output, for example:
 
 This would result in the address for Kibana being `https://sma-kibana.cmn.EXAMPLE_DOMAIN.com`
 
-For additional details about how to access the Kibana Dashboards refer to *View Logs Via Kibana* in the SMA product
+For more information on accessing the Kibana Dashboards, refer to **View Logs Via Kibana** in the SMA product
 documentation.
 
 Additional details about the AER, ATOM, Heartbeat, Kernel, MCE, and RAS Daemon Kibana Dashboards are included in this

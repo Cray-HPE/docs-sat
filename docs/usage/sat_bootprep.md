@@ -56,7 +56,7 @@ The `sat bootprep run` command validates the schema version specified
 in the input file. The command also makes sure that the schema version
 of the input file is compatible with the schema version understood by the
 current version of `sat bootprep`. For more information on schema version
-validation, see the `schema_version` property description in the bootprep
+validation, refer to the `schema_version` property description in the bootprep
 input file schema. For more information on viewing the bootprep input file
 schema in either raw form or user-friendly HTML form, see [Viewing the Exact
 Schema Specification](#viewing-the-exact-schema-specification) or
@@ -246,7 +246,7 @@ which are optional:
 
 As mentioned above, the parameters under `bos_parameters` are passed through
 directly to BOS. For more information on the properties of a BOS boot set,
-refer to the section **BOS Session Templates** in the [*Cray
+refer to **BOS Session Templates** in the [*Cray
 System Management Documentation*](https://cray-hpe.github.io/docs-csm/).
 
 Here is an example of a BOS session template that refers to an existing IMS
@@ -320,6 +320,7 @@ a Jinja2 template:
 - The following keys of each layer under the `layers` key in a
   configuration:
   - `name`
+  - `playbook`
   - `git.branch`
   - `product.version`
   - `product.branch`
@@ -337,79 +338,11 @@ In addition, Python string methods can be called on the string variables.
 
 #### Viewing HPC CSM Software Recipe Variables
 
-HPC CSM Software Recipe variables are available, and you can use them in the values
-of the keys listed above. View these variables by cloning the `hpc-csm-software-recipe`
-repository from VCS and accessing the `product_vars.yaml` file on the branch that
-corresponds to the targeted version of the HPC CSM Software Recipe.
-
-1. Set up a shell script to access the password for the `crayvcs` user:
-
-   ```screen
-   ncn-m001# cat > vcs-creds-helper.sh <<EOF
-   #!/bin/bash
-   kubectl get secret -n services vcs-user-credentials -o jsonpath={.data.vcs_password} | base64 -d
-   EOF
-   ```
-
-1. Ensure `vcs-creds-helper.sh` is executable:
-
-   ```screen
-   ncn-m001# chmod u+x vcs-creds-helper.sh
-   ```
-
-1. Set the `GIT_ASKPASS` environment variable to the path to the
-   `vcs-creds-helper.sh` script:
-
-   ```screen
-   ncn-m001# export GIT_ASKPASS="$PWD/vcs-creds-helper.sh"
-   ```
-
-1. Clone the `hpc-csm-software-recipe` repository:
-
-   ```screen
-   ncn-m001# git clone https://crayvcs@api-gw-service-nmn.local/vcs/cray/hpc-csm-software-recipe.git
-   ```
-
-1. Change the directory to the `hpc-csm-software-recipe` repository:
-
-   ```screen
-   ncn-m001# cd hpc-csm-software-recipe
-   ```
-
-1. View the versions of the HPC CSM Software Recipe on the system:
-
-   ```screen
-   ncn-m001# git branch -r
-   ```
-
-1. Check out the branch of the `hpc-csm-software-recipe` repository that corresponds to
-   the targeted HPC CSM Software Recipe version. For example, for recipe version
-   22.11.0:
-
-   ```screen
-   ncn-m001# git checkout cray/hpc-csm-software-recipe/22.11.0
-   ```
-
-1. View the contents of the file `product_vars.yaml` in the clone of the
-   repository:
-
-   ```screen
-   ncn-m001# cat product_vars.yaml
-   ```
-
-The variables defined in the `product_vars.yaml` file can be used in the values
-that support Jinja2 templates. A variable is specified by a dot-separated path,
-with each component of the path representing a key in the YAML file. For
-example, a version of the COS product appears as follows in the
-`product_vars.yaml` file:
-
-```yaml
-cos:
-  version: 2.4.76
-```
-
-This COS version can be used by specifying `cos.version` within a value in the
-input file.
+HPC CSM Software Recipe variables are available, and you can use them in the
+values of the keys listed above. A listing of the available variables and their
+values can be viewed by running `sat bootprep list-vars`. For more information
+on options that may be used with the `list-vars` subcommand, refer to the man page
+for the `sat bootprep` subcommand.
 
 #### HPC CSM Software Recipe Variable Substitution Example
 
@@ -455,9 +388,9 @@ configurations:
 ### Dynamic Variable Substitutions
 
 Additional variables are available besides the product version variables
-provided by the HPC CSM Software Recipe. (See [HPC CSM Software Recipe Variable
-Substitutions](#hpc-csm-software-recipe-variable-substitutions) for more
-information.) These additional variables are dynamic because their values are
+provided by the HPC CSM Software Recipe. (For more information, see [HPC
+CSM Software Recipe Variable Substitutions](#hpc-csm-software-recipe-variable-substitutions).)
+These additional variables are dynamic because their values are
 determined at run-time based on the context in which they appear. Available
 dynamic variables include the following:
 
@@ -541,11 +474,10 @@ session_templates:
 
 Default bootprep input files are delivered by the HPC CSM Software Recipe
 product. You can access these files by cloning the `hpc-csm-software-recipe`
-repository.
-
-To do this, follow steps 1-7 of the procedure in [Viewing HPC CSM Software Recipe
-Variables](#viewing-hpc-csm-software-recipe-variables). Then, access the files in the
-`bootprep` directory of that repository:
+repository, as described in the **Accessing `sat bootprep` files** process of
+the [*Cray System Management
+Documentation*](https://cray-hpe.github.io/docs-csm/). Find the
+default input files in the `bootprep` directory of the cloned repository:
 
 ```screen
 ncn-m001# ls bootprep/
@@ -553,11 +485,177 @@ ncn-m001# ls bootprep/
 
 ### Generating an Example Bootprep Input File
 
-**Note:** The `sat bootprep generate-example` command was not updated for
+The `sat bootprep generate-example` command was not updated for
 recent bootprep schema changes. It is recommended that you instead use the
 default bootprep input files described in [Accessing Default Bootprep Input
 Files](#accessing-default-bootprep-input-files). The `sat bootprep
 generate-example` command will be updated in a future release of SAT.
+
+## Editing HPC CSM Software Recipe Defaults
+
+You might need to edit the default bootprep input files delivered by the HPC
+CSM Software Recipe for your system. Here are some examples of how to edit
+the files.
+
+### Editing Default Branch Names
+
+Before running `sat bootprep`, HPE recommends reading the bootprep input files
+and paying specific attention to the `branch` parameters. Some HPE Cray EX
+products require system-specific changes on a working branch of VCS. For these
+products, the default bootprep input files assume certain naming conventions for
+the VCS branches. The files refer to a particular branch of a product's
+configuration management repository.
+
+Thus, it is important to confirm that the bootprep input files delivered by the
+HPC CSM Software Recipe match the actual system branch names. For example, the
+COS product's CFS configuration layer is defined as follows in the default
+`management-bootprep.yaml` bootprep input file.
+
+```yaml
+- name: cos-ncn-integration-{{cos.version}}
+  playbook: ncn.yml
+  product:
+    name: cos
+    version: "{{cos.version}}"
+    branch: integration-{{cos.version}}
+```
+
+The default file is assuming that system-specific Ansible configuration changes
+for the COS product in VCS are stored in a branch named
+`integration-{{cos.version}}`. If the version being installed is COS 2.4.99,
+`sat bootprep` looks for a branch named `integration-2.4.99` from which to
+create CFS configuration layers.
+
+You can create VCS working branches that are not the default bootprep input file
+branch names. A simple example of this is using `cne-install` to update working
+VCS branches. If you use `cne-install` to update working VCS branches, (namely in
+the `update_working_branches` stage), you create or update the branches specified
+by the `-B WORKING_BRANCH` command line option. For example, consider the
+following `cne-install` command.
+
+```screen
+ncn-m001# ./cne-install install \
+    -B integration \
+    -s deploy_products \
+    -e update_working_branches
+```
+
+Products installed with this `cne-install` example use the working branch
+`integration` for system-specific changes to VCS. The branch specified by the
+`-B` option must match the branch specified in the bootprep input file.
+
+In another example, to use the branch `integration` for COS instead of
+`integration-{{cos.version}}`, edit the bootprep input file so it reads as
+follows.
+
+```yaml
+- name: cos-ncn-integration-{{cos.version}}
+  playbook: ncn.yml
+  product:
+    name: cos
+    version: "{{cos.version}}"
+    branch: integration
+```
+
+### Editing Default Management CFS Configuration Names
+
+The default bootprep input file for management NCNs (`management-bootprep.yaml`)
+uses the value `management-{{recipe.version}}` as the name of the CFS
+configuration. This uses a Jinja2 template to include the HPC CSM Software
+Recipe version in the name of the CFS configuration. For example, when `sat
+bootprep` is run against this file in HPC CSM Software Recipe version `23.03`, a
+configuration named `management-23.03` is created.
+
+This default management CFS configuration name might be acceptable for your
+system. However, it is possible to use a different names. `sat bootprep` creates
+whatever configurations are specified in the input file. For example, to create
+a CFS configuration named `management-test`, edit the file as follows:
+
+```yaml
+configurations:
+- name: management-test
+  layers:
+  ...
+```
+
+For management configurations, use `sat status` to identify the current
+desired configuration for each of the management nodes.
+
+```screen
+ncn-m001# sat status --fields xname,role,subrole,desiredconfig --filter role=management
++----------------+------------+---------+------------------+
+| xname          | Role       | SubRole | Desired Config   |
++----------------+------------+---------+------------------+
+| x3000c0s1b0n0  | Management | Master  | management-23.03 |
+| x3000c0s3b0n0  | Management | Master  | management-23.03 |
+| x3000c0s5b0n0  | Management | Master  | management-23.03 |
+| x3000c0s7b0n0  | Management | Worker  | management-23.03 |
+| x3000c0s9b0n0  | Management | Worker  | management-23.03 |
+| x3000c0s11b0n0 | Management | Worker  | management-23.03 |
+| x3000c0s13b0n0 | Management | Worker  | management-23.03 |
+| x3000c0s17b0n0 | Management | Storage | management-23.03 |
+| x3000c0s19b0n0 | Management | Storage | management-23.03 |
+| x3000c0s21b0n0 | Management | Storage | management-23.03 |
+| x3000c0s25b0n0 | Management | Worker  | management-23.03 |
++----------------+------------+---------+------------------+
+```
+
+To overwrite the desired configuration using `sat bootprep`, ensure the bootprep
+input file specifies to create a configuration with the same name
+(`management-23.03` in the example above). To create a different configuration,
+ensure the bootprep input file specifies to create a configuration with a
+different name than the desired configuration (different than `management-23.03`
+in the example above).
+
+### Upgrading a Single Product and Overriding its Default Version
+
+When working with a given HPC CSM Software Recipe, it might be necessary to
+upgrade a single HPE Cray EX product past the default version given in the
+recipe. However, you might still want to use the other default product versions
+contained in that recipe. To do this, first upgrade the single product. For
+more information, refer to the upgrade instructions in that product's
+documentation.
+
+After the product is upgraded, you must override its default version in subsequent
+runs of `sat bootprep`. The following process explains how to do this. In this
+example, all the default product versions from the `22.11` software recipe are
+used except for COS. The COS default product version is overridden to version
+`2.4.199` instead, and the CFS configurations in `management-bootprep.yaml` are
+created.
+
+1. Ensure you have a local copy of the default bootprep input files.
+
+   For more information, see [Accessing Default Bootprep Input
+   Files](#accessing-default-bootprep-input-files).
+
+1. Edit the `product_vars.yaml` file to change the default product version.
+
+   ```screen
+   ncn-m001# vim product_vars.yaml
+   ```
+
+1. Confirm the new product version in the edited `product_vars.yaml` file.
+
+   ```screen
+   ncn-m001# grep -A1 cos: `product_vars.yaml`:
+   cos:
+     version: 2.4.199
+   ```
+
+1. Use the `--vars-file` option when running `sat bootprep` to override the
+   default product version.
+
+   You must run this command from the directory containing the `product_vars.yaml`
+   file. The `product_vars.yaml` file must also be specified when using the
+   `--vars-file` option. It is not sufficient to just edit the file.
+
+   ```screen
+   ncn-m001# sat bootprep run --vars-file product_vars.yaml bootprep/management-bootprep.yaml
+   ```
+
+   **Note:** This example is specific to creating the configurations defined in
+   `management-bootprep.yaml`. Review what configurations, images, or session templates
+   you intend to create by viewing the input file.
 
 ## Viewing Built-in Generated Documentation
 

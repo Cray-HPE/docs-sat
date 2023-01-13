@@ -8,7 +8,6 @@ stream.
 ### Prerequisites
 
 - CSM is installed and verified.
-- cray-product-catalog is running.
 - There must be at least 2 gigabytes of free space on the manager NCN on which the
   procedure is run.
 
@@ -21,6 +20,12 @@ stream.
 - To upgrade SAT, execute the pre-installation, installation, and post-installation
   procedures for a newer distribution. The newly installed version will become
   the default.
+
+    In SAT 2.4 and newer, you can instead upgrade the product stream by using the
+    Compute Node Environment (CNE) installer. It is recommended that you upgrade
+    SAT with the CNE installer because the process is both automated and logged
+    to help you save time. For more information, see
+    [SAT Upgrade with CNE Installer](cne_install.md).
 
 ### Pre-Installation Procedure
 
@@ -67,7 +72,7 @@ stream.
 1. **Optional:** Stop the typescript.
 
    **NOTE**: This step can be skipped if you wish to use the same typescript
-   for the remainder of the SAT install. See [Next Steps](#next-steps).
+   for the remainder of the SAT install (see [Next Steps](#next-steps)).
 
    ```screen
    ncn-m001# exit
@@ -85,25 +90,26 @@ has been loaded into the system software repository.
 ### Next Steps
 
 If other HPE Cray EX software products are being installed or upgraded in conjunction
-with SAT, refer to the [*HPE Cray EX System Software Getting Started Guide*](https://www.hpe.com/support/ex-gsg)
-to determine which step to execute next.
+with SAT, refer to the [*HPE Cray EX System Software Getting Started Guide
+(S-8000)*](https://www.hpe.com/support/ex-S-8000) to determine which step to
+execute next.
 
 If no other HPE Cray EX software products are being installed or upgraded at this time,
 proceed to the sections listed below.
 
-**NOTE:** The **NCN Personalization** procedure **is required** both when
-installing and upgrading SAT. The setup procedures in **SAT Setup**, however,
-are are only required during the first installation of SAT.
+**NOTE:** The procedures in **Configure SAT** are only required during the
+first installation of SAT. However, the **NCN Personalization** procedure
+**is required** both when installing and upgrading SAT.
 
-Execute the **NCN Personalization** procedure:
-
-- [Perform NCN Personalization](#perform-ncn-personalization)
-
-If performing a fresh install, execute the **SAT Setup** procedures:
+If performing a fresh install, execute the **Configure SAT** procedures:
 
 - [SAT Authentication](#sat-authentication)
 - [Generate SAT S3 Credentials](#generate-sat-s3-credentials)
 - [Set System Revision Information](#set-system-revision-information)
+
+Execute the **NCN Personalization** procedure:
+
+- [Perform NCN Personalization](#perform-ncn-personalization)
 
 If performing an upgrade, execute the **SAT Post-Upgrade** procedures:
 
@@ -111,18 +117,312 @@ If performing an upgrade, execute the **SAT Post-Upgrade** procedures:
 - [SAT Logging](#sat-logging)
 - [Set System Revision Information](#set-system-revision-information)
 
-**NOTE:** The **Set System Revision Information** procedure is **not required** after upgrading from SAT 2.1 or later.
+**NOTE:** The **Set System Revision Information** procedure is **not required**
+after upgrading from SAT 2.1 or later.
+
+## Configure SAT
+
+### SAT Authentication
+
+Initially, as part of the installation and configuration, SAT authentication is set up so SAT commands can be used in
+later steps of the install process. The admin account used to authenticate with `sat auth` must be enabled in
+Keycloak and must have its *assigned role* set to *admin*. For instructions on editing *Role Mappings* see
+*Create Internal User Accounts in the Keycloak Shasta Realm* in the CSM product documentation.
+For additional information on SAT authentication, see *System Security and Authentication* in the CSM
+documentation.
+
+**NOTE:** This procedure is only required after initially installing SAT. It is not
+required after upgrading SAT.
+
+#### Description of SAT Command Authentication Types
+
+Some SAT subcommands make requests to the Shasta services through the API gateway and thus require authentication to
+the API gateway in order to function. Other SAT subcommands use the Kubernetes API. Some `sat` commands require S3 to
+be configured (see: [Generate SAT S3 Credentials](#generate-sat-s3-credentials)). In order to use the SAT S3 bucket,
+the System Administrator must generate the S3 access key and secret keys and write them to a local file. This must be
+done on every Kubernetes manager node where SAT commands are run.
+
+Below is a table describing SAT commands and the types of authentication they require.
+
+|SAT Subcommand|Authentication/Credentials Required|Man Page|Description|
+|--------------|-----------------------------------|--------|-----------|
+|`sat auth`|Responsible for authenticating to the API gateway and storing a token.|`sat-auth`|Authenticate to the API gateway and save the token.|
+|`sat bmccreds`|Requires authentication to the API gateway.|`sat-bmccreds`|Set BMC passwords.|
+|`sat bootprep`|Requires authentication to the API gateway. Requires Kubernetes configuration and authentication, which is done on `ncn-m001` during the install.|`sat-bootprep`|Prepare to boot nodes with images and configurations.|
+|`sat bootsys`|Requires authentication to the API gateway. Requires Kubernetes configuration and authentication, which is configured on `ncn-m001` during the install. Some stages require passwordless SSH to be configured to all other NCNs. Requires S3 to be configured for some stages.|`sat-bootsys`|Boot or shutdown the system, including compute nodes, application nodes, and non-compute nodes (NCNs) running the management software.|
+|`sat diag`|Requires authentication to the API gateway.|`sat-diag`|Launch diagnostics on the HSN switches and generate a report.|
+|`sat firmware`|Requires authentication to the API gateway.|`sat-firmware`|Report firmware version.|
+|`sat hwhist`|Requires authentication to the API gateway.|`sat-hwhist`|Report hardware component history.|
+|`sat hwinv`|Requires authentication to the API gateway.|`sat-hwinv`|Give a listing of the hardware of the HPE Cray EX system.|
+|`sat hwmatch`|Requires authentication to the API gateway.|`sat-hwmatch`|Report hardware mismatches.|
+|`sat init`|None|`sat-init`|Create a default SAT configuration file.|
+|`sat jobstat`|Requires authentication to the API gateway.|`sat-jobstat`|Check the status of jobs and applications.|
+|`sat k8s`|Requires Kubernetes configuration and authentication, which is automatically configured on `ncn-m001` during the install.|`sat-k8s`|Report on Kubernetes replica sets that have co-located \(on the same node\) replicas.|
+|`sat linkhealth`|||**This command has been deprecated.**|
+|`sat nid2xname`|Requires authentication to the API gateway.|`sat-nid2xname`|Translate node IDs to node XNames.|
+|`sat sensors`|Requires authentication to the API gateway.|`sat-sensors`|Report current sensor data.|
+|`sat setrev`|Requires S3 to be configured for site information such as system name, serial number, install date, and site name.|`sat-setrev`|Set HPE Cray EX system revision information.|
+|`sat showrev`|Requires API gateway authentication in order to query the Interconnect from HSM. Requires S3 to be configured for site information such as system name, serial number, install date, and site name.|`sat-showrev`|Print revision information for the HPE Cray EX system.|
+|`sat slscheck`|Requires authentication to the API gateway.|`sat-slscheck`|Perform a cross-check between SLS and HSM.|
+|`sat status`|Requires authentication to the API gateway.|`sat-status`|Report node status across the HPE Cray EX system.|
+|`sat swap`|Requires authentication to the API gateway.|`sat-swap`|Prepare HSN switch or cable for replacement and bring HSN switch or cable into service.|
+|`sat xname2nid`|Requires authentication to the API gateway.|`sat-xname2nid`|Translate node and node BMC XNames to node IDs.|
+|`sat switch`|**This command has been deprecated.** It has been replaced by `sat swap`.|
+
+In order to authenticate to the API gateway, you must run the `sat auth` command. This command will prompt for a password
+on the command line. The username value is obtained from the following locations, in order of higher precedence to lower
+precedence:
+
+- The `--username` global command-line option.
+- The `username` option in the `api_gateway` section of the config file at `~/.config/sat/sat.toml`.
+- The name of currently logged in user running the `sat` command.
+
+If credentials are entered correctly when prompted by `sat auth`, a token file will be obtained and saved to
+`~/.config/sat/tokens`. Subsequent sat commands will determine the username the same way as `sat auth` described above,
+and will use the token for that username if it has been obtained and saved by `sat auth`.
+
+#### Prerequisites
+
+- The `sat` CLI has been installed following [Install The System Admin Toolkit Product Stream](#install-the-system-admin-toolkit-product-stream).
+
+#### Procedure
+
+The following is the procedure to globally configure the username used by SAT and authenticate to the API gateway:
+
+1. Generate a default SAT configuration file, if one does not exist.
+
+   ```screen
+   ncn-m001# sat init
+   Configuration file "/root/.config/sat/sat.toml" generated.
+   ```
+
+   **Note:** If the config file already exists, it will print out an error:
+
+   ```screen
+   ERROR: Configuration file "/root/.config/sat/sat.toml" already exists.
+   Not generating configuration file.
+   ```
+
+1. Edit `~/.config/sat/sat.toml` and set the username option in the `api_gateway` section of the config file. For
+   example:
+
+   ```screen
+   username = "crayadmin"
+   ```
+
+1. Run `sat auth`. Enter your password when prompted. For example:
+
+   ```screen
+   ncn-m001# sat auth
+   Password for crayadmin:
+   Succeeded!
+   ```
+
+1. Other `sat` commands are now authenticated to make requests to the API gateway. For example:
+
+   ```screen
+   ncn-m001# sat status
+   ```
+
+### Generate SAT S3 Credentials
+
+Generate S3 credentials and write them to a local file so the SAT user can access S3 storage. In order to use the SAT
+S3 bucket, the System Administrator must generate the S3 access key and secret keys and write them to a local file.
+This must be done on every Kubernetes master node where SAT commands are run.
+
+SAT uses S3 storage for several purposes, most importantly to store the site-specific information set with `sat setrev`
+(see: [Set System Revision Information](#set-system-revision-information)).
+
+**NOTE:** This procedure is only required after initially installing SAT. It is not
+required after upgrading SAT.
+
+#### Prerequisites
+
+- The SAT CLI has been installed following [Install The System Admin Toolkit Product Stream](#install-the-system-admin-toolkit-product-stream)
+- The SAT configuration file has been created (See [SAT Authentication](#sat-authentication)).
+- CSM has been installed and verified.
+
+#### Procedure
+
+1. Ensure the files are readable only by `root`.
+
+    ```screen
+    ncn-m001# touch /root/.config/sat/s3_access_key \
+        /root/.config/sat/s3_secret_key
+    ```
+
+    ```screen
+    ncn-m001# chmod 600 /root/.config/sat/s3_access_key \
+        /root/.config/sat/s3_secret_key
+    ```
+
+1. Write the credentials to local files using `kubectl`.
+
+   ```screen
+   ncn-m001# kubectl get secret sat-s3-credentials -o json -o \
+       jsonpath='{.data.access_key}' | base64 -d > \
+       /root/.config/sat/s3_access_key
+   ```
+
+   ```screen
+   ncn-m001# kubectl get secret sat-s3-credentials -o json -o \
+       jsonpath='{.data.secret_key}' | base64 -d > \
+       /root/.config/sat/s3_secret_key
+   ```
+
+1. Verify the S3 endpoint specified in the SAT configuration file is correct.
+
+   1. Get the SAT configuration file's endpoint value.
+
+      **NOTE:** If the command's output is commented out, indicated by an initial `#`
+      character, the SAT configuration will take the default value – `"https://rgw-vip.nmn"`.
+
+      ```screen
+      ncn-m001# grep endpoint ~/.config/sat/sat.toml
+      # endpoint = "https://rgw-vip.nmn"
+      ```
+
+   1. Get the `sat-s3-credentials` secret's endpoint value.
+
+      ```screen
+      ncn-m001# kubectl get secret sat-s3-credentials -o json -o \
+          jsonpath='{.data.s3_endpoint}' | base64 -d | xargs
+      https://rgw-vip.nmn
+      ```
+
+   1. Compare the two endpoint values.
+
+      If the values differ, change the SAT configuration file's endpoint value to match the secret's.
+
+1. Copy SAT configurations to each manager node on the system.
+
+   ```screen
+   ncn-m001# for i in ncn-m002 ncn-m003; do echo $i; ssh ${i} \
+       mkdir -p /root/.config/sat; \
+       scp -pr /root/.config/sat ${i}:/root/.config; done
+   ```
+
+   **NOTE**: Depending on how many manager nodes are on the system, the list of manager nodes may
+   be different. This example assumes three manager nodes, where the configuration files must be
+   copied from `ncn-m001` to `ncn-m002` and `ncn-m003`. Therefore, the list of hosts above is
+   `ncn-m002` and `ncn-m003`.
+
+### Set System Revision Information
+
+HPE service representatives use system revision information data to identify
+systems in support cases.
+
+#### Prerequisites
+
+- SAT authentication has been set up. See [SAT Authentication](#sat-authentication).
+- S3 credentials have been generated. See [Generate SAT S3 Credentials](#generate-sat-s3-credentials).
+
+#### Notes on the Procedure
+
+- This procedure **is required** after a fresh install of SAT.
+- After an upgrade of SAT, this procedure is **not required** if SAT was upgraded
+  from 2.1 (Shasta v1.5) or later. It **is required** if SAT was upgraded from
+  2.0 (Shasta v1.4) or earlier.
+
+#### Procedure
+
+1. Set System Revision Information.
+
+   Run `sat setrev` and follow the prompts to set the following site-specific values:
+
+   - Serial number
+   - System name
+   - System type
+   - System description
+   - Product number
+   - Company name
+   - Site name
+   - Country code
+   - System install date
+
+   **TIP**: For "System type", a system with *any* liquid-cooled components should be
+   considered a liquid-cooled system. In other words, "System type" is EX-1C.
+
+   ```screen
+   ncn-m001# sat setrev
+   --------------------------------------------------------------------------------
+   Setting:        Serial number
+   Purpose:        System identification. This will affect how snapshots are
+                   identified in the HPE backend services.
+   Description:    This is the top-level serial number which uniquely identifies
+                   the system. It can be requested from an HPE representative.
+   Valid values:   Alpha-numeric string, 4 - 20 characters.
+   Type:           <class 'str'>
+   Default:        None
+   Current value:  None
+   --------------------------------------------------------------------------------
+   Please do one of the following to set the value of the above setting:
+       - Input a new value
+       - Press CTRL-C to exit
+   ...
+   ```
+
+1. Verify System Revision Information.
+
+   Run `sat showrev` and verify the output shown in the "System Revision Information table."
+
+   The following example shows sample table output.
+
+   ```screen
+   ncn-m001# sat showrev
+   ################################################################################
+   System Revision Information
+   ################################################################################
+   +---------------------+---------------+
+   | component           | data          |
+   +---------------------+---------------+
+   | Company name        | HPE           |
+   | Country code        | US            |
+   | Interconnect        | Sling         |
+   | Product number      | R4K98A        |
+   | Serial number       | 12345         |
+   | Site name           | HPE           |
+   | Slurm version       | slurm 20.02.5 |
+   | System description  | Test System   |
+   | System install date | 2021-01-29    |
+   | System name         | eniac         |
+   | System type         | EX-1C         |
+   +---------------------+---------------+
+   ################################################################################
+   Product Revision Information
+   ################################################################################
+   +--------------+-----------------+------------------------------+------------------------------+
+   | product_name | product_version | images                       | image_recipes                |
+   +--------------+-----------------+------------------------------+------------------------------+
+   | csm          | 0.8.14          | cray-shasta-csm-sles15sp1... | cray-shasta-csm-sles15sp1... |
+   | sat          | 2.0.1           | -                            | -                            |
+   | sdu          | 1.0.8           | -                            | -                            |
+   | slingshot    | 0.8.0           | -                            | -                            |
+   | sma          | 1.4.12          | -                            | -                            |
+   +--------------+-----------------+------------------------------+------------------------------+
+   ################################################################################
+   Local Host Operating System
+   ################################################################################
+   +-----------+----------------------+
+   | component | version              |
+   +-----------+----------------------+
+   | Kernel    | 5.3.18-24.15-default |
+   | SLES      | SLES 15-SP2          |
+   +-----------+----------------------+
+   ```
 
 ## Perform NCN Personalization
 
-To configure the installed version of SAT, a new CFS configuration layer must be added to the CFS configuration used on
-management NCNs. This procedure describes how to add that layer. It is required to complete SAT installation and
-configuration.
+A new CFS configuration layer must be added to the CFS configuration used on
+management NCNs. It is required following SAT installation and configuration.
+This procedure describes how to add that layer.
 
 ### Prerequisites
 
 - The [Install the System Admin Toolkit Product Stream](#install-the-system-admin-toolkit-product-stream)
   procedure has been successfully completed.
+- If performing a fresh install, the [**Configure SAT**](#configure-sat) procedures have been
+  successfully completed.
 
 ### Notes on the Procedure
 
@@ -131,9 +431,9 @@ configuration.
   being installed.
 - 'manager' and 'master' are used interchangeably in the steps below.
 - If upgrading SAT, the existing configuration will likely include other Cray EX product
-  entries. Update the SAT entry as described in this procedure. The *HPE Cray EX System
-  Software Getting Started Guide* provides guidance on how and when to update the
-  entries for the other products.
+  entries. Update the SAT entry as described in this procedure. The [*HPE Cray EX System
+  Software Getting Started Guide (S-8000)*](https://www.hpe.com/support/ex-S-8000)
+  provides guidance on how and when to update the entries for the other products.
 
 ### Pre-NCN-Personalization Procedure
 
@@ -159,8 +459,8 @@ currently applied to particular components in CFS.
 
 The script also includes options for specifying:
 
-- how the modified CFS configuration should be saved
-- the git commit hash or branch specified in the SAT layer
+- how the modified CFS configuration should be saved.
+- the git commit hash or branch specified in the SAT layer.
 
 This procedure is split into three alternatives, which cover common use cases:
 
@@ -168,9 +468,8 @@ This procedure is split into three alternatives, which cover common use cases:
 - [Update CFS Configuration in a JSON File](#update-cfs-configuration-in-a-json-file)
 - [Update Existing CFS Configuration by Name](#update-existing-cfs-configuration-by-name)
 
-If none of these alternatives fit your use case, see:
-
-- [Advanced Options for Updating CFS Configurations](#advanced-options-for-updating-cfs-configurations)
+If none of these alternatives fit your use case, see [Advanced Options for
+Updating CFS Configurations](#advanced-options-for-updating-cfs-configurations).
 
 #### Update Active CFS Configuration
 
@@ -193,13 +492,13 @@ SAT.
    ```screen
    ====> Updating CFS configuration(s)
    INFO: Querying CFS configurations for the following NCNs: x3000c0s1b0n0, ..., x3000c0s9b0n0
-   INFO: Found configuration "ncn-personalization" for component x3000c0s1b0n0
+   INFO: Found configuration "management-23.03" for component x3000c0s1b0n0
    ...
-   INFO: Found configuration "ncn-personalization" for component x3000c0s9b0n0
+   INFO: Found configuration "management-23.03" for component x3000c0s9b0n0
    ...
    INFO: No layer with repo path /vcs/cray/sat-config-management.git and playbook sat-ncn.yml found.
    INFO: Adding a layer with repo path /vcs/cray/sat-config-management.git and playbook sat-ncn.yml to the end.
-   INFO: Successfully saved CFS configuration "ncn-personalization"
+   INFO: Successfully saved CFS configuration "management-23.03"
    INFO: Successfully saved 1 changed CFS configurations.
    ====> Completed CFS configuration(s)
    ====> Cleaning up install dependencies
@@ -211,14 +510,14 @@ SAT.
    ```screen
    ====> Updating CFS configuration(s)
    INFO: Querying CFS configurations for the following NCNs: x3000c0s1b0n0, ..., x3000c0s9b0n0
-   INFO: Found configuration "ncn-personalization" for component x3000c0s1b0n0
+   INFO: Found configuration "management-23.03" for component x3000c0s1b0n0
    ...
-   INFO: Found configuration "ncn-personalization" for component x3000c0s9b0n0
+   INFO: Found configuration "management-23.03" for component x3000c0s9b0n0
    ...
    INFO: Updating existing layer with repo path /vcs/cray/sat-config-management.git and playbook sat-ncn.yml
    INFO: Property "commit" of layer with repo path /vcs/cray/sat-config-management.git and playbook sat-ncn.yml updated from 01ae28c92b9b4740e9e0e01ae01216c6c2d89a65 to bcbd6db0803cc4137c7558df9546b0faab303cbd
    INFO: Property "name" of layer with repo path /vcs/cray/sat-config-management.git and playbook sat-ncn.yml updated from sat-2.2.16 to sat-sat-ncn-bcbd6db-20220608T170152
-   INFO: Successfully saved CFS configuration "ncn-personalization"
+   INFO: Successfully saved CFS configuration "management-23.03"
    INFO: Successfully saved 1 changed CFS configurations.
    ====> Completed CFS configuration(s)
    ====> Cleaning up install dependencies
@@ -298,7 +597,7 @@ execute the following steps to ensure the modified CFS configuration is re-appli
    to be applied to the management NCNs.
 
    ```screen
-   ncn-m001# export CFS_CONFIG_NAME="ncn-personalization"
+   ncn-m001# export CFS_CONFIG_NAME="management-23.03"
    ```
 
    Note: If the [Update Active CFS Configuration](#update-active-cfs-configuration)
@@ -307,7 +606,7 @@ execute the following steps to ensure the modified CFS configuration is re-appli
    were modified, any one of them can be used in this procedure.
 
    ```screen
-   INFO: Successfully saved CFS configuration "ncn-personalization"
+   INFO: Successfully saved CFS configuration "management-23.03"
    ```
 
 1. Obtain the name of the CFS configuration layer for SAT and save it in an
@@ -406,9 +705,9 @@ SAT version `x.y.z` is now installed and configured:
 
 The previous procedure is not always necessary because the CFS Batcher service
 automatically detects configuration changes and will automatically create new
-sessions to apply configuration changes according to certain rules. See
-[Configuration Management with the CFS Batcher](https://github.com/Cray-HPE/docs-csm/blob/main/operations/configuration_management/Configuration_Management_with_the_CFS_Batcher.md)
-in the CSM documentation for more information about these rules.
+sessions to apply configuration changes according to certain rules. For more
+information on these rules, refer to **Configuration Management with
+the CFS Batcher** in the [*Cray System Management Documentation*](https://cray-hpe.github.io/docs-csm/).
 
 The main scenario in which the CFS batcher will not automatically re-apply the
 SAT layer is when the commit hash of the sat-config-management git repository
@@ -422,19 +721,14 @@ At this point, the release distribution files can be removed from the system as
 described in [Post-Installation Cleanup Procedure](#post-installation-cleanup-procedure).
 
 If other HPE Cray EX software products are being installed or upgraded in conjunction
-with SAT, refer to the [*HPE Cray EX System Software Getting Started Guide*](https://www.hpe.com/support/ex-gsg)
-to determine which step to execute next.
+with SAT, refer to the [*HPE Cray EX System Software Getting Started Guide
+(S-8000)*](https://www.hpe.com/support/ex-S-8000) to determine which step
+to execute next.
 
-If no other HPE Cray EX software products are being installed or upgraded at this time,
-proceed to the remaining **SAT Setup** or **SAT Post-Upgrade** procedures.
-
-If performing a fresh install, execute the **SAT Setup** procedures:
-
-- [SAT Authentication](#sat-authentication)
-- [Generate SAT S3 Credentials](#generate-sat-s3-credentials)
-- [Set System Revision Information](#set-system-revision-information)
-
-If performing an upgrade, execute the **SAT Post-Upgrade** procedures:
+If no other HPE Cray EX software products are being installed at this time,
+the installation process is complete. If no other HPE Cray EX software products
+are being upgraded at this time, proceed to the remaining **SAT Post-Upgrade**
+procedures:
 
 - [Remove obsolete configuration file sections](#remove-obsolete-configuration-file-sections)
 - [SAT Logging](#sat-logging)
@@ -451,303 +745,17 @@ If performing an upgrade, execute the **SAT Post-Upgrade** procedures:
    ncn-m001# rm -rf sat-x.y.z/
    ```
 
-## SAT Authentication
+## SAT Post-Upgrade
 
-Initially, as part of the installation and configuration, SAT authentication is set up so sat commands can be used in
-later steps of the install process. The admin account used to authenticate with `sat auth` must be enabled in
-Keycloak and must have its *assigned role* set to *admin*. For instructions on editing *Role Mappings* see
-*Create Internal User Accounts in the Keycloak Shasta Realm* in the CSM product documentation.
-For additional information on SAT authentication, see *System Security and Authentication* in the CSM
-documentation.
+### Remove Obsolete Configuration File Sections
 
-**NOTE:** This procedure is only required after initially installing SAT. It is not
-required after upgrading SAT.
-
-### Description of SAT Command Authentication Types
-
-Some SAT subcommands make requests to the Shasta services through the API gateway and thus require authentication to
-the API gateway in order to function. Other SAT subcommands use the Kubernetes API. Some `sat` commands require S3 to
-be configured (see: [Generate SAT S3 Credentials](#generate-sat-s3-credentials)). In order to use the SAT S3 bucket,
-the System Administrator must generate the S3 access key and secret keys and write them to a local file. This must be
-done on every Kubernetes manager node where SAT commands are run.
-
-Below is a table describing SAT commands and the types of authentication they require.
-
-|SAT Subcommand|Authentication/Credentials Required|Man Page|Description|
-|--------------|-----------------------------------|--------|-----------|
-|`sat auth`|Responsible for authenticating to the API gateway and storing a token.|`sat-auth`|Authenticate to the API gateway and save the token.|
-|`sat bmccreds`|Requires authentication to the API gateway.|`sat-bmccreds`|Set BMC passwords.|
-|`sat bootprep`|Requires authentication to the API gateway. Requires Kubernetes configuration and authentication, which is done on `ncn-m001` during the install.|`sat-bootprep`|Prepare to boot nodes with images and configurations.|
-|`sat bootsys`|Requires authentication to the API gateway. Requires Kubernetes configuration and authentication, which is configured on `ncn-m001` during the install. Some stages require passwordless SSH to be configured to all other NCNs. Requires S3 to be configured for some stages.|`sat-bootsys`|Boot or shutdown the system, including compute nodes, application nodes, and non-compute nodes (NCNs) running the management software.|
-|`sat diag`|Requires authentication to the API gateway.|`sat-diag`|Launch diagnostics on the HSN switches and generate a report.|
-|`sat firmware`|Requires authentication to the API gateway.|`sat-firmware`|Report firmware version.|
-|`sat hwhist`|Requires authentication to the API gateway.|`sat-hwhist`|Report hardware component history.|
-|`sat hwinv`|Requires authentication to the API gateway.|`sat-hwinv`|Give a listing of the hardware of the HPE Cray EX system.|
-|`sat hwmatch`|Requires authentication to the API gateway.|`sat-hwmatch`|Report hardware mismatches.|
-|`sat init`|None|`sat-init`|Create a default SAT configuration file.|
-|`sat k8s`|Requires Kubernetes configuration and authentication, which is automatically configured on `ncn-m001` during the install.|`sat-k8s`|Report on Kubernetes replica sets that have co-located \(on the same node\) replicas.|
-|`sat linkhealth`|||**This command has been deprecated.**|
-|`sat nid2xname`|Requires authentication to the API gateway.|`sat-nid2xname`|Translate node IDs to node XNames.|
-|`sat sensors`|Requires authentication to the API gateway.|`sat-sensors`|Report current sensor data.|
-|`sat setrev`|Requires S3 to be configured for site information such as system name, serial number, install date, and site name.|`sat-setrev`|Set HPE Cray EX system revision information.|
-|`sat showrev`|Requires API gateway authentication in order to query the Interconnect from HSM. Requires S3 to be configured for site information such as system name, serial number, install date, and site name.|`sat-showrev`|Print revision information for the HPE Cray EX system.|
-|`sat slscheck`|Requires authentication to the API gateway.|`sat-slscheck`|Perform a cross-check between SLS and HSM.|
-|`sat status`|Requires authentication to the API gateway.|`sat-status`|Report node status across the HPE Cray EX system.|
-|`sat swap`|Requires authentication to the API gateway.|`sat-swap`|Prepare HSN switch or cable for replacement and bring HSN switch or cable into service.|
-|`sat xname2nid`|Requires authentication to the API gateway.|`sat-xname2nid`|Translate node and node BMC XNames to node IDs.|
-|`sat switch`|**This command has been deprecated.** It has been replaced by `sat swap`.|
-
-In order to authenticate to the API gateway, you must run the `sat auth` command. This command will prompt for a password
-on the command line. The username value is obtained from the following locations, in order of higher precedence to lower
-precedence:
-
-- The `--username` global command-line option.
-- The `username` option in the `api_gateway` section of the config file at `~/.config/sat/sat.toml`.
-- The name of currently logged in user running the `sat` command.
-
-If credentials are entered correctly when prompted by `sat auth`, a token file will be obtained and saved to
-`~/.config/sat/tokens`. Subsequent sat commands will determine the username the same way as `sat auth` described above,
-and will use the token for that username if it has been obtained and saved by `sat auth`.
-
-### Prerequisites
-
-- The `sat` CLI has been installed following [Install The System Admin Toolkit Product Stream](#install-the-system-admin-toolkit-product-stream).
-
-### Procedure
-
-The following is the procedure to globally configure the username used by SAT and authenticate to the API gateway:
-
-1. Generate a default SAT configuration file, if one does not exist.
-
-   ```screen
-   ncn-m001# sat init
-   Configuration file "/root/.config/sat/sat.toml" generated.
-   ```
-
-   **Note:** If the config file already exists, it will print out an error:
-
-   ```screen
-   ERROR: Configuration file "/root/.config/sat/sat.toml" already exists.
-   Not generating configuration file.
-   ```
-
-1. Edit `~/.config/sat/sat.toml` and set the username option in the `api_gateway` section of the config file. For
-   example:
-
-   ```screen
-   username = "crayadmin"
-   ```
-
-1. Run `sat auth`. Enter your password when prompted. For example:
-
-   ```screen
-   ncn-m001# sat auth
-   Password for crayadmin:
-   Succeeded!
-   ```
-
-1. Other `sat` commands are now authenticated to make requests to the API gateway. For example:
-
-   ```screen
-   ncn-m001# sat status
-   ```
-
-## Generate SAT S3 Credentials
-
-Generate S3 credentials and write them to a local file so the SAT user can access S3 storage. In order to use the SAT
-S3 bucket, the System Administrator must generate the S3 access key and secret keys and write them to a local file.
-This must be done on every Kubernetes master node where SAT commands are run.
-
-SAT uses S3 storage for several purposes, most importantly to store the site-specific information set with `sat setrev`
-(see: [Set System Revision Information](#set-system-revision-information)).
-
-**NOTE:** This procedure is only required after initially installing SAT. It is not
-required after upgrading SAT.
-
-### Prerequisites
-
-- The SAT CLI has been installed following [Install The System Admin Toolkit Product Stream](#install-the-system-admin-toolkit-product-stream)
-- The SAT configuration file has been created (See [SAT Authentication](#sat-authentication)).
-- CSM has been installed and verified.
-
-### Procedure
-
-1. Ensure the files are readable only by `root`.
-
-    ```screen
-    ncn-m001# touch /root/.config/sat/s3_access_key \
-        /root/.config/sat/s3_secret_key
-    ```
-
-    ```screen
-    ncn-m001# chmod 600 /root/.config/sat/s3_access_key \
-        /root/.config/sat/s3_secret_key
-    ```
-
-1. Write the credentials to local files using `kubectl`.
-
-   ```screen
-   ncn-m001# kubectl get secret sat-s3-credentials -o json -o \
-       jsonpath='{.data.access_key}' | base64 -d > \
-       /root/.config/sat/s3_access_key
-   ```
-
-   ```screen
-   ncn-m001# kubectl get secret sat-s3-credentials -o json -o \
-       jsonpath='{.data.secret_key}' | base64 -d > \
-       /root/.config/sat/s3_secret_key
-   ```
-
-1. Verify the S3 endpoint specified in the SAT configuration file is correct.
-
-   1. Get the SAT configuration file's endpoint value.
-
-      **NOTE:** If the command's output is commented out, indicated by an initial `#`
-      character, the SAT configuration will take the default value – `"https://rgw-vip.nmn"`.
-
-      ```screen
-      ncn-m001# grep endpoint ~/.config/sat/sat.toml
-      # endpoint = "https://rgw-vip.nmn"
-      ```
-
-   1. Get the `sat-s3-credentials` secret's endpoint value.
-
-      ```screen
-      ncn-m001# kubectl get secret sat-s3-credentials -o json -o \
-          jsonpath='{.data.s3_endpoint}' | base64 -d | xargs
-      https://rgw-vip.nmn
-      ```
-
-   1. Compare the two endpoint values.
-
-      If the values differ, change the SAT configuration file's endpoint value to match the secret's.
-
-1. Copy SAT configurations to each manager node on the system.
-
-   ```screen
-   ncn-m001# for i in ncn-m002 ncn-m003; do echo $i; ssh ${i} \
-       mkdir -p /root/.config/sat; \
-       scp -pr /root/.config/sat ${i}:/root/.config; done
-   ```
-
-   **NOTE**: Depending on how many manager nodes are on the system, the list of manager nodes may
-   be different. This example assumes three manager nodes, where the configuration files must be
-   copied from `ncn-m001` to `ncn-m002` and `ncn-m003`. Therefore, the list of hosts above is
-   `ncn-m002` and `ncn-m003`.
-
-## Set System Revision Information
-
-HPE service representatives use system revision information data to identify
-systems in support cases.
-
-### Prerequisites
-
-- S3 credentials have been generated. See [Generate SAT S3 Credentials](#generate-sat-s3-credentials).
-- SAT authentication has been set up. See [SAT Authentication](#sat-authentication).
-
-### Notes on the Procedure
-
-- This procedure **is required** after a fresh install of SAT.
-- After an upgrade of SAT, this procedure is **not required** if SAT was upgraded
-  from 2.1 (Shasta v1.5) or later. It **is required** if SAT was upgraded from
-  2.0 (Shasta v1.4) or earlier.
-
-### Procedure
-
-1. Set System Revision Information.
-
-   Run `sat setrev` and follow the prompts to set the following site-specific values:
-
-   - Serial number
-   - System name
-   - System type
-   - System description
-   - Product number
-   - Company name
-   - Site name
-   - Country code
-   - System install date
-
-   **TIP**: For "System type", a system with *any* liquid-cooled components should be
-   considered a liquid-cooled system. In other words, "System type" is EX-1C.
-
-   ```screen
-   ncn-m001# sat setrev
-   --------------------------------------------------------------------------------
-   Setting:        Serial number
-   Purpose:        System identification. This will affect how snapshots are
-                   identified in the HPE backend services.
-   Description:    This is the top-level serial number which uniquely identifies
-                   the system. It can be requested from an HPE representative.
-   Valid values:   Alpha-numeric string, 4 - 20 characters.
-   Type:           <class 'str'>
-   Default:        None
-   Current value:  None
-   --------------------------------------------------------------------------------
-   Please do one of the following to set the value of the above setting:
-       - Input a new value
-       - Press CTRL-C to exit
-   ...
-   ```
-
-1. Verify System Revision Information.
-
-   Run `sat showrev` and verify the output shown in the "System Revision Information table."
-
-   The following example shows sample table output.
-
-   ```screen
-   ncn-m001# sat showrev
-   ################################################################################
-   System Revision Information
-   ################################################################################
-   +---------------------+---------------+
-   | component           | data          |
-   +---------------------+---------------+
-   | Company name        | HPE           |
-   | Country code        | US            |
-   | Interconnect        | Sling         |
-   | Product number      | R4K98A        |
-   | Serial number       | 12345         |
-   | Site name           | HPE           |
-   | Slurm version       | slurm 20.02.5 |
-   | System description  | Test System   |
-   | System install date | 2021-01-29    |
-   | System name         | eniac         |
-   | System type         | EX-1C         |
-   +---------------------+---------------+
-   ################################################################################
-   Product Revision Information
-   ################################################################################
-   +--------------+-----------------+------------------------------+------------------------------+
-   | product_name | product_version | images                       | image_recipes                |
-   +--------------+-----------------+------------------------------+------------------------------+
-   | csm          | 0.8.14          | cray-shasta-csm-sles15sp1... | cray-shasta-csm-sles15sp1... |
-   | sat          | 2.0.1           | -                            | -                            |
-   | sdu          | 1.0.8           | -                            | -                            |
-   | slingshot    | 0.8.0           | -                            | -                            |
-   | sma          | 1.4.12          | -                            | -                            |
-   +--------------+-----------------+------------------------------+------------------------------+
-   ################################################################################
-   Local Host Operating System
-   ################################################################################
-   +-----------+----------------------+
-   | component | version              |
-   +-----------+----------------------+
-   | Kernel    | 5.3.18-24.15-default |
-   | SLES      | SLES 15-SP2          |
-   +-----------+----------------------+
-   ```
-
-## Remove Obsolete Configuration File Sections
-
-### Prerequisites
+#### Prerequisites
 
 - The [Install the System Admin Toolkit Product Stream](#install-the-system-admin-toolkit-product-stream)
   procedure has been successfully completed.
 - The [Perform NCN Personalization](#perform-ncn-personalization) procedure has been successfully completed.
 
-### Procedure
+#### Procedure
 
 After upgrading SAT, if using the configuration file from a previous version, there may be
 configuration file sections no longer used in the new version. For example, when upgrading
@@ -768,7 +776,7 @@ password = "adminpass"
 
 Repeat this process for any configuration file sections for which there are "unknown section" warnings.
 
-## SAT Logging
+### SAT Logging
 
 As of SAT version 2.2, some command output that was previously printed to `stdout`
 is now logged to `stderr`. These messages are logged at the `INFO` level. The
@@ -780,7 +788,7 @@ These changes take effect automatically. However, if the default output threshol
 has been manually set in `~/.config/sat/sat.toml`, it should be changed to ensure
 that important output is shown in the terminal.
 
-### Update Configuration
+#### Update Configuration
 
 In the following example, the `stderr` log level, `logging.stderr_level`, is set to
 `WARNING`, which will exclude `INFO`-level logging from terminal output.
@@ -799,7 +807,7 @@ If `logging.stderr_level` is commented out, its value will not affect logging
 behavior. However, it may be helpful set its value to `INFO` as a reminder of
 the new default behavior.
 
-### Affected Commands
+#### Affected Commands
 
 The following commands trigger messages that have been changed from `stdout`
 print calls to `INFO`-level (or `WARNING`- or `ERROR`-level) log messages:
@@ -814,14 +822,18 @@ log messages to `DEBUG`-level log messages:
 - `sat xname2nid`
 - `sat swap`
 
-## Uninstall: Removing a Version of SAT
+## SAT Uninstall and Downgrade
 
-### Prerequisites
+### Uninstall: Removing a Version of SAT
+
+This procedure can be used to uninstall a version of SAT.
+
+#### Prerequisites
 
 - Only versions 2.2 or newer of SAT can be uninstalled with `prodmgr`. Older versions must be uninstalled manually.
 - CSM version 1.2 or newer must be installed, so that the `prodmgr` command is available.
 
-### Procedure
+#### Procedure
 
 1. Use `sat showrev` to list versions of SAT.
 
@@ -861,16 +873,16 @@ log messages to `DEBUG`-level log messages:
    Deleted sat-2.2.10 from product catalog.
    ```
 
-## Activate: Switching Between Versions
+### Activate: Switching Between Versions
 
 This procedure can be used to downgrade the active version of SAT.
 
-### Prerequisites
+#### Prerequisites
 
 - Only versions 2.2 or newer of SAT can be activated. Older versions must be activated manually.
 - CSM version 1.2 or newer must be installed, so that the `prodmgr` command is available.
 
-### Procedure
+#### Procedure
 
 1. Use `sat showrev` to list versions of SAT.
 
@@ -898,14 +910,14 @@ This procedure can be used to downgrade the active version of SAT.
      `sat showrev`.
    - Ensure that the SAT CFS configuration content exists as a layer in all CFS configurations that are
      associated with NCNs with the role "Management" and subrole "Master" (for example, the CFS configuration
-     `ncn-personalization`). Specifically, it will ensure that the layer refers to the version of SAT CFS
+     `management-23.03`). Specifically, it will ensure that the layer refers to the version of SAT CFS
      configuration content associated with the version of SAT being activated.
 
    ```screen
    ncn-m001# prodmgr activate sat 2.2.10
    Repository sat-2.2.10-sle-15sp2 is now the default in sat-sle-15sp2.
    Set sat-2.2.10 as active in product catalog.
-   Updated CFS configurations: [ncn-personalization]
+   Updated CFS configurations: [management-23.03]
    ```
 
 1. Verify that the chosen version is marked as active.
@@ -961,9 +973,8 @@ steps needed to configure SAT to use externally-accessible API endpoints exposed
 - Python 3.7 or newer is installed on the system.
 - `kubectl`, `openssh`, `git`, and `curl` are installed on the external system.
 - The root CA certificates used when installing CSM have been added to the external system's trust store such that
-  authenticated TLS connections can be made to the CSM REST API gateway. See the [Certificate
-  Authority](https://cray-hpe.github.io/docs-csm/en-12/background/certificate_authority/) section of the CSM
-  documentation for more information.
+  authenticated TLS connections can be made to the CSM REST API gateway. For more information, refer to **Certificate
+  Authority** in the [*Cray System Management Documentation*](https://cray-hpe.github.io/docs-csm/).
 
 ### Procedure
 
@@ -975,13 +986,81 @@ steps needed to configure SAT to use externally-accessible API endpoints exposed
    $ . ${SAT_VENV_PATH}/bin/activate
    ```
 
-1. Install the SAT Python package in the virtual environment.
+1. Clone the SAT source code.
+
+   **Note:** To use SAT version 3.19, this example clones the `release/3.19` branch of
+   `Cray-HPE/sat`. However, for better clarity, these instructions include steps that apply only to
+   versions newer than 3.19. Specifically, the instructions include references to the
+   `csm-api-client` package, which was not a dependency of SAT in version 3.19.
 
    ```screen
-   (venv) $ export PIP_EXTRA_INDEX_URL="https://artifactory.algol60.net/artifactory/csm-python-modules/simple"
-   (venv) $ git clone --branch=release/3.17 https://github.com/Cray-HPE/sat.git
+   (venv) $ git clone --branch=release/3.19 https://github.com/Cray-HPE/sat.git
+   ```
+
+1. Set up the SAT CSM Python dependencies to be installed from their source code.
+
+   SAT CSM Python dependency packages are not currently distributed publicly as
+   source packages or binary distributions. They must be installed from
+   their source code hosted on GitHub. Also, to install the `cray-product-catalog`
+   Python package, you must first clone it locally. Use the following steps to
+   modify the SAT CSM Python dependencies so they can be installed from their source code.
+
+   1. Clone the source code for `cray-product-catalog`.
+
+      ```screen
+      (venv) $ git clone --branch v1.6.0 https://github.com/Cray-HPE/cray-product-catalog
+      ```
+
+   1. In the `cray-product-catalog` directory, create a file named `.version`
+      that contains the version of `cray-product-catalog`.
+
+      ```screen
+      (venv) $ echo 1.6.0 > cray-product-catalog/.version
+      ```
+
+   1. Open the "locked" requirements file in a text editor.
+
+      ```screen
+      (venv) $ vim sat/requirements.lock.txt
+      ```
+
+   1. Update the line containing `cray-product-catalog` so that it reflects the local path
+      to `cray-product-catalog`.
+
+      It should read as follows:
+
+      ```screen
+      ./cray-product-catalog
+      ```
+
+   1. For versions of SAT newer than 3.19, change the line containing `csm-api-client` to
+      read as follows:
+
+      ```screen
+      csm-api-client@git+https://github.com/Cray-HPE/python-csm-api-client@release/1.1
+      ```
+
+   1. (Optional) Confirm that `requirements.lock.txt` is modified as expected.
+
+      **Note:** For versions newer than 3.19, you will see both `cray-product-catalog` and `csm-api-client`.
+      For version 3.19 and older, you will only see `cray-product-catalog`.
+
+      ```screen
+      (venv) $ grep -E 'cray-product-catalog|csm-api-client' sat/requirements.lock.txt
+      ./cray-product-catalog
+      csm-api-client@git+https://github.com/Cray-HPE/python-csm-api-client@release/1.1
+      ```
+
+1. Install the modified SAT dependencies.
+
+   ```screen
    (venv) $ pip install -r sat/requirements.lock.txt
    ...
+   ```
+
+1. Install the SAT Python package.
+
+   ```screen
    (venv) $ pip install ./sat
    ...
    ```
@@ -1096,8 +1175,7 @@ steps needed to configure SAT to use externally-accessible API endpoints exposed
    Externally available API endpoints are given domain names in PowerDNS, so the endpoints in the configuration file
    should each be set to `subdomain.system-name.site-domain`, where `system-name` and `site-domain` are replaced with
    the values specified during `csi config init`, and `subdomain` is the DNS name for the externally available service.
-   See [Externally Exposed Services](https://cray-hpe.github.io/docs-csm/en-12/operations/network/customer_accessible_networks/externally_exposed_services/)
-   in the CSM documentation for more information.
+   For more information, refer to **Externally Exposed Services** in the [*Cray System Management Documentation*](https://cray-hpe.github.io/docs-csm/).
 
    The API gateway has the subdomain `api`, and S3 has the subdomain `s3`. The S3 endpoint runs on port 8080. The
    following options should be set in the SAT configuration file:
@@ -1119,8 +1197,8 @@ steps needed to configure SAT to use externally-accessible API endpoints exposed
 
 1. Authenticate against the API gateway with `sat auth`.
 
-   See [SAT Authentication](#sat-authentication).
+   For more information, see [SAT Authentication](#sat-authentication).
 
 1. Generate S3 credentials.
 
-   See [Generate SAT S3 Credentials](#generate-sat-s3-credentials).
+   For more information, see [Generate SAT S3 Credentials](#generate-sat-s3-credentials).

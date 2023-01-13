@@ -25,6 +25,7 @@
 #
 # Proper nouns
 Ansible
+Artifactory
 Ceph
 ConfigMap
 Elasticsearch
@@ -43,6 +44,7 @@ Slurm
 EX-1C
 CSM-Diags
 Loftsman
+S-8000
 S-8001
 XName
 XNames
@@ -63,6 +65,7 @@ passwordless
 pre-installation
 pre-ncn-personalization
 pre-populated
+pre-upgrade
 prepended
 runtime
 subcommand
@@ -70,6 +73,8 @@ subcommands
 subdomain
 sublicense
 subrole
+traceback
+uncomment
 versioned
 # The spell checker complains about legacy Shasta version numbers (vX.Y) when
 # they end in a period, for example "In 2020 HPE released Shasta v1.4.1."
@@ -94,3 +99,5 @@ JSON-formatted
 YAML-formatted
 # CVE IDs
 CVE-2021-33503
+CVE-2022-24302
+CVE-2022-36087
