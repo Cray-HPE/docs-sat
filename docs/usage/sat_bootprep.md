@@ -320,6 +320,7 @@ a Jinja2 template:
 - The following keys of each layer under the `layers` key in a
   configuration:
   - `name`
+  - `playbook`
   - `git.branch`
   - `product.version`
   - `product.branch`
