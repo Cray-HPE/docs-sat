@@ -539,24 +539,7 @@ for the COS product in VCS are stored in a branch named
 create CFS configuration layers.
 
 You can create VCS working branches that are not the default bootprep input file
-branch names. A simple example of this is using `cne-install` to update working
-VCS branches. If you use `cne-install` to update working VCS branches, (namely in
-the `update_working_branches` stage), you create or update the branches specified
-by the `-B WORKING_BRANCH` command line option. For example, consider the
-following `cne-install` command.
-
-```screen
-ncn-m001# ./cne-install install \
-    -B integration \
-    -s deploy_products \
-    -e update_working_branches
-```
-
-Products installed with this `cne-install` example use the working branch
-`integration` for system-specific changes to VCS. The branch specified by the
-`-B` option must match the branch specified in the bootprep input file.
-
-In another example, to use the branch `integration` for COS instead of
+branch names. For example, to use the branch `integration` for COS instead of
 `integration-{{cos.version}}`, edit the bootprep input file so it reads as
 follows.
 
