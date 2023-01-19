@@ -27,10 +27,10 @@ and enhancements that were not available until after the software release.
 
 2. Download and upgrade the latest documentation RPM.
 
-   For example, to download and upgrade to the latest SAT 2.4 documentation RPM:
+   For example, to download and upgrade to the latest SAT documentation RPM:
 
    ```bash
-   rpm -Uvh https://artifactory.algol60.net/artifactory/sat-rpms/hpe/stable/sle-15sp3/docs-sat/2.4/noarch/docs-sat-latest.noarch.rpm
+   rpm -Uvh https://release.algol60.net/sat/docs-sat/docs-sat-latest.noarch.rpm
    ```
 
    If this machine does not have direct internet access, then this RPM will
@@ -38,7 +38,7 @@ and enhancements that were not available until after the software release.
    example copies it to `ncn-m001`.
 
    ```bash
-   wget https://artifactory.algol60.net/artifactory/sat-rpms/hpe/stable/sle-15sp3/docs-sat/2.4/noarch/docs-sat-latest.noarch.rpm -O docs-sat-latest.noarch.rpm
+   wget https://release.algol60.net/sat/docs-sat/docs-sat-latest.noarch.rpm -O docs-sat-latest.noarch.rpm
    scp -p docs-sat-latest.noarch.rpm ncn-m001:/root
    ssh ncn-m001
    rpm -Uvh docs-sat-latest.noarch.rpm
