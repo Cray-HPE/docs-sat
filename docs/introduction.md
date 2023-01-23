@@ -7,7 +7,7 @@ querying information about the HPE Cray EX System and its components, system boo
 components.
 
 SAT offers a command line utility which uses subcommands. There are similarities between SAT commands and `xt` commands
-used on the Cray XC platform. For more information on SAT commands, see [System Admin Toolkit Command Overview](#system-admin-toolkit-command-overview).
+used on the Cray XC platform. For more information on SAT commands, see [SAT Command Overview](#sat-command-overview).
 
 Six Kibana Dashboards are included with SAT. They provide organized output for system health information.
 
@@ -31,7 +31,7 @@ Kubernetes NCNs. For more information, see [SAT in CSM](#sat-in-csm). Older
 versions of CSM do not have the `sat` command automatically available, and SAT
 must be installed as a separate product.
 
-## System Admin Toolkit Command Overview
+## SAT Command Overview
 
 Describes the SAT Command Line Utility, lists the key commands found in the System Admin Toolkit man pages, and provides
 instruction on the SAT Container Environment.
