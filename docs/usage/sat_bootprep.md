@@ -344,6 +344,18 @@ values can be viewed by running `sat bootprep list-vars`. For more information
 on options that may be used with the `list-vars` subcommand, refer to the man page
 for the `sat bootprep` subcommand.
 
+#### Using Hyphens in HPC CSM Software Recipe Variables
+
+Variable names with hyphens are not allowed in Jinja2 expressions because they
+are parsed as an arithmetic expression instead of a single variable.
+To support product names with hyphens, `sat bootprep` converts
+hyphens to underscores in all top-level keys in the software recipe variables.
+It also converts any variables passed to the command using `--vars` or `--vars-file`.
+When referring to a variable with hyphens in the bootprep input file, keep
+this in mind. For example, to refer to the product version variable for
+`slingshot-host-software` in the bootprep input file, you would write
+`"{{slingshot_host_software.version}}"`.
+
 #### HPC CSM Software Recipe Variable Substitution Example
 
 The following example bootprep input file shows how a COS version can be
