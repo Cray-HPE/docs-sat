@@ -10,15 +10,15 @@
 
 ## [SAT Installation](install.md)
 
-- [Install the SAT Product Stream](install.md#install-the-sat-product-stream)
-- [Configure SAT](install.md#configure-sat)
-- [Perform NCN Personalization](install.md#perform-ncn-personalization)
+- [Install and Upgrade Framework](install.md#install-and-upgrade-framework)
+- [IUF Stage Details for SAT](install.md#iuf-stage-details-for-sat)
+- [Post-Installation Procedures](install.md#post-installation-procedures)
 
 ## [SAT Upgrade](upgrade.md)
 
-- [Upgrade the SAT Product Stream](upgrade.md#upgrade-the-sat-product-stream)
-- [Perform NCN Personalization](upgrade.md#perform-ncn-personalization)
-- [SAT Post-Upgrade](upgrade.md#sat-post-upgrade)
+- [Install and Upgrade Framework](upgrade.md#install-and-upgrade-framework)
+- [IUF Stage Details for SAT](upgrade.md#iuf-stage-details-for-sat)
+- [Post-Upgrade Procedures](upgrade.md#post-upgrade-procedures)
 
 ## [SAT Uninstall and Downgrade](uninstall_and_downgrade.md)
 
@@ -29,7 +29,7 @@
 
 - [Limitations](external_system.md#limitations)
 - [Install and Configure SAT](external_system.md#install-and-configure-sat)
-- [SAT Authentication](external_system.md#sat-authentication)
+- [Authenticate SAT Commands](external_system.md#authenticate-sat-commands)
 - [Generate SAT S3 Credentials](external_system.md#generate-sat-s3-credentials)
 
 ## [SAT Dashboards](dashboards/README.md)

@@ -57,8 +57,7 @@ were moved out of the `install.sh` script and into a new
 distribution. The new script provides additional flexibility in how it modifies
 the NCN personalization CFS configuration for SAT. It can modify an existing CFS
 configuration by name, a CFS configuration being built in a JSON file, or an
-existing CFS configuration that applies to certain components. For more information,
-see [Perform NCN Personalization](install.md#perform-ncn-personalization).
+existing CFS configuration that applies to certain components.
 
 ### New `sat bootprep` Features
 
@@ -406,7 +405,7 @@ mostly related to filtering command output. The following are some highlights:
 ### Default Log Level Changed
 
 The default log level for `stderr` has been changed from "WARNING" to "INFO". For
-more information, see [SAT Logging](upgrade.md#sat-logging).
+more information, see [Update SAT Logging](upgrade.md#update-sat-logging).
 
 ### More Granular Log Level Configuration Options
 
@@ -814,7 +813,7 @@ This version of the `sat` CLI contained the following commands:
 - `swap`
 - `switch`
 
-For more information on each of these commands, see the [System Admin Toolkit Command
-Overview](introduction.md#system-admin-toolkit-command-overview) and the table
-of commands in the [SAT Authentication](install.md#sat-authentication) section
+For more information on each of these commands, see the [SAT Command
+Overview](introduction.md#sat-command-overview) and the table
+of commands in the [Authenticate SAT Commands](install.md#authenticate-sat-commands) section
 of this document.
