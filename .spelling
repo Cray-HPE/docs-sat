@@ -46,6 +46,9 @@ CSM-Diags
 Loftsman
 S-8000
 S-8001
+S-8052
+update-cfs-config 
+update-vcs-config
 XName
 XNames
 # Technical terms
