@@ -371,9 +371,9 @@ versions moving forward.
 Beginning with the 2.2 release, SAT now provides partial support for the
 uninstall and activation of the SAT product stream.
 
-For more information, see [Uninstall: Removing a Version of
-SAT](install.md#uninstall-removing-a-version-of-sat) and [Activate: Switching
-Between Versions](install.md#activate-switching-between-versions).
+For more information, see [Uninstall: Remove a Version of
+SAT](uninstall_and_downgrade.md#uninstall-remove-a-version-of-sat) and [Activate: Switch
+Between SAT Versions](uninstall_and_downgrade.md#activate-switch-between-sat-versions).
 
 ### Improvements to `sat status`
 
@@ -406,7 +406,7 @@ mostly related to filtering command output. The following are some highlights:
 ### Default Log Level Changed
 
 The default log level for `stderr` has been changed from "WARNING" to "INFO". For
-more information, see [SAT Logging](install.md#sat-logging).
+more information, see [SAT Logging](upgrade.md#sat-logging).
 
 ### More Granular Log Level Configuration Options
 
@@ -556,8 +556,8 @@ replaced by functionality from the Slingshot Topology Tool (STT) in the
 fabric manager pod.
 
 The Redfish username and password command line options and config file options
-have been removed. For more information, see [Remove Obsolete Configuration
-File Sections](install.md#remove-obsolete-configuration-file-sections).
+have been removed. For more information, see [Remove Obsolete Configuration File
+Sections](upgrade.md#remove-obsolete-configuration-file-sections).
 
 ### Additional Fields in `sat setrev` and `sat showrev`
 
