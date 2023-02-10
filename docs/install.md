@@ -21,12 +21,6 @@ stream.
   procedures for a newer distribution. The newly installed version will become
   the default.
 
-    In SAT 2.4 and newer, you can instead upgrade the product stream by using the
-    Compute Node Environment (CNE) installer. It is recommended that you upgrade
-    SAT with the CNE installer because the process is both automated and logged
-    to help you save time. For more information, see
-    [SAT Upgrade with CNE Installer](cne_install.md).
-
 ### Pre-Installation Procedure
 
 1. Start a typescript and set the shell prompt.
