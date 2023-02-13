@@ -3,42 +3,34 @@
 ## [Introduction to SAT](introduction.md)
 
 - [About System Admin Toolkit (SAT)](introduction.md#about-system-admin-toolkit-sat)
-- [System Admin Toolkit Command Overview](introduction.md#system-admin-toolkit-command-overview)
+- [SAT Command Overview](introduction.md#sat-command-overview)
 - [Command Prompt Conventions in SAT](introduction.md#command-prompt-conventions-in-sat)
 - [SAT in CSM](introduction.md#sat-in-csm)
 - [SAT Dependencies](introduction.md#sat-dependencies)
 
 ## [SAT Installation](install.md)
 
-### [Install the System Admin Toolkit Product Stream](install.md#install-the-system-admin-toolkit-product-stream)
+- [Install and Upgrade Framework](install.md#install-and-upgrade-framework)
+- [IUF Stage Details for SAT](install.md#iuf-stage-details-for-sat)
+- [Post-Installation Procedures](install.md#post-installation-procedures)
 
-### [Configure SAT](install.md#configure-sat)
+## [SAT Upgrade](upgrade.md)
 
-- [SAT Authentication](install.md#sat-authentication)
-- [Generate SAT S3 Credentials](install.md#generate-sat-s3-credentials)
-- [Set System Revision Information](install.md#set-system-revision-information)
+- [Install and Upgrade Framework](upgrade.md#install-and-upgrade-framework)
+- [IUF Stage Details for SAT](upgrade.md#iuf-stage-details-for-sat)
+- [Post-Upgrade Procedures](upgrade.md#post-upgrade-procedures)
 
-### [Perform NCN Personalization](install.md#perform-ncn-personalization)
+## [SAT Uninstall and Downgrade](uninstall_and_downgrade.md)
 
-### [SAT Post-Upgrade](install.md#sat-post-upgrade)
+- [Uninstall: Remove a Version of SAT](uninstall_and_downgrade.md#uninstall-remove-a-version-of-sat)
+- [Activate: Switch Between SAT Versions](uninstall_and_downgrade.md#activate-switch-between-sat-versions)
 
-- [Remove Obsolete Configuration File Sections](install.md#remove-obsolete-configuration-file-sections)
-- [SAT Logging](install.md#sat-logging)
-- [Set System Revision Information](install.md#set-system-revision-information)
+## [SAT on an External System](external_system.md)
 
-### [SAT Uninstall and Downgrade](install.md#sat-uninstall-and-downgrade)
-
-- [Uninstall: Removing a Version of SAT](install.md#uninstall-removing-a-version-of-sat)
-- [Activate: Switching Between Versions](install.md#activate-switching-between-versions)
-
-### [Optional: Installing and Configuring SAT on an External System](install.md#optional-installing-and-configuring-sat-on-an-external-system)
-
-## [SAT Upgrade with CNE Installer](cne_install.md)
-
-- [Upgrade the System Admin Toolkit Product Stream](cne_install.md#upgrade-the-system-admin-toolkit-product-stream)
-- [Post-Upgrade Cleanup Procedure](cne_install.md#post-upgrade-cleanup-procedure)
-- [Remove Obsolete Configuration File Sections](cne_install.md#remove-obsolete-configuration-file-sections)
-- [SAT Logging](cne_install.md#sat-logging)
+- [Limitations](external_system.md#limitations)
+- [Install and Configure SAT](external_system.md#install-and-configure-sat)
+- [Authenticate SAT Commands](external_system.md#authenticate-sat-commands)
+- [Generate SAT S3 Credentials](external_system.md#generate-sat-s3-credentials)
 
 ## [SAT Dashboards](dashboards/README.md)
 

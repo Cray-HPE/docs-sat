@@ -57,8 +57,7 @@ were moved out of the `install.sh` script and into a new
 distribution. The new script provides additional flexibility in how it modifies
 the NCN personalization CFS configuration for SAT. It can modify an existing CFS
 configuration by name, a CFS configuration being built in a JSON file, or an
-existing CFS configuration that applies to certain components. For more information,
-see [Perform NCN Personalization](install.md#perform-ncn-personalization).
+existing CFS configuration that applies to certain components.
 
 ### New `sat bootprep` Features
 
@@ -371,9 +370,9 @@ versions moving forward.
 Beginning with the 2.2 release, SAT now provides partial support for the
 uninstall and activation of the SAT product stream.
 
-For more information, see [Uninstall: Removing a Version of
-SAT](install.md#uninstall-removing-a-version-of-sat) and [Activate: Switching
-Between Versions](install.md#activate-switching-between-versions).
+For more information, see [Uninstall: Remove a Version of
+SAT](uninstall_and_downgrade.md#uninstall-remove-a-version-of-sat) and [Activate: Switch
+Between SAT Versions](uninstall_and_downgrade.md#activate-switch-between-sat-versions).
 
 ### Improvements to `sat status`
 
@@ -406,7 +405,7 @@ mostly related to filtering command output. The following are some highlights:
 ### Default Log Level Changed
 
 The default log level for `stderr` has been changed from "WARNING" to "INFO". For
-more information, see [SAT Logging](install.md#sat-logging).
+more information, see [Update SAT Logging](upgrade.md#update-sat-logging).
 
 ### More Granular Log Level Configuration Options
 
@@ -556,8 +555,8 @@ replaced by functionality from the Slingshot Topology Tool (STT) in the
 fabric manager pod.
 
 The Redfish username and password command line options and config file options
-have been removed. For more information, see [Remove Obsolete Configuration
-File Sections](install.md#remove-obsolete-configuration-file-sections).
+have been removed. For more information, see [Remove Obsolete Configuration File
+Sections](upgrade.md#remove-obsolete-configuration-file-sections).
 
 ### Additional Fields in `sat setrev` and `sat showrev`
 
@@ -814,7 +813,7 @@ This version of the `sat` CLI contained the following commands:
 - `swap`
 - `switch`
 
-For more information on each of these commands, see the [System Admin Toolkit Command
-Overview](introduction.md#system-admin-toolkit-command-overview) and the table
-of commands in the [SAT Authentication](install.md#sat-authentication) section
+For more information on each of these commands, see the [SAT Command
+Overview](introduction.md#sat-command-overview) and the table
+of commands in the [Authenticate SAT Commands](install.md#authenticate-sat-commands) section
 of this document.

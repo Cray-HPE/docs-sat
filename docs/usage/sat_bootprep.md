@@ -344,6 +344,18 @@ values can be viewed by running `sat bootprep list-vars`. For more information
 on options that may be used with the `list-vars` subcommand, refer to the man page
 for the `sat bootprep` subcommand.
 
+#### Using Hyphens in HPC CSM Software Recipe Variables
+
+Variable names with hyphens are not allowed in Jinja2 expressions because they
+are parsed as an arithmetic expression instead of a single variable.
+To support product names with hyphens, `sat bootprep` converts
+hyphens to underscores in all top-level keys in the software recipe variables.
+It also converts any variables passed to the command using `--vars` or `--vars-file`.
+When referring to a variable with hyphens in the bootprep input file, keep
+this in mind. For example, to refer to the product version variable for
+`slingshot-host-software` in the bootprep input file, you would write
+`"{{slingshot_host_software.version}}"`.
+
 #### HPC CSM Software Recipe Variable Substitution Example
 
 The following example bootprep input file shows how a COS version can be
@@ -527,24 +539,7 @@ for the COS product in VCS are stored in a branch named
 create CFS configuration layers.
 
 You can create VCS working branches that are not the default bootprep input file
-branch names. A simple example of this is using `cne-install` to update working
-VCS branches. If you use `cne-install` to update working VCS branches, (namely in
-the `update_working_branches` stage), you create or update the branches specified
-by the `-B WORKING_BRANCH` command line option. For example, consider the
-following `cne-install` command.
-
-```screen
-ncn-m001# ./cne-install install \
-    -B integration \
-    -s deploy_products \
-    -e update_working_branches
-```
-
-Products installed with this `cne-install` example use the working branch
-`integration` for system-specific changes to VCS. The branch specified by the
-`-B` option must match the branch specified in the bootprep input file.
-
-In another example, to use the branch `integration` for COS instead of
+branch names. For example, to use the branch `integration` for COS instead of
 `integration-{{cos.version}}`, edit the bootprep input file so it reads as
 follows.
 
