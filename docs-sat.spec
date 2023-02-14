@@ -23,6 +23,8 @@
 #
 # RPM specfile for docs-sat RPM
 
+# add version variable and logic for YAML
+
 Name: docs-sat
 License: MIT License
 Summary: Documentation for System Admin Toolkit (SAT)
