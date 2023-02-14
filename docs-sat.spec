@@ -1,7 +1,7 @@
 #
 # MIT License
 #
-# (C) Copyright 2022 Hewlett Packard Enterprise Development LP
+# (C) Copyright 2022-2023 Hewlett Packard Enterprise Development LP
 #
 # Permission is hereby granted, free of charge, to any person obtaining a
 # copy of this software and associated documentation files (the "Software"),
@@ -42,6 +42,10 @@ in Markdown format starting at /usr/share/doc/sat/README.md.
 %setup -q
 
 %build
+TEMPLATE_FILES=(docs-product-manifest.yaml)
+for f in "${TEMPLATE_FILES[@]}"; do
+    sed -e "s/@VERSION@/%{version}-%{release}/" "${f}.in" > ${f}
+done
 
 %install
 install -m 755 -d %{buildroot}/usr/share/doc/sat/
@@ -52,6 +56,8 @@ cat rpm/README.md > %{buildroot}/usr/share/doc/sat/README.md
 # Add an empty line between the files.
 echo >> %{buildroot}/usr/share/doc/sat/README.md
 cat docs/README.md >> %{buildroot}/usr/share/doc/sat/README.md
+# Add the manifest file for unified docs
+install docs-product-manifest.yaml %{buildroot}/usr/share/doc/sat/
 
 %clean
 

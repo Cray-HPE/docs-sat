@@ -5,7 +5,7 @@
 # (C) Copyright 2023 Hewlett Packard Enterprise Development LP
 ---
 name: sat
-version: # use variable strategy
+version: '@VERSION@'
 docs_product_manifest_version: ^0.1.0
  
 csm-based-install-docs: docs/install.md
