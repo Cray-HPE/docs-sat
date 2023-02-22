@@ -86,14 +86,14 @@ This procedure can be used to downgrade the active version of SAT.
      `sat showrev`.
    - Ensure that the SAT CFS configuration content exists as a layer in all CFS configurations that are
      associated with NCNs with the role "Management" and subrole "Master" (for example, the CFS configuration
-     `management-23.03`). Specifically, it will ensure that the layer refers to the version of SAT CFS
+     `management-23.05`). Specifically, it will ensure that the layer refers to the version of SAT CFS
      configuration content associated with the version of SAT being activated.
 
    ```screen
    ncn-m001# prodmgr activate sat 2.2.10
    Repository sat-2.2.10-sle-15sp2 is now the default in sat-sle-15sp2.
    Set sat-2.2.10 as active in product catalog.
-   Updated CFS configurations: [management-23.03]
+   Updated CFS configurations: [management-23.05]
    ```
 
 1. Verify that the chosen version is marked as active.
@@ -126,7 +126,7 @@ This procedure can be used to downgrade the active version of SAT.
    to be applied to the management NCNs.
 
    ```screen
-   ncn-m001# export CFS_CONFIG_NAME="management-23.03"
+   ncn-m001# export CFS_CONFIG_NAME="management-23.05"
    ```
 
    **Note:** Refer to the output from the `prodmgr activate` command to find
@@ -134,7 +134,7 @@ This procedure can be used to downgrade the active version of SAT.
    was modified, use the first one.
 
    ```screen
-   INFO: Successfully saved CFS configuration "management-23.03"
+   INFO: Successfully saved CFS configuration "management-23.05"
    ```
 
 1. Obtain the name of the CFS configuration layer for SAT and save it in an
