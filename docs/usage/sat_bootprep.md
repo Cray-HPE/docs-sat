@@ -145,9 +145,9 @@ optionally configured. One of the following keys must be present under the
 `base` key:
 
 - Use an `ims` key to specify an existing image or recipe in IMS.
-- Use a `product` key to specify an image or recipe provided by a
-  particular version of a product. Note that this is only possible if the
-  product provides a single image or recipe.
+- Use a `product` key to specify an image or recipe provided by a particular
+  version of a product. If a product provides more than one image or recipe,
+  a filter string prefix must be specified to select one.
 - Use an `image_ref` key to specify another image from the input file
   using its `ref_name`.
 
@@ -212,6 +212,56 @@ images:
   configuration: example-compute-config
   configuration_group_names:
   - Compute
+```
+
+Here is an example of three IMS images built from the Kubernetes image and the
+Ceph storage image provided by the `csm` product. This example uses a filter
+string prefix to select from the multiple images provided by the CSM product.
+The first two IMS images in the example find any image from the specified `csm`
+product version whose name starts with `secure-kubernetes`. The third image in
+the example finds any `csm` image whose name starts with `secure-storage-ceph`.
+All three images are then configured with a configuration named
+`example-management-config`. Running `sat bootprep` against this input file
+results in three IMS images named `worker-example-csm-image`,
+`master-example-csm-image`, and `storage-example-csm-image`.
+
+```yaml
+images:
+- name: worker-example-csm-image
+  base:
+    product:
+      name: csm
+      version: 1.4.1
+      type: image
+      filter:
+        prefix: secure-kubernetes
+  configuration: example-management-config
+  configuration_group_names:
+  - Management_Worker
+
+- name: master-example-csm-image
+  base:
+    product:
+      name: csm
+      version: 1.4.1
+      type: image
+      filter:
+        prefix: secure-kubernetes
+  configuration: example-management-config
+  configuration_group_names:
+  - Management_Master
+
+- name: storage-example-csm-image
+  base:
+    product:
+      name: csm
+      version: 1.4.1
+      type: image
+      filter:
+        prefix: secure-storage-ceph
+  configuration: example-management-config
+  configuration_group_names:
+  - Management_Storage
 ```
 
 ### Defining BOS Session Templates
