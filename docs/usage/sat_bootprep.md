@@ -353,7 +353,7 @@ hyphens to underscores in all top-level keys in the software recipe variables.
 It also converts any variables passed to the command using `--vars` or `--vars-file`.
 When referring to a variable with hyphens in the bootprep input file, keep
 this in mind. For example, to refer to the product version variable for
-`slingshot-host-software` in the bootprep input file, you would write
+`slingshot-host-software` in the bootprep input file, write
 `"{{slingshot_host_software.version}}"`.
 
 #### HPC CSM Software Recipe Variable Substitution Example
@@ -720,3 +720,31 @@ HTML documentation can be browsed with your preferred web browser.
    x bootprep-schema-docs/schema_doc.min.js
    another-machine$ open bootprep-schema-docs/index.html
    ```
+
+## Limiting `sat bootprep run` into Stages
+
+The `sat bootprep run` command uses information from the bootprep input file to
+create CFS configurations, IMS images, and BOS session templates. To restrict
+this creation into separate stages, use the `--limit` option and list whether
+you want to create `configurations`, `images`, `session_templates`, or some
+combination of these. For example, to create only CFS configurations, run the
+following command:
+
+```screen
+ncn-m001# sat bootprep run --limit configurations example-bootprep-input-file.yaml
+INFO: Validating given input file example-bootprep-input-file.yaml
+INFO: Input file successfully validated against schema
+INFO: Creating 3 CFS configurations
+...
+INFO: Skipping creation of IMS images based on value of --limit option.
+INFO: Skipping creation of BOS session templates based on value of --limit option.
+```
+
+To create only IMS images and BOS session templates, run the following command:
+
+```screen
+ncn-m001# sat bootprep run --limit images --limit session_templates example-bootprep-input-file.yaml
+INFO: Validating given input file example-bootprep-input-file.yaml
+INFO: Input file successfully validated against schema
+INFO: Skipping creation of CFS configurations based on value of --limit option.
+```
