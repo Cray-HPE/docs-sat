@@ -556,15 +556,15 @@ follows.
 
 The default bootprep input file for management NCNs (`management-bootprep.yaml`)
 uses the value `management-{{recipe.version}}` as the name of the CFS
-configuration. This uses a Jinja2 template to include the HPC CSM Software
+configuration. This value uses a Jinja2 template to include the HPC CSM Software
 Recipe version in the name of the CFS configuration. For example, when `sat
-bootprep` is run against this file in HPC CSM Software Recipe version `23.03`, a
-configuration named `management-23.03` is created.
+bootprep` is run against the default bootprep input file in HPC CSM Software
+Recipe version `23.05`, a configuration named `management-23.05` is created.
 
 This default management CFS configuration name might be acceptable for your
-system. However, it is possible to use a different names. `sat bootprep` creates
-whatever configurations are specified in the input file. For example, to create
-a CFS configuration named `management-test`, edit the file as follows:
+system. However, it is possible to use a different name. `sat bootprep` creates
+any and all configurations in the input file. For example, to create a CFS
+configuration named `management-test`, edit the file as follows:
 
 ```yaml
 configurations:
@@ -581,25 +581,25 @@ ncn-m001# sat status --fields xname,role,subrole,desiredconfig --filter role=man
 +----------------+------------+---------+------------------+
 | xname          | Role       | SubRole | Desired Config   |
 +----------------+------------+---------+------------------+
-| x3000c0s1b0n0  | Management | Master  | management-23.03 |
-| x3000c0s3b0n0  | Management | Master  | management-23.03 |
-| x3000c0s5b0n0  | Management | Master  | management-23.03 |
-| x3000c0s7b0n0  | Management | Worker  | management-23.03 |
-| x3000c0s9b0n0  | Management | Worker  | management-23.03 |
-| x3000c0s11b0n0 | Management | Worker  | management-23.03 |
-| x3000c0s13b0n0 | Management | Worker  | management-23.03 |
-| x3000c0s17b0n0 | Management | Storage | management-23.03 |
-| x3000c0s19b0n0 | Management | Storage | management-23.03 |
-| x3000c0s21b0n0 | Management | Storage | management-23.03 |
-| x3000c0s25b0n0 | Management | Worker  | management-23.03 |
+| x3000c0s1b0n0  | Management | Master  | management-23.05 |
+| x3000c0s3b0n0  | Management | Master  | management-23.05 |
+| x3000c0s5b0n0  | Management | Master  | management-23.05 |
+| x3000c0s7b0n0  | Management | Worker  | management-23.05 |
+| x3000c0s9b0n0  | Management | Worker  | management-23.05 |
+| x3000c0s11b0n0 | Management | Worker  | management-23.05 |
+| x3000c0s13b0n0 | Management | Worker  | management-23.05 |
+| x3000c0s17b0n0 | Management | Storage | management-23.05 |
+| x3000c0s19b0n0 | Management | Storage | management-23.05 |
+| x3000c0s21b0n0 | Management | Storage | management-23.05 |
+| x3000c0s25b0n0 | Management | Worker  | management-23.05 |
 +----------------+------------+---------+------------------+
 ```
 
 To overwrite the desired configuration using `sat bootprep`, ensure the bootprep
 input file specifies to create a configuration with the same name
-(`management-23.03` in the example above). To create a different configuration,
+(`management-23.05` in the example above). To create a different configuration,
 ensure the bootprep input file specifies to create a configuration with a
-different name than the desired configuration (different than `management-23.03`
+different name than the desired configuration (different than `management-23.05`
 in the example above).
 
 ### Upgrading a Single Product and Overriding its Default Version
