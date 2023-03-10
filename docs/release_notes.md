@@ -72,11 +72,11 @@ The following new features were added to the `sat bootprep` command:
 
 - Schema version validation in the `sat bootprep` input files
 
-  For more information, see [Providing a Schema Version](usage/sat_bootprep.md#providing-a-schema-version).
+  For more information, see [Provide a Schema Version](usage/sat_bootprep.md#provide-a-schema-version).
 
 - Ability to look up images and recipes provided by products
 
-  For more information, see [Defining IMS Images](usage/sat_bootprep.md#defining-ims-images).
+  For more information, see [Define IMS Images](usage/sat_bootprep.md#define-ims-images).
 
 The schema of the `sat bootprep` input files was also changed to support these
 new features:
@@ -92,8 +92,8 @@ new features:
   value directly under the `image` key is deprecated.
 
 For more information on defining IMS images and BOS session templates in the
-`sat bootprep` input file, see [Defining IMS Images](usage/sat_bootprep.md#defining-ims-images)
-and [Defining BOS Session Templates](usage/sat_bootprep.md#defining-bos-session-templates).
+`sat bootprep` input file, see [Define IMS Images](usage/sat_bootprep.md#define-ims-images)
+and [Define BOS Session Templates](usage/sat_bootprep.md#define-bos-session-templates).
 
 ### Added Blade Swap Support to `sat swap`
 

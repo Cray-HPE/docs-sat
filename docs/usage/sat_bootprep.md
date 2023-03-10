@@ -1,16 +1,22 @@
 # SAT Bootprep
 
 SAT provides an automated solution for creating CFS configurations, building
-and configuring images in IMS, and creating BOS session templates based on a
-given input file which defines how those configurations, images, and session
-templates should be created.
-
-This automated process centers around the `sat bootprep` command. Man page
-documentation for `sat bootprep` can be viewed similarly to other SAT commands.
+and configuring images in IMS, and creating BOS session templates. The
+solution is based on a given input file that defines how those configurations,
+images, and session templates should be created. This automated process centers
+around the `sat bootprep` command. Man page documentation for `sat bootprep`
+can be viewed similar to other SAT commands.
 
 ```screen
 ncn-m001# sat-man sat-bootprep
 ```
+
+The `sat bootprep` command helps the Install and Upgrade Framework (IUF)
+install, upgrade, and deploy products on systems managed by CSM. Outside of IUF,
+it is uncommon to use `sat bootprep`. For more information on this relationship,
+see [SAT and IUF](sat_and_iuf.md). For more information on IUF, see the
+[IUF section](https://cray-hpe.github.io/docs-csm/en-14/operations/iuf/iuf/) of
+the [Cray System Management Documentation](https://cray-hpe.github.io/docs-csm/).
 
 ## SAT Bootprep vs SAT Bootsys
 
@@ -23,7 +29,7 @@ including (but not limited to) performing BOS operations (such as creating BOS
 sessions), powering on and off cabinets, and checking the state of the system
 prior to shutdown.
 
-## Editing a Bootprep Input File
+## Edit a Bootprep Input File
 
 The input file provided to `sat bootprep` is a YAML-formatted file containing
 information which CFS, IMS, and BOS use to create configurations, images, and
@@ -33,7 +39,7 @@ three main sections, one each for configurations, images, and session templates.
 These sections may be specified in any order, and any of the sections may be
 omitted if desired.
 
-### Providing a Schema Version
+### Provide a Schema Version
 
 The `sat bootprep` input file is validated against a versioned schema
 definition. The input file should specify the version of the schema with which
@@ -58,14 +64,14 @@ of the input file is compatible with the schema version understood by the
 current version of `sat bootprep`. For more information on schema version
 validation, refer to the `schema_version` property description in the bootprep
 input file schema. For more information on viewing the bootprep input file
-schema in either raw form or user-friendly HTML form, see [Viewing the Exact
-Schema Specification](#viewing-the-exact-schema-specification) or
-[Generating User-Friendly Documentation](#generating-user-friendly-documentation).
+schema in either raw form or user-friendly HTML form, see [View SAT Bootprep
+Schema](#view-sat-bootprep-schema).
 
-The default `sat bootprep` input files provided by the `hpc-csm-software-recipe`
-release distribution already contain the correct schema version.
+The default HPC CSM Software Recipe bootprep input files provided by the
+`hpc-csm-software-recipe` release distribution already contain the correct
+schema version.
 
-### Defining CFS Configurations
+### Define CFS Configurations
 
 The CFS configurations are defined under a `configurations` key. Under this
 key, you can list one or more configurations to create. For each
@@ -132,7 +138,7 @@ above might look something like the following:
 }
 ```
 
-### Defining IMS Images
+### Define IMS Images
 
 The IMS images are defined under an `images` key. Under the `images` key, the
 user may define one or more images to be created in a list. Each element of the
@@ -264,7 +270,7 @@ images:
   - Management_Storage
 ```
 
-### Defining BOS Session Templates
+### Define BOS Session Templates
 
 The BOS session templates are defined under the `session_templates` key. Each
 session template must provide values for the `name`, `image`, `configuration`,
@@ -341,19 +347,36 @@ session_templates:
 
 ### HPC CSM Software Recipe Variable Substitutions
 
-The HPC CSM Software Recipe provides a manifest defining the versions of each
-HPC software product included in the recipe. These product versions can be used
-in the `sat bootprep` input file with Jinja2 template syntax.
+The `sat bootprep` command takes any variables you provide and substitutes them
+into the input file. Variables are sourced from the command line, any variable
+files directly provided, and the HPC CSM Software Recipe files used, in that
+order. When you provide values through a variable file, `sat bootprep`
+substitutes the values with Jinja2 template syntax. The HPC CSM Software Recipe
+provides default variables in a `product_vars.yaml` variable file. This file
+defines information about each HPC software product included in the recipe.
 
-#### Selecting an HPC CSM Software Recipe Version
+You will primarily substitute variables into the default HPC CSM Software Recipe
+bootprep input files through IUF. However, variable files can also be given to
+`sat bootprep` directly from IUF's use of the recipe. If you do use variables
+directly with `sat bootprep`, you might encounter some limitations. For more
+information on SAT variable limitations, see [SAT and IUF](sat_and_iuf.md).
+For more information on IUF and variable substitutions, see the
+[IUF section](https://cray-hpe.github.io/docs-csm/en-14/operations/iuf/iuf/) of
+the [Cray System Management Documentation](https://cray-hpe.github.io/docs-csm/).
 
-By default, the `sat bootprep` command uses the product versions from the
-latest installed version of the HPC CSM Software Recipe. However, you can
-override this with the `--recipe-version` command line argument to `sat bootprep
-run`.
+#### Select an HPC CSM Software Recipe Version
+
+You can view a listing of the default HPC CSM Software Recipe variables and
+their values by running `sat bootprep list-vars`. For more information on
+options that can be used with the `list-vars` subcommand, refer to the man page
+for the `sat bootprep` subcommand.
+
+By default, the `sat bootprep` command uses the variables from the latest
+installed version of the HPC CSM Software Recipe. However, you can override
+this with the `--recipe-version` command line argument to `sat bootprep run`.
 
 For example, to explicitly select the `22.11.0` version of the HPC CSM Software
-Recipe, specify `--recipe-version 22.11.0`:
+Recipe default variables, specify `--recipe-version 22.11.0`:
 
 ```screen
 ncn-m001# sat bootprep run --recipe-version 22.11.0 compute-and-uan-bootprep.yaml
@@ -363,8 +386,8 @@ ncn-m001# sat bootprep run --recipe-version 22.11.0 compute-and-uan-bootprep.yam
 
 The entire `sat bootprep` input file is not rendered by the Jinja2 template
 engine. Jinja2 template rendering of the input file is performed individually
-for each supported value. The values of the following keys support rendering as
-a Jinja2 template:
+for each supported value. The values of the following keys in the bootprep
+input file support rendering as a Jinja2 template and thus support variables:
 
 - The `name` key of each configuration under the `configurations` key.
 - The following keys of each layer under the `layers` key in a
@@ -386,43 +409,35 @@ a Jinja2 template:
 You can use Jinja2 built-in filters in values of any of the keys listed above.
 In addition, Python string methods can be called on the string variables.
 
-#### Viewing HPC CSM Software Recipe Variables
-
-HPC CSM Software Recipe variables are available, and you can use them in the
-values of the keys listed above. A listing of the available variables and their
-values can be viewed by running `sat bootprep list-vars`. For more information
-on options that may be used with the `list-vars` subcommand, refer to the man page
-for the `sat bootprep` subcommand.
-
-#### Using Hyphens in HPC CSM Software Recipe Variables
+#### Hyphens in HPC CSM Software Recipe Variables
 
 Variable names with hyphens are not allowed in Jinja2 expressions because they
-are parsed as an arithmetic expression instead of a single variable.
-To support product names with hyphens, `sat bootprep` converts
-hyphens to underscores in all top-level keys in the software recipe variables.
-It also converts any variables passed to the command using `--vars` or `--vars-file`.
-When referring to a variable with hyphens in the bootprep input file, keep
-this in mind. For example, to refer to the product version variable for
-`slingshot-host-software` in the bootprep input file, write
+are parsed as an arithmetic expression instead of a single variable. To support
+product names with hyphens, `sat bootprep` converts hyphens to underscores in
+all top-level keys of the default HPC CSM Software Recipe variables. It also
+converts any variables sourced from the command line or any variable files
+you provide directly. When referring to a variable with hyphens in the bootprep
+input file, keep this in mind. For example, to refer to the product version
+variable for `slingshot-host-software` in the bootprep input file, write
 `"{{slingshot_host_software.version}}"`.
 
 #### HPC CSM Software Recipe Variable Substitution Example
 
-The following example bootprep input file shows how a COS version can be
-used in a bootprep input file that creates a CFS configuration for computes.
+The following example bootprep input file shows how a variable of a COS version
+can be used in an input file that creates a CFS configuration for computes.
 Only one layer is shown for brevity.
 
 ```yaml
 ---
 configurations:
-- name: compute-{{recipe.version}}
+- name: "{{default.note}}compute-{{recipe.version}}{{default.suffix}}"
   layers:
-  - name: cos-compute-integration-{{cos.version}}
-    playbook: cos-compute.yaml
+  - name: cos-compute-{{cos.working_branch}}
+    playbook: cos-compute.yml
     product:
       name: cos
       version: "{{cos.version}}"
-      branch: integration-{{cos.version}}
+      branch: "{{cos.working_branch}}"
 ```
 
 **Note:** When the value of a key in the bootprep input file is a Jinja2
@@ -437,10 +452,10 @@ achieve this as follows:
 ```yaml
 ---
 configurations:
-- name: compute-{{recipe.version}}
+- name: "{{default.note}}compute-{{recipe.version}}{{default.suffix}}"
   layers:
-  - name: cos-compute-integration-{{cos.version}}
-    playbook: cos-compute.yaml
+  - name: cos-compute-{{cos.working_branch}}
+    playbook: cos-compute.yml
     product:
       name: cos
       version: "{{cos.version}}"
@@ -449,12 +464,12 @@ configurations:
 
 ### Dynamic Variable Substitutions
 
-Additional variables are available besides the product version variables
-provided by the HPC CSM Software Recipe. (For more information, see [HPC
-CSM Software Recipe Variable Substitutions](#hpc-csm-software-recipe-variable-substitutions).)
-These additional variables are dynamic because their values are
-determined at run-time based on the context in which they appear. Available
-dynamic variables include the following:
+Additional variables are available besides the default variables provided by
+the HPC CSM Software Recipe. (For more information, see [HPC CSM Software
+Recipe Variable Substitutions](#hpc-csm-software-recipe-variable-substitutions).)
+These additional variables are dynamic because their values are determined
+at run-time based on the context in which they appear. Available dynamic
+variables include the following:
 
 - The variable `base.name` can be used in the `name` of an image under the
   `images` key. The value of this variable is the name of the IMS image or
@@ -462,6 +477,9 @@ dynamic variables include the following:
 - The variable `image.name` can be used in the `name` of a session template
   under the `session_templates` key. The value of this variable is the name of
   the IMS image used in this session template.
+
+  **Note:** The name of a session template is restricted to 45 characters. Keep
+  this in mind when using `image.name` in the name of a session template.
 
 These variables reduce the need to duplicate values throughout the `sat
 bootprep` input file and make the following use cases possible:
@@ -486,23 +504,23 @@ bootprep file for the entire CSM product.
 ```yaml
 ---
 configurations:
-- name: compute-{{recipe.version}}
+- name: "{{default.note}}compute-{{recipe.version}}{{default.suffix}}"
   layers:
-  - name: cos-compute-integration-{{cos.version}}
-    playbook: site.yml
+  - name: cos-compute-{{cos.working_branch}}
+    playbook: cos-compute.yml
     product:
       name: cos
       version: "{{cos.version}}"
-      branch: integration-{{cos.version}}
-  - name: cpe-pe_deploy-integration-{{cpe.version}}
+      branch: "{{cos.working_branch}}"
+  - name: cpe-pe_deploy-{{cpe.working_branch}}
     playbook: pe_deploy.yml
     product:
       name: cpe
       version: "{{cpe.version}}"
-      branch: integration-{{cpe.version}}
+      branch: "{{cpe.working_branch}}"
 
 images:
-- name: "{{base.name}}"
+- name: "{{default.note}}{{base.name}}{{default.suffix}}"
   ref_name: base_cos_image
   base:
     product:
@@ -510,19 +528,19 @@ images:
       type: recipe
       version: "{{cos.version}}"
 
-- name: compute-{{base.name}}
+- name: "compute-{{base.name}}"
   ref_name: compute_image
   base:
     image_ref: base_cos_image
-  configuration: compute-{{recipe.version}}
+  configuration: "{{default.note}}compute-{{recipe.version}}{{default.suffix}}"
   configuration_group_names:
   - Compute
 
 session_templates:
-- name: compute-{{recipe.version}}
+- name: "{{default.note}}compute-{{recipe.version}}{{default.suffix}}"
   image:
     image_ref: compute_image
-  configuration: compute-{{recipe.version}}
+  configuration: "{{default.note}}compute-{{recipe.version}}{{default.suffix}}"
   bos_parameters:
     boot_sets:
       compute:
@@ -532,7 +550,7 @@ session_templates:
         rootfs_provider_passthrough: "dvs:api-gw-service-nmn.local:300:hsn0,nmn0:0"
 ```
 
-### Accessing Default Bootprep Input Files
+### Access Default Bootprep Input Files
 
 Default bootprep input files are delivered by the HPC CSM Software Recipe
 product. You can access these files by cloning the `hpc-csm-software-recipe`
@@ -545,12 +563,12 @@ default input files in the `bootprep` directory of the cloned repository:
 ncn-m001# ls bootprep/
 ```
 
-### Generating an Example Bootprep Input File
+### Generate an Example Bootprep Input File
 
 The `sat bootprep generate-example` command was not updated for
 recent bootprep schema changes. It is recommended that you instead use the
-default bootprep input files described in [Accessing Default Bootprep Input
-Files](#accessing-default-bootprep-input-files). The `sat bootprep
+default bootprep input files described in [Access Default Bootprep Input
+Files](#access-default-bootprep-input-files). The `sat bootprep
 generate-example` command will be updated in a future release of SAT.
 
 ## Summary of SAT Bootprep Results
@@ -590,165 +608,16 @@ BOS session templates
 +------------------+----------------+
 ```
 
-## Editing HPC CSM Software Recipe Defaults
+## View SAT Bootprep Schema
 
-You might need to edit the default bootprep input files delivered by the HPC
-CSM Software Recipe for your system. Here are some examples of how to edit
-the files.
-
-### Editing Default Branch Names
-
-Before running `sat bootprep`, HPE recommends reading the bootprep input files
-and paying specific attention to the `branch` parameters. Some HPE Cray EX
-products require system-specific changes on a working branch of VCS. For these
-products, the default bootprep input files assume certain naming conventions for
-the VCS branches. The files refer to a particular branch of a product's
-configuration management repository.
-
-Thus, it is important to confirm that the bootprep input files delivered by the
-HPC CSM Software Recipe match the actual system branch names. For example, the
-COS product's CFS configuration layer is defined as follows in the default
-`management-bootprep.yaml` bootprep input file.
-
-```yaml
-- name: cos-ncn-integration-{{cos.version}}
-  playbook: ncn.yml
-  product:
-    name: cos
-    version: "{{cos.version}}"
-    branch: integration-{{cos.version}}
-```
-
-The default file is assuming that system-specific Ansible configuration changes
-for the COS product in VCS are stored in a branch named
-`integration-{{cos.version}}`. If the version being installed is COS 2.4.99,
-`sat bootprep` looks for a branch named `integration-2.4.99` from which to
-create CFS configuration layers.
-
-You can create VCS working branches that are not the default bootprep input file
-branch names. For example, to use the branch `integration` for COS instead of
-`integration-{{cos.version}}`, edit the bootprep input file so it reads as
-follows.
-
-```yaml
-- name: cos-ncn-integration-{{cos.version}}
-  playbook: ncn.yml
-  product:
-    name: cos
-    version: "{{cos.version}}"
-    branch: integration
-```
-
-### Editing Default Management CFS Configuration Names
-
-The default bootprep input file for management NCNs (`management-bootprep.yaml`)
-uses the value `management-{{recipe.version}}` as the name of the CFS
-configuration. This value uses a Jinja2 template to include the HPC CSM Software
-Recipe version in the name of the CFS configuration. For example, when `sat
-bootprep` is run against the default bootprep input file in HPC CSM Software
-Recipe version 23.04, a configuration named `management-23.4.0` is created.
-
-This default management CFS configuration name might be acceptable for your
-system. However, it is possible to use a different name. `sat bootprep` creates
-any and all configurations in the input file. For example, to create a CFS
-configuration named `management-test`, edit the file as follows:
-
-```yaml
-configurations:
-- name: management-test
-  layers:
-  ...
-```
-
-For management configurations, use `sat status` to identify the current
-desired configuration for each of the management nodes.
-
-```screen
-ncn-m001# sat status --fields xname,role,subrole,desiredconfig --filter role=management
-+----------------+------------+---------+-------------------+
-| xname          | Role       | SubRole | Desired Config    |
-+----------------+------------+---------+-------------------+
-| x3000c0s1b0n0  | Management | Master  | management-23.4.0 |
-| x3000c0s3b0n0  | Management | Master  | management-23.4.0 |
-| x3000c0s5b0n0  | Management | Master  | management-23.4.0 |
-| x3000c0s7b0n0  | Management | Worker  | management-23.4.0 |
-| x3000c0s9b0n0  | Management | Worker  | management-23.4.0 |
-| x3000c0s11b0n0 | Management | Worker  | management-23.4.0 |
-| x3000c0s13b0n0 | Management | Worker  | management-23.4.0 |
-| x3000c0s17b0n0 | Management | Storage | management-23.4.0 |
-| x3000c0s19b0n0 | Management | Storage | management-23.4.0 |
-| x3000c0s21b0n0 | Management | Storage | management-23.4.0 |
-| x3000c0s25b0n0 | Management | Worker  | management-23.4.0 |
-+----------------+------------+---------+-------------------+
-```
-
-To overwrite the desired configuration using `sat bootprep`, ensure the bootprep
-input file specifies to create a configuration with the same name
-(`management-23.4.0` in the example above). To create a different configuration,
-ensure the bootprep input file specifies to create a configuration with a
-different name than the desired configuration (different than `management-23.4.0`
-in the example above).
-
-### Upgrading a Single Product and Overriding its Default Version
-
-When working with a given HPC CSM Software Recipe, it might be necessary to
-upgrade a single HPE Cray EX product past the default version given in the
-recipe. However, you might still want to use the other default product versions
-contained in that recipe. To do this, first upgrade the single product. For
-more information, refer to the upgrade instructions in that product's
-documentation.
-
-After the product is upgraded, you must override its default version in subsequent
-runs of `sat bootprep`. The following process explains how to do this. In this
-example, all the default product versions from the `22.11` software recipe are
-used except for COS. The COS default product version is overridden to version
-`2.4.199` instead, and the CFS configurations in `management-bootprep.yaml` are
-created.
-
-1. Ensure you have a local copy of the default bootprep input files.
-
-   For more information, see [Accessing Default Bootprep Input
-   Files](#accessing-default-bootprep-input-files).
-
-1. Edit the `product_vars.yaml` file to change the default product version.
-
-   ```screen
-   ncn-m001# vim product_vars.yaml
-   ```
-
-1. Confirm the new product version in the edited `product_vars.yaml` file.
-
-   ```screen
-   ncn-m001# grep -A1 cos: `product_vars.yaml`:
-   cos:
-     version: 2.4.199
-   ```
-
-1. Use the `--vars-file` option when running `sat bootprep` to override the
-   default product version.
-
-   You must run this command from the directory containing the `product_vars.yaml`
-   file. The `product_vars.yaml` file must also be specified when using the
-   `--vars-file` option. It is not sufficient to just edit the file.
-
-   ```screen
-   ncn-m001# sat bootprep run --vars-file product_vars.yaml bootprep/management-bootprep.yaml
-   ```
-
-   **Note:** This example is specific to creating the configurations defined in
-   `management-bootprep.yaml`. Review what configurations, images, or session templates
-   you intend to create by viewing the input file.
-
-## Viewing Built-in Generated Documentation
-
-The contents of the YAML input files described above must conform to a schema
-which defines the structure of the data. The schema definition is written using
-the JSON Schema format. (Although the format is named "JSON Schema", the schema
-itself is written in YAML as well.) More information, including introductory
+The contents of the YAML input files used by `sat bootprep` must conform to a
+schema which defines the structure of the data. The schema definition is written
+using the JSON Schema format. (Although the format is named "JSON Schema", the
+schema itself is written in YAML as well.) More information, including introductory
 materials and a formal specification of the JSON Schema metaschema, can be found
 [on the JSON Schema website](https://json-schema.org/specification.html).
 
-### Viewing the Exact Schema Specification
+### View the Exact Schema Specification
 
 To view the exact schema specification, run `sat bootprep view-schema`.
 
@@ -769,12 +638,13 @@ properties:
   ...
 ```
 
-### Generating User-Friendly Documentation
+### Generate User-Friendly Documentation
 
 The raw schema definition can be difficult to understand without experience
 working with JSON Schema specifications. For this reason, a feature is included
-that generates user-friendly HTML documentation for the input file schema. This
-HTML documentation can be browsed with your preferred web browser.
+with `sat bootprep` that generates user-friendly HTML documentation for the input
+file schema. This HTML documentation can be browsed with your preferred web
+browser.
 
 1. Create a documentation tarball using `sat bootprep`.
 
@@ -807,31 +677,3 @@ HTML documentation can be browsed with your preferred web browser.
    x bootprep-schema-docs/schema_doc.min.js
    another-machine$ open bootprep-schema-docs/index.html
    ```
-
-## Limiting `sat bootprep run` into Stages
-
-The `sat bootprep run` command uses information from the bootprep input file to
-create CFS configurations, IMS images, and BOS session templates. To restrict
-this creation into separate stages, use the `--limit` option and list whether
-you want to create `configurations`, `images`, `session_templates`, or some
-combination of these. For example, to create only CFS configurations, run the
-following command:
-
-```screen
-ncn-m001# sat bootprep run --limit configurations example-bootprep-input-file.yaml
-INFO: Validating given input file example-bootprep-input-file.yaml
-INFO: Input file successfully validated against schema
-INFO: Creating 3 CFS configurations
-...
-INFO: Skipping creation of IMS images based on value of --limit option.
-INFO: Skipping creation of BOS session templates based on value of --limit option.
-```
-
-To create only IMS images and BOS session templates, run the following command:
-
-```screen
-ncn-m001# sat bootprep run --limit images --limit session_templates example-bootprep-input-file.yaml
-INFO: Validating given input file example-bootprep-input-file.yaml
-INFO: Input file successfully validated against schema
-INFO: Skipping creation of CFS configurations based on value of --limit option.
-```
