@@ -553,6 +553,43 @@ default bootprep input files described in [Accessing Default Bootprep Input
 Files](#accessing-default-bootprep-input-files). The `sat bootprep
 generate-example` command will be updated in a future release of SAT.
 
+## Summary of SAT Bootprep Results
+
+The `sat bootprep run` command uses information from the bootprep input file to
+create CFS configurations, IMS images, and BOS session templates. For easy
+reference, the command also includes output summarizing the final creation
+results. The following example shows a sample table output.
+
+```screen
+ncn-m001# sat bootprep run
+...
+################################################################################
+CFS configurations
+################################################################################
++------------------+
+| name             |
++------------------+
+| example-config-1 |
+| example-config-2 |
++------------------+
+################################################################################
+IMS images
+################################################################################
++---------------+--------------------------------------+--------------------------------------+----------------+----------------------------+
+| name          | preconfigured_image_id               | final_image_id                       | configuration  | configuration_group_names  |
++---------------+--------------------------------------+--------------------------------------+----------------+----------------------------+
+| example-image | c1bcaf00-109d-470f-b665-e7b37dedb62f | a22fb912-22be-449b-a51b-081af2d7aff6 | example-config | Compute                    |
++---------------+--------------------------------------+--------------------------------------+----------------+----------------------------+
+################################################################################
+BOS session templates
+################################################################################
++------------------+----------------+
+| name             | configuration  |
++------------------+----------------+
+| example-template | example-config |
++------------------+----------------+
+```
+
 ## Editing HPC CSM Software Recipe Defaults
 
 You might need to edit the default bootprep input files delivered by the HPC
