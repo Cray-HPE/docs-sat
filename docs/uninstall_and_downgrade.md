@@ -13,21 +13,17 @@ This procedure can be used to uninstall a version of SAT.
 
 1. Use `sat showrev` to list versions of SAT.
 
-   **Note:** It is not recommended to uninstall a version designated as "active".
-   If the active version is uninstalled, then the activate procedure must be executed
-   on a remaining version.
-
    ```screen
    ncn-m001# sat showrev --products --filter product_name=sat
    ###############################################################################
    Product Revision Information
    ###############################################################################
-   +--------------+-----------------+--------+-------------------+-----------------------+
-   | product_name | product_version | active | images            | image_recipes         |
-   +--------------+-----------------+--------+-------------------+-----------------------+
-   | sat          | 2.3.3           | True   | -                 | -                     |
-   | sat          | 2.2.10          | False  | -                 | -                     |
-   +--------------+-----------------+--------+-------------------+-----------------------+
+   +--------------+-----------------+-------------------+-----------------------+
+   | product_name | product_version | images            | image_recipes         |
+   +--------------+-----------------+-------------------+-----------------------+
+   | sat          | 2.3.3           | -                 | -                     |
+   | sat          | 2.2.10          | -                 | -                     |
+   +--------------+-----------------+-------------------+-----------------------+
    ```
 
 1. Use `prodmgr` to uninstall a version of SAT.
@@ -49,13 +45,13 @@ This procedure can be used to uninstall a version of SAT.
    Deleted sat-2.2.10 from product catalog.
    ```
 
-## Activate: Switch Between SAT Versions
+## Downgrade: Switch Between SAT Versions
 
 This procedure can be used to downgrade the active version of SAT.
 
 ### Prerequisites
 
-- Only versions 2.2 or newer of SAT can be activated. Older versions must be activated manually.
+- Only versions 2.2 or newer of SAT can be switched. Older versions must be switched manually.
 - CSM version 1.2 or newer must be installed, so that the `prodmgr` command is available.
 
 ### Procedure
@@ -67,48 +63,30 @@ This procedure can be used to downgrade the active version of SAT.
    ###############################################################################
    Product Revision Information
    ###############################################################################
-   +--------------+-----------------+--------+--------------------+-----------------------+
-   | product_name | product_version | active | images             | image_recipes         |
-   +--------------+-----------------+--------+--------------------+-----------------------+
-   | sat          | 2.3.3           | True   | -                  | -                     |
-   | sat          | 2.2.10          | False  | -                  | -                     |
-   +--------------+-----------------+--------+--------------------+-----------------------+
+   +--------------+-----------------+--------------------+-----------------------+
+   | product_name | product_version | images             | image_recipes         |
+   +--------------+-----------------+--------------------+-----------------------+
+   | sat          | 2.3.3           | -                  | -                     |
+   | sat          | 2.2.10          | -                  | -                     |
+   +--------------+-----------------+--------------------+-----------------------+
    ```
 
-1. Use `prodmgr` to activate a different version of SAT.
+1. Use `prodmgr` to switch to a different version of SAT.
 
-   This command will do three things:
+   This command will do two things:
 
    - For all hosted-type package repositories associated with this version of SAT, set them as the sole member
-     of their corresponding group-type repository. For example, activating SAT version `2.2.10`
+     of their corresponding group-type repository. For example, switching to SAT version `2.2.10`
      sets the repository `sat-2.2.10-sle-15sp2` as the only member of the `sat-sle-15sp2` group.
-   - Set the version `2.2.10` as active within the product catalog, so that it appears active in the output of
-     `sat showrev`.
    - Ensure that the SAT CFS configuration content exists as a layer in all CFS configurations that are
      associated with NCNs with the role "Management" and subrole "Master" (for example, the CFS configuration
-     `management-23.05`). Specifically, it will ensure that the layer refers to the version of SAT CFS
-     configuration content associated with the version of SAT being activated.
+     `management-23.4.0`). Specifically, it will ensure that the layer refers to the version of SAT CFS
+     configuration content associated with the version of SAT to which you are switching.
 
    ```screen
-   ncn-m001# prodmgr activate sat 2.2.10
-   Repository sat-2.2.10-sle-15sp2 is now the default in sat-sle-15sp2.
-   Set sat-2.2.10 as active in product catalog.
-   Updated CFS configurations: [management-23.05]
-   ```
-
-1. Verify that the chosen version is marked as active.
-
-   ```screen
-   ncn-m001# sat showrev --products --filter product_name=sat
-   ###############################################################################
-   Product Revision Information
-   ###############################################################################
-   +--------------+-----------------+--------+--------------------+-----------------------+
-   | product_name | product_version | active | images             | image_recipes         |
-   +--------------+-----------------+--------+--------------------+-----------------------+
-   | sat          | 2.3.3           | False  | -                  | -                     |
-   | sat          | 2.2.10          | True   | -                  | -                     |
-   +--------------+-----------------+--------+--------------------+-----------------------+
+   ncn-m001# prodmgr activate sat 2.5.15
+   Repository sat-2.5.15-sle-15sp4 is now the default in sat-sle-15sp4.
+   Updated CFS configurations: [management-23.4.0]
    ```
 
 1. Apply the modified CFS configuration to the management NCNs.
@@ -126,7 +104,7 @@ This procedure can be used to downgrade the active version of SAT.
    to be applied to the management NCNs.
 
    ```screen
-   ncn-m001# export CFS_CONFIG_NAME="management-23.05"
+   ncn-m001# export CFS_CONFIG_NAME="management-23.4.0"
    ```
 
    **Note:** Refer to the output from the `prodmgr activate` command to find
@@ -134,7 +112,7 @@ This procedure can be used to downgrade the active version of SAT.
    was modified, use the first one.
 
    ```screen
-   INFO: Successfully saved CFS configuration "management-23.05"
+   INFO: Successfully saved CFS configuration "management-23.4.0"
    ```
 
 1. Obtain the name of the CFS configuration layer for SAT and save it in an

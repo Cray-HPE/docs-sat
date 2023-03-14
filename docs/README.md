@@ -23,7 +23,7 @@
 ## [SAT Uninstall and Downgrade](uninstall_and_downgrade.md)
 
 - [Uninstall: Remove a Version of SAT](uninstall_and_downgrade.md#uninstall-remove-a-version-of-sat)
-- [Activate: Switch Between SAT Versions](uninstall_and_downgrade.md#activate-switch-between-sat-versions)
+- [Downgrade: Switch Between SAT Versions](uninstall_and_downgrade.md#downgrade-switch-between-sat-versions)
 
 ## [SAT on an External System](external_system.md)
 
