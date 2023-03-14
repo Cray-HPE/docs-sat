@@ -362,17 +362,17 @@ The SAT product uploads additional information to the `cray-product-catalog`
 Kubernetes ConfigMap detailing the components it provides, including container
 (Docker) images, Helm charts, RPMs, and package repositories.
 
-This information is used to support uninstall and activation of SAT product
+This information is used to support uninstall and downgrade of SAT product
 versions moving forward.
 
 ### Support for Uninstall and Activation of SAT Versions
 
 Beginning with the 2.2 release, SAT now provides partial support for the
-uninstall and activation of the SAT product stream.
+uninstall and downgrade of the SAT product stream.
 
 For more information, see [Uninstall: Remove a Version of
-SAT](uninstall_and_downgrade.md#uninstall-remove-a-version-of-sat) and [Activate: Switch
-Between SAT Versions](uninstall_and_downgrade.md#activate-switch-between-sat-versions).
+SAT](uninstall_and_downgrade.md#uninstall-remove-a-version-of-sat) and [Downgrade: Switch
+Between SAT Versions](uninstall_and_downgrade.md#downgrade-switch-between-sat-versions).
 
 ### Improvements to `sat status`
 
