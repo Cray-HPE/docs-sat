@@ -44,13 +44,7 @@
 - [SAT and IUF](usage/sat_and_iuf.md)
 - [Change the BOS Version](usage/change_bos_version.md)
 
-## [SAT Release Notes](release_notes.md)
+## [SAT Release Notes](release_notes/README.md)
 
-- [Summary of Changes in SAT 2.4](release_notes.md#summary-of-changes-in-sat-24)
-- [Summary of Changes in SAT 2.3](release_notes.md#summary-of-changes-in-sat-23)
-- [Summary of Changes in SAT 2.2](release_notes.md#summary-of-changes-in-sat-22)
-- [Summary of SAT Changes in Shasta v1.5](release_notes.md#summary-of-sat-changes-in-shasta-v15)
-- [Summary of SAT Changes in Shasta v1.4.1](release_notes.md#summary-of-sat-changes-in-shasta-v141)
-- [Summary of SAT Changes in Shasta v1.4](release_notes.md#summary-of-sat-changes-in-shasta-v14)
-- [Summary of SAT Changes in Shasta v1.3.2](release_notes.md#summary-of-sat-changes-in-shasta-v132)
-- [Summary of SAT Changes in Shasta v1.3](release_notes.md#summary-of-sat-changes-in-shasta-v13)
+- [Changes in SAT Version 2.x](release_notes/README.md#changes-in-sat-version-2x)
+- [SAT Changes in Shasta Version 1.x](release_notes/README.md#sat-changes-in-shasta-version-1x)
