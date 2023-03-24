@@ -1,6 +1,6 @@
 # Change the BOS Version
 
-By default, SAT uses Boot Orchestration Service (BOS) version one. You can
+By default, SAT uses Boot Orchestration Service (BOS) version two (v2). You can
 select the BOS version to use for individual commands with the `--bos-version`
 option. For more information on this option, refer to the man page for a specific
 command.
@@ -16,17 +16,17 @@ BOS version desired in the `api_version` setting.
 
    ```screen
    [bos]
-   api_version = "v1"
+   api_version = "v2"
    ```
 
-   In this example, SAT is using BOS version `"v1"`.
+   In this example, SAT is using BOS version `"v2"`.
 
 1. Change the line specifying the `api_version` to the BOS version desired (for
-   example, `"v2"`).
+   example, `"v1"`).
 
    ```screen
    [bos]
-   api_version = "v2"
+   api_version = "v1"
    ```
 
 1. If applicable, uncomment the `api_version` line.
