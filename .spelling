@@ -86,6 +86,8 @@ v1.5.
 v1.3.
 v1.3.2.
 v1.4.1.
+# The spell checker does not allow v2 when referring to BOS v2.
+v2
 # The spell checker allows acronyms, but does not allow pluralized acronyms
 # (e.g. "NCNs").
 APIs
