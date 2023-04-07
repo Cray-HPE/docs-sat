@@ -2,7 +2,7 @@
 
 The 2.5.17 version of the SAT product includes:
 
-- Version 3.21.3 of the `sat` python package and CLI.
+- Version 3.21.4 of the `sat` python package and CLI.
 - Version 2.0.0-1 of the `sat-podman` wrapper script.
 - Version 1.6.0 of the `sat-install-utility` container image.
 - Version 3.3.1 of the `cfs-config-util` container image.
