@@ -4,6 +4,7 @@
 
 - [About System Admin Toolkit (SAT)](introduction.md#about-system-admin-toolkit-sat)
 - [SAT Command Overview](introduction.md#sat-command-overview)
+- [SAT Command Authentication](introduction.md#sat-command-authentication)
 - [Command Prompt Conventions in SAT](introduction.md#command-prompt-conventions-in-sat)
 - [SAT in CSM](introduction.md#sat-in-csm)
 - [SAT Dependencies](introduction.md#sat-dependencies)
