@@ -16,7 +16,7 @@ install, upgrade, and deploy products on systems managed by CSM. Outside of IUF,
 it is uncommon to use `sat bootprep`. For more information on this relationship,
 see [SAT and IUF](sat_and_iuf.md). For more information on IUF, see the
 [IUF section](https://cray-hpe.github.io/docs-csm/en-14/operations/iuf/iuf/) of
-the [Cray System Management Documentation](https://cray-hpe.github.io/docs-csm/).
+the [*Cray System Management Documentation*](https://cray-hpe.github.io/docs-csm/).
 
 ## SAT Bootprep vs SAT Bootsys
 
@@ -84,7 +84,7 @@ method is used, the layer is created in CFS by looking up relevant configuration
 information (including the configuration repository and commit information) from
 the cray-product-catalog Kubernetes ConfigMap as necessary. A version may be
 supplied. However, if it is absent, the version is assumed to be the latest
-version found in the cray-product-catalog.
+version found in the `cray-product-catalog`.
 
 Alternatively, a configuration layer can be defined by explicitly referencing
 the desired configuration repository. You must then specify the intended version
@@ -362,7 +362,7 @@ directly with `sat bootprep`, you might encounter some limitations. For more
 information on SAT variable limitations, see [SAT and IUF](sat_and_iuf.md).
 For more information on IUF and variable substitutions, see the
 [IUF section](https://cray-hpe.github.io/docs-csm/en-14/operations/iuf/iuf/) of
-the [Cray System Management Documentation](https://cray-hpe.github.io/docs-csm/).
+the [*Cray System Management Documentation*](https://cray-hpe.github.io/docs-csm/).
 
 #### Select an HPC CSM Software Recipe Version
 

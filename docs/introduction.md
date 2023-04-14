@@ -123,8 +123,8 @@ generate the S3 access key and secret keys and write them to a local file. This
 must be done on every Kubernetes manager node where SAT commands are run.
 
 For more information on authentication requests, see *System Security and
-Authentication* in the [Cray System Management
-Documentation](https://cray-hpe.github.io/docs-csm/). The following is a table
+Authentication* in the [*Cray System Management
+Documentation*](https://cray-hpe.github.io/docs-csm/). The following is a table
 describing SAT commands and the types of authentication they require.
 
 |SAT Subcommand|Authentication/Credentials Required|Man Page|Description|
