@@ -60,7 +60,7 @@ line. It provides a table summarizing information for all jobs on the system.
   nodes in the `bos-operations` stage.
 - The `--staged-session` option was added to `sat bootsys`. It can be used to
   create staged BOS sessions. For more information, refer to **Staging Changes
-  with BOS** in the [Cray System Management Documentation](https://cray-hpe.github.io/docs-csm/).
+  with BOS** in the [*Cray System Management Documentation*](https://cray-hpe.github.io/docs-csm/).
 
 ## Changes to Other `sat` Commands
 
@@ -76,10 +76,10 @@ The new Install and Upgrade Framework (IUF) provides commands which install,
 upgrade, and deploy products with the help of `sat bootprep` on HPE Cray EX
 systems managed by Cray System Management (CSM). IUF capabilities are described
 in detail in the [IUF section](https://cray-hpe.github.io/docs-csm/en-14/operations/iuf/iuf/)
-of the [Cray System Management Documentation](https://cray-hpe.github.io/docs-csm/).
+of the [*Cray System Management Documentation*](https://cray-hpe.github.io/docs-csm/).
 The initial install and upgrade workflows described in the
-[HPE Cray EX System Software Stack Installation and Upgrade Guide for CSM
-(S-8052)](https://www.hpe.com/support/ex-S-8052) detail when and how to use
+[*HPE Cray EX System Software Stack Installation and Upgrade Guide for CSM
+(S-8052)*](https://www.hpe.com/support/ex-S-8052) detail when and how to use
 IUF with a new release of SAT or any other HPE Cray EX product.
 
 Because IUF now handles NCN personalization, information about this process was
@@ -87,7 +87,7 @@ removed from the SAT documentation. Other sections in the documentation were
 also revised to support the new Install and Upgrade Framework. For example, the
 [SAT Installation](../install.md) and [SAT Upgrade](../upgrade.md) sections of this
 guide now provide details on software and configuration content specific to SAT.
-The [Cray System Management Documentation](https://cray-hpe.github.io/docs-csm/)
+The [*Cray System Management Documentation*](https://cray-hpe.github.io/docs-csm/)
 will indicate when these sections should be referred to for detailed information.
 
 For more information on the relationship between `sat bootprep` and IUF, see

@@ -5,7 +5,7 @@ upgrade, and deploy products on systems managed by CSM with the help of
 `sat bootprep`. Outside of IUF, it is uncommon to use `sat bootprep`.
 For more information on IUF, see the
 [IUF section](https://cray-hpe.github.io/docs-csm/en-14/operations/iuf/iuf/) of
-the [Cray System Management Documentation](https://cray-hpe.github.io/docs-csm/).
+the [*Cray System Management Documentation*](https://cray-hpe.github.io/docs-csm/).
 For more information on `sat bootprep`, see [SAT Bootprep](sat_bootprep.md).
 
 ## Variable Substitutions
@@ -25,7 +25,7 @@ version combinations being installed by the current IUF activity, and they are
 found inside IUF's internal `session_vars.yaml` file. For more information on
 IUF and variable substitutions, see the
 [IUF section](https://cray-hpe.github.io/docs-csm/en-14/operations/iuf/iuf/) of
-the [Cray System Management Documentation](https://cray-hpe.github.io/docs-csm/).
+the [*Cray System Management Documentation*](https://cray-hpe.github.io/docs-csm/).
 
 ### SAT Variable Limitations
 

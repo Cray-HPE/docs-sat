@@ -276,7 +276,7 @@ use externally-accessible API endpoints exposed by CSM.
    Keycloak and must have its *assigned role* set to *admin*. For more
    information on editing *Role Mappings*, see *Create Internal User Accounts
    in the Keycloak Shasta Realm* in the
-   [Cray System Management Documentation](https://cray-hpe.github.io/docs-csm/).
+   [*Cray System Management Documentation*](https://cray-hpe.github.io/docs-csm/).
    For more information on authentication types and authentication credentials,
    see [SAT Command Authentication](introduction.md#sat-command-authentication).
 

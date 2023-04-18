@@ -6,18 +6,18 @@ The Install and Upgrade Framework (IUF) provides commands which install,
 upgrade, and deploy products on systems managed by CSM. IUF capabilities are
 described in detail in the [IUF
 section](https://cray-hpe.github.io/docs-csm/en-14/operations/iuf/iuf/) of the
-[Cray System Management Documentation](https://cray-hpe.github.io/docs-csm/).
+[*Cray System Management Documentation*](https://cray-hpe.github.io/docs-csm/).
 The initial install and upgrade workflows described in the
-[HPE Cray EX System Software Stack Installation and Upgrade Guide for CSM
-(S-8052)](https://www.hpe.com/support/ex-S-8052) detail when and how to use
+[*HPE Cray EX System Software Stack Installation and Upgrade Guide for CSM
+(S-8052)*](https://www.hpe.com/support/ex-S-8052) detail when and how to use
 IUF with a new release of SAT or any other HPE Cray EX product.
 
 This document **does not** replicate install, upgrade, or deployment procedures
-detailed in the [Cray System Management
-Documentation](https://cray-hpe.github.io/docs-csm/). This document provides
+detailed in the [*Cray System Management
+Documentation*](https://cray-hpe.github.io/docs-csm/). This document provides
 details regarding software and configuration content specific to SAT which is
-needed when installing, upgrading, or deploying a SAT release. The [Cray
-System Management Documentation](https://cray-hpe.github.io/docs-csm/) will
+needed when installing, upgrading, or deploying a SAT release. The [*Cray
+System Management Documentation*](https://cray-hpe.github.io/docs-csm/) will
 indicate when sections of this document should be referred to for detailed
 information.
 
@@ -39,7 +39,7 @@ IUF will perform the following tasks for a release of SAT.
 
 IUF uses a variety of CSM and SAT tools when performing these tasks. The [IUF
 section](https://cray-hpe.github.io/docs-csm/en-14/operations/iuf/iuf/) of the
-[Cray System Management Documentation](https://cray-hpe.github.io/docs-csm/)
+[*Cray System Management Documentation*](https://cray-hpe.github.io/docs-csm/)
 describes how to use these tools directly if it is desirable to use them
 instead of IUF.
 
@@ -87,8 +87,8 @@ To run SAT commands on the manager NCNs, you must first set up authentication
 to the API gateway. The admin account used to authenticate with `sat auth`
 must be enabled in Keycloak and must have its *assigned role* set to *admin*.
 For more information on editing *Role Mappings*, see *Create Internal User Accounts
-in the Keycloak Shasta Realm* in the [Cray System Management
-Documentation](https://cray-hpe.github.io/docs-csm/). For more information on
+in the Keycloak Shasta Realm* in the [*Cray System Management
+Documentation*](https://cray-hpe.github.io/docs-csm/). For more information on
 authentication types and authentication credentials, see [SAT Command
 Authentication](introduction.md#sat-command-authentication).
 
@@ -96,7 +96,7 @@ Authentication](introduction.md#sat-command-authentication).
 
 - The `sat` CLI has been installed following the [IUF
   section](https://cray-hpe.github.io/docs-csm/en-14/operations/iuf/iuf/) of the
-  [Cray System Management Documentation](https://cray-hpe.github.io/docs-csm/).
+  [*Cray System Management Documentation*](https://cray-hpe.github.io/docs-csm/).
 
 #### Procedure
 
@@ -154,7 +154,7 @@ Information](#set-system-revision-information)).
 
 - The SAT CLI has been installed following the [IUF
   section](https://cray-hpe.github.io/docs-csm/en-14/operations/iuf/iuf/) of the
-  [Cray System Management Documentation](https://cray-hpe.github.io/docs-csm/).
+  [*Cray System Management Documentation*](https://cray-hpe.github.io/docs-csm/).
 - The SAT configuration file has been created (See [Authenticate SAT
   Commands](#authenticate-sat-commands)).
 - CSM has been installed and verified.
