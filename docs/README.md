@@ -4,6 +4,7 @@
 
 - [About System Admin Toolkit (SAT)](introduction.md#about-system-admin-toolkit-sat)
 - [SAT Command Overview](introduction.md#sat-command-overview)
+- [SAT Command Authentication](introduction.md#sat-command-authentication)
 - [Command Prompt Conventions in SAT](introduction.md#command-prompt-conventions-in-sat)
 - [SAT in CSM](introduction.md#sat-in-csm)
 - [SAT Dependencies](introduction.md#sat-dependencies)
@@ -23,7 +24,7 @@
 ## [SAT Uninstall and Downgrade](uninstall_and_downgrade.md)
 
 - [Uninstall: Remove a Version of SAT](uninstall_and_downgrade.md#uninstall-remove-a-version-of-sat)
-- [Activate: Switch Between SAT Versions](uninstall_and_downgrade.md#activate-switch-between-sat-versions)
+- [Downgrade: Switch Between SAT Versions](uninstall_and_downgrade.md#downgrade-switch-between-sat-versions)
 
 ## [SAT on an External System](external_system.md)
 
@@ -40,15 +41,10 @@
 ## [SAT Usage](usage/README.md)
 
 - [SAT Bootprep](usage/sat_bootprep.md)
+- [SAT and IUF](usage/sat_and_iuf.md)
 - [Change the BOS Version](usage/change_bos_version.md)
 
-## [SAT Release Notes](release_notes.md)
+## [SAT Release Notes](release_notes/README.md)
 
-- [Summary of Changes in SAT 2.4](release_notes.md#summary-of-changes-in-sat-24)
-- [Summary of Changes in SAT 2.3](release_notes.md#summary-of-changes-in-sat-23)
-- [Summary of Changes in SAT 2.2](release_notes.md#summary-of-changes-in-sat-22)
-- [Summary of SAT Changes in Shasta v1.5](release_notes.md#summary-of-sat-changes-in-shasta-v15)
-- [Summary of SAT Changes in Shasta v1.4.1](release_notes.md#summary-of-sat-changes-in-shasta-v141)
-- [Summary of SAT Changes in Shasta v1.4](release_notes.md#summary-of-sat-changes-in-shasta-v14)
-- [Summary of SAT Changes in Shasta v1.3.2](release_notes.md#summary-of-sat-changes-in-shasta-v132)
-- [Summary of SAT Changes in Shasta v1.3](release_notes.md#summary-of-sat-changes-in-shasta-v13)
+- [Changes in SAT Version 2.x](release_notes/README.md#changes-in-sat-version-2x)
+- [SAT Changes in Shasta Version 1.x](release_notes/README.md#sat-changes-in-shasta-version-1x)

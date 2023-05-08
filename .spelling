@@ -47,7 +47,7 @@ Loftsman
 S-8000
 S-8001
 S-8052
-update-cfs-config 
+update-cfs-config
 update-vcs-config
 XName
 XNames
@@ -56,15 +56,17 @@ analytics
 batcher
 bootprep
 bootsys
+certifi
 config
 daemonless
 gzipped
-playbook
 hostname
 hostnames
 metaschema
 metadata
+oauthlib
 passwordless
+playbook
 pre-installation
 pre-ncn-personalization
 pre-populated
@@ -86,6 +88,11 @@ v1.5.
 v1.3.
 v1.3.2.
 v1.4.1.
+# The spell checker does not allow v2 when referring to BOS v2.
+v2
+# The spell checker complains about generic version numbers (1.x)
+1.x
+2.x
 # The spell checker allows acronyms, but does not allow pluralized acronyms
 # (e.g. "NCNs").
 APIs
@@ -102,5 +109,7 @@ JSON-formatted
 YAML-formatted
 # CVE IDs
 CVE-2021-33503
+CVE-2022-23491
 CVE-2022-24302
 CVE-2022-36087
+CVE-2023-23931

@@ -6,18 +6,18 @@ The Install and Upgrade Framework (IUF) provides commands which install,
 upgrade, and deploy products on systems managed by CSM. IUF capabilities are
 described in detail in the [IUF
 section](https://cray-hpe.github.io/docs-csm/en-14/operations/iuf/iuf/) of the
-[Cray System Management Documentation](https://cray-hpe.github.io/docs-csm/).
+[*Cray System Management Documentation*](https://cray-hpe.github.io/docs-csm/).
 The initial install and upgrade workflows described in the
-[HPE Cray EX System Software Stack Installation and Upgrade Guide for CSM
-(S-8052)](https://www.hpe.com/support/ex-S-8052) detail when and how to use
+[*HPE Cray EX System Software Stack Installation and Upgrade Guide for CSM
+(S-8052)*](https://www.hpe.com/support/ex-S-8052) detail when and how to use
 IUF with a new release of SAT or any other HPE Cray EX product.
 
 This document **does not** replicate install, upgrade, or deployment procedures
-detailed in the [Cray System Management
-Documentation](https://cray-hpe.github.io/docs-csm/). This document provides
+detailed in the [*Cray System Management
+Documentation*](https://cray-hpe.github.io/docs-csm/). This document provides
 details regarding software and configuration content specific to SAT which is
-needed when installing, upgrading, or deploying a SAT release. The [Cray
-System Management Documentation](https://cray-hpe.github.io/docs-csm/) will
+needed when installing, upgrading, or deploying a SAT release. The [*Cray
+System Management Documentation*](https://cray-hpe.github.io/docs-csm/) will
 indicate when sections of this document should be referred to for detailed
 information.
 
@@ -39,7 +39,7 @@ IUF will perform the following tasks for a release of SAT.
 
 IUF uses a variety of CSM and SAT tools when performing these tasks. The [IUF
 section](https://cray-hpe.github.io/docs-csm/en-14/operations/iuf/iuf/) of the
-[Cray System Management Documentation](https://cray-hpe.github.io/docs-csm/)
+[*Cray System Management Documentation*](https://cray-hpe.github.io/docs-csm/)
 describes how to use these tools directly if it is desirable to use them
 instead of IUF.
 
@@ -86,68 +86,22 @@ procedures before using SAT:
 To run SAT commands on the manager NCNs, you must first set up authentication
 to the API gateway. The admin account used to authenticate with `sat auth`
 must be enabled in Keycloak and must have its *assigned role* set to *admin*.
-For instructions on editing *Role Mappings*, see *Create Internal User Accounts
-in the Keycloak Shasta Realm* in the [Cray System Management
-Documentation](https://cray-hpe.github.io/docs-csm/). For additional
-information on SAT authentication, see *System Security and Authentication* in
-the [Cray System Management Documentation](https://cray-hpe.github.io/docs-csm/).
-
-#### Description of SAT Command Authentication Types
-
-Some SAT subcommands make requests to the Shasta services through the API gateway and thus require authentication to
-the API gateway in order to function. Other SAT subcommands use the Kubernetes API. Some `sat` commands require S3 to
-be configured (see: [Generate SAT S3 Credentials](#generate-sat-s3-credentials)). In order to use the SAT S3 bucket,
-the System Administrator must generate the S3 access key and secret keys and write them to a local file. This must be
-done on every Kubernetes manager node where SAT commands are run.
-
-Below is a table describing SAT commands and the types of authentication they require.
-
-|SAT Subcommand|Authentication/Credentials Required|Man Page|Description|
-|--------------|-----------------------------------|--------|-----------|
-|`sat auth`|Responsible for authenticating to the API gateway and storing a token.|`sat-auth`|Authenticate to the API gateway and save the token.|
-|`sat bmccreds`|Requires authentication to the API gateway.|`sat-bmccreds`|Set BMC passwords.|
-|`sat bootprep`|Requires authentication to the API gateway. Requires Kubernetes configuration and authentication, which is done on `ncn-m001` during the install.|`sat-bootprep`|Prepare to boot nodes with images and configurations.|
-|`sat bootsys`|Requires authentication to the API gateway. Requires Kubernetes configuration and authentication, which is configured on `ncn-m001` during the install. Some stages require passwordless SSH to be configured to all other NCNs. Requires S3 to be configured for some stages.|`sat-bootsys`|Boot or shutdown the system, including compute nodes, application nodes, and non-compute nodes (NCNs) running the management software.|
-|`sat diag`|Requires authentication to the API gateway.|`sat-diag`|Launch diagnostics on the HSN switches and generate a report.|
-|`sat firmware`|Requires authentication to the API gateway.|`sat-firmware`|Report firmware version.|
-|`sat hwhist`|Requires authentication to the API gateway.|`sat-hwhist`|Report hardware component history.|
-|`sat hwinv`|Requires authentication to the API gateway.|`sat-hwinv`|Give a listing of the hardware of the HPE Cray EX system.|
-|`sat hwmatch`|Requires authentication to the API gateway.|`sat-hwmatch`|Report hardware mismatches.|
-|`sat init`|None|`sat-init`|Create a default SAT configuration file.|
-|`sat jobstat`|Requires authentication to the API gateway.|`sat-jobstat`|Check the status of jobs and applications.|
-|`sat k8s`|Requires Kubernetes configuration and authentication, which is automatically configured on `ncn-m001` during the install.|`sat-k8s`|Report on Kubernetes replica sets that have co-located \(on the same node\) replicas.|
-|`sat linkhealth`|||**This command has been deprecated.**|
-|`sat nid2xname`|Requires authentication to the API gateway.|`sat-nid2xname`|Translate node IDs to node XNames.|
-|`sat sensors`|Requires authentication to the API gateway.|`sat-sensors`|Report current sensor data.|
-|`sat setrev`|Requires S3 to be configured for site information such as system name, serial number, install date, and site name.|`sat-setrev`|Set HPE Cray EX system revision information.|
-|`sat showrev`|Requires API gateway authentication in order to query the Interconnect from HSM. Requires S3 to be configured for site information such as system name, serial number, install date, and site name.|`sat-showrev`|Print revision information for the HPE Cray EX system.|
-|`sat slscheck`|Requires authentication to the API gateway.|`sat-slscheck`|Perform a cross-check between SLS and HSM.|
-|`sat status`|Requires authentication to the API gateway.|`sat-status`|Report node status across the HPE Cray EX system.|
-|`sat swap`|Requires authentication to the API gateway.|`sat-swap`|Prepare HSN switch or cable for replacement and bring HSN switch or cable into service.|
-|`sat xname2nid`|Requires authentication to the API gateway.|`sat-xname2nid`|Translate node and node BMC XNames to node IDs.|
-|`sat switch`|**This command has been deprecated.** It has been replaced by `sat swap`.|
-
-In order to authenticate to the API gateway, you must run the `sat auth` command. This command will prompt for a password
-on the command line. The username value is obtained from the following locations, in order of higher precedence to lower
-precedence:
-
-- The `--username` global command-line option.
-- The `username` option in the `api_gateway` section of the config file at `~/.config/sat/sat.toml`.
-- The name of currently logged in user running the `sat` command.
-
-If credentials are entered correctly when prompted by `sat auth`, a token file will be obtained and saved to
-`~/.config/sat/tokens`. Subsequent sat commands will determine the username the same way as `sat auth` described above,
-and will use the token for that username if it has been obtained and saved by `sat auth`.
+For more information on editing *Role Mappings*, see *Create Internal User Accounts
+in the Keycloak Shasta Realm* in the [*Cray System Management
+Documentation*](https://cray-hpe.github.io/docs-csm/). For more information on
+authentication types and authentication credentials, see [SAT Command
+Authentication](introduction.md#sat-command-authentication).
 
 #### Prerequisites
 
 - The `sat` CLI has been installed following the [IUF
   section](https://cray-hpe.github.io/docs-csm/en-14/operations/iuf/iuf/) of the
-  [Cray System Management Documentation](https://cray-hpe.github.io/docs-csm/).
+  [*Cray System Management Documentation*](https://cray-hpe.github.io/docs-csm/).
 
 #### Procedure
 
-The following is the procedure to globally configure the username used by SAT and authenticate to the API gateway:
+The following is the procedure to globally configure the username used by SAT and
+authenticate to the API gateway.
 
 1. Generate a default SAT configuration file, if one does not exist.
 
@@ -156,21 +110,22 @@ The following is the procedure to globally configure the username used by SAT an
    Configuration file "/root/.config/sat/sat.toml" generated.
    ```
 
-   **Note:** If the config file already exists, it will print out an error:
+   **Note:** If the config file already exists, it will print out the following
+   error.
 
    ```screen
    ERROR: Configuration file "/root/.config/sat/sat.toml" already exists.
    Not generating configuration file.
    ```
 
-1. Edit `~/.config/sat/sat.toml` and set the username option in the `api_gateway` section of the config file. For
-   example:
+1. Edit `~/.config/sat/sat.toml` and set the username option in the `api_gateway`
+   section of the config file.
 
    ```screen
    username = "crayadmin"
    ```
 
-1. Run `sat auth`. Enter your password when prompted. For example:
+1. Run `sat auth`. Enter your password when prompted.
 
    ```screen
    ncn-m001# sat auth
@@ -178,7 +133,7 @@ The following is the procedure to globally configure the username used by SAT an
    Succeeded!
    ```
 
-1. Other `sat` commands are now authenticated to make requests to the API gateway. For example:
+1. Other `sat` commands are now authenticated to make requests to the API gateway.
 
    ```screen
    ncn-m001# sat status
@@ -186,18 +141,20 @@ The following is the procedure to globally configure the username used by SAT an
 
 ### Generate SAT S3 Credentials
 
-Generate S3 credentials and write them to a local file so the SAT user can access S3 storage. In order to use the SAT
-S3 bucket, the System Administrator must generate the S3 access key and secret keys and write them to a local file.
-This must be done on every Kubernetes master node where SAT commands are run.
+Generate S3 credentials and write them to a local file so the SAT user can access
+S3 storage. In order to use the SAT S3 bucket, the System Administrator must
+generate the S3 access key and secret keys and write them to a local file. This
+must be done on every Kubernetes master node where SAT commands are run.
 
-SAT uses S3 storage for several purposes, most importantly to store the site-specific information set with `sat setrev`
-(see: [Set System Revision Information](#set-system-revision-information)).
+SAT uses S3 storage for several purposes, most importantly to store the
+site-specific information set with `sat setrev` (see [Set System Revision
+Information](#set-system-revision-information)).
 
 #### Prerequisites
 
 - The SAT CLI has been installed following the [IUF
   section](https://cray-hpe.github.io/docs-csm/en-14/operations/iuf/iuf/) of the
-  [Cray System Management Documentation](https://cray-hpe.github.io/docs-csm/).
+  [*Cray System Management Documentation*](https://cray-hpe.github.io/docs-csm/).
 - The SAT configuration file has been created (See [Authenticate SAT
   Commands](#authenticate-sat-commands)).
 - CSM has been installed and verified.
@@ -252,7 +209,8 @@ SAT uses S3 storage for several purposes, most importantly to store the site-spe
 
    1. Compare the two endpoint values.
 
-      If the values differ, change the SAT configuration file's endpoint value to match the secret's.
+      If the values differ, change the SAT configuration file's endpoint value to
+      match the secret's.
 
 1. Copy SAT configurations to each manager node on the system.
 
@@ -262,10 +220,10 @@ SAT uses S3 storage for several purposes, most importantly to store the site-spe
        scp -pr /root/.config/sat ${i}:/root/.config; done
    ```
 
-   **Note:** Depending on how many manager nodes are on the system, the list of manager nodes may
-   be different. This example assumes three manager nodes, where the configuration files must be
-   copied from `ncn-m001` to `ncn-m002` and `ncn-m003`. Therefore, the list of hosts above is
-   `ncn-m002` and `ncn-m003`.
+   **Note:** Depending on how many manager nodes are on the system, the list of
+   manager nodes may be different. This example assumes three manager nodes, where
+   the configuration files must be copied from `ncn-m001` to `ncn-m002` and
+   `ncn-m003`. Therefore, the list of hosts above is `ncn-m002` and `ncn-m003`.
 
 ### Set System Revision Information
 

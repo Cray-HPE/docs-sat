@@ -113,6 +113,60 @@ ncn-m001# man sat
 ncn-m001# man sat-podman
 ```
 
+## SAT Command Authentication
+
+Some SAT subcommands make requests to the Shasta services through the API
+gateway and thus require authentication to the API gateway in order to function.
+Other SAT subcommands use the Kubernetes API. Some `sat` commands require S3 to
+be configured. In order to use the SAT S3 bucket, the System Administrator must
+generate the S3 access key and secret keys and write them to a local file. This
+must be done on every Kubernetes manager node where SAT commands are run.
+
+For more information on authentication requests, see *System Security and
+Authentication* in the [*Cray System Management
+Documentation*](https://cray-hpe.github.io/docs-csm/). The following is a table
+describing SAT commands and the types of authentication they require.
+
+|SAT Subcommand|Authentication/Credentials Required|Man Page|Description|
+|--------------|-----------------------------------|--------|-----------|
+|`sat auth`|Responsible for authenticating to the API gateway and storing a token.|`sat-auth`|Authenticate to the API gateway and save the token.|
+|`sat bmccreds`|Requires authentication to the API gateway.|`sat-bmccreds`|Set BMC passwords.|
+|`sat bootprep`|Requires authentication to the API gateway. Requires Kubernetes configuration and authentication, which is done on `ncn-m001` during the install.|`sat-bootprep`|Prepare to boot nodes with images and configurations.|
+|`sat bootsys`|Requires authentication to the API gateway. Requires Kubernetes configuration and authentication, which is configured on `ncn-m001` during the install. Some stages require passwordless SSH to be configured to all other NCNs. Requires S3 to be configured for some stages.|`sat-bootsys`|Boot or shutdown the system, including compute nodes, application nodes, and non-compute nodes (NCNs) running the management software.|
+|`sat diag`|Requires authentication to the API gateway.|`sat-diag`|Launch diagnostics on the HSN switches and generate a report.|
+|`sat firmware`|Requires authentication to the API gateway.|`sat-firmware`|Report firmware version.|
+|`sat hwhist`|Requires authentication to the API gateway.|`sat-hwhist`|Report hardware component history.|
+|`sat hwinv`|Requires authentication to the API gateway.|`sat-hwinv`|Give a listing of the hardware of the HPE Cray EX system.|
+|`sat hwmatch`|Requires authentication to the API gateway.|`sat-hwmatch`|Report hardware mismatches.|
+|`sat init`|None|`sat-init`|Create a default SAT configuration file.|
+|`sat jobstat`|Requires authentication to the API gateway.|`sat-jobstat`|Check the status of jobs and applications.|
+|`sat k8s`|Requires Kubernetes configuration and authentication, which is automatically configured on `ncn-m001` during the install.|`sat-k8s`|Report on Kubernetes replica sets that have co-located \(on the same node\) replicas.|
+|`sat linkhealth`|**This command has been deprecated.**|
+|`sat nid2xname`|Requires authentication to the API gateway.|`sat-nid2xname`|Translate node IDs to node XNames.|
+|`sat sensors`|Requires authentication to the API gateway.|`sat-sensors`|Report current sensor data.|
+|`sat setrev`|Requires S3 to be configured for site information such as system name, serial number, install date, and site name.|`sat-setrev`|Set HPE Cray EX system revision information.|
+|`sat showrev`|Requires API gateway authentication in order to query the Interconnect from HSM. Requires S3 to be configured for site information such as system name, serial number, install date, and site name.|`sat-showrev`|Print revision information for the HPE Cray EX system.|
+|`sat slscheck`|Requires authentication to the API gateway.|`sat-slscheck`|Perform a cross-check between SLS and HSM.|
+|`sat status`|Requires authentication to the API gateway.|`sat-status`|Report node status across the HPE Cray EX system.|
+|`sat swap`|Requires authentication to the API gateway.|`sat-swap`|Prepare HSN switch or cable for replacement and bring HSN switch or cable into service.|
+|`sat xname2nid`|Requires authentication to the API gateway.|`sat-xname2nid`|Translate node and node BMC XNames to node IDs.|
+|`sat switch`|**This command has been deprecated.** It has been replaced by `sat swap`.|
+
+In order to authenticate to the API gateway, you must run the `sat auth`
+command. This command will prompt for a password on the command line. The
+username value is obtained from the following locations, in order of higher
+precedence to lower precedence:
+
+- The `--username` global command-line option.
+- The `username` option in the `api_gateway` section of the config file at
+  `~/.config/sat/sat.toml`.
+- The name of currently logged in user running the `sat` command.
+
+If credentials are entered correctly when prompted by `sat auth`, a token file
+will be obtained and saved to `~/.config/sat/tokens`. Subsequent sat commands
+will determine the username the same way as `sat auth` described above and will
+use the token for that username if it has been obtained and saved by `sat auth`.
+
 ## Command Prompt Conventions in SAT
 
 The host name in a command prompt indicates where the command must be run. The account that must run the command is
@@ -130,7 +184,7 @@ also indicated in the prompt.
 | `ncn-m001#` | Run on one of the Kubernetes Manager servers. (**Non-interactive**) |
 | `(CONTAINER_ID) sat-container#` | Run the command inside the SAT container environment by first running `sat bash`. (**Interactive**) |
 
-Examples of the `sat status` command used by an administrator:
+Here are examples of the `sat status` command used by an administrator.
 
 ```screen
 ncn-m001# sat status
@@ -151,7 +205,7 @@ to install SAT as a separate product stream. Any version of SAT installed as a s
   stream. Otherwise, there will be no entry for this version of SAT in the output of `sat showrev`.
 
 - The `sat-install-utility` container image is only available with the full SAT product stream. This container image
-  provides uninstall and activate functionality when used with the `prodmgr` command. (In SAT 2.3 and older, SAT was
+  provides uninstall and downgrade functionality when used with the `prodmgr` command. (In SAT 2.3 and older, SAT was
   only available to install as a separate product stream. Because these versions were packaged with
   `sat-install-utility`, it is still possible to uninstall these versions of SAT.)
 
@@ -161,7 +215,7 @@ to install SAT as a separate product stream. Any version of SAT installed as a s
   only available with the full SAT product stream.
 
 If the SAT product stream is not installed, there will be no configuration content for SAT in VCS. Therefore, CFS
-configurations that apply to management NCNs (for example, `management-23.03`) should not include a SAT layer.
+configurations that apply to management NCNs (for example, `management-23.4.0`) should not include a SAT layer.
 
 The SAT configuration layer modifies the permissions of files left over from prior installations of SAT, so that the
 Keycloak username that authenticates to the API gateway cannot be read by users other than `root`. Specifically, it
