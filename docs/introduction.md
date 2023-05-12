@@ -266,7 +266,6 @@ for each subcommand. Each service or component is listed under the product it be
 - Boot Orchestration Service (BOS)
 - Cray Advanced Platform Monitoring and Control (CAPMC)
 - Ceph
-- Compute Rolling Upgrade Service (CRUS)
 - Etcd
 - Firmware Action Service (FAS)
 - Hardware State Manager (HSM)
