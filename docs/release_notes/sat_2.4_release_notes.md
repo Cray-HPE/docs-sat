@@ -142,7 +142,7 @@ changes should not impact the functionality of the SAT product in any way.
 - The `oauthlib` Python package version was updated from 3.2.0 to 3.2.1 to
   mitigate CVE-2022-36087.
 
-### Restricted Permissions on SAT Config Files and Directories
+### Restricted Permissions on SAT Configuration Files and Directories
 
 SAT stores information used to authenticate to the API gateway with Keycloak.
 Token files are stored in the `~/.config/sat/tokens/` directory. Those files
@@ -150,13 +150,14 @@ have always had permissions appropriately set to restrict them to be readable
 only by the user.
 
 Keycloak usernames used to authenticate to the API gateway are stored in the
-SAT config file at `/.config/sat/sat.toml`. Keycloak usernames are also used in
-the file names of tokens stored in `/.config/sat/tokens`. As an additional
-security measure, SAT now restricts the permissions of the SAT config file
-to be readable and writable only by the user. It also restricts the tokens
-directory and the entire SAT config directory `~/.config/sat` to be accessible
-only by the user. This prevents other users on the system from viewing
-Keycloak usernames used to authenticate to the API gateway.
+SAT configuration file at `/.config/sat/sat.toml`. Keycloak usernames are also
+used in the file names of tokens stored in `/.config/sat/tokens`. As an
+additional security measure, SAT now restricts the permissions of the SAT
+configuration file to be readable and writable only by the user. It also
+restricts the tokens directory and the entire SAT configuration directory
+`~/.config/sat` to be accessible only by the user. This prevents other users on
+the system from viewing Keycloak usernames used to authenticate to the API
+gateway.
 
 ## Bug Fixes
 
