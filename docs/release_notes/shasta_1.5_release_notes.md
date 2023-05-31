@@ -54,8 +54,8 @@ The `sat linkhealth` command has been removed. Its functionality has been
 replaced by functionality from the Slingshot Topology Tool (STT) in the
 fabric manager pod.
 
-The Redfish username and password command line options and config file options
-have been removed. For more information, see
+The Redfish username and password command line options and configuration file
+options have been removed. For more information, see
 [Remove Obsolete Configuration File Sections](../upgrade.md#remove-obsolete-configuration-file-sections).
 
 ## Additional Fields in `sat setrev` and `sat showrev`

@@ -40,19 +40,19 @@ To view man pages for `sat` commands, the user can run `sat-man SAT_COMMAND`,
 replacing `SAT_COMMAND` with the name of the `sat` command. Alternatively,
 the user can enter the `sat` container with `sat bash` and use the `man` command.
 
-## New `sat init` Command and Config File Location Change
+## New `sat init` Command and Configuration File Location Change
 
-The default location of the SAT config file has been changed from `/etc/sat.toml`
+The default location of the SAT configuration file has been changed from `/etc/sat.toml`
 to `~/.config/sat/sat.toml`. A new command, `sat init`, has been added that
 initializes a configuration file in the new default directory. This better supports
-individual users on the system who want their own config files.
+individual users on the system who want their own configuration files.
 
 `~/.config/sat` is mounted into the container that runs under Podman, so changes
 are persistent across invocations of the `sat` container. If desired, an alternate
 configuration directory can be specified with the `SAT_CONFIG_DIR` environment
 variable.
 
-Additionally, if a config file does not yet exist when a user runs a `sat`
+Additionally, if a configuration file does not yet exist when a user runs a `sat`
 command, one is generated automatically.
 
 ## Additional Types Added to `sat hwinv`
@@ -129,10 +129,10 @@ The following improvements were made to the `bos-operations` stage
 of `sat bootsys`:
 
 - More information about the BOS sessions, BOA jobs, and BOA pods is printed.
-- A command-line option, `--bos-templates`, and a corresponding config-file
-  option, `bos_templates`, were added, and the `--cle-bos-template` and
-  `--uan-bos-template` options and their corresponding config file options were
-  deprecated.
+- A command-line option, `--bos-templates`, and a corresponding configuration
+  file option, `bos_templates`, were added, and the `--cle-bos-template` and
+  `--uan-bos-template` options and their corresponding configuration file
+  options were deprecated.
 
 The following functionality has been removed from `sat bootsys`:
 

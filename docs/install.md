@@ -110,8 +110,8 @@ authenticate to the API gateway.
    Configuration file "/root/.config/sat/sat.toml" generated.
    ```
 
-   **Note:** If the config file already exists, it will print out the following
-   error.
+   **Note:** If the configuration file already exists, it will print out the
+   following error.
 
    ```screen
    ERROR: Configuration file "/root/.config/sat/sat.toml" already exists.
@@ -119,7 +119,7 @@ authenticate to the API gateway.
    ```
 
 1. Edit `~/.config/sat/sat.toml` and set the username option in the `api_gateway`
-   section of the config file.
+   section of the configuration file.
 
    ```screen
    username = "crayadmin"
