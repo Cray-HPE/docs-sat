@@ -43,6 +43,7 @@
 - [SAT Bootprep](usage/sat_bootprep.md)
 - [SAT and IUF](usage/sat_and_iuf.md)
 - [Change the BOS Version](usage/change_bos_version.md)
+- [Configure Multi-tenancy](usage/multi-tenancy.md)
 
 ## [SAT Release Notes](release_notes/README.md)
 
