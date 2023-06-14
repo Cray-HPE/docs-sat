@@ -49,10 +49,15 @@ This procedure can be used to uninstall a version of SAT.
 
 This procedure can be used to downgrade the active version of SAT.
 
+**Note:** The `prodmgr activate` command is deprecated in SAT 2.6, and the
+ability to switch between SAT versions will be removed in a future release.
+
 ### Prerequisites
 
-- Only versions 2.2 or newer of SAT can be switched. Older versions must be switched manually.
-- CSM version 1.2 or newer must be installed, so that the `prodmgr` command is available.
+- Only versions 2.2 or newer of SAT can be switched. Older versions must be
+  switched manually.
+- CSM version 1.2 or newer must be installed, so that the `prodmgr` command is
+  available.
 
 ### Procedure
 
