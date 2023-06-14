@@ -216,7 +216,7 @@ information on these rules, refer to **Configuration Management with
 the CFS Batcher** in the [*Cray System Management Documentation*](https://cray-hpe.github.io/docs-csm/).
 
 The main scenario in which the CFS batcher will not automatically re-apply the
-SAT layer is when the commit hash of the sat-config-management git repository
+SAT layer is when the commit hash of the `sat-config-management` git repository
 has not changed between SAT versions. The previous procedure ensures the
 configuration is re-applied in all cases, and it is harmless if the batcher has
 already applied an updated configuration.

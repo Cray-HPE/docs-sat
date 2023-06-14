@@ -158,8 +158,8 @@ username value is obtained from the following locations, in order of higher
 precedence to lower precedence:
 
 - The `--username` global command-line option.
-- The `username` option in the `api_gateway` section of the config file at
-  `~/.config/sat/sat.toml`.
+- The `username` option in the `api_gateway` section of the configuration file
+  at `~/.config/sat/sat.toml`.
 - The name of currently logged in user running the `sat` command.
 
 If credentials are entered correctly when prompted by `sat auth`, a token file

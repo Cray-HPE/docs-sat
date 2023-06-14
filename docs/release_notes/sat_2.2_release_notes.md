@@ -65,7 +65,7 @@ Error: container_linux.go:380: starting container process caused: process_linux.
 
 To resolve, run `sat` in another directory.
 
-### Duplicate Mount Error when Running `sat` in Config Directory
+### Duplicate Mount Error when Running `sat` in Configuration Directory
 
 `sat` commands will not work if the current directory is `~/.config/sat`.
 For example:
