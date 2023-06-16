@@ -85,13 +85,15 @@ procedures before using SAT:
 ### Authenticate SAT Commands
 
 To run SAT commands on the manager NCNs, you must first set up authentication
-to the API gateway. The admin account used to authenticate with `sat auth`
-must be enabled in Keycloak and must have its *assigned role* set to *admin*.
-For more information on editing *Role Mappings*, see *Create Internal User Accounts
-in the Keycloak Shasta Realm* in the [*Cray System Management
-Documentation*](https://cray-hpe.github.io/docs-csm/). For more information on
-authentication types and authentication credentials, see [SAT Command
+to the API gateway. For more information on authentication types and
+authentication credentials, see [SAT Command
 Authentication](introduction.md#sat-command-authentication).
+
+The admin account used to authenticate with `sat auth` must be enabled in
+Keycloak and must have its *assigned role* set to *admin*. For more information
+on Keycloak accounts and changing *Role Mappings*, refer to both *Configure Keycloak
+Account* and *Create Internal User Accounts in the Keycloak Shasta Realm* in
+the [*Cray System Management Documentation*](https://cray-hpe.github.io/docs-csm/).
 
 #### Prerequisites
 
