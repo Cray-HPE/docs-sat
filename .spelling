@@ -1,4 +1,5 @@
 #
+#
 # MIT License
 #
 # (C) Copyright 2023 Hewlett Packard Enterprise Development LP
@@ -71,6 +72,10 @@ subrole
 traceback
 uncomment
 versioned
+wildcard
+# Computer architecture types
+x86
+aarch64
 # The spell checker complains about legacy Shasta version numbers (vX.Y) when
 # they end in a period, for example "In 2020 HPE released Shasta v1.4.1."
 v1.4.
