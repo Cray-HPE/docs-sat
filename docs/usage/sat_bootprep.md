@@ -356,14 +356,19 @@ key, and each boot set in the session template should be specified under
 `boot_sets`. Each boot set can contain the following keys, all of
 which are optional:
 
-- Use a `kernel_parameters` key to specify the parameters passed to the kernel on the command line.
+- Use an `arch` key to specify the architecture of the nodes that should be
+  targeted by the boot set. Valid values are the same as those used by
+  Hardware State Manager (HSM).
+- Use a `kernel_parameters` key to specify the parameters passed to the kernel
+  on the command line.
 - Use a `network` key to specify the network over which the nodes boot.
 - Use a `node_list` key to specify the nodes to add to the boot set.
-- Use a `node_roles_groups` key to specify the HSM roles to add to the boot set.
+- Use a `node_roles_groups` key to specify the HSM roles to add to the boot
+  set.
 - Use a `node_groups` key to specify the HSM groups to add to the boot set.
 - Use a `rootfs_provider` key to specify the root file system provider.
-- Use a `rootfs_provider_passthrough` key to specify the parameters to add to the `rootfs=`
-  kernel parameter.
+- Use a `rootfs_provider_passthrough` key to specify the parameters to add to
+  the `rootfs=` kernel parameter.
 
 As mentioned above, the parameters under `bos_parameters` are passed through
 directly to BOS. For more information on the properties of a BOS boot set,
@@ -371,7 +376,8 @@ refer to **BOS Session Templates** in the [*Cray
 System Management Documentation*](https://cray-hpe.github.io/docs-csm/).
 
 Here is an example of a BOS session template that refers to an existing IMS
-image by name:
+image by name and targets nodes with the role `Compute` and the architecture
+`X86` in HSM:
 
 ```yaml
 session_templates:
@@ -383,6 +389,7 @@ session_templates:
   bos_parameters:
     boot_sets:
       example_boot_set:
+        arch: X86
         kernel_parameters: ip=dhcp quiet
         node_roles_groups:
         - Compute
@@ -391,8 +398,10 @@ session_templates:
 ```
 
 Here is an example of a BOS session template that refers to an image from the
-input file by its `ref_name`. This requires that an image defined in the input
-file specifies `example-image` as the value of its `ref_name` key.
+input file by its `ref_name` and targets nodes with the role `Compute` and the
+architecture `ARM` in HSM. Note that using the `image_ref` key requires that
+an image defined in the input file specifies `example-image` as the value of
+its `ref_name` key.
 
 ```yaml
 session_templates:
@@ -403,6 +412,7 @@ session_templates:
   bos_parameters:
     boot_sets:
       example_boot_set:
+        arch: ARM
         kernel_parameters: ip=dhcp quiet
         node_roles_groups:
         - Compute
