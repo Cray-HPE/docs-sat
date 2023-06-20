@@ -72,6 +72,7 @@ procedures before using SAT:
 
 - [Authenticate SAT Commands](#authenticate-sat-commands)
 - [Generate SAT S3 Credentials](#generate-sat-s3-credentials)
+- [(Optional) Configure Multi-tenancy](#optional-configure-multi-tenancy)
 - [Set System Revision Information](#set-system-revision-information)
 
 ### Notes on the Procedures
@@ -224,6 +225,12 @@ Information](#set-system-revision-information)).
    manager nodes may be different. This example assumes three manager nodes, where
    the configuration files must be copied from `ncn-m001` to `ncn-m002` and
    `ncn-m003`. Therefore, the list of hosts above is `ncn-m002` and `ncn-m003`.
+
+### (Optional) Configure Multi-tenancy
+
+If SAT is being installed on a multi-tenant system, you can configure the tenant
+name at this point. For more information, see [Configure
+multi-tenancy](usage/multi-tenancy.md).
 
 ### Set System Revision Information
 
