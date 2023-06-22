@@ -153,7 +153,8 @@ optionally configured. One of the following keys must be present under the
 - Use an `ims` key to specify an existing image or recipe in IMS.
 - Use a `product` key to specify an image or recipe provided by a particular
   version of a product. If a product provides more than one image or recipe,
-  a filter string prefix must be specified to select one.
+  you must specify a filter to select one. For more information, see
+  [Filter Base Images or Recipes from a Product](#filter-base-images-or-recipes-from-a-product).
 - Use an `image_ref` key to specify another image from the input file
   using its `ref_name`.
 
@@ -169,6 +170,8 @@ Images may also contain the following keys:
   [Dynamic Variable Substitutions](#dynamic-variable-substitutions).
 - Use a `description` key to describe the image in the bootprep input file.
   Note that this key is not currently used.
+
+#### Use Base Images or Recipes from IMS
 
 Here is an example of an image using an existing IMS recipe as its base. This
 example builds an IMS image from that recipe. It then configures it with
@@ -191,6 +194,8 @@ images:
   - Compute
 ```
 
+#### Use Base Images or Recipes from a Product
+
 Here is an example showing the definition of two images. The first image is
 built from a recipe provided by the `cos` product. The second image uses the
 first image as a base and configures it with a configuration named
@@ -204,7 +209,7 @@ images:
 - name: example-cos-image
   ref_name: example-cos-image
   description: >
-    An example image built from a recipe provided by the COS product.
+    An example image built from the recipe provided by the COS product.
   base:
     product:
       name: cos
@@ -212,7 +217,8 @@ images:
       type: recipe
 - name: example-compute-image
   description: >
-    An example image built from a recipe provided by the COS product.
+    An example image that is configured from an image built from the recipe provided
+    by the COS product.
   base:
     image_ref: example-cos-image
   configuration: example-compute-config
@@ -220,9 +226,34 @@ images:
   - Compute
 ```
 
+This example assumes that the given version of the `cos` product provides
+only a single IMS recipe. If more than one recipe is provided by the
+given version of the `cos` product, you must use a filter as described in
+[Filter Base Images or Recipes from a Product](#filter-base-images-or-recipes-from-a-product).
+
+#### Filter Base Images or Recipes from a Product
+
+A product may provide more than one image or recipe. If this happens,
+you must filter the product's images or recipes whenever you use a
+base image or recipe from that product. Beneath the `base.product` value
+within an image, specify a `filter` key to create a filter using the following
+criteria:
+
+- Use the `prefix` key to filter based on a prefix matching the name of the
+  image or recipe.
+- Use the `wildcard` key to filter based on a shell-style wildcard matching the
+  name of the image or recipe.
+- Use the `arch` key to filter based on the target architecture of the image or
+  recipe in IMS.
+
+If you specify more than one filter key, all filters must match only the
+desired image or recipe. An error occurs if either no images or recipes
+match the given filters or if more than one image or recipe matches
+the given filters.
+
 Here is an example of three IMS images built from the Kubernetes image and the
-Ceph storage image provided by the `csm` product. This example uses a filter
-string prefix to select from the multiple images provided by the CSM product.
+Ceph storage image provided by the `csm` product. This example uses a prefix
+filter to select from the multiple images provided by the CSM product.
 The first two IMS images in the example find any image from the specified `csm`
 product version whose name starts with `secure-kubernetes`. The third image in
 the example finds any `csm` image whose name starts with `secure-storage-ceph`.
@@ -270,6 +301,40 @@ images:
   - Management_Storage
 ```
 
+Here is an example of two IMS images built from recipes provided by the `cos`
+product. This example uses an architecture filter to select from the multiple
+recipes provided by the COS product. The first image will be built from the
+`x86_64` version of the IMS recipe provided by the specified version of the
+`cos` product. The second image will be built from the `aarch64` version of
+the IMS recipe provided by the specified version of the `cos` product.
+
+```yaml
+images:
+- name: example-cos-image-x86_64
+  ref_name: example-cos-image-x86_64
+  description: >
+    An example image built from the x86_64 recipe provided by the COS product.
+  base:
+    product:
+      name: cos
+      version: 2.6.90
+      type: recipe
+      filter:
+        arch: x86_64
+
+- name: example-cos-image-aarch64
+  ref_name: example-cos-image-aarch64
+  description: >
+    An example image built from the aarch64 recipe provided by the COS product.
+  base:
+    product:
+      name: cos
+      version: 2.6.90
+      type: recipe
+      filter:
+        arch: aarch64
+```
+
 ### Define BOS Session Templates
 
 The BOS session templates are defined under the `session_templates` key. Each
@@ -291,14 +356,19 @@ key, and each boot set in the session template should be specified under
 `boot_sets`. Each boot set can contain the following keys, all of
 which are optional:
 
-- Use a `kernel_parameters` key to specify the parameters passed to the kernel on the command line.
+- Use an `arch` key to specify the architecture of the nodes that should be
+  targeted by the boot set. Valid values are the same as those used by
+  Hardware State Manager (HSM).
+- Use a `kernel_parameters` key to specify the parameters passed to the kernel
+  on the command line.
 - Use a `network` key to specify the network over which the nodes boot.
 - Use a `node_list` key to specify the nodes to add to the boot set.
-- Use a `node_roles_groups` key to specify the HSM roles to add to the boot set.
+- Use a `node_roles_groups` key to specify the HSM roles to add to the boot
+  set.
 - Use a `node_groups` key to specify the HSM groups to add to the boot set.
 - Use a `rootfs_provider` key to specify the root file system provider.
-- Use a `rootfs_provider_passthrough` key to specify the parameters to add to the `rootfs=`
-  kernel parameter.
+- Use a `rootfs_provider_passthrough` key to specify the parameters to add to
+  the `rootfs=` kernel parameter.
 
 As mentioned above, the parameters under `bos_parameters` are passed through
 directly to BOS. For more information on the properties of a BOS boot set,
@@ -306,7 +376,8 @@ refer to **BOS Session Templates** in the [*Cray
 System Management Documentation*](https://cray-hpe.github.io/docs-csm/).
 
 Here is an example of a BOS session template that refers to an existing IMS
-image by name:
+image by name and targets nodes with the role `Compute` and the architecture
+`X86` in HSM:
 
 ```yaml
 session_templates:
@@ -318,6 +389,7 @@ session_templates:
   bos_parameters:
     boot_sets:
       example_boot_set:
+        arch: X86
         kernel_parameters: ip=dhcp quiet
         node_roles_groups:
         - Compute
@@ -326,8 +398,10 @@ session_templates:
 ```
 
 Here is an example of a BOS session template that refers to an image from the
-input file by its `ref_name`. This requires that an image defined in the input
-file specifies `example-image` as the value of its `ref_name` key.
+input file by its `ref_name` and targets nodes with the role `Compute` and the
+architecture `ARM` in HSM. Note that using the `image_ref` key requires that
+an image defined in the input file specifies `example-image` as the value of
+its `ref_name` key.
 
 ```yaml
 session_templates:
@@ -338,6 +412,7 @@ session_templates:
   bos_parameters:
     boot_sets:
       example_boot_set:
+        arch: ARM
         kernel_parameters: ip=dhcp quiet
         node_roles_groups:
         - Compute
@@ -400,6 +475,9 @@ input file support rendering as a Jinja2 template and thus support variables:
 - The following keys of each image under the `images` key:
   - `name`
   - `base.product.version`
+  - `base.product.filter.arch`
+  - `base.product.filter.prefix`
+  - `base.product.filter.wildcard`
   - `configuration`
 - The following keys of each session template under the
   `session_templates` key:
