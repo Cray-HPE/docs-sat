@@ -1,7 +1,8 @@
 #
+#
 # MIT License
 #
-# (C) Copyright 2022 Hewlett Packard Enterprise Development LP
+# (C) Copyright 2023 Hewlett Packard Enterprise Development LP
 #
 # Permission is hereby granted, free of charge, to any person obtaining a
 # copy of this software and associated documentation files (the "Software"),
@@ -44,11 +45,6 @@ Slurm
 EX-1C
 CSM-Diags
 Loftsman
-S-8000
-S-8001
-S-8052
-update-cfs-config
-update-vcs-config
 XName
 XNames
 # Technical terms
@@ -57,7 +53,6 @@ batcher
 bootprep
 bootsys
 certifi
-config
 daemonless
 gzipped
 hostname
@@ -67,10 +62,6 @@ metadata
 oauthlib
 passwordless
 playbook
-pre-installation
-pre-ncn-personalization
-pre-populated
-pre-upgrade
 prepended
 runtime
 subcommand
@@ -81,6 +72,10 @@ subrole
 traceback
 uncomment
 versioned
+wildcard
+# Computer architecture types
+x86
+aarch64
 # The spell checker complains about legacy Shasta version numbers (vX.Y) when
 # they end in a period, for example "In 2020 HPE released Shasta v1.4.1."
 v1.4.
@@ -88,8 +83,6 @@ v1.5.
 v1.3.
 v1.3.2.
 v1.4.1.
-# The spell checker does not allow v2 when referring to BOS v2.
-v2
 # The spell checker complains about generic version numbers (1.x)
 1.x
 2.x
@@ -107,6 +100,14 @@ RPMs
 # https://github.com/lukeapage/node-markdown-spellcheck/issues/120
 JSON-formatted
 YAML-formatted
+# The spell checker does not allow the following IUF stages in headings
+# without backticks
+update-cfs-config
+update-vcs-config
+# HPE publication numbers
+S-8000
+S-8001
+S-8052
 # CVE IDs
 CVE-2021-33503
 CVE-2022-23491

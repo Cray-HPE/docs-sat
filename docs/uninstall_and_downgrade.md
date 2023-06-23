@@ -49,10 +49,15 @@ This procedure can be used to uninstall a version of SAT.
 
 This procedure can be used to downgrade the active version of SAT.
 
+**Note:** The `prodmgr activate` command is deprecated in SAT 2.6, and the
+ability to switch between SAT versions will be removed in a future release.
+
 ### Prerequisites
 
-- Only versions 2.2 or newer of SAT can be switched. Older versions must be switched manually.
-- CSM version 1.2 or newer must be installed, so that the `prodmgr` command is available.
+- Only versions 2.2 or newer of SAT can be switched. Older versions must be
+  switched manually.
+- CSM version 1.2 or newer must be installed, so that the `prodmgr` command is
+  available.
 
 ### Procedure
 
@@ -216,7 +221,7 @@ information on these rules, refer to **Configuration Management with
 the CFS Batcher** in the [*Cray System Management Documentation*](https://cray-hpe.github.io/docs-csm/).
 
 The main scenario in which the CFS batcher will not automatically re-apply the
-SAT layer is when the commit hash of the sat-config-management git repository
+SAT layer is when the commit hash of the `sat-config-management` git repository
 has not changed between SAT versions. The previous procedure ensures the
 configuration is re-applied in all cases, and it is harmless if the batcher has
 already applied an updated configuration.

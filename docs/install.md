@@ -72,6 +72,7 @@ procedures before using SAT:
 
 - [Authenticate SAT Commands](#authenticate-sat-commands)
 - [Generate SAT S3 Credentials](#generate-sat-s3-credentials)
+- [(Optional) Configure Multi-tenancy](#optional-configure-multi-tenancy)
 - [Set System Revision Information](#set-system-revision-information)
 
 ### Notes on the Procedures
@@ -84,13 +85,15 @@ procedures before using SAT:
 ### Authenticate SAT Commands
 
 To run SAT commands on the manager NCNs, you must first set up authentication
-to the API gateway. The admin account used to authenticate with `sat auth`
-must be enabled in Keycloak and must have its *assigned role* set to *admin*.
-For more information on editing *Role Mappings*, see *Create Internal User Accounts
-in the Keycloak Shasta Realm* in the [*Cray System Management
-Documentation*](https://cray-hpe.github.io/docs-csm/). For more information on
-authentication types and authentication credentials, see [SAT Command
+to the API gateway. For more information on authentication types and
+authentication credentials, see [SAT Command
 Authentication](introduction.md#sat-command-authentication).
+
+The admin account used to authenticate with `sat auth` must be enabled in
+Keycloak and must have its *assigned role* set to *admin*. For more information
+on Keycloak accounts and changing *Role Mappings*, refer to both *Configure Keycloak
+Account* and *Create Internal User Accounts in the Keycloak Shasta Realm* in
+the [*Cray System Management Documentation*](https://cray-hpe.github.io/docs-csm/).
 
 #### Prerequisites
 
@@ -110,8 +113,8 @@ authenticate to the API gateway.
    Configuration file "/root/.config/sat/sat.toml" generated.
    ```
 
-   **Note:** If the config file already exists, it will print out the following
-   error.
+   **Note:** If the configuration file already exists, it will print out the
+   following error.
 
    ```screen
    ERROR: Configuration file "/root/.config/sat/sat.toml" already exists.
@@ -119,7 +122,7 @@ authenticate to the API gateway.
    ```
 
 1. Edit `~/.config/sat/sat.toml` and set the username option in the `api_gateway`
-   section of the config file.
+   section of the configuration file.
 
    ```screen
    username = "crayadmin"
@@ -224,6 +227,12 @@ Information](#set-system-revision-information)).
    manager nodes may be different. This example assumes three manager nodes, where
    the configuration files must be copied from `ncn-m001` to `ncn-m002` and
    `ncn-m003`. Therefore, the list of hosts above is `ncn-m002` and `ncn-m003`.
+
+### (Optional) Configure Multi-tenancy
+
+If SAT is being installed on a multi-tenant system, you can configure the tenant
+name at this point. For more information, see [Configure
+multi-tenancy](usage/multi-tenancy.md).
 
 ### Set System Revision Information
 

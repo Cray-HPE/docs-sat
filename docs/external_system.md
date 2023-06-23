@@ -270,21 +270,23 @@ use externally-accessible API endpoints exposed by CSM.
    username = "user"
    ```
 
-1. Run `sat auth`. Enter your password when prompted.
+1. Run `sat auth`, and enter your password when prompted.
 
    The admin account used to authenticate with `sat auth` must be enabled in
-   Keycloak and must have its *assigned role* set to *admin*. For more
-   information on editing *Role Mappings*, see *Create Internal User Accounts
-   in the Keycloak Shasta Realm* in the
-   [*Cray System Management Documentation*](https://cray-hpe.github.io/docs-csm/).
-   For more information on authentication types and authentication credentials,
-   see [SAT Command Authentication](introduction.md#sat-command-authentication).
+   Keycloak and must have its *assigned role* set to *admin*.
 
    ```screen
    $ sat auth
    Password for user:
    Succeeded!
    ```
+
+   For more information on authentication types and authentication credentials,
+   see [SAT Command Authentication](introduction.md#sat-command-authentication).
+   For more information on Keycloak accounts and changing *Role Mappings*,
+   refer to both *Configure Keycloak Account* and *Create Internal User
+   Accounts in the Keycloak Shasta Realm* in the [*Cray System Management
+   Documentation*](https://cray-hpe.github.io/docs-csm/).
 
 1. Ensure the files are readable only by the current user.
 
