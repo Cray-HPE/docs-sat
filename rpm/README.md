@@ -2,19 +2,19 @@
 
 The SAT documentation can be found online at the following link:
 [SAT Documentation](https://cray-hpe.github.io/docs-sat).
-
-It is also available offline as markdown, which may be viewed with a markdown
-viewer or with a text editor. A table of contents can be found below.
+It is also available offline as markdown, which can be viewed with a markdown
+viewer or with a text editor.
 
 The offline documentation is available in the `docs/` directory of the SAT
 release distribution as well as in RPM package format. The RPM package is
 installed as a part of the Ansible plays launched by the Configuration
 Framework Service (CFS). Its files are installed to `/usr/share/doc/sat`.
 
-## Check for Latest Documentation
+## Check for the Latest Documentation
 
-Acquire the latest documentation RPM. This may include updates, corrections,
-and enhancements that were not available until after the software release.
+You can find the latest documentation in the most recent RPM package. This
+package may include updates, corrections, and enhancements that were not
+available until after the software release.
 
 1. Check the version of the currently installed SAT documentation.
 
@@ -25,17 +25,15 @@ and enhancements that were not available until after the software release.
    rpm -q docs-sat
    ```
 
-2. Download and upgrade the latest documentation RPM.
-
-   For example, to download and upgrade to the latest SAT documentation RPM:
+2. Download and upgrade to the latest SAT documentation RPM.
 
    ```bash
    rpm -Uvh https://release.algol60.net/sat/docs-sat/docs-sat-latest.noarch.rpm
    ```
 
-   If this machine does not have direct internet access, then this RPM will
-   need to be externally downloaded and copied to the system. The following
-   example copies it to `ncn-m001`.
+   If the system does not have direct internet access, you must externally
+   download this RPM and copy it to the system. The following example copies it
+   to `ncn-m001`.
 
    ```bash
    wget https://release.algol60.net/sat/docs-sat/docs-sat-latest.noarch.rpm -O docs-sat-latest.noarch.rpm
