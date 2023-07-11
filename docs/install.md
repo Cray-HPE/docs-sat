@@ -87,7 +87,7 @@ procedures before using SAT:
 To run SAT commands on the manager NCNs, you must first set up authentication
 to the API gateway. For more information on authentication types and
 authentication credentials, see [SAT Command
-Authentication](introduction.md#sat-command-authentication).
+Authentication](about_sat/command_authentication.md).
 
 The admin account used to authenticate with `sat auth` must be enabled in
 Keycloak and must have its *assigned role* set to *admin*. For more information

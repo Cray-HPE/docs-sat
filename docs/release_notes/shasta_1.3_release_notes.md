@@ -21,6 +21,6 @@ This version of the `sat` CLI contained the following commands:
 - `switch`
 
 For more information on each of these commands, see the
-[SAT Command Overview](../introduction.md#sat-command-overview) and the table
-of commands in the [Authenticate SAT Commands](../install.md#authenticate-sat-commands)
+[SAT Command Overview](../about_sat/introduction.md#sat-command-overview) and the table
+of commands in the [SAT Command Authentication](../about_sat/command_authentication.md)
 section of this document.
