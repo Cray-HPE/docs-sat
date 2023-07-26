@@ -16,7 +16,7 @@ are no longer delivered with SAT:
 ## Inclusion of SAT in CSM
 
 A version of the `cray-sat` container image is now included in CSM. For more
-information, see [SAT in CSM](../introduction.md#sat-in-csm).
+information, see [SAT in CSM](../about_sat/sat_in_csm.md).
 
 ## SAT Installation Improvements
 
