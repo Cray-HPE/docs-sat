@@ -1,13 +1,12 @@
 # HPE Cray EX System Admin Toolkit (SAT) Guide
 
-## [Introduction to SAT](introduction.md)
+## [About SAT](about_sat/README.md)
 
-- [About System Admin Toolkit (SAT)](introduction.md#about-system-admin-toolkit-sat)
-- [SAT Command Overview](introduction.md#sat-command-overview)
-- [SAT Command Authentication](introduction.md#sat-command-authentication)
-- [Command Prompt Conventions in SAT](introduction.md#command-prompt-conventions-in-sat)
-- [SAT in CSM](introduction.md#sat-in-csm)
-- [SAT Dependencies](introduction.md#sat-dependencies)
+- [View SAT Documentation](about_sat/view_sat_docs.md)
+- [Introduction to SAT](about_sat/introduction.md)
+- [SAT Command Authentication](about_sat/command_authentication.md)
+- [SAT in CSM](about_sat/sat_in_csm.md)
+- [SAT Dependencies](about_sat/dependencies.md)
 
 ## [SAT Installation](install.md)
 

@@ -2,6 +2,7 @@
 
 ## Changes in SAT Version 2.x
 
+- [Changes in SAT 2.6](sat_2.6_release_notes.md)
 - [Changes in SAT 2.5](sat_2.5_release_notes.md)
 - [Changes in SAT 2.4](sat_2.4_release_notes.md)
 - [Changes in SAT 2.3](sat_2.3_release_notes.md)

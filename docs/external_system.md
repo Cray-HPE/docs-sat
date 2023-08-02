@@ -282,7 +282,7 @@ use externally-accessible API endpoints exposed by CSM.
    ```
 
    For more information on authentication types and authentication credentials,
-   see [SAT Command Authentication](introduction.md#sat-command-authentication).
+   see [SAT Command Authentication](about_sat/command_authentication.md).
    For more information on Keycloak accounts and changing *Role Mappings*,
    refer to both *Configure Keycloak Account* and *Create Internal User
    Accounts in the Keycloak Shasta Realm* in the [*Cray System Management
