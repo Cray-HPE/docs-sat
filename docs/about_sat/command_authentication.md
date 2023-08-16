@@ -1,11 +1,11 @@
 # SAT Command Authentication
 
-Some SAT subcommands make requests to the Shasta services through the API
+Some SAT subcommands make requests to the HPE Cray EX services through the API
 gateway and thus require authentication to the API gateway in order to function.
 Other SAT subcommands use the Kubernetes API. Some `sat` commands require S3 to
 be configured. In order to use the SAT S3 bucket, the System Administrator must
 generate the S3 access key and secret keys and write them to a local file. This
-must be done on every Kubernetes manager node where SAT commands are run.
+must be done on every Kubernetes control plane node where SAT commands are run.
 
 For more information on authentication requests, see *System Security and
 Authentication* in the [*Cray System Management

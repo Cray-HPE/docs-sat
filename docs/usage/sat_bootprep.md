@@ -7,8 +7,10 @@ images, and session templates should be created. This automated process centers
 around the `sat bootprep` command. Man page documentation for `sat bootprep`
 can be viewed similar to other SAT commands.
 
-```screen
-ncn-m001# sat-man sat-bootprep
+(`ncn-m001#`) Here is an example:
+
+```bash
+sat-man sat-bootprep
 ```
 
 The `sat bootprep` command helps the Install and Upgrade Framework (IUF)
@@ -50,11 +52,16 @@ it is compatible under a `schema_version` key. For example:
 schema_version: 1.0.2
 ```
 
-The current `sat bootprep` input file schema version can be viewed with the
+(`ncn-m001#`) The current `sat bootprep` input file schema version can be viewed with the
 following command:
 
-```screen
-ncn-m001# sat bootprep view-schema | grep '^version:'
+```bash
+sat bootprep view-schema | grep '^version:'
+```
+
+Example output:
+
+```text
 version: '1.0.2'
 ```
 
@@ -117,7 +124,7 @@ corresponding to each configuration in the `configurations` section. For
 example, the configuration created from an input file with the layers listed
 above might look something like the following:
 
-```screen
+```json
 {
     "lastUpdated": "2022-02-07T21:47:49Z",
     "layers": [
@@ -450,11 +457,11 @@ By default, the `sat bootprep` command uses the variables from the latest
 installed version of the HPC CSM Software Recipe. However, you can override
 this with the `--recipe-version` command line argument to `sat bootprep run`.
 
-For example, to explicitly select the `22.11.0` version of the HPC CSM Software
+(`ncn-m001#`) For example, to explicitly select the `22.11.0` version of the HPC CSM Software
 Recipe default variables, specify `--recipe-version 22.11.0`:
 
-```screen
-ncn-m001# sat bootprep run --recipe-version 22.11.0 compute-and-uan-bootprep.yaml
+```bash
+sat bootprep run --recipe-version 22.11.0 compute-and-uan-bootprep.yaml
 ```
 
 #### Values Supporting Jinja2 Template Rendering
@@ -634,11 +641,13 @@ Default bootprep input files are delivered by the HPC CSM Software Recipe
 product. You can access these files by cloning the `hpc-csm-software-recipe`
 repository, as described in the **Accessing `sat bootprep` files** process of
 the [*Cray System Management
-Documentation*](https://cray-hpe.github.io/docs-csm/). Find the
-default input files in the `bootprep` directory of the cloned repository:
+Documentation*](https://cray-hpe.github.io/docs-csm/).
 
-```screen
-ncn-m001# ls bootprep/
+(`ncn-m001#`) Find the default input files in the `bootprep` directory of the
+cloned repository:
+
+```bash
+ls bootprep/
 ```
 
 ### Generate an Example Bootprep Input File
@@ -654,11 +663,11 @@ generate-example` command will be updated in a future release of SAT.
 The `sat bootprep run` command uses information from the bootprep input file to
 create CFS configurations, IMS images, and BOS session templates. For easy
 reference, the command also includes output summarizing the final creation
-results. The following example shows a sample table output.
+results.
 
-```screen
-ncn-m001# sat bootprep run
-...
+(`ncn-m001#`) Here is a sample table output after running `sat bootprep run`:
+
+```text
 ################################################################################
 CFS configurations
 ################################################################################
@@ -697,13 +706,17 @@ materials and a formal specification of the JSON Schema metaschema, can be found
 
 ### View the Exact Schema Specification
 
-To view the exact schema specification, run `sat bootprep view-schema`.
+(`ncn-m001#`) To view the exact schema specification, run `sat bootprep view-schema`.
 
-```screen
-ncn-m001# sat bootprep view-schema
+```bash
+sat bootprep view-schema
 ---
 $schema: "https://json-schema.org/draft/2020-12/schema"
-...
+```
+
+Example output:
+
+```text
 title: Bootprep Input File
 description: >
   A description of the set of CFS configurations to create, the set of IMS
@@ -724,31 +737,46 @@ with `sat bootprep` that generates user-friendly HTML documentation for the inpu
 file schema. This HTML documentation can be browsed with your preferred web
 browser.
 
-1. Create a documentation tarball using `sat bootprep`.
+1. (`ncn-m001#`) Create a documentation tarball using `sat bootprep`.
 
-   ```screen
-   ncn-m001# sat bootprep generate-docs
+   ```bash
+   sat bootprep generate-docs
+   ```
+
+   Example output:
+
+   ```text
    INFO: Wrote input schema documentation to /root/bootprep-schema-docs.tar.gz
    ```
 
    An alternate output directory can be specified with the `--output-dir`
    option. The generated tarball is always named `bootprep-schema-docs.tar.gz`.
 
-   ```screen
-   ncn-m001# sat bootprep generate-docs --output-dir /tmp
+   ```bash
+   sat bootprep generate-docs --output-dir /tmp
+   ```
+
+   Example output:
+
+   ```text
    INFO: Wrote input schema documentation to /tmp/bootprep-schema-docs.tar.gz
    ```
 
-1. From another machine, copy the tarball to a local directory.
+1. (`user@hostname>`) From another machine, copy the tarball to a local directory.
 
-   ```screen
-   another-machine$ scp root@ncn-m001:bootprep-schema-docs.tar.gz .
+   ```bash
+   scp root@ncn-m001:bootprep-schema-docs.tar.gz .
    ```
 
-1. Extract the contents of the tarball and open the contained `index.html`.
+1. (`user@hostname>`) Extract the contents of the tarball and open the contained `index.html`.
 
-   ```screen
-   another-machine$ tar xzvf bootprep-schema-docs.tar.gz
+   ```bash
+   tar xzvf bootprep-schema-docs.tar.gz
+   ```
+
+   Example output:
+
+   ```text
    x bootprep-schema-docs/
    x bootprep-schema-docs/index.html
    x bootprep-schema-docs/schema_doc.css

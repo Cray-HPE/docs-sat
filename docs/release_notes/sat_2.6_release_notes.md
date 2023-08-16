@@ -78,6 +78,12 @@ No new `sat` commands were added in SAT 2.6.
 - `sat swap blade` will use the BatchV1 Kubernetes API to manipulate CronJobs,
   instead of the BatchV1Beta1 API as previously.
 
+- Command prompts in this guide are now inserted into text before the
+  fenced code block instead of inside of it. This is a change from the
+  documentation of SAT 2.5 and earlier. In addition, two new command prompts
+  were added for better clarity. For more information, see
+  [Command Prompt Conventions in SAT](../about_sat/introduction.md#command-prompt-conventions-in-sat).
+
 ## Multi-tenancy Support
 
 SAT 2.6 supports supplying tenant information to CSM services in order to allow
