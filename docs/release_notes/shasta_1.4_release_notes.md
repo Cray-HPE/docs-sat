@@ -29,8 +29,8 @@ Shasta v1.5.
 ## SAT Running in a Container Under Podman
 
 The `sat` command now runs in a container under Podman. The `sat` executable is
-now installed on all nodes in the Kubernetes management cluster (workers and
-masters). This executable is a wrapper script that starts a SAT container in
+now installed on all nodes in the Kubernetes cluster (workers and
+control plane nodes). This executable is a wrapper script that starts a SAT container in
 Podman and invokes the `sat` Python CLI within that container. The admin can run
 individual `sat` commands directly on the master or worker NCNs as before, or
 they can run `sat` commands inside the SAT container after using `sat bash` to

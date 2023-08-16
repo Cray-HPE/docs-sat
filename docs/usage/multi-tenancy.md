@@ -9,7 +9,9 @@ file or on the command line.
 ## Configure the Tenant Name in the SAT Configuration File
 
 You can set the tenant name in the SAT configuration file using the
-`api_gateway.tenant_name` option. For example:
+`api_gateway.tenant_name` option.
+
+Here is an example:
 
 ```toml
 [api_gateway]
@@ -20,8 +22,10 @@ tenant_name = "my_tenant"
 
 You can set the tenant name for each `sat` invocation using the `--tenant-name`
 option. The `--tenant-name` option must be specified before the subcommand
-name. For example:
+name.
 
-```screen
-ncn-m001# sat --tenant-name=my_tenant status
+(`ncn-m001#`) Here is an example:
+
+```bash
+sat --tenant-name=my_tenant status
 ```

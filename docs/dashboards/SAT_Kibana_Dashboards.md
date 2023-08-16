@@ -6,23 +6,22 @@ node data in the forms of charts, tables and maps that display real-time Elastic
 this way breaks down the complexity of large data volumes into easily understood information.
 
 Kibana can be accessed via web browser at the following URL:
+`https://sma-kibana.cmn.<site-domain>`.
 
-- `https://sma-kibana.cmn.<site-domain>`
+(`ncn-m001:~ #`) The value of `site-domain` can be obtained as follows:
 
-The value of `site-domain` can be obtained as follows:
-
-```screen
-ncn-m001:~ # kubectl get secret site-init -n loftsman -o jsonpath='{.data.customizations\.yaml}' | \
+```bash
+kubectl get secret site-init -n loftsman -o jsonpath='{.data.customizations\.yaml}' | \
     base64 -d | grep "external:"
 ```
 
 That command will produce the following output, for example:
 
-```screen
+```bash
     external: EXAMPLE_DOMAIN.com
 ```
 
-This would result in the address for Kibana being `https://sma-kibana.cmn.EXAMPLE_DOMAIN.com`
+This would result in the address for Kibana being `https://sma-kibana.cmn.EXAMPLE_DOMAIN.com`.
 
 For more information on accessing the Kibana Dashboards, refer to **View Logs Via Kibana** in the SMA product
 documentation.

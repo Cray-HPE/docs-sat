@@ -45,11 +45,11 @@ with `sat bootprep` and the default bootprep input files.
    *Cray System Management Documentation*. For more information, see steps 1-6 of
    [Stage 0.3 - Option 2](https://cray-hpe.github.io/docs-csm/en-14/upgrade/stage_0_prerequisites/#option-2-upgrade-of-csm-on-system-with-additional-products).
 
-1. Use the `session_vars.yaml` file to substitute variables into the default
+1. (`ncn-m001#`) Use the `session_vars.yaml` file to substitute variables into the default
    bootprep input files.
 
-   ```screen
-   ncn-m001# sat bootprep run --vars-file session_vars.yaml
+   ```bash
+   sat bootprep run --vars-file session_vars.yaml
    ```
 
 ## Limit SAT Bootprep Run into Stages
@@ -59,12 +59,18 @@ to create CFS configurations, IMS images, and BOS session templates. To restrict
 this creation into separate stages, use the `--limit` option and list whether
 you want to create `configurations`, `images`, `session_templates`, or some
 combination of these. IUF uses the `--limit` option in this way to install,
-upgrade, and deploy products on a system in stages. For example, to create only
-CFS configurations, run the following command used by the IUF `update-cfs-config`
-stage:
+upgrade, and deploy products on a system in stages.
 
-```screen
-ncn-m001# sat bootprep run --limit configurations example-bootprep-input-file.yaml
+(`ncn-m001#`) For example, to create only CFS configurations, run the following command used
+by the IUF `update-cfs-config` stage:
+
+```bash
+sat bootprep run --limit configurations example-bootprep-input-file.yaml
+```
+
+Example output:
+
+```bash
 INFO: Validating given input file example-bootprep-input-file.yaml
 INFO: Input file successfully validated against schema
 INFO: Creating 3 CFS configurations
@@ -73,11 +79,16 @@ INFO: Skipping creation of IMS images based on value of --limit option.
 INFO: Skipping creation of BOS session templates based on value of --limit option.
 ```
 
-To create only IMS images and BOS session templates, run the following command
+(`ncn-m001#`) To create only IMS images and BOS session templates, run the following command
 used by the IUF `prepare-images` stage:
 
-```screen
-ncn-m001# sat bootprep run --limit images --limit session_templates example-bootprep-input-file.yaml
+```bash
+sat bootprep run --limit images --limit session_templates example-bootprep-input-file.yaml
+```
+
+Example output:
+
+```bash
 INFO: Validating given input file example-bootprep-input-file.yaml
 INFO: Input file successfully validated against schema
 INFO: Skipping creation of CFS configurations based on value of --limit option.

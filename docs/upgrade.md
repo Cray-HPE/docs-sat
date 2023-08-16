@@ -86,15 +86,16 @@ procedures before using SAT:
 After upgrading SAT, if using the configuration file from a previous version, there may be
 configuration file sections no longer used in the new version. For example, when upgrading
 from Shasta 1.4 to Shasta 1.5, the `[redfish]` configuration file section is no longer used.
-In that case, the following warning may appear upon running `sat` commands.
 
-```screen
+(`ncn-m001#`) In that case, the following warning may appear upon running `sat` commands.
+
+```bash
 WARNING: Ignoring unknown section 'redfish' in config file.
 ```
 
 Remove the `[redfish]` section from `/root/.config/sat/sat.toml` to resolve the warning.
 
-```screen
+```toml
 [redfish]
 username = "admin"
 password = "adminpass"
@@ -116,11 +117,16 @@ that important output is shown in the terminal.
 
 #### Update Configuration
 
-In the following example, the `stderr` log level, `logging.stderr_level`, is set to
+(`ncn-m001:~ #`) In the following example, the `stderr` log level, `logging.stderr_level`, is set to
 `WARNING`, which will exclude `INFO`-level logging from terminal output.
 
-```screen
-ncn-m001:~ # grep -A 3 logging ~/.config/sat/sat.toml
+```bash
+grep -A 3 logging ~/.config/sat/sat.toml
+```
+
+Example output:
+
+```bash
 [logging]
 ...
 stderr_level = "WARNING"
@@ -168,7 +174,7 @@ earlier.
 
 1. Set System Revision Information.
 
-   Run `sat setrev` and follow the prompts to set the following site-specific values:
+   (`ncn-m001#`) Run `sat setrev` and follow the prompts to set the following site-specific values:
 
    - Serial number
    - System name
@@ -183,8 +189,13 @@ earlier.
    **Tip**: For "System type", a system with *any* liquid-cooled components should be
    considered a liquid-cooled system. In other words, "System type" is EX-1C.
 
-   ```screen
-   ncn-m001# sat setrev
+   ```bash
+   sat setrev
+   ```
+
+   Example output:
+
+   ```bash
    --------------------------------------------------------------------------------
    Setting:        Serial number
    Purpose:        System identification. This will affect how snapshots are
@@ -204,12 +215,17 @@ earlier.
 
 1. Verify System Revision Information.
 
-   Run `sat showrev` and verify the output shown in the "System Revision Information table."
+   (`ncn-m001#`) Run `sat showrev` and verify the output shown in the "System Revision Information table."
 
    The following example shows sample table output.
 
-   ```screen
-   ncn-m001# sat showrev
+   ```bash
+   sat showrev
+   ```
+
+   Example output:
+
+   ```bash
    ################################################################################
    System Revision Information
    ################################################################################

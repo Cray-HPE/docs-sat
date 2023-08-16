@@ -106,17 +106,22 @@ the [*Cray System Management Documentation*](https://cray-hpe.github.io/docs-csm
 The following is the procedure to globally configure the username used by SAT and
 authenticate to the API gateway.
 
-1. Generate a default SAT configuration file, if one does not exist.
+1. (`ncn-m001#`) Generate a default SAT configuration file, if one does not exist.
 
-   ```screen
-   ncn-m001# sat init
+   ```bash
+   sat init
+   ```
+
+   Example output:
+
+   ```bash
    Configuration file "/root/.config/sat/sat.toml" generated.
    ```
 
    **Note:** If the configuration file already exists, it will print out the
    following error.
 
-   ```screen
+   ```bash
    ERROR: Configuration file "/root/.config/sat/sat.toml" already exists.
    Not generating configuration file.
    ```
@@ -124,22 +129,27 @@ authenticate to the API gateway.
 1. Edit `~/.config/sat/sat.toml` and set the username option in the `api_gateway`
    section of the configuration file.
 
-   ```screen
+   ```toml
    username = "crayadmin"
    ```
 
-1. Run `sat auth`. Enter your password when prompted.
+1. (`ncn-m001#`) Run `sat auth`. Enter your password when prompted.
 
-   ```screen
-   ncn-m001# sat auth
+   ```bash
+   sat auth
+   ```
+
+   Example output:
+
+   ```bash
    Password for crayadmin:
    Succeeded!
    ```
 
-1. Other `sat` commands are now authenticated to make requests to the API gateway.
+1. (`ncn-m001#`) Other `sat` commands are now authenticated to make requests to the API gateway.
 
-   ```screen
-   ncn-m001# sat status
+   ```bash
+   sat status
    ```
 
 ### Generate SAT S3 Credentials
@@ -147,7 +157,7 @@ authenticate to the API gateway.
 Generate S3 credentials and write them to a local file so the SAT user can access
 S3 storage. In order to use the SAT S3 bucket, the System Administrator must
 generate the S3 access key and secret keys and write them to a local file. This
-must be done on every Kubernetes master node where SAT commands are run.
+must be done on every Kubernetes control plane node where SAT commands are run.
 
 SAT uses S3 storage for several purposes, most importantly to store the
 site-specific information set with `sat setrev` (see [Set System Revision
@@ -164,49 +174,59 @@ Information](#set-system-revision-information)).
 
 #### Procedure
 
-1. Ensure the files are readable only by `root`.
+1. (`ncn-m001#`) Ensure the files are readable only by `root`.
 
-    ```screen
-    ncn-m001# touch /root/.config/sat/s3_access_key \
+    ```bash
+    touch /root/.config/sat/s3_access_key \
         /root/.config/sat/s3_secret_key
     ```
 
-    ```screen
-    ncn-m001# chmod 600 /root/.config/sat/s3_access_key \
+    ```bash
+    chmod 600 /root/.config/sat/s3_access_key \
         /root/.config/sat/s3_secret_key
     ```
 
-1. Write the credentials to local files using `kubectl`.
+1. (`ncn-m001#`) Write the credentials to local files using `kubectl`.
 
-   ```screen
-   ncn-m001# kubectl get secret sat-s3-credentials -o json -o \
+   ```bash
+   kubectl get secret sat-s3-credentials -o json -o \
        jsonpath='{.data.access_key}' | base64 -d > \
        /root/.config/sat/s3_access_key
    ```
 
-   ```screen
-   ncn-m001# kubectl get secret sat-s3-credentials -o json -o \
+   ```bash
+   kubectl get secret sat-s3-credentials -o json -o \
        jsonpath='{.data.secret_key}' | base64 -d > \
        /root/.config/sat/s3_secret_key
    ```
 
 1. Verify the S3 endpoint specified in the SAT configuration file is correct.
 
-   1. Get the SAT configuration file's endpoint value.
+   1. (`ncn-m001#`) Get the SAT configuration file's endpoint value.
 
       **Note:** If the command's output is commented out, indicated by an initial `#`
       character, the SAT configuration will take the default value – `"https://rgw-vip.nmn"`.
 
-      ```screen
-      ncn-m001# grep endpoint ~/.config/sat/sat.toml
+      ```bash
+      grep endpoint ~/.config/sat/sat.toml
+      ```
+
+      Example output:
+
+      ```bash
       # endpoint = "https://rgw-vip.nmn"
       ```
 
-   1. Get the `sat-s3-credentials` secret's endpoint value.
+   1. (`ncn-m001#`) Get the `sat-s3-credentials` secret's endpoint value.
 
-      ```screen
-      ncn-m001# kubectl get secret sat-s3-credentials -o json -o \
+      ```bash
+      kubectl get secret sat-s3-credentials -o json -o \
           jsonpath='{.data.s3_endpoint}' | base64 -d | xargs
+      ```
+
+      Example output:
+
+      ```bash
       https://rgw-vip.nmn
       ```
 
@@ -215,10 +235,10 @@ Information](#set-system-revision-information)).
       If the values differ, change the SAT configuration file's endpoint value to
       match the secret's.
 
-1. Copy SAT configurations to each manager node on the system.
+1. (`ncn-m001#`) Copy SAT configurations to each manager node on the system.
 
-   ```screen
-   ncn-m001# for i in ncn-m002 ncn-m003; do echo $i; ssh ${i} \
+   ```bash
+   for i in ncn-m002 ncn-m003; do echo $i; ssh ${i} \
        mkdir -p /root/.config/sat; \
        scp -pr /root/.config/sat ${i}:/root/.config; done
    ```
@@ -246,7 +266,7 @@ systems in support cases.
 
 #### Procedure
 
-1. Set System Revision Information.
+1. (`ncn-m001#`) Set System Revision Information.
 
    Run `sat setrev` and follow the prompts to set the following site-specific values:
 
@@ -263,8 +283,13 @@ systems in support cases.
    **Tip**: For "System type", a system with *any* liquid-cooled components should be
    considered a liquid-cooled system. In other words, "System type" is EX-1C.
 
-   ```screen
-   ncn-m001# sat setrev
+   ```bash
+   sat setrev
+   ```
+
+   Example output:
+
+   ```bash
    --------------------------------------------------------------------------------
    Setting:        Serial number
    Purpose:        System identification. This will affect how snapshots are
@@ -284,12 +309,15 @@ systems in support cases.
 
 1. Verify System Revision Information.
 
-   Run `sat showrev` and verify the output shown in the "System Revision Information table."
+   (`ncn-m001#`) Run `sat showrev` and verify the output shown in the "System Revision Information table."
 
-   The following example shows sample table output.
+   ```bash
+   sat showrev
+   ```
 
-   ```screen
-   ncn-m001# sat showrev
+   Example table output:
+
+   ```bash
    ################################################################################
    System Revision Information
    ################################################################################
