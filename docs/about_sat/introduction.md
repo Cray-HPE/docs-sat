@@ -27,7 +27,7 @@ are reported through Redfish.
 - [Grafana Fabric RFC3635 Dashboard](../dashboards/SAT_Grafana_Dashboards.md#grafana-fabric-rfc3635-dashboard)
 
 In CSM 1.3 and newer, the `sat` command is automatically available on all the
-Kubernetes NCNs. For more information, see [SAT in CSM](sat_in_csm.md). Older
+Kubernetes control plane. For more information, see [SAT in CSM](sat_in_csm.md). Older
 versions of CSM do not have the `sat` command automatically available, and SAT
 must be installed as a separate product.
 
@@ -38,7 +38,7 @@ instruction on the SAT Container Environment.
 
 ### SAT Command Line Utility
 
-The primary component of the System Admin Toolkit (SAT) is a command-line utility run from Kubernetes manager nodes
+The primary component of the System Admin Toolkit (SAT) is a command-line utility run from Kubernetes control plane nodes
 (`ncn-m` nodes).
 
 It is designed to assist administrators with common tasks, such as troubleshooting and querying information about the
@@ -54,38 +54,43 @@ have their own set of options.
 ### SAT Container Environment
 
 The `sat` command-line utility runs in a container using Podman, a daemonless container runtime. SAT runs on
-Kubernetes manager nodes. A few important points about the SAT container environment include the following:
+Kubernetes control plane nodes. A few important points about the SAT container environment include the following:
 
 - Using either `sat` or `sat bash` always launches a container.
 - The SAT container does not have access to the NCN file system.
 
-There are two ways to run sat.
+There are two ways to run `sat`.
 
 - **Interactive**: Launching a container using `sat bash`, followed by a `sat` command.
-- **Non-interactive**: Running a `sat` command directly on a Kubernetes manager node.
+- **Non-interactive**: Running a `sat` command directly on a Kubernetes control plane node.
 
 In both of these cases, a container is launched in the background to execute the command. The first option, running
 `sat bash` first, gives an interactive shell, at which point `sat` commands can be run. In the second option, the
 container is launched, executes the command, and upon the command's completion the container exits. The following two
-examples show the same action, checking the system status, using interactive and non-interactive modes.
+examples show the same action, checking the system status, using both modes.
 
-#### Interactive
+(`ncn-m001#`) Here is an example using interactive mode:
 
-```screen
-ncn-m001# sat bash
-(CONTAINER-ID)sat-container# sat status
+```bash
+sat bash
 ```
 
-#### Non-interactive
+(`(CONTAINER_ID) sat-container#`) Example `sat` command after a container is launched:
 
-```screen
-ncn-m001# sat status
+```bash
+sat status
+```
+
+(`ncn-m001#`) Here is an example using non-interactive mode:
+
+```bash
+sat status
 ```
 
 #### Interactive Advantages
 
 Running `sat` using the interactive command prompt gives the ability to read and write local files on ephemeral
-container storage. If multiple `sat` commands are being run in succession, then use sat bash to launch the
+container storage. If multiple `sat` commands are being run in succession, use `sat bash` to launch the
 container beforehand. This will save time because the container does not need to be launched for each `sat` command.
 
 #### Non-interactive Advantages
@@ -95,48 +100,52 @@ several steps that need to be executed from a management NCN.
 
 #### Man Pages - Interactive and Non-interactive Modes
 
-To view a `sat` man page from a Kubernetes manager node, use `sat-man` on the manager node as shown in the following
-example.
+To view a `sat` man page from a Kubernetes control plane node, use `sat-man` on the manager node.
 
-```screen
-ncn-m001# sat-man status
+(`ncn-m001#`) Here is an example:
+
+```bash
+sat-man status
 ```
 
-A man page describing the SAT container environment is available on the Kubernetes manager nodes, which can be viewed
+A man page describing the SAT container environment is available on the Kubernetes control plane nodes, which can be viewed
 either with `man sat` or man `sat-podman` from the manager node.
 
-```screen
-ncn-m001# man sat
+(`ncn-m001#`) Here are examples:
+
+```bash
+man sat
 ```
 
-```screen
-ncn-m001# man sat-podman
+```bash
+man sat-podman
 ```
 
 ## Command Prompt Conventions in SAT
 
-The host name in a command prompt indicates where the command must be run. The account that must run the command is
-also indicated in the prompt.
+The host name in a command prompt indicates where the command must be run. The
+user account that must run the command is also indicated in the prompt.
 
-- The `root` or super-user account always has the `#` character at the end of the prompt and has the host name of the
-  host in the prompt.
-- Any non-`root` account is indicated with account@hostname>. A user account that is neither `root` nor `crayadm` is
-  referred to as `user`.
-- The command prompt inside the SAT container environment is indicated with the string as follows. It also has the "#"
-  character at the end of the prompt.
+- The `root` or super-user account always has host name in the prompt and the
+  `#` character at the end of the prompt.
+- Any non-root account is indicated with `account@hostname>`. A non-privileged
+  account is referred to as user.
+- The command prompt inside the SAT container environment is indicated with the
+  string as follows. It also has the `#` character at the end of the prompt.
 
 | Command Prompt | Meaning |
 |----------------|---------|
-| `ncn-m001#` | Run on one of the Kubernetes Manager servers. (**Non-interactive**) |
+| `ncn-m001#` | Run the command as `root` on the specific Kubernetes control plane server which has this hostname (`ncn-m001` in this example). (**Non-interactive**) |
+| `user@hostname>` | Run the command as any non-`root` user on the specified hostname. (**Non-interactive**) |
+| `(venv) user@hostname>` | Run the command as any non-`root` user within a Python virtual environment on the specified hostname. (**Non-interactive**) |
 | `(CONTAINER_ID) sat-container#` | Run the command inside the SAT container environment by first running `sat bash`. (**Interactive**) |
 
-Here are examples of the `sat status` command used by an administrator.
+These command prompts should be inserted into text before the fenced code block
+instead of inside of it. This is a change from the documentation of SAT 2.5 and
+earlier. Here is an example of the new use of the command prompt:
 
-```screen
-ncn-m001# sat status
-```
+1. (`ncn-m001#`) Example first step.
 
-```screen
-ncn-m001# sat bash
-(CONTAINER_ID) sat-container# sat status
-```
+   ```bash
+   yes >/dev/null
+   ```

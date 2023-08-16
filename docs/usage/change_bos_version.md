@@ -14,7 +14,7 @@ section with the BOS version desired in the `api_version` setting.
 1. Find the SAT configuration file at `~/.config/sat/sat.toml`, and look for a
    section like this:
 
-   ```screen
+   ```toml
    [bos]
    api_version = "v2"
    ```
@@ -24,7 +24,7 @@ section with the BOS version desired in the `api_version` setting.
 1. Change the line specifying the `api_version` to the BOS version desired (for
    example, `"v1"`).
 
-   ```screen
+   ```toml
    [bos]
    api_version = "v1"
    ```
@@ -34,7 +34,7 @@ section with the BOS version desired in the `api_version` setting.
    If the system is using an existing SAT configuration file from a recent
    version of SAT, the `api_version` line might be commented out like this:
 
-   ```screen
+   ```toml
    [bos]
    # api_version = "v2"
    ```
