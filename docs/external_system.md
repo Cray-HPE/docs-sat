@@ -95,7 +95,7 @@ use externally-accessible API endpoints exposed by CSM.
    1. For versions of SAT newer than 3.19, change the line containing `csm-api-client`
       to read as follows.
 
-      ```bash
+      ```text
       csm-api-client@git+https://github.com/Cray-HPE/python-csm-api-client@release/1.1
       ```
 
@@ -107,7 +107,7 @@ use externally-accessible API endpoints exposed by CSM.
 
       Example output:
 
-      ```bash
+      ```text
       ./cray-product-catalog
       csm-api-client@git+https://github.com/Cray-HPE/python-csm-api-client@release/1.1
       ```
