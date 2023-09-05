@@ -173,7 +173,7 @@ use externally-accessible API endpoints exposed by CSM.
 
      Example output:
 
-     ```bash
+     ```screen
      13: bond0.cmn0@bond0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
      link/ether b8:59:9f:1d:d9:0e brd ff:ff:ff:ff:ff:ff
      inet 10.102.1.11/24 brd 10.102.1.255 scope global vlan007
@@ -190,7 +190,7 @@ use externally-accessible API endpoints exposed by CSM.
 
      Example output:
 
-     ```bash
+     ```text
      13: vlan007@bond0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
      link/ether b8:59:9f:1d:d9:0e brd ff:ff:ff:ff:ff:ff
      inet 10.102.1.10/24 brd 10.102.1.255 scope global vlan007
