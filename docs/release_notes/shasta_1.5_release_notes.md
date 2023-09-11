@@ -80,7 +80,7 @@ health in the correct order. The `ceph-check` stage has been removed as it is no
 longer needed.
 
 The `platform-services` stage of `sat bootsys` boot now prompts for confirmation
-of the storage NCN hostnames in addition to the Kubernetes masters and workers.
+of the storage NCN hostnames in addition to the Kubernetes control plane and worker nodes.
 
 ## Bug Fixes and Security Fixes
 
