@@ -1,8 +1,8 @@
 # SAT Dependencies
 
 Most `sat` subcommands depend on services or components from other products in the
-HPE Cray EX (Shasta) software stack. The following list shows these dependencies
-for each subcommand. Each service or component is listed under the product it belongs to.
+HPE Cray EX software stack. The following list shows these dependencies for each
+subcommand. Each service or component is listed under the product it belongs to.
 
 ## `sat auth`
 

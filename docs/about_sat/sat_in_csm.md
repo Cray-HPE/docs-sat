@@ -1,6 +1,6 @@
 # SAT in CSM
 
-In CSM 1.3 and newer, the `sat` command is automatically available on all the Kubernetes NCNs, but it is still possible
+In CSM 1.3 and newer, the `sat` command is automatically available on the Kubernetes control plane, but it is still possible
 to install SAT as a separate product stream. Any version of SAT installed as a separate product stream overrides the
 `sat` command available in CSM. Installing the SAT product stream allows additional supporting components to be added:
 

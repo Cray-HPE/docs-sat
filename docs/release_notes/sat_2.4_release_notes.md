@@ -33,7 +33,7 @@ directly. Some of the benefits of this change include the following:
 ## Decoupling of `cray-sat` Container Image and `cray-sat-podman` Package
 
 In older SAT releases, the `sat` wrapper script that was provided by the
-`cray-sat-podman` package installed on Kubernetes master NCNs included a
+`cray-sat-podman` package installed on Kubernetes control plane nodes included a
 hard-coded version of the `cray-sat` container image. As a result, every new
 version of the `cray-sat` image required a corresponding new version of the
 `cray-sat-podman` package.

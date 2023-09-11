@@ -20,26 +20,27 @@ The following sections detail the changes in this release.
 ### `sat` Command Unavailable in `sat bash` Shell
 
 After launching a shell within the SAT container with `sat bash`, the `sat`
-command will not be found. For example:
+command will not be found.
 
-```screen
-(CONTAINER-ID) sat-container:~ # sat status
+(`(CONTAINER_ID) sat-container#`) Here is an example output after running `sat status`:
+
+```text
 bash: sat: command not found
 ```
 
-This can be resolved temporarily in one of two ways. `/sat/venv/bin/` may be
+(`(CONTAINER_ID) sat-container#`) This can be resolved temporarily in one of two ways. `/sat/venv/bin/` may be
 prepended to the `$PATH` environment variable:
 
-```screen
-(CONTAINER-ID) sat-container:~ # export PATH=/sat/venv/bin:$PATH
-(CONTAINER-ID) sat-container:~ # sat status
+```bash
+export PATH=/sat/venv/bin:$PATH
+sat status
 ```
 
-Or, the file `/sat/venv/bin/activate` may be sourced:
+(`(CONTAINER_ID) sat-container#`) You can also source the file `/sat/venv/bin/activate`:
 
-```screen
-(CONTAINER-ID) sat-container:~ # source /sat/venv/bin/activate
-(CONTAINER-ID) sat-container:~ # sat status
+```bash
+source /sat/venv/bin/activate
+sat status
 ```
 
 ### Tab Completion Unavailable in `sat bash` Shell
@@ -47,19 +48,20 @@ Or, the file `/sat/venv/bin/activate` may be sourced:
 After launching a shell within the SAT container with `sat bash`, tab completion
 for `sat` commands does not work.
 
-This can be resolved temporarily by sourcing the file
+(`(CONTAINER_ID) sat-container#`) This can be resolved temporarily by sourcing the file
 `/etc/bash_completion.d/sat-completion.bash`:
 
-```screen
+```bash
 source /etc/bash_completion.d/sat-completion.bash
 ```
 
 ### OCI Runtime Permission Error when Running `sat` in Root Directory
 
-`sat` commands will not work if the current directory is `/`. For example:
+`sat` commands will not work if the current directory is `/`.
 
-```screen
-ncn-m001:/ # sat --help
+(`ncn-m001#`) Here is an example output after running `sat --help`:
+
+```text
 Error: container_linux.go:380: starting container process caused: process_linux.go:545: container init caused: open /dev/console: operation not permitted: OCI runtime permission denied error
 ```
 
@@ -68,10 +70,10 @@ To resolve, run `sat` in another directory.
 ### Duplicate Mount Error when Running `sat` in Configuration Directory
 
 `sat` commands will not work if the current directory is `~/.config/sat`.
-For example:
 
-```screen
-ncn-m001:~/.config/sat # sat --help
+(`ncn-m001#`) Here is an example output after running `sat --help`:
+
+```text
 Error: /root/.config/sat: duplicate mount destination
 ```
 
