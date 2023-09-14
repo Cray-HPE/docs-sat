@@ -9,7 +9,7 @@ The 2.5.17 version of the SAT product includes:
 
 ## New `sat` Commands
 
-`sat jobstat` allows you to access application and job data through the command
+`sat jobstat` allows access to application and job data through the command
 line. It provides a table summarizing information for all jobs on the system.
 
 ## Changes to `sat bootprep`
@@ -39,8 +39,8 @@ line. It provides a table summarizing information for all jobs on the system.
   For more information, see
   [Hyphens in HPC CSM Software Recipe Variables](../usage/sat_bootprep.md#hyphens-in-hpc-csm-software-recipe-variables).
 
-- In `sat bootprep` input files, you can now render the value of the `playbook`
-  property of CFS configuration layers with Jinja2 templates.
+- In `sat bootprep` input files, the value of the `playbook` property of CFS
+  configuration layers can now be rendered with Jinja2 templates.
 
   For more information, see
   [Values Supporting Jinja2 Template Rendering](../usage/sat_bootprep.md#values-supporting-jinja2-template-rendering).
@@ -102,8 +102,8 @@ This change to BOS `v2` impacts the following commands that interact with BOS:
 - `sat bootsys`
 - `sat status`
 
-If needed, you can choose the BOS version you want to use. For more information,
-see [Change the BOS Version](../usage/change_bos_version.md).
+To change the default to a different BOS version, see
+[Change the BOS Version](../usage/change_bos_version.md).
 
 ## Security
 

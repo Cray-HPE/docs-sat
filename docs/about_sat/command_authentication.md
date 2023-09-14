@@ -37,7 +37,7 @@ describing SAT commands and the types of authentication they require.
 |`sat xname2nid`|Requires authentication to the API gateway.|`sat-xname2nid`|Translate node and node BMC XNames to node IDs.|
 |`sat switch`|**This command has been deprecated.** It has been replaced by `sat swap`.|
 
-In order to authenticate to the API gateway, you must run the `sat auth`
+In order to authenticate to the API gateway, run the `sat auth`
 command. This command will prompt for a password on the command line. The
 username value is obtained from the following locations, in order of higher
 precedence to lower precedence:

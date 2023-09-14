@@ -67,7 +67,7 @@ managed images.
 
 ## Post-Upgrade Procedures
 
-After upgrading SAT with IUF, it is recommended that you complete the following
+After upgrading SAT with IUF, it is recommended to complete the following
 procedures before using SAT:
 
 - [Remove Obsolete Configuration File Sections](#remove-obsolete-configuration-file-sections)
