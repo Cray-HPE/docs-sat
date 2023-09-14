@@ -86,7 +86,7 @@ new features:
   key is deprecated.
 - To specify an image that depends on another image in the input file, the
   dependent image should specify the dependency under `base.image_ref`.
-  You should no longer use the IMS name of the image on which it depends.
+  Going forward, do not use the IMS name of the image on which it depends.
 - The image used by a session template should now be specified under
   `image.ims.name`, `image.ims.id`, or `image.image_ref`. Specifying a string
   value directly under the `image` key is deprecated.
@@ -116,8 +116,8 @@ that interact with BOS:
 - `sat bootsys`
 - `sat status`
 
-By default, SAT uses BOS `v1`. However, you can choose the BOS version you want
-to use. For more information, see [Change the BOS Version](../usage/change_bos_version.md).
+By default, SAT uses BOS `v1`. To change the default to a different BOS version,
+see [Change the BOS Version](../usage/change_bos_version.md).
 
 ## Added BOS Fields to `sat status`
 
