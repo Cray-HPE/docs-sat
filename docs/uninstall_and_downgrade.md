@@ -101,7 +101,7 @@ ability to switch between SAT versions will be removed in a future release.
    - Ensure that the SAT CFS configuration content exists as a layer in all CFS configurations that are
      associated with NCNs with the role "Management" and subrole "Master" (for example, the CFS configuration
      `management-23.5.0`). Specifically, it will ensure that the layer refers to the version of SAT CFS
-     configuration content associated with the version of SAT to which you are switching.
+     configuration content associated with the version of SAT to which the system is switching.
 
    ```bash
    prodmgr activate sat 2.5.15
@@ -213,11 +213,11 @@ ability to switch between SAT versions will be removed in a future release.
    sat 3.7.0
    ```
 
-   **Note:** Upon first running `sat`, you may see additional output while the `sat`
-   container image is downloaded. This will occur the first time `sat` is run on
-   each manager NCN. For example, if you run `sat` for the first time on `ncn-m001`
-   and then for the first time on `ncn-m002`, you will see this additional output
-   both times.
+   **Note:** Upon first running `sat`, there might be additional output while
+   the `sat` container image is downloaded. This occurs the first time `sat`
+   is run on each manager NCN. For example, when running `sat` for the first time
+   on `ncn-m001` and then for the first time on `ncn-m002`, this additional
+   output is seen both times.
 
    ```text
    Trying to pull registry.local/cray/cray-sat:3.7.0-20210514024359_9fed037...

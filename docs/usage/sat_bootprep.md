@@ -81,7 +81,7 @@ schema version.
 ### Define CFS Configurations
 
 The CFS configurations are defined under a `configurations` key. Under this
-key, you can list one or more configurations to create. For each
+key, list one or more configurations to create. For each
 configuration, give a name in addition to the list of layers that
 comprise the configuration.
 
@@ -94,7 +94,7 @@ supplied. However, if it is absent, the version is assumed to be the latest
 version found in the `cray-product-catalog`.
 
 Alternatively, a configuration layer can be defined by explicitly referencing
-the desired configuration repository. You must then specify the intended version
+the desired configuration repository. Specify the intended version
 of the Ansible playbooks by providing a branch name or commit hash with `branch`
 or `commit`.
 
@@ -160,7 +160,7 @@ optionally configured. One of the following keys must be present under the
 - Use an `ims` key to specify an existing image or recipe in IMS.
 - Use a `product` key to specify an image or recipe provided by a particular
   version of a product. If a product provides more than one image or recipe,
-  you must specify a filter to select one. For more information, see
+  specify a filter to select one. For more information, see
   [Filter Base Images or Recipes from a Product](#filter-base-images-or-recipes-from-a-product).
 - Use an `image_ref` key to specify another image from the input file
   using its `ref_name`.
@@ -235,16 +235,15 @@ images:
 
 This example assumes that the given version of the `cos` product provides
 only a single IMS recipe. If more than one recipe is provided by the
-given version of the `cos` product, you must use a filter as described in
+given version of the `cos` product, use a filter as described in
 [Filter Base Images or Recipes from a Product](#filter-base-images-or-recipes-from-a-product).
 
 #### Filter Base Images or Recipes from a Product
 
 A product may provide more than one image or recipe. If this happens,
-you must filter the product's images or recipes whenever you use a
-base image or recipe from that product. Beneath the `base.product` value
-within an image, specify a `filter` key to create a filter using the following
-criteria:
+filter the product's images or recipes whenever a base image or recipe from
+that product is used. Beneath the `base.product` value within an image,
+specify a `filter` key to create a filter using the following criteria:
 
 - Use the `prefix` key to filter based on a prefix matching the name of the
   image or recipe.
@@ -253,7 +252,7 @@ criteria:
 - Use the `arch` key to filter based on the target architecture of the image or
   recipe in IMS.
 
-If you specify more than one filter key, all filters must match only the
+When specifying more than one filter key, all filters must match only the
 desired image or recipe. An error occurs if either no images or recipes
 match the given filters or if more than one image or recipe matches
 the given filters.
@@ -429,18 +428,18 @@ session_templates:
 
 ### HPC CSM Software Recipe Variable Substitutions
 
-The `sat bootprep` command takes any variables you provide and substitutes them
+The `sat bootprep` command takes any variables provided and substitutes them
 into the input file. Variables are sourced from the command line, any variable
 files directly provided, and the HPC CSM Software Recipe files used, in that
-order. When you provide values through a variable file, `sat bootprep`
+order. When providing values through a variable file, `sat bootprep`
 substitutes the values with Jinja2 template syntax. The HPC CSM Software Recipe
 provides default variables in a `product_vars.yaml` variable file. This file
 defines information about each HPC software product included in the recipe.
 
-You will primarily substitute variables into the default HPC CSM Software Recipe
+Variables are primarily substituted into the default HPC CSM Software Recipe
 bootprep input files through IUF. However, variable files can also be given to
-`sat bootprep` directly from IUF's use of the recipe. If you do use variables
-directly with `sat bootprep`, you might encounter some limitations. For more
+`sat bootprep` directly from IUF's use of the recipe. When using variables
+directly with `sat bootprep`, there are some limitations. For more
 information on SAT variable limitations, see [SAT and IUF](sat_and_iuf.md).
 For more information on IUF and variable substitutions, see the
 [IUF section](https://cray-hpe.github.io/docs-csm/en-14/operations/iuf/iuf/) of
@@ -448,14 +447,14 @@ the [*Cray System Management Documentation*](https://cray-hpe.github.io/docs-csm
 
 #### Select an HPC CSM Software Recipe Version
 
-You can view a listing of the default HPC CSM Software Recipe variables and
+View a listing of the default HPC CSM Software Recipe variables and
 their values by running `sat bootprep list-vars`. For more information on
 options that can be used with the `list-vars` subcommand, refer to the man page
 for the `sat bootprep` subcommand.
 
 By default, the `sat bootprep` command uses the variables from the latest
-installed version of the HPC CSM Software Recipe. However, you can override
-this with the `--recipe-version` command line argument to `sat bootprep run`.
+installed version of the HPC CSM Software Recipe. Override this with the
+`--recipe-version` command line argument to `sat bootprep run`.
 
 (`ncn-m001#`) For example, to explicitly select the `22.11.0` version of the HPC CSM Software
 Recipe default variables, specify `--recipe-version 22.11.0`:
@@ -501,7 +500,7 @@ are parsed as an arithmetic expression instead of a single variable. To support
 product names with hyphens, `sat bootprep` converts hyphens to underscores in
 all top-level keys of the default HPC CSM Software Recipe variables. It also
 converts any variables sourced from the command line or any variable files
-you provide directly. When referring to a variable with hyphens in the bootprep
+provided directly. When referring to a variable with hyphens in the bootprep
 input file, keep this in mind. For example, to refer to the product version
 variable for `slingshot-host-software` in the bootprep input file, write
 `"{{slingshot_host_software.version}}"`.
@@ -531,7 +530,7 @@ expression, it must be quoted to pass YAML syntax checking.
 Jinja2 expressions can also use filters and Python's built-in string methods to
 manipulate the variable values. For example, suppose only the major and minor
 components of a COS version are to be used in the branch name for the COS
-layer of the CFS configuration. You can use the `split` string method to
+layer of the CFS configuration. Use the `split` string method to
 achieve this as follows:
 
 ```yaml
@@ -569,10 +568,10 @@ variables include the following:
 These variables reduce the need to duplicate values throughout the `sat
 bootprep` input file and make the following use cases possible:
 
-- You want to build an image from a recipe provided by a product and use the
-  name of the recipe in the name of the resulting image.
-- You want to use the name of the image in the name of a session template, and
-  the image is generated as described in the previous use case.
+- Building an image from a recipe provided by a product and using the
+  name of the recipe in the name of the resulting image
+- Using the name of the image in the name of a session template when
+  the image is generated as described in the previous use case
 
 ## Example Bootprep Input Files
 
@@ -638,7 +637,7 @@ session_templates:
 ### Access Default Bootprep Input Files
 
 Default bootprep input files are delivered by the HPC CSM Software Recipe
-product. You can access these files by cloning the `hpc-csm-software-recipe`
+product. Access these files by cloning the `hpc-csm-software-recipe`
 repository, as described in the **Accessing `sat bootprep` files** process of
 the [*Cray System Management
 Documentation*](https://cray-hpe.github.io/docs-csm/).
@@ -653,7 +652,7 @@ ls bootprep/
 ### Generate an Example Bootprep Input File
 
 The `sat bootprep generate-example` command was not updated for
-recent bootprep schema changes. It is recommended that you instead use the
+recent bootprep schema changes. It is recommended to instead use the
 default bootprep input files described in [Access Default Bootprep Input
 Files](#access-default-bootprep-input-files). The `sat bootprep
 generate-example` command will be updated in a future release of SAT.
@@ -734,8 +733,7 @@ properties:
 The raw schema definition can be difficult to understand without experience
 working with JSON Schema specifications. For this reason, a feature is included
 with `sat bootprep` that generates user-friendly HTML documentation for the input
-file schema. This HTML documentation can be browsed with your preferred web
-browser.
+file schema. This HTML documentation can be browsed with a web browser.
 
 1. (`ncn-m001#`) Create a documentation tarball using `sat bootprep`.
 

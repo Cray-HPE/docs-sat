@@ -67,7 +67,7 @@ managed images.
 
 ## Post-Installation Procedures
 
-After installing SAT with IUF, you must complete the following SAT configuration
+After installing SAT with IUF, complete the following SAT configuration
 procedures before using SAT:
 
 - [Authenticate SAT Commands](#authenticate-sat-commands)
@@ -84,7 +84,7 @@ procedures before using SAT:
 
 ### Authenticate SAT Commands
 
-To run SAT commands on the manager NCNs, you must first set up authentication
+To run SAT commands on the manager NCNs, first set up authentication
 to the API gateway. For more information on authentication types and
 authentication credentials, see [SAT Command
 Authentication](about_sat/command_authentication.md).
@@ -106,7 +106,7 @@ the [*Cray System Management Documentation*](https://cray-hpe.github.io/docs-csm
 The following is the procedure to globally configure the username used by SAT and
 authenticate to the API gateway.
 
-1. (`ncn-m001#`) Generate a default SAT configuration file, if one does not exist.
+1. (`ncn-m001#`) Generate a default SAT configuration file if one does not exist.
 
    ```bash
    sat init
@@ -133,7 +133,7 @@ authenticate to the API gateway.
    username = "crayadmin"
    ```
 
-1. (`ncn-m001#`) Run `sat auth`. Enter your password when prompted.
+1. (`ncn-m001#`) Run `sat auth`. Enter the password when prompted.
 
    ```bash
    sat auth
@@ -250,9 +250,8 @@ Information](#set-system-revision-information)).
 
 ### (Optional) Configure Multi-tenancy
 
-If SAT is being installed on a multi-tenant system, you can configure the tenant
-name at this point. For more information, see [Configure
-multi-tenancy](usage/multi-tenancy.md).
+If installing SAT on a multi-tenant system, the tenant name can be configured
+at this point. For more information, see [Configure multi-tenancy](usage/multi-tenancy.md).
 
 ### Set System Revision Information
 

@@ -1,14 +1,14 @@
 # View SAT Documentation
 
-You can view the System Admin Toolkit (SAT) documentation both online and
-offline as described in this section.
+View the System Admin Toolkit (SAT) documentation both online and
+offline by using the information in this section.
 
 ## Online Documentation
 
 The SAT documentation can be found online in HTML form at the following link:
 [SAT Documentation](https://cray-hpe.github.io/docs-sat). The navigation pane
-on the left of the HTML page is ordered alphabetically. You can also navigate
-an individual topic's headings by using the **Headings** icon at the top of the
+on the left of the HTML page orders topics alphabetically. Navigate an
+individual topic's headings by using the **Headings** icon at the top of the
 page, as shown in the following images.
 
 ![HTML Heading Icon](../img/HTML_Heading_Icon.png)
@@ -17,8 +17,8 @@ page, as shown in the following images.
 
 The documentation can also be viewed online in GitHub by navigating to the
 `docs/` subdirectory of the
-[`docs-sat` repository](https://github.com/Cray-HPE/docs-sat/tree/integration).
-There you can navigate an individual topic's headings with a similar
+[`docs-sat` repository](https://github.com/Cray-HPE/docs-sat/tree/main).
+Navigate an individual topic's headings with a similar
 **Headings** icon at the top of the page, as shown in the following images.
 
 ![GitHub Heading Icon](../img/GitHub_Heading_Icon.png)

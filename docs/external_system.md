@@ -14,7 +14,7 @@ following:
 - The local host information displayed by the `--local` option of `sat showrev`
 
 Installing SAT on an external system is not an officially supported configuration.
-These instructions are provided "as-is" with the hope that they can useful for
+These instructions are provided "as-is" with the hope that they can be useful for
 users who desire additional flexibility.
 
 Certain additional steps may need to be taken to install and configure SAT
@@ -60,7 +60,7 @@ use externally-accessible API endpoints exposed by CSM.
    SAT CSM Python dependency packages are not currently distributed publicly as
    source packages or binary distributions. They must be installed from
    their source code hosted on GitHub. Also, to install the `cray-product-catalog`
-   Python package, you must first clone it locally. Use the following steps to
+   Python package, first clone it locally. Use the following steps to
    modify the SAT CSM Python dependencies so they can be installed from their source
    code.
 
@@ -112,9 +112,9 @@ use externally-accessible API endpoints exposed by CSM.
       csm-api-client@git+https://github.com/Cray-HPE/python-csm-api-client@release/1.1
       ```
 
-      **Note:** For versions newer than 3.19, you will see both `cray-product-catalog`
-      and `csm-api-client`. For version 3.19 and older, you will only see
-      `cray-product-catalog`.
+      **Note:** For versions newer than 3.19, the output will show both
+      `cray-product-catalog` and `csm-api-client`. For version 3.19 and older,
+      the output will only show `cray-product-catalog`.
 
 1. (`(venv) user@hostname>`) Install the modified SAT dependencies.
 
@@ -301,7 +301,7 @@ use externally-accessible API endpoints exposed by CSM.
    username = "user"
    ```
 
-1. (`user@hostname>`) Run `sat auth`, and enter your password when prompted.
+1. (`user@hostname>`) Run `sat auth`, and enter the password when prompted.
 
    The admin account used to authenticate with `sat auth` must be enabled in
    Keycloak and must have its *assigned role* set to *admin*.
