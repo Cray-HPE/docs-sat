@@ -62,6 +62,11 @@ No new `sat` commands were added in SAT 2.6.
 
 ## Other SAT Changes
 
+- The SAT Kibana and Grafana dashboards were moved to the System Monitoring
+  Application (SMA) beside other dashboards. For more information on how to
+  view these dashboards going forward, see the *HPE Cray EX System Monitoring
+  Application Administration Guide (S-8029)*.
+
 - Add the new `s3.cert_verify` option to the SAT configuration file to
   control whether certificate verification is performed when accessing S3.
 
