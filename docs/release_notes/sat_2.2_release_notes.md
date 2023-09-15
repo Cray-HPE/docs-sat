@@ -36,7 +36,7 @@ export PATH=/sat/venv/bin:$PATH
 sat status
 ```
 
-(`(CONTAINER_ID) sat-container#`) You can also source the file `/sat/venv/bin/activate`:
+(`(CONTAINER_ID) sat-container#`) Another option is to source the file `/sat/venv/bin/activate`:
 
 ```bash
 source /sat/venv/bin/activate
@@ -123,8 +123,8 @@ For more information, see
 
 ## Improvements to `sat status`
 
-A `Subrole` column has been added to the output of `sat status`. This allows you
-to easily differentiate between master, worker, and storage nodes in the
+A `Subrole` column has been added to the output of `sat status`. This allows
+easy differentiation between master, worker, and storage nodes in the
 management role, for example.
 
 Hostname information from SLS has been added to `sat status` output.

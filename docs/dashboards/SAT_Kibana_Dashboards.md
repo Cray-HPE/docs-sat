@@ -49,7 +49,7 @@ table.
 
 By default, search highlighting is enabled. This procedure instructs how to disable search highlighting.
 
-The Kibana Dashboard should be open on your system.
+The Kibana Dashboard should be open on the system.
 
 1. Navigate to **Management**
 

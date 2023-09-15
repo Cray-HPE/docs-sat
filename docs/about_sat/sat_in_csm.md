@@ -21,7 +21,7 @@ If the SAT product stream is not installed, there will be no configuration conte
 configurations that apply to management NCNs (for example, `management-23.5.0`) should not include a SAT layer.
 
 The SAT configuration layer modifies the permissions of files left over from prior installations of SAT, so that the
-Keycloak username that authenticates to the API gateway cannot be read by users other than `root`. Specifically, it
+Keycloak username that authenticates to the API gateway cannot be read by users other than `root`. Specifically,
 it does the following:
 
 - Modifies the `sat.toml` configuration file which contains the username so that it is only readable by `root`.

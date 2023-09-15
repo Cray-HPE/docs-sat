@@ -41,19 +41,19 @@ No new `sat` commands were added in SAT 2.6.
   wildcards similar to how prefix filters were used in older versions of SAT.
   For more information, see [Define IMS Images](../usage/sat_bootprep.md#define-ims-images).
 
-- Support for multiple architectures was added to `sat bootprep`. You can
-  filter base IMS images and recipes from products based on their target
-  architecture. You can also specify target architectures in boot sets of BOS
-  session templates. For more information, see
+- Support for multiple architectures was added to `sat bootprep`. It is now
+  possible to filter base IMS images and recipes from products based on their
+  target architecture. This support also allows specifying target architectures
+  in boot sets of BOS session templates. For more information, see
   [Filter Base Images or Recipes from a Product](../usage/sat_bootprep.md#filter-base-images-or-recipes-from-a-product)
   and
   [Define BOS Session Templates](../usage/sat_bootprep.md#define-bos-session-templates).
 
-- You can combine multiple image or recipe filters when specifying a base
-  image or recipe from a product. If you specify multiple filters, the unique
-  base image or recipe that satisfies all of the given filters is selected. An
-  error occurs if either no images or recipes match the given filters or if
-  more than one image or recipe matches the given filters.
+- When specifying a base image or recipe from a product, `sat bootprep`
+  can combine multiple image or recipe filters. When specifying multiple
+  filters, the unique base image or recipe that satisfies all of the given
+  filters is selected. An error occurs if either no images or recipes match the
+  given filters or if more than one image or recipe matches the given filters.
 
 - In CFS configuration layers, support was added for the new `imsRequireDkms`
   field under the `specialParameters` section. CFS configurations in bootprep
@@ -62,8 +62,8 @@ No new `sat` commands were added in SAT 2.6.
 
 ## Other SAT Changes
 
-- You can add a new `s3.cert_verify` option to the SAT configuration file that
-  controls whether certificate verification is performed when accessing S3.
+- Add the new `s3.cert_verify` option to the SAT configuration file to
+  control whether certificate verification is performed when accessing S3.
 
 - Log messages spanning multiple lines now print the log level on each line
   instead of only at the beginning of the message.

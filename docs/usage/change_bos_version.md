@@ -1,13 +1,13 @@
 # Change the BOS Version
 
-By default, SAT uses Boot Orchestration Service (BOS) version two (`v2`). You can
-select the BOS version to use for individual commands with the `--bos-version`
+By default, SAT uses Boot Orchestration Service (BOS) version two (`v2`).
+Select the BOS version to use for individual commands with the `--bos-version`
 option. For more information on this option, refer to the man page for a specific
 command.
 
-You can also configure the BOS version to use in the SAT configuration file. Do
-this under the `api_version` setting in the `bos` section of the configuration
-file. If the system is using an existing SAT configuration file from an older
+Another way to change the BOS version is by configuring it under the
+`api_version` setting in the `bos` section of the SAT configuration file.
+If the system is using an existing SAT configuration file from an older
 version of SAT, the `bos` section might not exist. In that case, add the `bos`
 section with the BOS version desired in the `api_version` setting.
 

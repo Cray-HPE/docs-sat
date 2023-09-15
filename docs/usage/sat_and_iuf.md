@@ -29,12 +29,12 @@ the [*Cray System Management Documentation*](https://cray-hpe.github.io/docs-csm
 
 ### SAT Variable Limitations
 
-When using `sat bootprep` outside of IUF, you might encounter problems
-substituting variables into the default bootprep input files. Complex variables
-like `"{{ working_branch }}"` cannot be completely resolved outside of IUF and
+When using `sat bootprep` outside of IUF, substituting variables into the
+default bootprep input files might cause problems. Complex variables like
+`"{{ working_branch }}"` cannot be completely resolved outside of IUF and
 its internal session variables. Thus, the default `product_vars.yaml` file is
 unusable with only the `sat bootprep` command when variables like
-`"{{ working_branch }}"` are used. To work around this limitation if you are
+`"{{ working_branch }}"` are used. To work around this limitation when
 substituting complex variables, use the internal IUF `session_vars.yaml` file
 with `sat bootprep` and the default bootprep input files.
 
@@ -57,7 +57,7 @@ with `sat bootprep` and the default bootprep input files.
 The `sat bootprep run` command uses information from the bootprep input files
 to create CFS configurations, IMS images, and BOS session templates. To restrict
 this creation into separate stages, use the `--limit` option and list whether
-you want to create `configurations`, `images`, `session_templates`, or some
+to create `configurations`, `images`, `session_templates`, or some
 combination of these. IUF uses the `--limit` option in this way to install,
 upgrade, and deploy products on a system in stages.
 
