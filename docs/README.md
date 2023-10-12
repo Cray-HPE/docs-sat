@@ -32,11 +32,6 @@
 - [Authenticate SAT Commands](external_system.md#authenticate-sat-commands)
 - [Generate SAT S3 Credentials](external_system.md#generate-sat-s3-credentials)
 
-## [SAT Dashboards](dashboards/README.md)
-
-- [SAT Kibana Dashboards](dashboards/SAT_Kibana_Dashboards.md)
-- [SAT Grafana Dashboards](dashboards/SAT_Grafana_Dashboards.md)
-
 ## [SAT Usage](usage/README.md)
 
 - [SAT Bootprep](usage/sat_bootprep.md)

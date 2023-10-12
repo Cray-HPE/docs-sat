@@ -116,6 +116,7 @@ update-vcs-config
 # HPE publication numbers
 S-8000
 S-8001
+S-8029
 S-8052
 # CVE IDs
 CVE-2021-33503
