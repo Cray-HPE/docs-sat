@@ -40,7 +40,7 @@ subcommand. Each service or component is listed under the product it belongs to.
 - Kubernetes
 - S3
 
-### HPE Cray Supercomputing Compute Node Software Environment
+### HPE Cray Supercomputing User Services Software (USS)
 
 - Node Memory Dump (NMD)
 
