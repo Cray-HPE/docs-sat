@@ -18,7 +18,7 @@ install, upgrade, and deploy products on systems managed by CSM. Outside of IUF,
 it is uncommon to use `sat bootprep`. For more information on this relationship,
 see [SAT and IUF](sat_and_iuf.md). For more information on IUF, see the
 [IUF section](https://cray-hpe.github.io/docs-csm/en-14/operations/iuf/iuf/) of
-the [*Cray System Management Documentation*](https://cray-hpe.github.io/docs-csm/).
+the [*Cray System Management Documentation*](https://github.com/Cray-HPE/docs-csm/blob/release/1.5/operations/configuration_management/Accessing_Sat_Bootprep_Files.md#accessing-sat-bootprep-files).
 
 ## SAT Bootprep vs SAT Bootsys
 
