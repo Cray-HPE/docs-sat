@@ -829,7 +829,7 @@ This procedure can be used to uninstall a version of SAT.
 
 #### Prerequisites
 
-- Only versions 2.2 or newer of SAT can be uninstalled with `prodmgr`. Older versions must be uninstalled manually.
+- Only versions 2.2 or newer of SAT can be uninstalled with `prodmgr`.
 - CSM version 1.2 or newer must be installed, so that the `prodmgr` command is available.
 
 #### Procedure
