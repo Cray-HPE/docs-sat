@@ -1,10 +1,10 @@
 # Changes in SAT 2.6
 
-The 2.6.5 version of the SAT product includes:
+The 2.6.11 version of the SAT product includes:
 
-- Version 3.25.0 of the `sat` python package and CLI.
+- Version 3.25.7 of the `sat` python package and CLI.
 - Version 2.0.0-1 of the `sat-podman` wrapper script.
-- Version 1.6.1 of the `sat-install-utility` container image.
+- Version 1.6.2 of the `sat-install-utility` container image.
 
 ## New `sat` Commands
 
